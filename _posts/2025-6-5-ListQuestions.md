@@ -17,6 +17,7 @@ tags: 算法
 > - [x] [leetcode 142环形链表II mid](https://leetcode.cn/problems/linked-list-cycle-ii/description/)
 > - [x] [leetcode 148链表排序(思路mid,代码hard)](https://leetcode.cn/problems/sort-list/solutions/2993518/liang-chong-fang-fa-fen-zhi-die-dai-mo-k-caei/)
 
+
 ### 链表题的注意点
 
 - 空间要求不严格 使用容器实现即可
@@ -25,7 +26,7 @@ tags: 算法
 - 本质不是算法设计能力而是coding能力
 - 链表需要多多训练才可以！
 
-> [!Caution]
+> [!CAUTION]
 >
 > 和链表相关的难题会在[拓展]约瑟夫环中涉及
 
@@ -90,7 +91,7 @@ public:
 
 这道题思路倒是不难，难的是`Coding`实现的细节，如果不考虑$O(1)$的时间可以使用一个数组存入在进行反转，但考虑$O(1)$即进行原地反转需要考虑的细节就很多了。
 
-> [!important]
+> [!IMPORTANT]
 >
 > 如何写出没有bug的代码才是这道题的重点！
 

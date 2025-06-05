@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>数据结构设计习题</title>
-  <meta name="description" content="  主要内容      题目1: setAll功能的哈希表    题目2: 实现LRU结构    题目3: 插删随$O(1)$的结构    题目4: 插删随$O(1)$的结构加强版    题目5: 快速获得数据流的中位数     题目6: 最大频率栈    题目7: 全是O(1)的结构  ">
+  <title>二叉树（不含树型bp）的经典习题</title>
+  <meta name="description" content="      题目1： bfs的两种方法    题目2： 锯齿状遍历    题目3： 最大特殊宽度    题目4.1： 最大深度    题目4.2:最小深度    题目5： 先序遍历序列化和反序列化    题目6： 层序遍历序列化和反序列化    题目7： 先序遍历和中序遍历还原二叉树    题目8： 判断完全二叉...">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="数据结构设计习题">
-  <meta name="twitter:description" content="  主要内容      题目1: setAll功能的哈希表    题目2: 实现LRU结构    题目3: 插删随$O(1)$的结构    题目4: 插删随$O(1)$的结构加强版    题目5: 快速获得数据流的中位数     题目6: 最大频率栈    题目7: 全是O(1)的结构  ">
+  <meta name="twitter:title" content="二叉树（不含树型bp）的经典习题">
+  <meta name="twitter:description" content="      题目1： bfs的两种方法    题目2： 锯齿状遍历    题目3： 最大特殊宽度    题目4.1： 最大深度    题目4.2:最小深度    题目5： 先序遍历序列化和反序列化    题目6： 层序遍历序列化和反序列化    题目7： 先序遍历和中序遍历还原二叉树    题目8： 判断完全二叉...">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="数据结构设计习题">
-  <meta property="og:description" content="  主要内容      题目1: setAll功能的哈希表    题目2: 实现LRU结构    题目3: 插删随$O(1)$的结构    题目4: 插删随$O(1)$的结构加强版    题目5: 快速获得数据流的中位数     题目6: 最大频率栈    题目7: 全是O(1)的结构  ">
+  <meta property="og:title" content="二叉树（不含树型bp）的经典习题">
+  <meta property="og:description" content="      题目1： bfs的两种方法    题目2： 锯齿状遍历    题目3： 最大特殊宽度    题目4.1： 最大深度    题目4.2:最小深度    题目5： 先序遍历序列化和反序列化    题目6： 层序遍历序列化和反序列化    题目7： 先序遍历和中序遍历还原二叉树    题目8： 判断完全二叉...">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2025-06-05-DateStrucutreDesign/">
+  <link rel="canonical" href="http://localhost:4000/2025-06-05-Binary-Tree/">
   <link rel="alternate" type="application/rss+xml" title="Weary Bird" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -169,7 +169,7 @@
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">数据结构设计习题</h1>
+    <h1 class="post-title">二叉树（不含树型bp）的经典习题</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
       <time datetime="2025-06-05 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2025-06-05</time>  
@@ -182,104 +182,41 @@
   
     <h2 class="post-title">目录</h2>
     <ul>
-  <li><a href="#setall功能的哈希表"><code class="language-plaintext highlighter-rouge">setAll</code>功能的哈希表</a></li>
-  <li><a href="#实现lru结构">实现<code class="language-plaintext highlighter-rouge">LRU</code>结构</a></li>
-  <li><a href="#o1时间插入删除和获取随机元素">O(1)时间插入、删除和获取随机元素</a></li>
+  <li><a href="#二叉树的层序遍历">二叉树的层序遍历</a></li>
 </ul>
 
   
 
   <section class="post">
     <blockquote>
-  <p>主要内容</p>
-
   <ul class="task-list">
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目1: <a href="https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967"><code class="language-plaintext highlighter-rouge">setAll</code>功能的哈希表</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目2: <a href="https://leetcode.cn/problems/lru-cache/">实现<code class="language-plaintext highlighter-rouge">LRU</code>结构</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目3: <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">插删随$O(1)$的结构</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目4: <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1-duplicates-allowed/description/">插删随$O(1)$的结构加强版</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目5: <a href="https://leetcode.cn/problems/find-median-from-data-stream/">快速获得数据流的中位数 </a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目6: <a href="https://leetcode.cn/problems/maximum-frequency-stack/">最大频率栈</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目7: <a href="https://leetcode.cn/problems/all-oone-data-structure/">全是O(1)的结构</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目1： <a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目2： <a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/">锯齿状遍历</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目3： <a href="https://leetcode.cn/problems/maximum-width-of-binary-tree/">最大特殊宽度</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目4.1： <a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/">最大深度</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目4.2:<a href="https://leetcode.cn/problems/minimum-depth-of-binary-tree/">最小深度</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目5： <a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/">先序遍历序列化和反序列化</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目6： <a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/">层序遍历序列化和反序列化</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目7： <a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">先序遍历和中序遍历还原二叉树</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目8： <a href="https://leetcode.cn/problems/check-completeness-of-a-binary-tree/">判断完全二叉树</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目9： <a href="https://leetcode.cn/problems/count-complete-tree-nodes/">求完全二叉树节点个数</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目10: <a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/">普通二叉树上求解LCA</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目11：<a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/">搜索二叉树上求解LCA</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目12：<a href="https://leetcode.cn/problems/path-sum-ii/">收集累加和为<code class="language-plaintext highlighter-rouge">k</code>的所有路径</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目13：<a href="https://leetcode.cn/problems/balanced-binary-tree/">判断平衡二叉树</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目14：<a href="https://leetcode.cn/problems/validate-binary-search-tree/">判断搜索二叉树</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目15：<a href="https://leetcode.cn/problems/trim-a-binary-search-tree/description/">修剪搜索二叉树</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目16：<a href="https://leetcode.cn/problems/house-robber-iii/description/">二叉树上的打家劫舍问题</a></li>
   </ul>
 </blockquote>
 
-<h3 id="setall功能的哈希表"><code class="language-plaintext highlighter-rouge">setAll</code>功能的哈希表</h3>
-
-<blockquote>
-  <p>测试链接 <a href="https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967">牛客. 设计有<code class="language-plaintext highlighter-rouge">setAll</code>功能的哈希表</a></p>
-</blockquote>
-
-<p>提示:C++选手若有需要可以使用unordered_map替换map来将复杂度从O(log n)降为O(1)</p>
-
-<p>设计思路</p>
-
-<ul>
-  <li>
-    <p>将 <code class="language-plaintext highlighter-rouge">key-value</code>改成<code class="language-plaintext highlighter-rouge">key - pair&lt;value, time&gt;</code></p>
-  </li>
-  <li>
-    <p>设置三个全局变量<code class="language-plaintext highlighter-rouge">setAllTime</code> 和 <code class="language-plaintext highlighter-rouge">setAllValue</code> 与 <code class="language-plaintext highlighter-rouge">cnt</code></p>
-    <ul>
-      <li>每次加入加入一对<code class="language-plaintext highlighter-rouge">key-value</code> <code class="language-plaintext highlighter-rouge">cnt++</code> ,并且将<code class="language-plaintext highlighter-rouge">time = cnt</code></li>
-      <li>每次执行<code class="language-plaintext highlighter-rouge">setAll</code>的时候设置<code class="language-plaintext highlighter-rouge">setAllTime = cnt</code> 和 <code class="language-plaintext highlighter-rouge">setAllValue = 要修改的值</code> ,并且<code class="language-plaintext highlighter-rouge">cnt++</code>
-        <ul>
-          <li>注意，这一步并不会修改<code class="language-plaintext highlighter-rouge">key-value</code></li>
-        </ul>
-      </li>
-      <li>执行<code class="language-plaintext highlighter-rouge">get()</code>操作的时候，检查<code class="language-plaintext highlighter-rouge">time</code>与<code class="language-plaintext highlighter-rouge">setAllTime</code>若<code class="language-plaintext highlighter-rouge">time &lt; setAllTime</code>则修改<code class="language-plaintext highlighter-rouge">value = setAllvalue</code>否则直接获得值</li>
-    </ul>
-  </li>
-</ul>
-
 <hr />
 
-<h3 id="实现lru结构">实现<code class="language-plaintext highlighter-rouge">LRU</code>结构</h3>
+<h3 id="二叉树的层序遍历">二叉树的层序遍历</h3>
 
 <blockquote>
-  <p>测试链接 <a href="https://leetcode.cn/problems/lru-cache/">leetcode 146.<code class="language-plaintext highlighter-rouge">LRU</code>缓存 mid</a></p>
+  <p>题目1： <a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></p>
 </blockquote>
-
-<p>设计思路</p>
-
-<p><code class="language-plaintext highlighter-rouge">双向链表 + 哈希表</code></p>
-
-<p><img src="../images/2025-6-5-DateStrucutreDesign/image-20250605142733342.png" alt="image-20250605142733342" style="zoom:50%;" /></p>
-
-<ul>
-  <li>插入<code class="language-plaintext highlighter-rouge">key-value</code>的时候创建一个<code class="language-plaintext highlighter-rouge">双向链表节点</code> ,并且<code class="language-plaintext highlighter-rouge">value</code>为指向该节点的指针</li>
-  <li>利用全局指针<code class="language-plaintext highlighter-rouge">head</code>和<code class="language-plaintext highlighter-rouge">tail</code>定位链表的头节点和尾节点</li>
-  <li>每次添加、修改、查询时候将对应节点移动到<code class="language-plaintext highlighter-rouge">tail</code>的后面，并让<code class="language-plaintext highlighter-rouge">tail</code>指向该节点
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">tail</code>指向的永远是最新被操作的数据</li>
-      <li><code class="language-plaintext highlighter-rouge">head</code>指向永远是最最旧未被使用的数据</li>
-    </ul>
-  </li>
-  <li>容量不够的时候，释放<code class="language-plaintext highlighter-rouge">head</code>对应的节点，并移动<code class="language-plaintext highlighter-rouge">head = head-&gt;next</code>,同时去除哈希表中<code class="language-plaintext highlighter-rouge">k-v</code>对</li>
-</ul>
-
-<h3 id="o1时间插入删除和获取随机元素">O(1)时间插入、删除和获取随机元素</h3>
-
-<blockquote>
-  <p>测试链接： <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">leetcode 380. O(1) 时间插入、删除和获取随机元素</a></p>
-</blockquote>
-
-<p>设计思路</p>
-
-<ul>
-  <li>肯定会有一个哈希表，同时申请一个动态数组(vector)存输入的数据
-    <ul>
-      <li>哈希表为了去重</li>
-      <li>动态数组为了random操作</li>
-    </ul>
-  </li>
-  <li>考虑<code class="language-plaintext highlighter-rouge">remove</code>操作，如果仅仅是删除哈希表的记录，而不对数组进行任何处理，空余的位置将会越来越多从而十分影响<code class="language-plaintext highlighter-rouge">random</code>操作
-    <ul>
-      <li>解决办法：使用最后一个元素覆盖被<code class="language-plaintext highlighter-rouge">remove</code>的元素，同时更新哈希表记录即可</li>
-    </ul>
-  </li>
-</ul>
-
 
   </section>
 
@@ -319,14 +256,9 @@
 
        <ul class="pager">
         
-        <li class="previous">
-            <a href="/2025-06-05-Binary-Tree/" data-toggle="tooltip" data-placement="top" title="二叉树（不含树型bp）的经典习题">上一篇：  <span>二叉树（不含树型bp）的经典习题</span>
-            </a>
-        </li>
-        
         
         <li class="next">
-            <a href="/2025-06-05-ListQuestions/" data-toggle="tooltip" data-placement="top" title="链表高频题目">下一篇：  <span>链表高频题目</span>
+            <a href="/2025-06-05-DateStrucutreDesign/" data-toggle="tooltip" data-placement="top" title="数据结构设计习题">下一篇：  <span>数据结构设计习题</span>
             </a>
         </li>
         
