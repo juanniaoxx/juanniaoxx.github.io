@@ -48,7 +48,7 @@
   });
 </script>
 
-</head>
+<style>.markdown-alert{padding:.5rem 1rem;margin-bottom:1rem;color:inherit;border-left:.25em solid #30363d}.markdown-alert>:first-child{margin-top:0}.markdown-alert>:last-child{margin-bottom:0}.markdown-alert .markdown-alert-title{display:flex;font-weight:500;align-items:center;line-height:1}.markdown-alert svg{margin-right:.5rem!important}.markdown-alert svg path{fill:currentColor}.markdown-alert.markdown-alert-note{border-left-color:#4493f8}.markdown-alert.markdown-alert-note .markdown-alert-title{color:#4493f8}.markdown-alert.markdown-alert-important{border-left-color:#ab7df8}.markdown-alert.markdown-alert-important .markdown-alert-title{color:#ab7df8}.markdown-alert.markdown-alert-warning{border-left-color:#9e6a03}.markdown-alert.markdown-alert-warning .markdown-alert-title{color:#d29922}.markdown-alert.markdown-alert-tip{border-left-color:#238636}.markdown-alert.markdown-alert-tip .markdown-alert-title{color:#3fb950}.markdown-alert.markdown-alert-caution{border-left-color:#da3633}.markdown-alert.markdown-alert-caution .markdown-alert-title{color:#f85149}</style></head>
 
 
   <body>
@@ -165,7 +165,7 @@
         <div class="content-wrapper__inner">
             <head>
   <link rel="stylesheet" href="/css/post.css">
-</head>
+<style>.markdown-alert{padding:.5rem 1rem;margin-bottom:1rem;color:inherit;border-left:.25em solid #30363d}.markdown-alert>:first-child{margin-top:0}.markdown-alert>:last-child{margin-bottom:0}.markdown-alert .markdown-alert-title{display:flex;font-weight:500;align-items:center;line-height:1}.markdown-alert svg{margin-right:.5rem!important}.markdown-alert svg path{fill:currentColor}.markdown-alert.markdown-alert-note{border-left-color:#4493f8}.markdown-alert.markdown-alert-note .markdown-alert-title{color:#4493f8}.markdown-alert.markdown-alert-important{border-left-color:#ab7df8}.markdown-alert.markdown-alert-important .markdown-alert-title{color:#ab7df8}.markdown-alert.markdown-alert-warning{border-left-color:#9e6a03}.markdown-alert.markdown-alert-warning .markdown-alert-title{color:#d29922}.markdown-alert.markdown-alert-tip{border-left-color:#238636}.markdown-alert.markdown-alert-tip .markdown-alert-title{color:#3fb950}.markdown-alert.markdown-alert-caution{border-left-color:#da3633}.markdown-alert.markdown-alert-caution .markdown-alert-title{color:#f85149}</style></head>
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -183,6 +183,8 @@
     <h2 class="post-title">目录</h2>
     <ul>
   <li><a href="#二叉树的层序遍历">二叉树的层序遍历</a></li>
+  <li><a href="#锯齿形层序遍历">锯齿形层序遍历</a></li>
+  <li><a href="#最大特殊宽度">最大特殊宽度</a></li>
 </ul>
 
   
@@ -190,8 +192,8 @@
   <section class="post">
     <blockquote>
   <ul class="task-list">
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目1： <a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目2： <a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/">锯齿状遍历</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目1： <a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目2： <a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/">锯齿状遍历</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目3： <a href="https://leetcode.cn/problems/maximum-width-of-binary-tree/">最大特殊宽度</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目4.1： <a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/">最大深度</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目4.2:<a href="https://leetcode.cn/problems/minimum-depth-of-binary-tree/">最小深度</a></li>
@@ -217,6 +219,100 @@
 <blockquote>
   <p>题目1： <a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></p>
 </blockquote>
+
+<p>主要介绍使用<code class="language-plaintext highlighter-rouge">队列</code>一次遍历一层的解法</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>算法图解</th>
+      <th>解释</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/2025-6-5-Binary-Tree/image-20250606161145520.png" alt="image-20250606161145520" style="zoom:50%;" /></td>
+      <td>从根节点开始遍历<br />创建一个和节点个数一样多的队列</td>
+    </tr>
+    <tr>
+      <td><img src="../images/2025-6-5-Binary-Tree/image-20250606161603674.png" alt="image-20250606161603674" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161712585.png" alt="image-20250606161712585" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161832318.png" alt="image-20250606161832318" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161933423.png" alt="image-20250606161933423" style="zoom:50%;" /></td>
+      <td>首先将根节点加入队列，同时记录队列的长度</td>
+    </tr>
+    <tr>
+      <td><img src="../images/2025-6-5-Binary-Tree/image-20250606162205107.png" alt="image-20250606162205107" style="zoom:50%;" /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><img src="../images/2025-6-5-Binary-Tree/image-20250606162345155.png" alt="image-20250606162345155" style="zoom:50%;" /></td>
+      <td>执行<code class="language-plaintext highlighter-rouge">n</code>次如下操作，n为上一步记录的长度<br />1. 弹出队尾元素，加入这一层的答案数组中<br />2. 有左孩子则把左孩子加入队列<br />3.有右孩子则把右孩子加入队列</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
+
+
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+    <p style="margin: 0;">对于算法竞赛或者面试一般不是用库自带的队列，而是用数组模拟队列，具体看[入门]阶段的课程。</p>
+  </div>
+
+
+</div>
+
+<hr />
+
+<h3 id="锯齿形层序遍历">锯齿形层序遍历</h3>
+
+<div style="position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
+
+
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/description/">leetcode 103.二叉树的锯齿形层序遍历</a>
+  </div>
+
+
+</div>
+
+<div style="position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
+
+
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+    <p style="margin: 0;">这道题和上一道题思路上一致，只是需要注意每轮左右子树的加入顺序要交替</p>
+  </div>
+
+
+</div>
+
+<p>方法一：完全按照上题的做法，只是在读入答案的时候判断一下是从左往右的读还是从右往左读，如果是从右往左读，就反转一下<code class="language-plaintext highlighter-rouge">list</code>数组，其他什么都不需要改</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// false 表示 从左 往右读入</span>
+<span class="c1">// true 表示 从右往左读入</span>
+<span class="kt">bool</span> <span class="n">flag</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+<span class="p">......;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="n">reserve</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">list</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="o">!</span><span class="n">flag</span><span class="p">;</span>
+<span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>方法二：先收集list再把左右节点加入队列</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// reverse == false, 左 -&gt; 右， l....r-1, 收集size个</span>
+<span class="c1">// reverse == true,  右 -&gt; 左， r-1....l, 收集size个</span>
+<span class="c1">// 左 -&gt; 右, i = i + 1</span>
+<span class="c1">// 右 -&gt; 左, i = i - 1</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">reverse</span> <span class="o">?</span> <span class="n">r</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">l</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">reverse</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">list</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 加入左右节点</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="最大特殊宽度">最大特殊宽度</h3>
+
 
   </section>
 
