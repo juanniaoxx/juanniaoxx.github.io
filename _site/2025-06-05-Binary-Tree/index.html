@@ -236,20 +236,16 @@
     </tr>
     <tr>
       <td><img src="../images/2025-6-5-Binary-Tree/image-20250606161603674.png" alt="image-20250606161603674" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161712585.png" alt="image-20250606161712585" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161832318.png" alt="image-20250606161832318" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161933423.png" alt="image-20250606161933423" style="zoom:50%;" /></td>
-      <td>首先将根节点加入队列，同时记录队列的长度</td>
-    </tr>
-    <tr>
-      <td><img src="../images/2025-6-5-Binary-Tree/image-20250606162205107.png" alt="image-20250606162205107" style="zoom:50%;" /></td>
-      <td> </td>
+      <td>首先将根节点加入队列，同时记录队列的长度<br />执行<code class="language-plaintext highlighter-rouge">n</code>次如下操作，n为上一步记录的长度<br />1. 弹出队尾元素，加入这一层的答案数组中<br />2. 有左孩子则把左孩子加入队列<br />3.有右孩子则把右孩子加入队列</td>
     </tr>
     <tr>
       <td><img src="../images/2025-6-5-Binary-Tree/image-20250606162345155.png" alt="image-20250606162345155" style="zoom:50%;" /></td>
-      <td>执行<code class="language-plaintext highlighter-rouge">n</code>次如下操作，n为上一步记录的长度<br />1. 弹出队尾元素，加入这一层的答案数组中<br />2. 有左孩子则把左孩子加入队列<br />3.有右孩子则把右孩子加入队列</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<div style="position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
 
 
@@ -260,11 +256,9 @@
 
 </div>
 
-<hr />
-
 <h3 id="锯齿形层序遍历">锯齿形层序遍历</h3>
 
-<div style="position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
 
 
@@ -275,7 +269,8 @@
 
 </div>
 
-<div style="position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+<p><br /></p>
+<div style=" top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
 
 

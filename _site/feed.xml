@@ -5,8 +5,8 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 06 Jun 2025 20:29:42 +0800</pubDate>
-    <lastBuildDate>Fri, 06 Jun 2025 20:29:42 +0800</lastBuildDate>
+    <pubDate>Fri, 06 Jun 2025 20:36:01 +0800</pubDate>
+    <lastBuildDate>Fri, 06 Jun 2025 20:36:01 +0800</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -976,20 +976,16 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161603674.png&quot; alt=&quot;image-20250606161603674&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161712585.png&quot; alt=&quot;image-20250606161712585&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161832318.png&quot; alt=&quot;image-20250606161832318&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161933423.png&quot; alt=&quot;image-20250606161933423&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;首先将根节点加入队列，同时记录队列的长度&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606162205107.png&quot; alt=&quot;image-20250606162205107&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;首先将根节点加入队列，同时记录队列的长度&lt;br /&gt;执行&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;次如下操作，n为上一步记录的长度&lt;br /&gt;1. 弹出队尾元素，加入这一层的答案数组中&lt;br /&gt;2. 有左孩子则把左孩子加入队列&lt;br /&gt;3.有右孩子则把右孩子加入队列&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606162345155.png&quot; alt=&quot;image-20250606162345155&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;执行&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;次如下操作，n为上一步记录的长度&lt;br /&gt;1. 弹出队尾元素，加入这一层的答案数组中&lt;br /&gt;2. 有左孩子则把左孩子加入队列&lt;br /&gt;3.有右孩子则把右孩子加入队列&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;div style=&quot;position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
   &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;提示&lt;/div&gt;
 
 
@@ -1000,11 +996,9 @@
 
 &lt;/div&gt;
 
-&lt;hr /&gt;
-
 &lt;h3 id=&quot;锯齿形层序遍历&quot;&gt;锯齿形层序遍历&lt;/h3&gt;
 
-&lt;div style=&quot;position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
   &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
 
 
@@ -1015,7 +1009,8 @@
 
 &lt;/div&gt;
 
-&lt;div style=&quot;position: fixed; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div style=&quot; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
   &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;提示&lt;/div&gt;
 
 
