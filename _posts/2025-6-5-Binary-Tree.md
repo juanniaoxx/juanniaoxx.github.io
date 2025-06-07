@@ -5,6 +5,15 @@ date: 2025-06-05
 description: 二叉树经典题笔记
 tags: 算法
 ---
+<div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question" target="_block">题目1-9参考实现</a>
+      <br>
+      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question" target="_block">题目10-16参考实现</a>
+  </div>
+</div>
+<br>
 
 > - [x] 题目1： [bfs的两种方法](https://leetcode.cn/problems/binary-tree-level-order-traversal/)
 > - [x] 题目2： [锯齿状遍历](https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/)
@@ -28,18 +37,15 @@ tags: 算法
 
 ### 二叉树的基本概念
 
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
   <div style="padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;">基本概念</div>
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <p>
       <p style="color : blue">深度与高度</p>
-      节点的高度(height):从根节点到该节点经过的边数
-      <br>
-      二叉树的深度(depth):从距离该节点最远的叶节点到该节点所需要经过的边树
-      <br>
+      节点的高度(height):从根节点到该节点经过的边数。
+      二叉树的深度(depth):从距离该节点最远的叶节点到该节点所需要经过的边树。
       注意，不同的题、教材对于根叶节点的高度、深度从0还是从1开始并不统一。
-      <br>
-      但一般而言，说根节点的深度为0，叶子节点的高度为0
+      但一般而言，说根节点的深度为0，叶子节点的高度为0。
       </p>
   </div>
 </div>

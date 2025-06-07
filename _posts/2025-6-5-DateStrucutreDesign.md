@@ -5,7 +5,13 @@ date: 2025-06-05
 description: 左程云老师数据结构设计习题笔记
 tags: 算法
 ---
-
+<div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_035%20Date%20Structure%20Design%20Question" target="_block">参考实现</a>
+  </div>
+</div>
+<br>
 > 主要内容
 >
 > - [x] 题目1: [`setAll`功能的哈希表](https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967)

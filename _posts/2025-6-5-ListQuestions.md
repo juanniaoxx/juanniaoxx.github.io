@@ -6,6 +6,13 @@ description: 左程序云老师链表高频题笔记
 tags: 算法
 ---
 
+<div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_034%20List%20Question" target="_block">参考实现</a>
+  </div>
+</div>
+<br>
 > <span style="color:red;font-size:30px">链表题目并不是算法设计题，而是很经典的Coding能力考察！</span>
 >
 > 一般也是`填函数风格`而不会是`Acw` 

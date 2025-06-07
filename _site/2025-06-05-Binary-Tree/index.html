@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>二叉树（不含树型bp）的经典习题</title>
-  <meta name="description" content="      题目1： bfs的两种方法    题目2： 锯齿状遍历    题目3： 最大特殊宽度    题目4.1： 最大深度    题目4.2：最小深度    题目5： 先序遍历序列化和反序列化    题目6： 层序遍历序列化和反序列化    题目7： 先序遍历和中序遍历还原二叉树    题目8： 判断完全二叉...">
+  <meta name="description" content="  重点        题目1-9参考实现            题目10-16参考实现  ">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="二叉树（不含树型bp）的经典习题">
-  <meta name="twitter:description" content="      题目1： bfs的两种方法    题目2： 锯齿状遍历    题目3： 最大特殊宽度    题目4.1： 最大深度    题目4.2：最小深度    题目5： 先序遍历序列化和反序列化    题目6： 层序遍历序列化和反序列化    题目7： 先序遍历和中序遍历还原二叉树    题目8： 判断完全二叉...">
+  <meta name="twitter:description" content="  重点        题目1-9参考实现            题目10-16参考实现  ">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="二叉树（不含树型bp）的经典习题">
-  <meta property="og:description" content="      题目1： bfs的两种方法    题目2： 锯齿状遍历    题目3： 最大特殊宽度    题目4.1： 最大深度    题目4.2：最小深度    题目5： 先序遍历序列化和反序列化    题目6： 层序遍历序列化和反序列化    题目7： 先序遍历和中序遍历还原二叉树    题目8： 判断完全二叉...">
+  <meta property="og:description" content="  重点        题目1-9参考实现            题目10-16参考实现  ">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -182,6 +182,7 @@
   
     <h2 class="post-title">目录</h2>
     <ul>
+  <li><a href="#二叉树的基本概念">二叉树的基本概念</a></li>
   <li><a href="#二叉树的层序遍历">二叉树的层序遍历</a></li>
   <li><a href="#锯齿形层序遍历">锯齿形层序遍历</a></li>
   <li><a href="#最大特殊宽度">最大特殊宽度</a></li>
@@ -190,12 +191,28 @@
   <li><a href="#通过先序遍历和中序遍历复原二叉树">通过先序遍历和中序遍历复原二叉树</a></li>
   <li><a href="#判断完全二叉树">判断完全二叉树</a></li>
   <li><a href="#完全二叉树的节点个数">完全二叉树的节点个数</a></li>
+  <li><a href="#普通二叉树求lca问题">普通二叉树求LCA问题</a></li>
 </ul>
 
   
 
   <section class="post">
-    <blockquote>
+    <div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
+
+
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question" target="_block">题目1-9参考实现</a>
+      <br />
+      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question" target="_block">题目10-16参考实现</a>
+  </div>
+
+
+</div>
+
+<p><br /></p>
+
+<blockquote>
   <ul class="task-list">
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目1： <a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目2： <a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/">锯齿状遍历</a></li>
@@ -216,6 +233,27 @@
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目16：<a href="https://leetcode.cn/problems/house-robber-iii/description/">二叉树上的打家劫舍问题</a></li>
   </ul>
 </blockquote>
+
+<hr />
+
+<h3 id="二叉树的基本概念">二叉树的基本概念</h3>
+
+<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <div style="padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;">基本概念</div>
+
+
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p>
+      <p style="color : blue">深度与高度</p>
+      节点的高度(height):从根节点到该节点经过的边数。
+      二叉树的深度(depth):从距离该节点最远的叶节点到该节点所需要经过的边树。
+      注意，不同的题、教材对于根叶节点的高度、深度从0还是从1开始并不统一。
+      但一般而言，说根节点的深度为0，叶子节点的高度为0。
+      </p>
+  </div>
+
+
+</div>
 
 <hr />
 
@@ -566,6 +604,28 @@
 </table>
 
 <p>由于是递归算法还是比较抽象的！</p>
+
+<hr />
+
+<h3 id="普通二叉树求lca问题">普通二叉树求LCA问题</h3>
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引用</div>
+
+
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p style="color : blue">
+          LCA问题(Lowest Common Ancestor， 最近公共祖先)
+          <br />
+      </p>
+      <p>
+          其中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+      </p>
+  </div>
+
+
+</div>
+
 
   </section>
 
