@@ -26,6 +26,26 @@ tags: 算法
 
 -----
 
+### 二叉树的基本概念
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;">基本概念</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p>
+      <p style="color : blue">深度与高度</p>
+      节点的高度(height):从根节点到该节点经过的边数
+      <br>
+      二叉树的深度(depth):从距离该节点最远的叶节点到该节点所需要经过的边树
+      <br>
+      注意，不同的题、教材对于根叶节点的高度、深度从0还是从1开始并不统一。
+      <br>
+      但一般而言，说根节点的深度为0，叶子节点的高度为0
+      </p>
+  </div>
+</div>
+
+----
+
 ### 二叉树的层序遍历
 
 > 题目1： [bfs的两种方法](https://leetcode.cn/problems/binary-tree-level-order-traversal/)
@@ -259,3 +279,20 @@ private:
 | ![img](../images/2025-6-5-Binary-Tree/21260ae8cb220729f958b56a61248c55.jpeg) | 对于当前节点，检查其右子树的最左节点是否能到达整棵树的最底层 如果可以，说明左子树是满二叉树，直接计算左子树节点数(`2^(h-level)`)，然后递归处理右子树 如果不可以，说明右子树是满二叉树(但少一层)，直接计算右子树节点数(`2^(h-level-1)`)，然后递归处理左子树 |
 
 由于是递归算法还是比较抽象的！
+
+----
+
+### 普通二叉树求LCA问题
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引用</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p style="color : blue">
+          LCA问题(Lowest Common Ancestor， 最近公共祖先)
+          <br>
+      </p>
+      <p>
+          其中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+      </p>
+  </div>
+</div>

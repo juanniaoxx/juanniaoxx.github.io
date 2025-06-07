@@ -26,9 +26,12 @@ tags: 算法
 - 本质不是算法设计能力而是coding能力
 - 链表需要多多训练才可以！
 
-> [!CAUTION]
->
-> 和链表相关的难题会在[拓展]约瑟夫环中涉及
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      和链表相关的难题会在[拓展]约瑟夫环中涉及
+  </div>
+</div>
 
 ### 经典题目
 
@@ -36,13 +39,6 @@ tags: 算法
 
 > 测试链接 [leetcode 160.相交链表 Easy](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
 >
-> <img src="../images/posts/Algorithm/image-20250604174821412.png" alt="image-20250604174821412" style="zoom:0%;" />
-
-| 输入输出                                                     |
-| ------------------------------------------------------------ |
-| <img src="../images/posts/Algorithm/image-20250604174835138.png" alt="image-20250604174835138" style="zoom:150%;" /> |
-| ![image-20250604174917462](../images/posts/Algorithm/image-20250604174917462.png) |
-| ![image-20250604174930415](../images/posts/Algorithm/image-20250604174930415.png) |
 
 最直观的想法，使用`Hashset`遍历某一个链表一次，再遍历另一个链表一次，每次遍历都查询一次。
 
@@ -52,48 +48,16 @@ tags: 算法
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![image-20250604175209328](../images/posts/Algorithm/image-20250604175209328.png) | 对于`A` `B`两个链表，若二者会相遇<br />则必然最总会达到同一个节点，且我们发现<br />`A` 与 `B`的长度之差一定在第一次相遇之前<br />故算法思路为<br />- 长链表 - 长度之差 并往下遍历，直到相同 |
 
-时间复杂度: $O(N)$
-
-空间复杂度:$O(1)$ 
-
-```cpp
-class Solution {
-public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        int diff = 0;
-        auto a = headA, b = headB;
-        for (; a; a = a->next, diff++);
-        for (; b; b = b->next, diff--);
-
-        if (a != b) return nullptr;
-        
-        // 让a指向长链表、b指向短链表
-        if (diff >= 0) {
-            a = headA;
-            b = headB;
-        } else {
-            a = headB;
-            b = headA;
-        }
-
-        diff = abs(diff);
-        while (diff-- != 0) a = a->next; 
-        for (; a != b; a = a->next, b = b->next);
-
-        return a;
-    }
-};
-```
-
 #### Question 2 按组反转链表
 
 > 测试链接 [leetcode 25 K个一组反转链表 Hard](https://leetcode.cn/problems/reverse-nodes-in-k-group/description/)
 
 这道题思路倒是不难，难的是`Coding`实现的细节，如果不考虑$O(1)$的时间可以使用一个数组存入在进行反转，但考虑$O(1)$即进行原地反转需要考虑的细节就很多了。
 
-> [!IMPORTANT]
->
-> 如何写出没有bug的代码才是这道题的重点！
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">重要</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">这道题思路不难难点在于如何写出不含bug的代码</div>
+</div>
 
 | 算法图解                                                     | 解释                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------ |
@@ -102,64 +66,9 @@ public:
 | **<img src="../images/posts/Algorithm/image-20250604191115086.png" alt="image-20250604191115086" style="zoom:50%;" />**<br /><img src="../images/posts/Algorithm/image-20250604191327015.png" alt="image-20250604191327015" style="zoom:50%;" /> | 特别注意，这一条红色的线最终是要指向`d`                |
 | <img src="../images/posts/Algorithm/image-20250604191439760.png" alt="image-20250604191439760" style="zoom:50%;" /> | `g` 不足2不需要改变                                    |
 
-```cpp
-class Solution {
-public:
-    ListNode* reverseKGroup(ListNode* head, int k) {
-        auto start = head;
-        auto end = teamEnd(head, k);
-        if (!end) return head;
-        // 换头
-        head = end;
-        // 反转
-        reverse(start, end);
-        ListNode *lastTeamEnd = start;
-        while (lastTeamEnd->next) {
-            start = lastTeamEnd->next;
-            end = teamEnd(start, k);
-            if (!end) return head;
-            reverse(start, end);
-            lastTeamEnd->next = end;
-            lastTeamEnd = start;
-        }
-
-        return head;
-    }
-private:
-
-    ListNode* teamEnd(ListNode *p, int k) {
-        while (--k != 0 && p) {
-            p = p->next;
-        }
-
-        return p;
-    }
-    // 原地反转链表
-    // s -> a -> b -> c -> e -> 下一组的开始节点
-	// 上面的链表通过如下的reverse方法调整成 : e -> c -> b -> a -> s -> 下一组的开始节点
-    void reverse(ListNode *start, ListNode *end) {
-        // 包含下一组的开始节点
-        end = end->next;
-        ListNode *pre = nullptr, *cur = start, *next = nullptr;
-        while (cur != end) {
-            next = cur->next;
-            cur->next = pre;
-            pre = cur;
-            cur = next;
-        }
-        // 将悬空的start的next指针指向下一组的开始节点
-        start->next = end;
-    }
-};
-```
-
 #### Question 3 复制带随机指针的链表
 
 > 测试链接[leetcode 138.随机链表的复制 mid](https://leetcode.cn/problems/copy-list-with-random-pointer/description/)
-
-![image-20250604201514317](../images/posts/Algorithm/image-20250604201514317.png)
-
-![]()
 
 这道题题意很简单，朴素思路也很简单。
 
@@ -173,44 +82,6 @@ private:
   | <img src="../images/posts/Algorithm/image-20250604202235646.png" alt="image-20250604202235646" style="zoom:50%;" /> | 首先在每一个节点后面拷贝一个节点                             |
   | <img src="../images/posts/Algorithm/image-20250604202643657.png" alt="image-20250604202643657" style="zoom:50%;" /> | 然后通过原来的节点的`random`指针确定<br />拷贝节点的`random`指针<br />`copy->random = original->random->next`<br />注意图中省去了原来的random指针，实际编码不可以改变 |
   |                                                              | 分离链表即可                                                 |
-
-```cpp
-class Solution {
-public:
-    Node* copyRandomList(Node* head) {
-        if (head == nullptr) return nullptr;
-        auto cur = head;
-        // 为每一个节点后添加一个拷贝节点
-        while (cur != nullptr) {
-            auto next = cur->next;
-            cur->next = new Node(cur->val);
-            cur->next->next = next;
-            cur = next;
-        }
-
-        cur = head;
-        // 为拷贝节点配置random指针
-        while (cur != nullptr) {
-            auto copy = cur->next;
-            copy->random = cur->random == nullptr ? nullptr : cur->random->next;
-            cur = cur->next->next;
-        }
-
-        cur = head;
-        // 分离链表
-        auto ans = cur->next;
-        while (cur != nullptr) {
-            auto copy = cur->next;
-            auto next = cur->next->next;
-            cur->next = next;
-            copy->next = next != nullptr ? next->next : next;
-            cur = next;
-        }
-
-        return ans;
-    }
-};
-```
 
 #### Question 4 判断链表是否存有回文结构
 
@@ -228,62 +99,10 @@ public:
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | <img src="../images/posts/Algorithm/image-20250604220043026.png" alt="image-20250604220043026" style="zoom:50%;" /><br /><img src="../images/posts/Algorithm/image-20250604220101353.png" alt="image-20250604220101353" style="zoom:50%;" /><br /><img src="../images/posts/Algorithm/image-20250604220155015.png" alt="image-20250604220155015" style="zoom:50%;" /> | 设置快慢双指针`s`表示满指针`f`表示快指针<br />其中`s`每次走一格,`f`每次走两格<br />当`f`为走不下去的时候`s`为中点<br />反转另一半链表，逐个比较就可以判断是否回文 |
 
-算法思路比较简单，但`coding`细节很多
-
-```cpp
-class Solution {
-public:
-    bool isPalindrome(ListNode* head) {
-        // 只有一个元素比如是回文 题目保证了节点数目大于等于1
-        if (head == nullptr || head->next == nullptr) return true;
-        auto slow = head; // 慢指针
-        auto fast = head; // 快指针
-        bool ans = true; // 答案
-        // 查找中点
-        // 快指针一次走2步，慢指针一次走1步
-        for (; fast && fast->next && fast->next->next; fast = fast->next->next, slow = slow->next);
-        // 从slow往后开始逆序
-        auto pre = slow;
-        auto cur = pre->next;
-        ListNode *next = nullptr;
-        pre->next = nullptr;
-        while (cur != nullptr) {
-            next = cur->next;
-            cur->next = pre;
-            pre = cur;
-            cur = next;
-        }
-
-        // 判断左右两部分是否相等
-        // head-> ....-> slow <- .... <- pre
-        auto left = head;
-        auto right = pre;
-        while (left && right) {
-            if (left->val != right->val) {
-                ans = false;
-                break; // 为了后续还原链表
-            }
-            left = left->next;
-            right = right->next;
-        }
-
-        // 还原链表
-        cur = pre->next;
-        pre->next = nullptr;
-        next = nullptr;
-        while (cur != nullptr) {
-            next = cur->next;
-            cur->next = pre;
-            pre = cur;
-            cur = next;
-        }
-
-        return ans;
-    }
-};
-```
-
-
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">重要</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">这道题思路不难,难点在于如何写出不含bug的代码</div>
+</div>
 
 #### Question 5 链表第一个入环节点
 
