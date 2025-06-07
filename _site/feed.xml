@@ -5,9 +5,76 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 06 Jun 2025 20:36:01 +0800</pubDate>
-    <lastBuildDate>Fri, 06 Jun 2025 20:36:01 +0800</lastBuildDate>
+    <pubDate>Sat, 07 Jun 2025 14:45:25 +0800</pubDate>
+    <lastBuildDate>Sat, 07 Jun 2025 14:45:25 +0800</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>常见递归问题</title>
+        <description>&lt;blockquote&gt;
+  &lt;ul class=&quot;task-list&quot;&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目1 : 返回字符串全部子序列，子序列要求去重。时间复杂度O(2^n * n)&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目2 : 返回数组的所有组合，可以无视元素顺序。时间复杂度O(2^n * n)&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目3 : 返回没有重复值数组的全部排列。时间复杂度O(n! * n)&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目4 : 返回可能有重复值数组的全部排列，排列要求去重。时间复杂度O(n! * n)&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目5 : 用递归逆序一个栈。时间复杂度O(n^2)&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目6 : 用递归排序一个栈。时间复杂度O(n^2)&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目7 : 打印n层汉诺塔问题的最优移动轨迹。时间复杂度O(2^n)&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;递归的套路总结&quot;&gt;递归的套路总结&lt;/h3&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;引言&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      带路径的递归 vs 不带路径的递归(大部分dp, 状态压缩dp认为是路径简化了结构)
+      &lt;br /&gt;
+      任何递归都是bfs且非常灵活，回溯这个术语可能并不重要
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;题目1--返回字符串全部子序列子序列要求去重&quot;&gt;题目1 : 返回字符串全部子序列，子序列要求去重。&lt;/h3&gt;
+
+&lt;h3 id=&quot;题目2--返回数组的所有组合可以无视元素顺序&quot;&gt;题目2 : 返回数组的所有组合，可以无视元素顺序。&lt;/h3&gt;
+
+&lt;h3 id=&quot;题目3--返回没有重复值数组的全部排列&quot;&gt;题目3 : 返回没有重复值数组的全部排列。&lt;/h3&gt;
+
+&lt;h3 id=&quot;题目4--返回可能有重复值数组的全部排列排列要求去重&quot;&gt;题目4 : 返回可能有重复值数组的全部排列，排列要求去重。&lt;/h3&gt;
+
+&lt;h3 id=&quot;题目5--用递归逆序一个栈&quot;&gt;题目5 : 用递归逆序一个栈。&lt;/h3&gt;
+
+&lt;h3 id=&quot;题目6--用递归排序一个栈&quot;&gt;题目6 : 用递归排序一个栈。&lt;/h3&gt;
+
+&lt;h3 id=&quot;题目7--打印n层汉诺塔问题的最优移动轨迹&quot;&gt;题目7 : 打印n层汉诺塔问题的最优移动轨迹。&lt;/h3&gt;
+</description>
+        <pubDate>Sat, 07 Jun 2025 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2025-06-07-Recursion/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025-06-07-Recursion/</guid>
+        
+        <category>算法</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>嵌套类问题的递归解题套路</title>
+        <description>
+</description>
+        <pubDate>Sat, 07 Jun 2025 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2025-06-07-Nest-Recursion/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025-06-07-Nest-Recursion/</guid>
+        
+        <category>算法</category>
+        
+        
+      </item>
     
       <item>
         <title>3小时急速入门前端开发</title>
@@ -936,12 +1003,12 @@
     &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目2： &lt;a href=&quot;https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/&quot;&gt;锯齿状遍历&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目3： &lt;a href=&quot;https://leetcode.cn/problems/maximum-width-of-binary-tree/&quot;&gt;最大特殊宽度&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目4.1： &lt;a href=&quot;https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/&quot;&gt;最大深度&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目4.2:&lt;a href=&quot;https://leetcode.cn/problems/minimum-depth-of-binary-tree/&quot;&gt;最小深度&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目5： &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/&quot;&gt;先序遍历序列化和反序列化&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目6： &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/&quot;&gt;层序遍历序列化和反序列化&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目7： &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&quot;&gt;先序遍历和中序遍历还原二叉树&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目8： &lt;a href=&quot;https://leetcode.cn/problems/check-completeness-of-a-binary-tree/&quot;&gt;判断完全二叉树&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目9： &lt;a href=&quot;https://leetcode.cn/problems/count-complete-tree-nodes/&quot;&gt;求完全二叉树节点个数&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目4.2：&lt;a href=&quot;https://leetcode.cn/problems/minimum-depth-of-binary-tree/&quot;&gt;最小深度&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目5： &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/&quot;&gt;先序遍历序列化和反序列化&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目6： &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/&quot;&gt;层序遍历序列化和反序列化&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目7： &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&quot;&gt;先序遍历和中序遍历还原二叉树&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目8： &lt;a href=&quot;https://leetcode.cn/problems/check-completeness-of-a-binary-tree/&quot;&gt;判断完全二叉树&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目9： &lt;a href=&quot;https://leetcode.cn/problems/count-complete-tree-nodes/&quot;&gt;求完全二叉树节点个数&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目10: &lt;a href=&quot;https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/&quot;&gt;普通二叉树上求解LCA&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目11：&lt;a href=&quot;https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/&quot;&gt;搜索二叉树上求解LCA&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目12：&lt;a href=&quot;https://leetcode.cn/problems/path-sum-ii/&quot;&gt;收集累加和为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k&lt;/code&gt;的所有路径&lt;/a&gt;&lt;/li&gt;
@@ -998,7 +1065,7 @@
 
 &lt;h3 id=&quot;锯齿形层序遍历&quot;&gt;锯齿形层序遍历&lt;/h3&gt;
 
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solidrgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
   &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
 
 
@@ -1010,6 +1077,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;div style=&quot; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
   &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;提示&lt;/div&gt;
 
@@ -1048,6 +1116,258 @@
 
 &lt;h3 id=&quot;最大特殊宽度&quot;&gt;最大特殊宽度&lt;/h3&gt;
 
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;前序遍历的序列化和反序列化&quot;&gt;前序遍历的序列化和反序列化&lt;/h3&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/&quot;&gt;leetcode297.二叉树的序列化和反序列化&lt;/a&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;p&gt;
+          序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。
+   		&lt;br /&gt;&lt;br /&gt;
+          二叉树的前序和后序都可以完成序列化但中序并不能唯一确定！
+      &lt;/p&gt;
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;p&gt;操作倒是简单这道题感觉不是算法题是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;coding&lt;/code&gt;能力测试题&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;对该二叉树进行一次先序遍历&lt;/li&gt;
+  &lt;li&gt;对于非空节点&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt;记录其为字符串&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x,&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;对于空节点记录为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#,&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;注意某一节点若其左右子树为空也需要记录为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#,&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;算法图解&lt;/th&gt;
+      &lt;th&gt;解释&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606230807305.png&quot; alt=&quot;image-20250606230807305&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606230826158.png&quot; alt=&quot;image-20250606230826158&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606231103213.png&quot; alt=&quot;image-20250606231103213&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;记录&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1, &lt;/code&gt;&lt;br /&gt;&lt;br /&gt;记录&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2,&lt;/code&gt;同时记录其子结点为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#, #,&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;其余节点同理处理即可&lt;br /&gt;最终字符串为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1,2,#,#,3,4,#,#,5,#,#&lt;/code&gt;&lt;br /&gt;反序列化就比较简单了遍历上述字符串即可&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;技巧&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;可以使用 istringstream类型把字符串转化为流输出，进而可以用&amp;gt;&amp;gt;直接过滤空格&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 感觉这道题考语法？&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Codec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Encodes a tree to a single string.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;# &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Decodes your encoded data to tree.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;istringstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 使用字符串流简化解析&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;istringstream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 自动跳过空格&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stoi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 处理多位数&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;层序遍历的序列化和反序列化&quot;&gt;层序遍历的序列化和反序列化&lt;/h3&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/&quot;&gt;leetcode297.二叉树的序列化和反序列化&lt;/a&gt;
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;通过先序遍历和中序遍历复原二叉树&quot;&gt;通过先序遍历和中序遍历复原二叉树&lt;/h3&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&quot;&gt;leetcode105.从前序遍历与中序遍历构造二叉树&lt;/a&gt;
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;p&gt;这个题的知识点倒是考研经常会考的:joy:&lt;/p&gt;
+
+&lt;p&gt;关键思路&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;前序遍历&lt;/code&gt;确定根节点&lt;/li&gt;
+  &lt;li&gt;通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;中序遍历&lt;/code&gt;确定左右子树&lt;/li&gt;
+  &lt;li&gt;递归这个过程就能还原出原二叉树&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这道题的关键是理解这个边界图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606225527651.png&quot; alt=&quot;image-20250606225527651&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;&quot;&gt;额外&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      &lt;p&gt;
+          还有两个类似的题目，但要注意如果单纯通过前序和后序是无法唯一还原二叉树的！
+      &lt;/p&gt;
+      &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&quot;&gt;leetcode106.从中序遍历和后序遍历构造二叉树&lt;/a&gt;
+      &lt;br /&gt;
+     &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/description/&quot;&gt;leetcode889.根据前序遍历和后序遍历复原二叉树&lt;/a&gt;
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;算法图解&lt;/th&gt;
+      &lt;th&gt;解释&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606221824464.png&quot; alt=&quot;image-20250606221824464&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;先序:&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3 9 20 15 7&lt;/code&gt;&lt;br /&gt;中序:&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;9 3 15 20 7&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222146455.png&quot; alt=&quot;image-20250606222146455&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;首先通过先序遍历找到整颗树的根&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;&lt;br /&gt;同时在中序中找到对应的节点&lt;br /&gt;其左边就是左子树&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;9&lt;/code&gt;&lt;br /&gt;右边就是右子树 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;15 20 7&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222324406.png&quot; alt=&quot;image-20250606222324406&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222412694.png&quot; alt=&quot;image-20250606222412694&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222455878.png&quot; alt=&quot;image-20250606222455878&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222548148.png&quot; alt=&quot;image-20250606222548148&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;然后递归处理左右子树&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;技巧&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;这里找对应节点的时候可以用哈希表&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;判断完全二叉树&quot;&gt;判断完全二叉树&lt;/h3&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      &lt;a href=&quot;https://leetcode.cn/problems/check-completeness-of-a-binary-tree/description/&quot;&gt;leetcode958.二叉树完全性的验证&lt;/a&gt;
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;算法步骤&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;层序遍历&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;如果一个节点左右子树齐全，则无需处理遍历下一个即可&lt;/li&gt;
+  &lt;li&gt;如果一个节点有右子树，而左子树缺失则直接返回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;如果一个节点缺少右孩子，则记录之，遍历之后的节点&lt;/li&gt;
+  &lt;li&gt;如果之后遍历的节点不全为叶子节点，则返回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;否则 返回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;完全二叉树的节点个数&quot;&gt;完全二叉树的节点个数&lt;/h3&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solidrgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
+
+
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      &lt;a href=&quot;https://leetcode.cn/problems/count-complete-tree-nodes/description/&quot;&gt;leetcode222.完全二叉树的节点个数&lt;/a&gt;
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;p&gt;如果不考虑任何特性，遍历一边二叉树经过O(N) 的时间就能获得答案，所以这道题的难度为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Easy&lt;/code&gt;。但人肯定还是得有点追求的啦，如何在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt; O(N)&lt;/code&gt;的时间内获得节点数目呢？&lt;/p&gt;
+
+&lt;p&gt;考虑完全二叉树的特性&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一个完全二叉树，必然是由一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;满二叉子树&lt;/code&gt;和一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;完全二叉子树&lt;/code&gt;或&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;满二叉子树&lt;/code&gt;构成&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;具体算法图解如下&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;算法图解&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/21260ae8cb220729f958b56a61248c55.jpeg&quot; alt=&quot;img&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;对于当前节点，检查其右子树的最左节点是否能到达整棵树的最底层 如果可以，说明左子树是满二叉树，直接计算左子树节点数(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^(h-level)&lt;/code&gt;)，然后递归处理右子树 如果不可以，说明右子树是满二叉树(但少一层)，直接计算右子树节点数(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^(h-level-1)&lt;/code&gt;)，然后递归处理左子树&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;由于是递归算法还是比较抽象的！&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Jun 2025 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2025-06-05-Binary-Tree/</link>
