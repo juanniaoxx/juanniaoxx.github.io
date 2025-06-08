@@ -91,13 +91,13 @@ string s3(hiya);
 
 | Ways to Initialize a `string`                                |
 | ------------------------------------------------------------ |
-| ![image-20250602223331886](assets/image-20250602223331886.png) |
+| ![image-20250608170148152](../images/2025-6-8-Strings-Vectors-and-Arrays/image-20250608170148152.png) |
 
 #### Operations on strings `string`的操作
 
 | `string` Operations                                          |
 | ------------------------------------------------------------ |
-| ![image-20250602223834006](assets/image-20250602223834006.png) |
+| ![image-20250608170133739](../images/2025-6-8-Strings-Vectors-and-Arrays/image-20250608170133739.png) |
 
 - `os`: output streams
 - `is`: input steams
@@ -201,7 +201,7 @@ Comparing `string `: ==, !=, >, >=, <. <=
 
 | `cctype`Functions                                            |
 | ------------------------------------------------------------ |
-| ![image-20250604140842801](assets/image-20250604140842801.png) |
+| ![image-20250608170059608](../images/2025-6-8-Strings-Vectors-and-Arrays/image-20250608170059608.png) |
 
 <hr>
 
@@ -348,5 +348,5 @@ vector<int> vi = 10; // error: must use direct initialization to supply a size
 
 | 总结：`vector`的初始化方法                                   |
 | ------------------------------------------------------------ |
-| ![image-20250604150208423](assets/image-20250604150208423.png) |
+| ![image-20250608170250238](../images/2025-6-8-Strings-Vectors-and-Arrays/image-20250608170250238.png) |
 
