@@ -25,10 +25,10 @@ tags: 算法
 > - [x] 题目7： [先序遍历和中序遍历还原二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 > - [x] 题目8： [判断完全二叉树](https://leetcode.cn/problems/check-completeness-of-a-binary-tree/)
 > - [x] 题目9： [求完全二叉树节点个数](https://leetcode.cn/problems/count-complete-tree-nodes/)
-> - [ ] 题目10: [普通二叉树上求解LCA](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/)
-> - [ ] 题目11：[搜索二叉树上求解LCA](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/)
-> - [ ] 题目12：[收集累加和为`k`的所有路径](https://leetcode.cn/problems/path-sum-ii/)
-> - [ ] 题目13：[判断平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
+> - [x] 题目10: [普通二叉树上求解LCA](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/)
+> - [x] 题目11：[搜索二叉树上求解LCA](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/)
+> - [x] 题目12：[收集累加和为`k`的所有路径](https://leetcode.cn/problems/path-sum-ii/)
+> - [x] 题目13：[判断平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
 > - [ ] 题目14：[判断搜索二叉树](https://leetcode.cn/problems/validate-binary-search-tree/)
 > - [ ] 题目15：[修剪搜索二叉树](https://leetcode.cn/problems/trim-a-binary-search-tree/description/)
 > - [ ] 题目16：[二叉树上的打家劫舍问题](https://leetcode.cn/problems/house-robber-iii/description/)
@@ -291,7 +291,7 @@ private:
 ### 普通二叉树求LCA问题
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引用</div>
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <p style="color : blue">
           LCA问题(Lowest Common Ancestor， 最近公共祖先)
@@ -302,3 +302,186 @@ private:
       </p>
   </div>
 </div>
+
+分类讨论
+
+- `p`或者`q`包含于另一颗树中
+  - 则为`p`或者`q` （父节点）
+- `p`和`q`分属于两颗树
+
+这道题看答案确实很好理解，但自己想可能就要费老鼻子力气了....
+
+算法思路
+
+- 如果当前节点是`p`或者`q`或者`空` 则返回该节点
+- 否则递归遍历该节点的左右子树
+- 如果左子树返回了`nullpter`，则返回右子树的结果
+- 反正若右子树返回了`nullpter`则返回左子树的结果
+- 如果都非空则当前节点是`p、q`的最近公共祖先
+
+```cpp
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        // 如果找到p、q或者节点为空则返回
+        if (root == nullptr || root == p || root == q) return root;
+        // 左树遍历结果
+        TreeNode *l = lowestCommonAncestor(root->left, p, q); 
+        // 右树遍历结果
+        TreeNode *r = lowestCommonAncestor(root->right, p, q);
+		
+        // 左右子树各有p或者q，则当前节点为公共祖先
+        if (l != nullptr && r != nullptr) return root;
+        // 左右子树都没找到，返回空
+        if (l == nullptr && r == nullptr) return nullptr;
+        // 否则，返回p或者q对应情况1
+        return l != nullptr ? l : r;
+    }
+};
+```
+
+-----
+
+### 搜索二叉树的LCA问题
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p style="color : blue">
+          搜索二叉树
+          <br>
+      </p>
+      <p>
+          平衡二叉树 中序遍历有序的树
+      </p>
+  </div>
+</div>
+
+和上一道题一样，但这里可以利用其左子树<根节点<右子树的特性，一次筛选出不少点。
+
+- 如果`root == p`或者`root == q`则直接就是答案
+- 如果`root.val > max(p.val, q.val)` `p和q`必然位于`root->left`中
+- 如果`root.val < min(p.val, q.val)` `p和q`必然位于`root->right`中
+- 如果`root.val`位于`p.val`和`q.val`直接，则直接返回`root`为答案
+
+```cpp
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        while (root->val != p->val && root->val != q->val) {
+            if (min(p->val, q->val) < root->val && root->val < max(p->val, q->val)) break;
+            root = root->val < min(p->val, q->val) ? root->right : root->left;
+        }
+        return root;
+    }
+};
+```
+
+----
+
+### 收集路径和为k的路径
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">技巧</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">递归回溯要注意还原现场</div>
+</div>
+
+题目
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        if (root == nullptr) return {};
+        target = targetSum;
+        dfs(root, 0);
+        return ans;
+    }
+private:
+    vector<int> path;
+    vector<vector<int>> ans;
+    int target = 0;
+    void dfs(TreeNode *root, int sum) {
+        path.push_back(root->val); // 将当前节点加入路径
+        if (root->left == nullptr && root->right == nullptr) {
+            if ((sum + root->val) == target) {
+                ans.push_back(path); // 找到一条路径，加入答案
+            }
+        }
+        if (root->left != nullptr) {
+            dfs(root->left, sum + root->val); // 递归左子树
+            path.pop_back();
+        }
+        if (root->right != nullptr) {
+            dfs(root->right, sum + root->val); // 递归右子树
+            path.pop_back();
+        }
+    }
+};
+```
+
+----
+
+### 判断一个树是否为平衡二叉树
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p style="color : blue">
+          平衡二叉树
+          <br>
+      </p>
+      <p>
+          平衡二叉树 是指该树所有节点的左右子树的高度相差不超过 1。
+      </p>
+  </div>
+</div>
+
+判断还是蛮简单的，只需要递归计算子树的高度即可。看代码就可以看懂！
+
+```cpp
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        hight(root);
+        return balance;
+    }
+private:
+    bool balance = true;
+    int hight(TreeNode *root) {
+        // 如果已经不平衡直接返回
+        // 空节点返回0
+        if (!balance || root == nullptr) return 0;
+
+        // 递归计算左子树的高度
+        int l_size = hight(root->left);
+        // 递归计算右子树的高度
+        int r_size = hight(root->right);
+
+        // 判断左右子树的高度差
+        if (abs(l_size - r_size) > 1) balance = false;
+        // 返回树的高度
+        return max(l_size, r_size) + 1;
+    }
+};
+```
+
+### 判断一个树是否为搜索二叉树
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p style="color : blue">
+          搜索二叉树
+          <br>
+      </p>
+      <p>
+          平衡二叉树 中序遍历有序的树
+      </p>
+  </div>
+</div>
+
+方法一：利用搜索二叉树 --- 中序遍历有序的特性
+
+
+
