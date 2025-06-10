@@ -156,6 +156,112 @@ TrieNode *root;
     <a href="https://www.nowcoder.com/practice/7f8a8553ddbf4eaab749ec988726702b">牛客.字典树的实现</a>
     </div>
 </div>
+使用如下静态数组实现
+
+```cpp
+const int MAX; // 设置一个合理数值
+int trie[MAX][26]; // 记录路径信息
+int Pass[MAX], End[MAX]; // 记录pass数据和end数据
+// 舍弃节点0不用
+int cnt = 1; // 当前节点
+```
+
+<div style="top: 10px; left: 10px; background: #f5f5f5; border-left: 4px solid #7f8c8d; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #7f8c8d;">💻 参考代码</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+    <a href="https://www.nowcoder.com/practice/7f8a8553ddbf4eaab749ec988726702b"></a>
+    </div>
+</div>
+
+```cpp
+// 插入操作：将单词插入到Trie树中
+void insert(const string &word) {
+    int cur = 1;  // 从根节点(节点1)开始
+    Pass[cur]++;  // 根节点的Pass计数+1（表示经过根节点的路径数+1）
+    
+    // 遍历单词的每个字符
+    for (int i = 0; i < word.size(); i++) {
+        int path = word[i] - 'a';  // 将字符转换为0-25的索引(对应26个字母)
+        
+        // 如果当前字符对应的子节点不存在，则创建新节点
+        if (trie[cur][path] == 0) {
+            trie[cur][path] = ++cnt;  // 分配新节点，cnt递增
+        }
+        
+        cur = trie[cur][path];  // 移动到子节点
+        Pass[cur]++;  // 当前节点的Pass计数+1（表示经过该节点的路径数+1）
+    }
+    
+    End[cur]++;  // 单词结束节点的End计数+1（表示以该节点结尾的单词数+1）
+}
+
+// 查询操作：检查单词是否存在于Trie树中
+int search(const string &word) {
+    int cur = 1;  // 从根节点(节点1)开始
+    
+    // 遍历单词的每个字符
+    for (int i = 0; i < word.size(); i++) {
+        int path = word[i] - 'a';  // 将字符转换为0-25的索引
+        
+        // 如果当前字符对应的子节点不存在，则单词不存在
+        if (trie[cur][path] == 0) {
+            return 0;  // 返回0表示单词不存在
+        }
+
+        cur = trie[cur][path];  // 移动到子节点
+    }
+    
+    // 检查当前节点是否是某个单词的结束节点
+    return End[cur];  // 返回End计数(0表示不存在，>0表示存在)
+}
+
+// 查询前缀操作：统计以给定前缀开头的单词数量
+int search_prefix(const string &pre) {
+    int cur = 1;  // 从根节点(节点1)开始
+    
+    // 遍历前缀的每个字符
+    for (int i = 0; i < pre.size(); i++) {
+        int path = pre[i] - 'a';  // 将字符转换为0-25的索引
+        
+        // 如果当前字符对应的子节点不存在，则前缀不存在
+        if (trie[cur][path] == 0) {
+            return 0;  // 返回0表示前缀不存在
+        }
+        
+        cur = trie[cur][path];  // 移动到子节点
+    }
+    
+    // 返回经过该前缀节点的路径数(Pass计数)
+    return Pass[cur];
+}
+
+// 删除操作：从Trie树中删除单词
+void erase(const string &word) {
+    // 先检查单词是否存在
+    if (search(word)) {
+        int cur = 1;  // 从根节点(节点1)开始
+        Pass[cur]--;  // 根节点的Pass计数-1
+        
+        // 遍历单词的每个字符
+        for (int i = 0; i < word.size(); i++) {
+            int path = word[i] - 'a';  // 将字符转换为0-25的索引
+            
+            // 减少当前节点的Pass计数
+            if (--Pass[trie[cur][path]] == 0) {
+                // 如果Pass计数减为0，表示没有其他单词经过该节点
+                // 可以安全删除该节点(设置为0)
+                trie[cur][path] = 0;
+                return;  // 删除完成，直接返回
+            }
+            
+            cur = trie[cur][path];  // 移动到子节点
+        }
+        
+        End[cur]--;  // 单词结束节点的End计数-1
+    }
+    // 如果单词不存在，则不做任何操作
+}
+```
 
 ### 前缀树的相关习题
 
@@ -169,6 +275,92 @@ TrieNode *root;
       <a href="https://leetcode.cn/problems/word-search-ii/">Q3:leetcode212.单词搜索II</a>
     </div>
 </div>
+#### 接头密钥
+
+这道题的关键点在于意识到这是一个`前缀`问题，并且要相当吧`int`->`string`来构建前缀树
+
+<div style="top: 10px; left: 10px; background: #f0fff4; border-left: 4px solid #2ecc71; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <div style="padding: 8px 12px; font-weight: bold; color: #2ecc71;">💡 提示</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">注意数字之间的差值的范围可能很广，如果每个数字都创建维度，此时静态数组会过于大。考虑分解一个整数为多个数字用一条路径存储。</div>
+</div>
+
+举例：对于`123`这个答案按照如图的方式存储在trie中。
+
+![未命名绘图.drawio](../images/2025-6-10-Trie-Tree/未命名绘图.drawio.svg)
+
+- 使用`1` `2` `3`和`#` 构成这个字符串
+  - `#`表明一个数字的结束
+
+#### 数组中两个数的最大异或值
+
+<div style="top: 10px; left: 10px;background: #f9f0ff; border-left: 4px solid #9b59b6; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <div style="padding: 8px 12px; font-weight: bold; color: #9b59b6;">🔄 朴素解法</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">朴素想法，遍历数组并记录异化运算(^)的最大结果</div>
+</div>
+
+- 但注意到数据范围为$[1,2*10^5]$ 按照朴素想法$O(N^2)$的复杂度会超出时间限制
+- 但leetcode的数据也太水了，可以过`41/45` 
+
+<div style="top: 10px; left: 10px; background: #f0faf0; border-left: 4px solid #27ae60; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #27ae60;">⚡ 优化版本</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">使用前缀树\哈希表</div>
+</div>
+
+下面两个方法都可以使时间复杂度降低至$O(\log{V}N)$,其中`V`是最大的数值，$\log{V}$最高不过32位所以这个复杂度为$O(N)$
+
+##### 方法一：使用前缀树(相对好想但速度慢一些)
+
+leetcode的测试结果为`253ms(65.7%)` 与 `85.66MB (67.23%)`
+
+算法步骤
+
+- 将所有的数字都加入前缀树 $O(N)$
+- 遍历一遍所有数字 $O(N)$
+  - 对于某个数字，从最高位至最低位依次遍历一次，记但前位置的状态为`s`
+  - 去字典树里面查找是否存在`w = s^1`，若存在则将答案更新
+    - `ans |=(s ^ w) << i ` 本质是将`1`移动 i 位
+    - 否则保持`w` 
+      - `w ^= 1` 此时`w == s` 并 `ans |= (s ^ w) << i `等价于`ans |= (s ^ s) << i = 0 << i` 相当于把`0`移动到对应位置
+
+| 算法图示                                                     | 解释                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="../images/2025-6-10-Trie-Tree/image-20250611000808251.png" alt="image-20250611000808251" style="zoom:50%;" /> | 假设输入为[3, 10, 5, 25, 2, 8]                               |
+| ![未命名绘图.drawio](../images/2025-6-10-Trie-Tree/未命名绘图.drawio-1749572429112-7.svg) | 构建对应的字典树                                             |
+|                                                              | 遍历数组，第一个数为`3`期望获得的XOR最大值为`11100`<br />可以通过上面建立的字典树$O(\log{V})$查找是否存在对应的节点 |
+
+##### 方法二： 使用哈希表(更快但更难想)
+
+leetcode的测试结果为`67ms(98.45%)` 与 `75.42MB(93.82%)`
+
+
+
+#### 单词搜索II
+
+这道题最终的时间复杂度都是$O()(m*n)4^{10})$  但如果不采用任何减枝优化过不了所有测试案例。
+
+<div style="top: 10px; left: 10px;background: #f9f0ff; border-left: 4px solid #9b59b6; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <div style="padding: 8px 12px; font-weight: bold; color: #9b59b6;">🔄 朴素解法</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">很经典的DFS板子</div>
+</div>
+
+- 但这道题的数据很恶心，只能过`63/65`
+
+<div style="top: 10px; left: 10px; background: #f0faf0; border-left: 4px solid #27ae60; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #27ae60;">⚡ 优化版本</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">采用前缀树</div>
+</div>
+
+前缀树有三重优化
+
+- 先把所有要查询的字符串加入到tire中、如果当前board上的字符根本不再tire路径上则可以直接跳过
+- 可以给每一个终止节点额外一个`string`属性，进而直接输出答案
+- 通过每次`dfs`修改`pass`属性，从而避免重复递归相同的字符串
+
+| 算法图示                                                     | 解释                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="../images/2025-6-10-Trie-Tree/image-20250610224005983.png" alt="image-20250610224005983" style="zoom:50%;" /> | 左侧为board、右侧为words                                     |
+| <img src="../images/2025-6-10-Trie-Tree/image-20250610224315205.png" alt="image-20250610224315205" style="zoom:50%;" /> | 构建Tire                                                     |
+|                                                              | 遍历board，查a发现Tire中有a的分支<br />遍历`a`的前后左右四个方向可以访问的元素<br />并放置`a`为`#` (避免重复遍历)<br />发现`b`也在Tire中，继续遍历四个方向,并置`#`<br />发现`c`也在Tire中，并且是`end=1`的节点，从而将`abd`<br />加入答案并删除这一条路，回溯。 |
 
 ### 构建前缀信息的技巧-解决子数组相关问题
 
