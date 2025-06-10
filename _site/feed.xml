@@ -5,8 +5,8 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Jun 2025 15:38:47 +0800</pubDate>
-    <lastBuildDate>Tue, 10 Jun 2025 15:38:47 +0800</lastBuildDate>
+    <pubDate>Tue, 10 Jun 2025 16:02:56 +0800</pubDate>
+    <lastBuildDate>Tue, 10 Jun 2025 16:02:56 +0800</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -68,12 +68,21 @@
       </item>
     
       <item>
-        <title>天字第一号技巧-通过数据量推测解法</title>
-        <description>
+        <title>前缀树（字典树）</title>
+        <description>&lt;h3 id=&quot;前缀树的基本概念&quot;&gt;前缀树的基本概念&lt;/h3&gt;
+
+&lt;h3 id=&quot;前缀树的类实现&quot;&gt;前缀树的类实现&lt;/h3&gt;
+
+&lt;h3 id=&quot;前缀树的静态数组实现&quot;&gt;前缀树的静态数组实现&lt;/h3&gt;
+
+&lt;h3 id=&quot;前缀树的相关习题&quot;&gt;前缀树的相关习题&lt;/h3&gt;
+
+&lt;h3 id=&quot;前缀树的总结&quot;&gt;前缀树的总结&lt;/h3&gt;
+
 </description>
         <pubDate>Mon, 09 Jun 2025 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2025-06-09-Infer-by-data/</link>
-        <guid isPermaLink="true">http://localhost:4000/2025-06-09-Infer-by-data/</guid>
+        <link>http://localhost:4000/2025-06-09-Trie-Tree/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025-06-09-Trie-Tree/</guid>
         
         <category>编程语言</category>
         
@@ -83,12 +92,12 @@
       </item>
     
       <item>
-        <title>前缀树（字典树）</title>
-        <description>
+        <title>天字第一号技巧-通过数据量推测解法</title>
+        <description>&lt;p&gt;&lt;img src=&quot;../images/2025-6-10-Infer-by-data/image-20250610154741364.png&quot; alt=&quot;image-20250610154741364&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Jun 2025 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2025-06-09-Trie-Tree/</link>
-        <guid isPermaLink="true">http://localhost:4000/2025-06-09-Trie-Tree/</guid>
+        <link>http://localhost:4000/2025-06-09-Infer-by-data/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025-06-09-Infer-by-data/</guid>
         
         <category>编程语言</category>
         

@@ -3,7 +3,7 @@ title: N皇后问题--重点在于位运算问题
 layout: post
 date: 2025-06-09
 description: 经典N皇后问题
-tags: 编程语言 算法
+tags: 算法
 ---
 
 <div style="top: 10px; left: 10px;background: #f7f7f7; border-left: 4px solid #95a5a6; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
