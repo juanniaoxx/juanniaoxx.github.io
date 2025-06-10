@@ -5,8 +5,8 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Jun 2025 15:32:23 +0800</pubDate>
-    <lastBuildDate>Tue, 10 Jun 2025 15:32:23 +0800</lastBuildDate>
+    <pubDate>Tue, 10 Jun 2025 15:38:47 +0800</pubDate>
+    <lastBuildDate>Tue, 10 Jun 2025 15:38:47 +0800</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -1280,101 +1280,6 @@
       </item>
     
       <item>
-        <title>西瓜书 第三章：线性模型</title>
-        <description>&lt;h1 id=&quot;chapter-3-线性模型&quot;&gt;Chapter 3 线性模型&lt;/h1&gt;
-
-&lt;p&gt;​&lt;/p&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;⚠️ 重要&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;线性模型的基本样式与向量形式&lt;/div&gt;
-&lt;/div&gt;
-
-\[\begin{align*}
-\text{基本形式} &amp;amp;: f(\textbf{x})=w_1x_1+w_2x_2+\dots+w_dx_d+b \\
-\text{向量形式} &amp;amp;: f(\textbf{x})=\textbf{w}^{T}\textbf{x}+b
-\end{align*}\]
-
-&lt;h3 id=&quot;线性回归linear-regression&quot;&gt;线性回归(Linear regression)&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;⚠️ 重要&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;线性回归的目的为试图学习一个线性模型以尽可能准确地预测实际值的输出&lt;/div&gt;
-&lt;/div&gt;
-
-\[f(x_i)=wx_i+b\ \ 使得f(x_i)\approx y_i\]
-
-&lt;div style=&quot;top: 10px; left: 10px; background: #f5f9fe; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db;&quot;&gt;🧠 求解模型&lt;/div&gt;
-    &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;基于均方误差最小化求解模型的方法称为最小二乘法&lt;/div&gt;
-&lt;/div&gt;
-
-\[\begin{align*}
-(w^*,b^*) &amp;amp;=\arg_{(w,b)}\min\sum_{i=1}^m(f(x_i)-y_i)^2 \\
- &amp;amp;=\arg_{(w,b)}\min\sum_{i=1}^m(y_i-wx_i-b)^2 \\
-\end{align*}\]
-
-&lt;p&gt;均方根误差的几何意义：&lt;strong&gt;对应了常用的欧几里德距离&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; background: #f9f0ff; border-left: 4px solid #9b59b6; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #9b59b6;&quot;&gt;🔄 凸函数的差异&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;这本书采用的凸函数定义与同济定义的凸函数相反，x^2为凸函数而非凹函数&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;参数估计&lt;/strong&gt;:求解参数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w*&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b*&lt;/code&gt;使得$\sum_{i=1}^m(y_i - w x_i - b)^2$最小，其过程如下&lt;/p&gt;
-
-\[\begin{align*}
-\frac{\partial{E}_{(w,b)}}{\partial{w}}=2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i) \\
-\frac{\partial{E}_{(w,b)}}{\partial{b}}=2(mb-\sum_{i=1}^m(y_i-wx_i))
-\end{align*}\]
-
-&lt;div style=&quot;top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;⚠️ 重要&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;凸函数的局部最优解&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;函数 $f: \mathbb{R}^n \to \mathbb{R}$是凸函数，如果对任意 $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n $ 和 $ \theta \in [0, 1] $，满足：
-\(\begin{align*}
-f(\theta \mathbf{x} + (1-\theta) \mathbf{y}) \leq \theta f(\mathbf{x}) + (1-\theta) f(\mathbf{y})
-\end{align*}\)
-直观上，连接函数图像上任意两点的线段位于函数图像上方。&lt;/p&gt;
-
-&lt;p&gt;若$f$可微，则$f$是凸函数的充要条件是：
-\(\begin{align*}
-f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^\top (\mathbf{y} - \mathbf{x}), \quad \forall \mathbf{x}, \mathbf{y}.
-\end{align*}\)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;非凸函数&lt;/strong&gt;：梯度为零可能是鞍点或局部极值（如 $f(x) = x^3$ 在 $x=0$ 处）。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;严格凸函数&lt;/strong&gt;：若 $f$ 严格凸，梯度为零的点是唯一的全局最小值。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;基于上述理论，求解参数$w^&lt;em&gt;$和$b^&lt;/em&gt;$只需要令上面的式子为零即可—-&amp;gt; &lt;strong&gt;最优解的闭式(closed-form)解&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;先解关于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b&lt;/code&gt;的式子 
-\(\begin{align*}
-2(mb-\sum_{i=1}^m(y_i-wx_i))=0 \\
-b^*=\frac{1}{m}\sum_{i=1}^m(y_i-wx_i)
-\end{align*}\)
-在计算关于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w&lt;/code&gt;的式子
-\(\begin{align*}
-2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i)=0 \\
-w\sum_{i=1}^mx_i^2=\sum_{i=1}^m(y_i-b)x_i \\
-w=\frac{\sum_{i=1}^m(y_i-b)x_i}{\sum_{i=1}^mx_i^2} 
-\end{align*}\)
-将上面求得的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b*&lt;/code&gt;带入即可求出&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w*&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;TO-DO-List 这里没推完&lt;/strong&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 05 Jun 2025 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2025-06-05-Chapter-3-Linear-model/</link>
-        <guid isPermaLink="true">http://localhost:4000/2025-06-05-Chapter-3-Linear-model/</guid>
-        
-        <category>机器学习</category>
-        
-        
-      </item>
-    
-      <item>
         <title>3小时急速入门前端开发</title>
         <description>&lt;h1 id=&quot;前端快速入门笔记&quot;&gt;前端快速入门笔记&lt;/h1&gt;
 
@@ -1749,6 +1654,265 @@ w=\frac{\sum_{i=1}^m(y_i-b)x_i}{\sum_{i=1}^mx_i^2}
         <guid isPermaLink="true">http://localhost:4000/2025-06-05-Web/</guid>
         
         <category>技术入门</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>链表高频题目</title>
+        <description>&lt;div style=&quot;top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;重点&lt;/div&gt;
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      &lt;a href=&quot;https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_034%20List%20Question&quot; target=&quot;_block&quot;&gt;参考实现&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;span style=&quot;color:red;font-size:30px&quot;&gt;链表题目并不是算法设计题，而是很经典的Coding能力考察！&lt;/span&gt;&lt;/p&gt;
+
+  &lt;p&gt;一般也是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;填函数风格&lt;/code&gt;而不会是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Acw&lt;/code&gt;&lt;/p&gt;
+
+  &lt;ul class=&quot;task-list&quot;&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/intersection-of-two-linked-lists/&quot;&gt;leetcode 160.相交链表 Easy&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/reverse-nodes-in-k-group/description/&quot;&gt;leetcode 25 K个一组反转链表 Hard&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/copy-list-with-random-pointer/description/&quot;&gt;leetcode 138.随机链表的复制 mid&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/palindrome-linked-list/description/&quot;&gt;leetcode 234回文链表 easy&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/linked-list-cycle-ii/description/&quot;&gt;leetcode 142环形链表II mid&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/sort-list/solutions/2993518/liang-chong-fang-fa-fen-zhi-die-dai-mo-k-caei/&quot;&gt;leetcode 148链表排序(思路mid,代码hard)&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;链表题的注意点&quot;&gt;链表题的注意点&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;空间要求不严格 使用容器实现即可&lt;/li&gt;
+  &lt;li&gt;空间要求严格  要求O(1)的空间复杂度&lt;/li&gt;
+  &lt;li&gt;最常用技巧-快慢指针&lt;/li&gt;
+  &lt;li&gt;本质不是算法设计能力而是coding能力&lt;/li&gt;
+  &lt;li&gt;链表需要多多训练才可以！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;提示&lt;/div&gt;
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
+      和链表相关的难题会在[拓展]约瑟夫环中涉及
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;经典题目&quot;&gt;经典题目&lt;/h3&gt;
+
+&lt;h4 id=&quot;question-1-两个链表相交的第一个节点&quot;&gt;Question 1 两个链表相交的第一个节点&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/intersection-of-two-linked-lists/&quot;&gt;leetcode 160.相交链表 Easy&lt;/a&gt;&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;最直观的想法，使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hashset&lt;/code&gt;遍历某一个链表一次，再遍历另一个链表一次，每次遍历都查询一次。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;这需要额外的容器，如果要求严格的空间复杂度则不对&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;算法思路&lt;/th&gt;
+      &lt;th&gt;解释&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604175209328.png&quot; alt=&quot;image-20250604175209328&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;对于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt;两个链表，若二者会相遇&lt;br /&gt;则必然最总会达到同一个节点，且我们发现&lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; 与 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt;的长度之差一定在第一次相遇之前&lt;br /&gt;故算法思路为&lt;br /&gt;- 长链表 - 长度之差 并往下遍历，直到相同&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;question-2-按组反转链表&quot;&gt;Question 2 按组反转链表&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/reverse-nodes-in-k-group/description/&quot;&gt;leetcode 25 K个一组反转链表 Hard&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这道题思路倒是不难，难的是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Coding&lt;/code&gt;实现的细节，如果不考虑$O(1)$的时间可以使用一个数组存入在进行反转，但考虑$O(1)$即进行原地反转需要考虑的细节就很多了。&lt;/p&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;重要&lt;/div&gt;
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;这道题思路不难难点在于如何写出不含bug的代码&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;算法图解&lt;/th&gt;
+      &lt;th&gt;解释&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604190719359.png&quot; alt=&quot;image-20250604190719359&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;假设k=2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604190816679.png&quot; alt=&quot;image-20250604190816679&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604190933920.png&quot; alt=&quot;image-20250604190933920&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;第一次操作的时候注意换头&lt;br /&gt;两个一组，单独反转&lt;br /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604191115086.png&quot; alt=&quot;image-20250604191115086&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/strong&gt;&lt;br /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604191327015.png&quot; alt=&quot;image-20250604191327015&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;特别注意，这一条红色的线最终是要指向&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604191439760.png&quot; alt=&quot;image-20250604191439760&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g&lt;/code&gt; 不足2不需要改变&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;question-3-复制带随机指针的链表&quot;&gt;Question 3 复制带随机指针的链表&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;测试链接&lt;a href=&quot;https://leetcode.cn/problems/copy-list-with-random-pointer/description/&quot;&gt;leetcode 138.随机链表的复制 mid&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这道题题意很简单，朴素思路也很简单。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash&lt;/code&gt;存储拷贝节点和原节点的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key-value&lt;/code&gt;关系，通过遍历原节点，查&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash&lt;/code&gt;的办法确定拷贝节点的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;指针的目标&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;不是用额外空间就需要一点技巧&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;算法图解&lt;/th&gt;
+          &lt;th&gt;讲解&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604202000373.png&quot; alt=&quot;image-20250604202000373&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt;指针为蓝色&lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;指针为绿色&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604202235646.png&quot; alt=&quot;image-20250604202235646&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+          &lt;td&gt;首先在每一个节点后面拷贝一个节点&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604202643657.png&quot; alt=&quot;image-20250604202643657&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+          &lt;td&gt;然后通过原来的节点的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;指针确定&lt;br /&gt;拷贝节点的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;指针&lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;copy-&amp;gt;random = original-&amp;gt;random-&amp;gt;next&lt;/code&gt;&lt;br /&gt;注意图中省去了原来的random指针，实际编码不可以改变&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;分离链表即可&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;question-4-判断链表是否存有回文结构&quot;&gt;Question 4 判断链表是否存有回文结构&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/palindrome-linked-list/description/&quot;&gt;leetcode 234回文链表 easy&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;简单思路：使用栈$O(N)$ ,读入读出一次即可判断&lt;/p&gt;
+
+&lt;p&gt;进阶思路：使用快慢指针&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;求中点&lt;/li&gt;
+  &lt;li&gt;逆序另一边的链表&lt;/li&gt;
+  &lt;li&gt;判断是否相同&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;算法图解&lt;/th&gt;
+      &lt;th&gt;解释&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604220043026.png&quot; alt=&quot;image-20250604220043026&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604220101353.png&quot; alt=&quot;image-20250604220101353&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604220155015.png&quot; alt=&quot;image-20250604220155015&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;设置快慢双指针&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt;表示满指针&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f&lt;/code&gt;表示快指针&lt;br /&gt;其中&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt;每次走一格,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f&lt;/code&gt;每次走两格&lt;br /&gt;当&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f&lt;/code&gt;为走不下去的时候&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt;为中点&lt;br /&gt;反转另一半链表，逐个比较就可以判断是否回文&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;重要&lt;/div&gt;
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;这道题思路不难,难点在于如何写出不含bug的代码&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;question-5-链表第一个入环节点&quot;&gt;Question 5 链表第一个入环节点&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/linked-list-cycle-ii/description/&quot;&gt;leetcode 142环形链表II mid&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这是一道比较经典的快慢双指针问题($O(1)$时间复杂度的解法)&lt;/p&gt;
+
+&lt;p&gt;本质是一道数学题&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;算法图解&lt;/th&gt;
+      &lt;th&gt;解释&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230109093.png&quot; alt=&quot;image-20250604230109093&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;设置快慢双指针&lt;br /&gt;快指针每次走两步&lt;br /&gt;慢指针每次走一步数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230120925.png&quot; alt=&quot;image-20250604230120925&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230145385.png&quot; alt=&quot;image-20250604230145385&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230223391.png&quot; alt=&quot;image-20250604230223391&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230244854.png&quot; alt=&quot;image-20250604230244854&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230309379.png&quot; alt=&quot;image-20250604230309379&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;快慢指针必然会相遇&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604231558111.png&quot; alt=&quot;image-20250604231558111&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;根据下方数学推到，从头节点和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slow&lt;/code&gt;&lt;br /&gt;此后&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slow&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p&lt;/code&gt;每次向前&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;一步&lt;/code&gt;，最终相遇的结点，比如是入环节点&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;数学推导&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://assets.leetcode-cn.com/solution-static/142/142_fig1.png&quot; alt=&quot;fig1&quot; style=&quot;zoom: 25%;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;假设环外部分距离为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a&lt;/code&gt; ,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slow&lt;/code&gt;指针进入环后走了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b&lt;/code&gt;与&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast&lt;/code&gt;指针相遇&lt;/li&gt;
+  &lt;li&gt;此时&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast&lt;/code&gt;指针走完了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;圈环&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast&lt;/code&gt;走过的总距离为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a+n(b+c)+b = a+(n+1)b+nc&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;由于任意时刻&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast&lt;/code&gt;走过的距离一定为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slow&lt;/code&gt;的两倍&lt;/li&gt;
+  &lt;li&gt;则有&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2a+2b = a+(n+1)b+nc&lt;/code&gt; 即 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a=c+(n-1)(b+c)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;question-6-链表排序&quot;&gt;Question 6 链表排序&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;测试链接&lt;a href=&quot;https://leetcode.cn/problems/sort-list/solutions/2993518/liang-chong-fang-fa-fen-zhi-die-dai-mo-k-caei/&quot;&gt;leetcode 148链表排序&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;可以使用额外辅助空间的解法就很多了，比如使用递归版本的归并，甚至直接sort都可以，但是如果要求$O(1)$的常数空间并$O(n\log{n})$的时间复杂度并保证稳定性呢？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;这个要求很明显只能用非递归版本的归并排序，具体算法图解看 1.2归并排序与归并分治&lt;/li&gt;
+  &lt;li&gt;但由于是链表，些这段代码还是非常折磨的！&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 05 Jun 2025 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2025-06-05-ListQuestions/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025-06-05-ListQuestions/</guid>
+        
+        <category>算法</category>
         
         
       </item>
