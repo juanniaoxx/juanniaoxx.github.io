@@ -47,8 +47,17 @@
     enable_page_level_ads: true
   });
 </script>
-
-<style>.markdown-alert{padding:.5rem 1rem;margin-bottom:1rem;color:inherit;border-left:.25em solid #30363d}.markdown-alert>:first-child{margin-top:0}.markdown-alert>:last-child{margin-bottom:0}.markdown-alert .markdown-alert-title{display:flex;font-weight:500;align-items:center;line-height:1}.markdown-alert svg{margin-right:.5rem!important}.markdown-alert svg path{fill:currentColor}.markdown-alert.markdown-alert-note{border-left-color:#4493f8}.markdown-alert.markdown-alert-note .markdown-alert-title{color:#4493f8}.markdown-alert.markdown-alert-important{border-left-color:#ab7df8}.markdown-alert.markdown-alert-important .markdown-alert-title{color:#ab7df8}.markdown-alert.markdown-alert-warning{border-left-color:#9e6a03}.markdown-alert.markdown-alert-warning .markdown-alert-title{color:#d29922}.markdown-alert.markdown-alert-tip{border-left-color:#238636}.markdown-alert.markdown-alert-tip .markdown-alert-title{color:#3fb950}.markdown-alert.markdown-alert-caution{border-left-color:#da3633}.markdown-alert.markdown-alert-caution .markdown-alert-title{color:#f85149}</style></head>
+<!-- Latex公式渲染 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+        }
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
 
 
   <body>
@@ -165,7 +174,7 @@
         <div class="content-wrapper__inner">
             <head>
   <link rel="stylesheet" href="/css/post.css">
-<style>.markdown-alert{padding:.5rem 1rem;margin-bottom:1rem;color:inherit;border-left:.25em solid #30363d}.markdown-alert>:first-child{margin-top:0}.markdown-alert>:last-child{margin-bottom:0}.markdown-alert .markdown-alert-title{display:flex;font-weight:500;align-items:center;line-height:1}.markdown-alert svg{margin-right:.5rem!important}.markdown-alert svg path{fill:currentColor}.markdown-alert.markdown-alert-note{border-left-color:#4493f8}.markdown-alert.markdown-alert-note .markdown-alert-title{color:#4493f8}.markdown-alert.markdown-alert-important{border-left-color:#ab7df8}.markdown-alert.markdown-alert-important .markdown-alert-title{color:#ab7df8}.markdown-alert.markdown-alert-warning{border-left-color:#9e6a03}.markdown-alert.markdown-alert-warning .markdown-alert-title{color:#d29922}.markdown-alert.markdown-alert-tip{border-left-color:#238636}.markdown-alert.markdown-alert-tip .markdown-alert-title{color:#3fb950}.markdown-alert.markdown-alert-caution{border-left-color:#da3633}.markdown-alert.markdown-alert-caution .markdown-alert-title{color:#f85149}</style></head>
+</head>
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -180,36 +189,16 @@
   </header>
 
   
-    <h2 class="post-title">目录</h2>
-    <ul>
-  <li><a href="#二叉树的基本概念">二叉树的基本概念</a></li>
-  <li><a href="#二叉树的层序遍历">二叉树的层序遍历</a></li>
-  <li><a href="#锯齿形层序遍历">锯齿形层序遍历</a></li>
-  <li><a href="#最大特殊宽度">最大特殊宽度</a></li>
-  <li><a href="#前序遍历的序列化和反序列化">前序遍历的序列化和反序列化</a></li>
-  <li><a href="#层序遍历的序列化和反序列化">层序遍历的序列化和反序列化</a></li>
-  <li><a href="#通过先序遍历和中序遍历复原二叉树">通过先序遍历和中序遍历复原二叉树</a></li>
-  <li><a href="#判断完全二叉树">判断完全二叉树</a></li>
-  <li><a href="#完全二叉树的节点个数">完全二叉树的节点个数</a></li>
-  <li><a href="#普通二叉树求lca问题">普通二叉树求LCA问题</a></li>
-</ul>
-
-  
 
   <section class="post">
     <div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
   <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question" target="_block">题目1-9参考实现</a>
       <br />
       <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question" target="_block">题目10-16参考实现</a>
   </div>
-
-
 </div>
-
 <p><br /></p>
 
 <blockquote>
@@ -224,10 +213,10 @@
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目7： <a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">先序遍历和中序遍历还原二叉树</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目8： <a href="https://leetcode.cn/problems/check-completeness-of-a-binary-tree/">判断完全二叉树</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目9： <a href="https://leetcode.cn/problems/count-complete-tree-nodes/">求完全二叉树节点个数</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目10: <a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/">普通二叉树上求解LCA</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目11：<a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/">搜索二叉树上求解LCA</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目12：<a href="https://leetcode.cn/problems/path-sum-ii/">收集累加和为<code class="language-plaintext highlighter-rouge">k</code>的所有路径</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目13：<a href="https://leetcode.cn/problems/balanced-binary-tree/">判断平衡二叉树</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目10: <a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/">普通二叉树上求解LCA</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目11：<a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/">搜索二叉树上求解LCA</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目12：<a href="https://leetcode.cn/problems/path-sum-ii/">收集累加和为<code class="language-plaintext highlighter-rouge">k</code>的所有路径</a></li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目13：<a href="https://leetcode.cn/problems/balanced-binary-tree/">判断平衡二叉树</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目14：<a href="https://leetcode.cn/problems/validate-binary-search-tree/">判断搜索二叉树</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目15：<a href="https://leetcode.cn/problems/trim-a-binary-search-tree/description/">修剪搜索二叉树</a></li>
     <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目16：<a href="https://leetcode.cn/problems/house-robber-iii/description/">二叉树上的打家劫舍问题</a></li>
@@ -240,8 +229,6 @@
 
 <div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
   <div style="padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;">基本概念</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <p>
       <p style="color : blue">深度与高度</p>
@@ -251,8 +238,6 @@
       但一般而言，说根节点的深度为0，叶子节点的高度为0。
       </p>
   </div>
-
-
 </div>
 
 <hr />
@@ -290,39 +275,26 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
     <p style="margin: 0;">对于算法竞赛或者面试一般不是用库自带的队列，而是用数组模拟队列，具体看[入门]阶段的课程。</p>
   </div>
-
-
 </div>
 
 <h3 id="锯齿形层序遍历">锯齿形层序遍历</h3>
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solidrgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/description/">leetcode 103.二叉树的锯齿形层序遍历</a>
   </div>
-
-
 </div>
-
 <p><br /></p>
 
 <div style=" top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
     <p style="margin: 0;">这道题和上一道题思路上一致，只是需要注意每轮左右子树的加入顺序要交替</p>
   </div>
-
-
 </div>
 
 <p>方法一：完全按照上题的做法，只是在读入答案的时候判断一下是从左往右的读还是从右往左读，如果是从右往左读，就反转一下<code class="language-plaintext highlighter-rouge">list</code>数组，其他什么都不需要改</p>
@@ -358,8 +330,6 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/">leetcode297.二叉树的序列化和反序列化</a>
       <br />
@@ -370,8 +340,6 @@
           二叉树的前序和后序都可以完成序列化但中序并不能唯一确定！
       </p>
   </div>
-
-
 </div>
 
 <p>操作倒是简单这道题感觉不是算法题是<code class="language-plaintext highlighter-rouge">coding</code>能力测试题</p>
@@ -408,11 +376,7 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">技巧</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">可以使用 istringstream类型把字符串转化为流输出，进而可以用&gt;&gt;直接过滤空格</div>
-
-
 </div>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 感觉这道题考语法？</span>
@@ -449,13 +413,9 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/">leetcode297.二叉树的序列化和反序列化</a>
   </div>
-
-
 </div>
 
 <hr />
@@ -464,13 +424,9 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">leetcode105.从前序遍历与中序遍历构造二叉树</a>
   </div>
-
-
 </div>
 
 <p>这个题的知识点倒是考研经常会考的:joy:</p>
@@ -489,8 +445,6 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;">额外</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <p>
           还有两个类似的题目，但要注意如果单纯通过前序和后序是无法唯一还原二叉树的！
@@ -499,8 +453,6 @@
       <br />
      <a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/description/">leetcode889.根据前序遍历和后序遍历复原二叉树</a>
   </div>
-
-
 </div>
 
 <table>
@@ -528,11 +480,7 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">技巧</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">这里找对应节点的时候可以用哈希表</div>
-
-
 </div>
 
 <hr />
@@ -541,13 +489,9 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <a href="https://leetcode.cn/problems/check-completeness-of-a-binary-tree/description/">leetcode958.二叉树完全性的验证</a>
   </div>
-
-
 </div>
 
 <p><strong>算法步骤</strong></p>
@@ -569,13 +513,9 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solidrgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <a href="https://leetcode.cn/problems/count-complete-tree-nodes/description/">leetcode222.完全二叉树的节点个数</a>
   </div>
-
-
 </div>
 
 <p>如果不考虑任何特性，遍历一边二叉树经过O(N) 的时间就能获得答案，所以这道题的难度为<code class="language-plaintext highlighter-rouge">Easy</code>。但人肯定还是得有点追求的啦，如何在<code class="language-plaintext highlighter-rouge">&lt; O(N)</code>的时间内获得节点数目呢？</p>
@@ -610,9 +550,7 @@
 <h3 id="普通二叉树求lca问题">普通二叉树求LCA问题</h3>
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引用</div>
-
-
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <p style="color : blue">
           LCA问题(Lowest Common Ancestor， 最近公共祖先)
@@ -622,9 +560,192 @@
           其中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
       </p>
   </div>
-
-
 </div>
+
+<p>分类讨论</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">p</code>或者<code class="language-plaintext highlighter-rouge">q</code>包含于另一颗树中
+    <ul>
+      <li>则为<code class="language-plaintext highlighter-rouge">p</code>或者<code class="language-plaintext highlighter-rouge">q</code> （父节点）</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">p</code>和<code class="language-plaintext highlighter-rouge">q</code>分属于两颗树</li>
+</ul>
+
+<p>这道题看答案确实很好理解，但自己想可能就要费老鼻子力气了….</p>
+
+<p>算法思路</p>
+
+<ul>
+  <li>如果当前节点是<code class="language-plaintext highlighter-rouge">p</code>或者<code class="language-plaintext highlighter-rouge">q</code>或者<code class="language-plaintext highlighter-rouge">空</code> 则返回该节点</li>
+  <li>否则递归遍历该节点的左右子树</li>
+  <li>如果左子树返回了<code class="language-plaintext highlighter-rouge">nullpter</code>，则返回右子树的结果</li>
+  <li>反正若右子树返回了<code class="language-plaintext highlighter-rouge">nullpter</code>则返回左子树的结果</li>
+  <li>如果都非空则当前节点是<code class="language-plaintext highlighter-rouge">p、q</code>的最近公共祖先</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 如果找到p、q或者节点为空则返回</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">nullptr</span> <span class="o">||</span> <span class="n">root</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">root</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span> <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+        <span class="c1">// 左树遍历结果</span>
+        <span class="n">TreeNode</span> <span class="o">*</span><span class="n">l</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span> 
+        <span class="c1">// 右树遍历结果</span>
+        <span class="n">TreeNode</span> <span class="o">*</span><span class="n">r</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>
+		
+        <span class="c1">// 左右子树各有p或者q，则当前节点为公共祖先</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">!=</span> <span class="nb">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">!=</span> <span class="nb">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+        <span class="c1">// 左右子树都没找到，返回空</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="nb">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">r</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+        <span class="c1">// 否则，返回p或者q对应情况1</span>
+        <span class="k">return</span> <span class="n">l</span> <span class="o">!=</span> <span class="nb">nullptr</span> <span class="o">?</span> <span class="n">l</span> <span class="o">:</span> <span class="n">r</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="搜索二叉树的lca问题">搜索二叉树的LCA问题</h3>
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p style="color : blue">
+          搜索二叉树
+          <br />
+      </p>
+      <p>
+          平衡二叉树 中序遍历有序的树
+      </p>
+  </div>
+</div>
+
+<p>和上一道题一样，但这里可以利用其左子树&lt;根节点&lt;右子树的特性，一次筛选出不少点。</p>
+
+<ul>
+  <li>如果<code class="language-plaintext highlighter-rouge">root == p</code>或者<code class="language-plaintext highlighter-rouge">root == q</code>则直接就是答案</li>
+  <li>如果<code class="language-plaintext highlighter-rouge">root.val &gt; max(p.val, q.val)</code> <code class="language-plaintext highlighter-rouge">p和q</code>必然位于<code class="language-plaintext highlighter-rouge">root-&gt;left</code>中</li>
+  <li>如果<code class="language-plaintext highlighter-rouge">root.val &lt; min(p.val, q.val)</code> <code class="language-plaintext highlighter-rouge">p和q</code>必然位于<code class="language-plaintext highlighter-rouge">root-&gt;right</code>中</li>
+  <li>如果<code class="language-plaintext highlighter-rouge">root.val</code>位于<code class="language-plaintext highlighter-rouge">p.val</code>和<code class="language-plaintext highlighter-rouge">q.val</code>直接，则直接返回<code class="language-plaintext highlighter-rouge">root</code>为答案</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">!=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">!=</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">))</span> <span class="k">break</span><span class="p">;</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">min</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="o">?</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">:</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="收集路径和为k的路径">收集路径和为k的路径</h3>
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">技巧</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">递归回溯要注意还原现场</div>
+</div>
+
+<p>题目</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">pathSum</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">targetSum</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="p">{};</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">targetSum</span><span class="p">;</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">path</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">target</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">TreeNode</span> <span class="o">*</span><span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">path</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span> <span class="c1">// 将当前节点加入路径</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="nb">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">sum</span> <span class="o">+</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">path</span><span class="p">);</span> <span class="c1">// 找到一条路径，加入答案</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">!=</span> <span class="nb">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span> <span class="c1">// 递归左子树</span>
+            <span class="n">path</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">!=</span> <span class="nb">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span> <span class="c1">// 递归右子树</span>
+            <span class="n">path</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="判断一个树是否为平衡二叉树">判断一个树是否为平衡二叉树</h3>
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p style="color : blue">
+          平衡二叉树
+          <br />
+      </p>
+      <p>
+          平衡二叉树 是指该树所有节点的左右子树的高度相差不超过 1。
+      </p>
+  </div>
+</div>
+
+<p>判断还是蛮简单的，只需要递归计算子树的高度即可。看代码就可以看懂！</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">bool</span> <span class="n">isBalanced</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">hight</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">balance</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="nf">hight</span><span class="p">(</span><span class="n">TreeNode</span> <span class="o">*</span><span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 如果已经不平衡直接返回</span>
+        <span class="c1">// 空节点返回0</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">balance</span> <span class="o">||</span> <span class="n">root</span> <span class="o">==</span> <span class="nb">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="c1">// 递归计算左子树的高度</span>
+        <span class="kt">int</span> <span class="n">l_size</span> <span class="o">=</span> <span class="n">hight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+        <span class="c1">// 递归计算右子树的高度</span>
+        <span class="kt">int</span> <span class="n">r_size</span> <span class="o">=</span> <span class="n">hight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+
+        <span class="c1">// 判断左右子树的高度差</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">l_size</span> <span class="o">-</span> <span class="n">r_size</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">balance</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="c1">// 返回树的高度</span>
+        <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="n">l_size</span><span class="p">,</span> <span class="n">r_size</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="判断一个树是否为搜索二叉树">判断一个树是否为搜索二叉树</h3>
+
+<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
+      <p style="color : blue">
+          搜索二叉树
+          <br />
+      </p>
+      <p>
+          平衡二叉树 中序遍历有序的树
+      </p>
+  </div>
+</div>
+
+<p>方法一：利用搜索二叉树 — 中序遍历有序的特性</p>
 
 
   </section>

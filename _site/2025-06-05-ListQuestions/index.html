@@ -47,8 +47,17 @@
     enable_page_level_ads: true
   });
 </script>
-
-<style>.markdown-alert{padding:.5rem 1rem;margin-bottom:1rem;color:inherit;border-left:.25em solid #30363d}.markdown-alert>:first-child{margin-top:0}.markdown-alert>:last-child{margin-bottom:0}.markdown-alert .markdown-alert-title{display:flex;font-weight:500;align-items:center;line-height:1}.markdown-alert svg{margin-right:.5rem!important}.markdown-alert svg path{fill:currentColor}.markdown-alert.markdown-alert-note{border-left-color:#4493f8}.markdown-alert.markdown-alert-note .markdown-alert-title{color:#4493f8}.markdown-alert.markdown-alert-important{border-left-color:#ab7df8}.markdown-alert.markdown-alert-important .markdown-alert-title{color:#ab7df8}.markdown-alert.markdown-alert-warning{border-left-color:#9e6a03}.markdown-alert.markdown-alert-warning .markdown-alert-title{color:#d29922}.markdown-alert.markdown-alert-tip{border-left-color:#238636}.markdown-alert.markdown-alert-tip .markdown-alert-title{color:#3fb950}.markdown-alert.markdown-alert-caution{border-left-color:#da3633}.markdown-alert.markdown-alert-caution .markdown-alert-title{color:#f85149}</style></head>
+<!-- Latex公式渲染 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+        }
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
 
 
   <body>
@@ -165,7 +174,7 @@
         <div class="content-wrapper__inner">
             <head>
   <link rel="stylesheet" href="/css/post.css">
-<style>.markdown-alert{padding:.5rem 1rem;margin-bottom:1rem;color:inherit;border-left:.25em solid #30363d}.markdown-alert>:first-child{margin-top:0}.markdown-alert>:last-child{margin-bottom:0}.markdown-alert .markdown-alert-title{display:flex;font-weight:500;align-items:center;line-height:1}.markdown-alert svg{margin-right:.5rem!important}.markdown-alert svg path{fill:currentColor}.markdown-alert.markdown-alert-note{border-left-color:#4493f8}.markdown-alert.markdown-alert-note .markdown-alert-title{color:#4493f8}.markdown-alert.markdown-alert-important{border-left-color:#ab7df8}.markdown-alert.markdown-alert-important .markdown-alert-title{color:#ab7df8}.markdown-alert.markdown-alert-warning{border-left-color:#9e6a03}.markdown-alert.markdown-alert-warning .markdown-alert-title{color:#d29922}.markdown-alert.markdown-alert-tip{border-left-color:#238636}.markdown-alert.markdown-alert-tip .markdown-alert-title{color:#3fb950}.markdown-alert.markdown-alert-caution{border-left-color:#da3633}.markdown-alert.markdown-alert-caution .markdown-alert-title{color:#f85149}</style></head>
+</head>
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -180,35 +189,14 @@
   </header>
 
   
-    <h2 class="post-title">目录</h2>
-    <ul>
-  <li><a href="#链表题的注意点">链表题的注意点</a></li>
-  <li><a href="#经典题目">经典题目</a>
-    <ul>
-      <li><a href="#question-1-两个链表相交的第一个节点">Question 1 两个链表相交的第一个节点</a></li>
-      <li><a href="#question-2-按组反转链表">Question 2 按组反转链表</a></li>
-      <li><a href="#question-3-复制带随机指针的链表">Question 3 复制带随机指针的链表</a></li>
-      <li><a href="#question-4-判断链表是否存有回文结构">Question 4 判断链表是否存有回文结构</a></li>
-      <li><a href="#question-5-链表第一个入环节点">Question 5 链表第一个入环节点</a></li>
-      <li><a href="#question-6-链表排序">Question 6 链表排序</a></li>
-    </ul>
-  </li>
-</ul>
-
-  
 
   <section class="post">
     <div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
   <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_034%20List%20Question" target="_block">参考实现</a>
   </div>
-
-
 </div>
-
 <p><br /></p>
 <blockquote>
   <p><span style="color:red;font-size:30px">链表题目并不是算法设计题，而是很经典的Coding能力考察！</span></p>
@@ -237,13 +225,9 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
       和链表相关的难题会在[拓展]约瑟夫环中涉及
   </div>
-
-
 </div>
 
 <h3 id="经典题目">经典题目</h3>
@@ -286,11 +270,7 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">重要</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">这道题思路不难难点在于如何写出不含bug的代码</div>
-
-
 </div>
 
 <table>
@@ -397,11 +377,7 @@
 
 <div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">重要</div>
-
-
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">这道题思路不难,难点在于如何写出不含bug的代码</div>
-
-
 </div>
 
 <h4 id="question-5-链表第一个入环节点">Question 5 链表第一个入环节点</h4>
