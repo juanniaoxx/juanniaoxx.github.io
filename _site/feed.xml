@@ -5,8 +5,8 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 09 Jun 2025 22:22:31 +0800</pubDate>
-    <lastBuildDate>Mon, 09 Jun 2025 22:22:31 +0800</lastBuildDate>
+    <pubDate>Tue, 10 Jun 2025 15:32:23 +0800</pubDate>
+    <lastBuildDate>Tue, 10 Jun 2025 15:32:23 +0800</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
@@ -63,6 +63,36 @@
         <category>编程语言</category>
         
         <category>C++</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>天字第一号技巧-通过数据量推测解法</title>
+        <description>
+</description>
+        <pubDate>Mon, 09 Jun 2025 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2025-06-09-Infer-by-data/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025-06-09-Infer-by-data/</guid>
+        
+        <category>编程语言</category>
+        
+        <category>算法</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>前缀树（字典树）</title>
+        <description>
+</description>
+        <pubDate>Mon, 09 Jun 2025 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2025-06-09-Trie-Tree/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025-06-09-Trie-Tree/</guid>
+        
+        <category>编程语言</category>
+        
+        <category>算法</category>
         
         
       </item>
@@ -1250,6 +1280,101 @@
       </item>
     
       <item>
+        <title>西瓜书 第三章：线性模型</title>
+        <description>&lt;h1 id=&quot;chapter-3-线性模型&quot;&gt;Chapter 3 线性模型&lt;/h1&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;⚠️ 重要&lt;/div&gt;
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;线性模型的基本样式与向量形式&lt;/div&gt;
+&lt;/div&gt;
+
+\[\begin{align*}
+\text{基本形式} &amp;amp;: f(\textbf{x})=w_1x_1+w_2x_2+\dots+w_dx_d+b \\
+\text{向量形式} &amp;amp;: f(\textbf{x})=\textbf{w}^{T}\textbf{x}+b
+\end{align*}\]
+
+&lt;h3 id=&quot;线性回归linear-regression&quot;&gt;线性回归(Linear regression)&lt;/h3&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;⚠️ 重要&lt;/div&gt;
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;线性回归的目的为试图学习一个线性模型以尽可能准确地预测实际值的输出&lt;/div&gt;
+&lt;/div&gt;
+
+\[f(x_i)=wx_i+b\ \ 使得f(x_i)\approx y_i\]
+
+&lt;div style=&quot;top: 10px; left: 10px; background: #f5f9fe; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db;&quot;&gt;🧠 求解模型&lt;/div&gt;
+    &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;基于均方误差最小化求解模型的方法称为最小二乘法&lt;/div&gt;
+&lt;/div&gt;
+
+\[\begin{align*}
+(w^*,b^*) &amp;amp;=\arg_{(w,b)}\min\sum_{i=1}^m(f(x_i)-y_i)^2 \\
+ &amp;amp;=\arg_{(w,b)}\min\sum_{i=1}^m(y_i-wx_i-b)^2 \\
+\end{align*}\]
+
+&lt;p&gt;均方根误差的几何意义：&lt;strong&gt;对应了常用的欧几里德距离&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div style=&quot;top: 10px; left: 10px; background: #f9f0ff; border-left: 4px solid #9b59b6; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #9b59b6;&quot;&gt;🔄 凸函数的差异&lt;/div&gt;
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;这本书采用的凸函数定义与同济定义的凸函数相反，x^2为凸函数而非凹函数&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;参数估计&lt;/strong&gt;:求解参数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w*&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b*&lt;/code&gt;使得$\sum_{i=1}^m(y_i - w x_i - b)^2$最小，其过程如下&lt;/p&gt;
+
+\[\begin{align*}
+\frac{\partial{E}_{(w,b)}}{\partial{w}}=2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i) \\
+\frac{\partial{E}_{(w,b)}}{\partial{b}}=2(mb-\sum_{i=1}^m(y_i-wx_i))
+\end{align*}\]
+
+&lt;div style=&quot;top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;&quot;&gt;
+  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;⚠️ 重要&lt;/div&gt;
+  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;凸函数的局部最优解&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;函数 $f: \mathbb{R}^n \to \mathbb{R}$是凸函数，如果对任意 $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n $ 和 $ \theta \in [0, 1] $，满足：
+\(\begin{align*}
+f(\theta \mathbf{x} + (1-\theta) \mathbf{y}) \leq \theta f(\mathbf{x}) + (1-\theta) f(\mathbf{y})
+\end{align*}\)
+直观上，连接函数图像上任意两点的线段位于函数图像上方。&lt;/p&gt;
+
+&lt;p&gt;若$f$可微，则$f$是凸函数的充要条件是：
+\(\begin{align*}
+f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^\top (\mathbf{y} - \mathbf{x}), \quad \forall \mathbf{x}, \mathbf{y}.
+\end{align*}\)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;非凸函数&lt;/strong&gt;：梯度为零可能是鞍点或局部极值（如 $f(x) = x^3$ 在 $x=0$ 处）。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;严格凸函数&lt;/strong&gt;：若 $f$ 严格凸，梯度为零的点是唯一的全局最小值。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基于上述理论，求解参数$w^&lt;em&gt;$和$b^&lt;/em&gt;$只需要令上面的式子为零即可—-&amp;gt; &lt;strong&gt;最优解的闭式(closed-form)解&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先解关于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b&lt;/code&gt;的式子 
+\(\begin{align*}
+2(mb-\sum_{i=1}^m(y_i-wx_i))=0 \\
+b^*=\frac{1}{m}\sum_{i=1}^m(y_i-wx_i)
+\end{align*}\)
+在计算关于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w&lt;/code&gt;的式子
+\(\begin{align*}
+2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i)=0 \\
+w\sum_{i=1}^mx_i^2=\sum_{i=1}^m(y_i-b)x_i \\
+w=\frac{\sum_{i=1}^m(y_i-b)x_i}{\sum_{i=1}^mx_i^2} 
+\end{align*}\)
+将上面求得的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b*&lt;/code&gt;带入即可求出&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TO-DO-List 这里没推完&lt;/strong&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 05 Jun 2025 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2025-06-05-Chapter-3-Linear-model/</link>
+        <guid isPermaLink="true">http://localhost:4000/2025-06-05-Chapter-3-Linear-model/</guid>
+        
+        <category>机器学习</category>
+        
+        
+      </item>
+    
+      <item>
         <title>3小时急速入门前端开发</title>
         <description>&lt;h1 id=&quot;前端快速入门笔记&quot;&gt;前端快速入门笔记&lt;/h1&gt;
 
@@ -1624,942 +1749,6 @@
         <guid isPermaLink="true">http://localhost:4000/2025-06-05-Web/</guid>
         
         <category>技术入门</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>链表高频题目</title>
-        <description>&lt;div style=&quot;top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;重点&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_034%20List%20Question&quot; target=&quot;_block&quot;&gt;参考实现&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;span style=&quot;color:red;font-size:30px&quot;&gt;链表题目并不是算法设计题，而是很经典的Coding能力考察！&lt;/span&gt;&lt;/p&gt;
-
-  &lt;p&gt;一般也是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;填函数风格&lt;/code&gt;而不会是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Acw&lt;/code&gt;&lt;/p&gt;
-
-  &lt;ul class=&quot;task-list&quot;&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/intersection-of-two-linked-lists/&quot;&gt;leetcode 160.相交链表 Easy&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/reverse-nodes-in-k-group/description/&quot;&gt;leetcode 25 K个一组反转链表 Hard&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/copy-list-with-random-pointer/description/&quot;&gt;leetcode 138.随机链表的复制 mid&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/palindrome-linked-list/description/&quot;&gt;leetcode 234回文链表 easy&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/linked-list-cycle-ii/description/&quot;&gt;leetcode 142环形链表II mid&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;&lt;a href=&quot;https://leetcode.cn/problems/sort-list/solutions/2993518/liang-chong-fang-fa-fen-zhi-die-dai-mo-k-caei/&quot;&gt;leetcode 148链表排序(思路mid,代码hard)&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;链表题的注意点&quot;&gt;链表题的注意点&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;空间要求不严格 使用容器实现即可&lt;/li&gt;
-  &lt;li&gt;空间要求严格  要求O(1)的空间复杂度&lt;/li&gt;
-  &lt;li&gt;最常用技巧-快慢指针&lt;/li&gt;
-  &lt;li&gt;本质不是算法设计能力而是coding能力&lt;/li&gt;
-  &lt;li&gt;链表需要多多训练才可以！&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;提示&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      和链表相关的难题会在[拓展]约瑟夫环中涉及
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;经典题目&quot;&gt;经典题目&lt;/h3&gt;
-
-&lt;h4 id=&quot;question-1-两个链表相交的第一个节点&quot;&gt;Question 1 两个链表相交的第一个节点&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/intersection-of-two-linked-lists/&quot;&gt;leetcode 160.相交链表 Easy&lt;/a&gt;&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;最直观的想法，使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hashset&lt;/code&gt;遍历某一个链表一次，再遍历另一个链表一次，每次遍历都查询一次。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;这需要额外的容器，如果要求严格的空间复杂度则不对&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;算法思路&lt;/th&gt;
-      &lt;th&gt;解释&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604175209328.png&quot; alt=&quot;image-20250604175209328&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;对于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt;两个链表，若二者会相遇&lt;br /&gt;则必然最总会达到同一个节点，且我们发现&lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; 与 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt;的长度之差一定在第一次相遇之前&lt;br /&gt;故算法思路为&lt;br /&gt;- 长链表 - 长度之差 并往下遍历，直到相同&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;question-2-按组反转链表&quot;&gt;Question 2 按组反转链表&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/reverse-nodes-in-k-group/description/&quot;&gt;leetcode 25 K个一组反转链表 Hard&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这道题思路倒是不难，难的是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Coding&lt;/code&gt;实现的细节，如果不考虑$O(1)$的时间可以使用一个数组存入在进行反转，但考虑$O(1)$即进行原地反转需要考虑的细节就很多了。&lt;/p&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;重要&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;这道题思路不难难点在于如何写出不含bug的代码&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;算法图解&lt;/th&gt;
-      &lt;th&gt;解释&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604190719359.png&quot; alt=&quot;image-20250604190719359&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;假设k=2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604190816679.png&quot; alt=&quot;image-20250604190816679&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604190933920.png&quot; alt=&quot;image-20250604190933920&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;第一次操作的时候注意换头&lt;br /&gt;两个一组，单独反转&lt;br /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604191115086.png&quot; alt=&quot;image-20250604191115086&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/strong&gt;&lt;br /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604191327015.png&quot; alt=&quot;image-20250604191327015&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;特别注意，这一条红色的线最终是要指向&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604191439760.png&quot; alt=&quot;image-20250604191439760&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g&lt;/code&gt; 不足2不需要改变&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;question-3-复制带随机指针的链表&quot;&gt;Question 3 复制带随机指针的链表&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接&lt;a href=&quot;https://leetcode.cn/problems/copy-list-with-random-pointer/description/&quot;&gt;leetcode 138.随机链表的复制 mid&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这道题题意很简单，朴素思路也很简单。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash&lt;/code&gt;存储拷贝节点和原节点的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key-value&lt;/code&gt;关系，通过遍历原节点，查&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash&lt;/code&gt;的办法确定拷贝节点的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;指针的目标&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;不是用额外空间就需要一点技巧&lt;/p&gt;
-
-    &lt;table&gt;
-      &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;算法图解&lt;/th&gt;
-          &lt;th&gt;讲解&lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604202000373.png&quot; alt=&quot;image-20250604202000373&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt;指针为蓝色&lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;指针为绿色&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604202235646.png&quot; alt=&quot;image-20250604202235646&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-          &lt;td&gt;首先在每一个节点后面拷贝一个节点&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604202643657.png&quot; alt=&quot;image-20250604202643657&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-          &lt;td&gt;然后通过原来的节点的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;指针确定&lt;br /&gt;拷贝节点的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;指针&lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;copy-&amp;gt;random = original-&amp;gt;random-&amp;gt;next&lt;/code&gt;&lt;br /&gt;注意图中省去了原来的random指针，实际编码不可以改变&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;分离链表即可&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;question-4-判断链表是否存有回文结构&quot;&gt;Question 4 判断链表是否存有回文结构&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/palindrome-linked-list/description/&quot;&gt;leetcode 234回文链表 easy&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;简单思路：使用栈$O(N)$ ,读入读出一次即可判断&lt;/p&gt;
-
-&lt;p&gt;进阶思路：使用快慢指针&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;求中点&lt;/li&gt;
-  &lt;li&gt;逆序另一边的链表&lt;/li&gt;
-  &lt;li&gt;判断是否相同&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;算法图解&lt;/th&gt;
-      &lt;th&gt;解释&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604220043026.png&quot; alt=&quot;image-20250604220043026&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604220101353.png&quot; alt=&quot;image-20250604220101353&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604220155015.png&quot; alt=&quot;image-20250604220155015&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;设置快慢双指针&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt;表示满指针&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f&lt;/code&gt;表示快指针&lt;br /&gt;其中&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt;每次走一格,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f&lt;/code&gt;每次走两格&lt;br /&gt;当&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f&lt;/code&gt;为走不下去的时候&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;s&lt;/code&gt;为中点&lt;br /&gt;反转另一半链表，逐个比较就可以判断是否回文&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;重要&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;这道题思路不难,难点在于如何写出不含bug的代码&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;question-5-链表第一个入环节点&quot;&gt;Question 5 链表第一个入环节点&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/linked-list-cycle-ii/description/&quot;&gt;leetcode 142环形链表II mid&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这是一道比较经典的快慢双指针问题($O(1)$时间复杂度的解法)&lt;/p&gt;
-
-&lt;p&gt;本质是一道数学题&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;算法图解&lt;/th&gt;
-      &lt;th&gt;解释&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230109093.png&quot; alt=&quot;image-20250604230109093&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;设置快慢双指针&lt;br /&gt;快指针每次走两步&lt;br /&gt;慢指针每次走一步数&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230120925.png&quot; alt=&quot;image-20250604230120925&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230145385.png&quot; alt=&quot;image-20250604230145385&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230223391.png&quot; alt=&quot;image-20250604230223391&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230244854.png&quot; alt=&quot;image-20250604230244854&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604230309379.png&quot; alt=&quot;image-20250604230309379&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;快慢指针必然会相遇&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/posts/Algorithm/image-20250604231558111.png&quot; alt=&quot;image-20250604231558111&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;根据下方数学推到，从头节点和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slow&lt;/code&gt;&lt;br /&gt;此后&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slow&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p&lt;/code&gt;每次向前&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;一步&lt;/code&gt;，最终相遇的结点，比如是入环节点&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;数学推导&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://assets.leetcode-cn.com/solution-static/142/142_fig1.png&quot; alt=&quot;fig1&quot; style=&quot;zoom: 25%;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;假设环外部分距离为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a&lt;/code&gt; ,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slow&lt;/code&gt;指针进入环后走了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b&lt;/code&gt;与&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast&lt;/code&gt;指针相遇&lt;/li&gt;
-  &lt;li&gt;此时&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast&lt;/code&gt;指针走完了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;圈环&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast&lt;/code&gt;走过的总距离为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a+n(b+c)+b = a+(n+1)b+nc&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;由于任意时刻&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast&lt;/code&gt;走过的距离一定为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slow&lt;/code&gt;的两倍&lt;/li&gt;
-  &lt;li&gt;则有&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2a+2b = a+(n+1)b+nc&lt;/code&gt; 即 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a=c+(n-1)(b+c)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;question-6-链表排序&quot;&gt;Question 6 链表排序&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接&lt;a href=&quot;https://leetcode.cn/problems/sort-list/solutions/2993518/liang-chong-fang-fa-fen-zhi-die-dai-mo-k-caei/&quot;&gt;leetcode 148链表排序&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;可以使用额外辅助空间的解法就很多了，比如使用递归版本的归并，甚至直接sort都可以，但是如果要求$O(1)$的常数空间并$O(n\log{n})$的时间复杂度并保证稳定性呢？&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;这个要求很明显只能用非递归版本的归并排序，具体算法图解看 1.2归并排序与归并分治&lt;/li&gt;
-  &lt;li&gt;但由于是链表，些这段代码还是非常折磨的！&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Thu, 05 Jun 2025 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2025-06-05-ListQuestions/</link>
-        <guid isPermaLink="true">http://localhost:4000/2025-06-05-ListQuestions/</guid>
-        
-        <category>算法</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>数据结构设计习题</title>
-        <description>&lt;div style=&quot;top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;重点&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_035%20Date%20Structure%20Design%20Question&quot; target=&quot;_block&quot;&gt;参考实现&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;主要内容&lt;/p&gt;
-
-  &lt;ul class=&quot;task-list&quot;&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目1: &lt;a href=&quot;https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAll&lt;/code&gt;功能的哈希表&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目2: &lt;a href=&quot;https://leetcode.cn/problems/lru-cache/&quot;&gt;实现&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LRU&lt;/code&gt;结构&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目3: &lt;a href=&quot;https://leetcode.cn/problems/insert-delete-getrandom-o1/&quot;&gt;插删随$O(1)$的结构&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目4: &lt;a href=&quot;https://leetcode.cn/problems/insert-delete-getrandom-o1-duplicates-allowed/description/&quot;&gt;插删随$O(1)$的结构加强版&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目5: &lt;a href=&quot;https://leetcode.cn/problems/find-median-from-data-stream/&quot;&gt;快速获得数据流的中位数 &lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目6: &lt;a href=&quot;https://leetcode.cn/problems/maximum-frequency-stack/&quot;&gt;最大频率栈&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目7: &lt;a href=&quot;https://leetcode.cn/problems/all-oone-data-structure/&quot;&gt;全是O(1)的结构&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;setall功能的哈希表&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAll&lt;/code&gt;功能的哈希表&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接 &lt;a href=&quot;https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967&quot;&gt;牛客. 设计有&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAll&lt;/code&gt;功能的哈希表&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;提示:C++选手若有需要可以使用unordered_map替换map来将复杂度从O(log n)降为O(1)&lt;/p&gt;
-
-&lt;p&gt;设计思路&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key-value&lt;/code&gt;改成&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key - pair&amp;lt;value, time&amp;gt;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;设置三个全局变量&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAllTime&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAllValue&lt;/code&gt; 与 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cnt&lt;/code&gt;&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;每次加入加入一对&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key-value&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cnt++&lt;/code&gt; ,并且将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time = cnt&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;每次执行&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAll&lt;/code&gt;的时候设置&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAllTime = cnt&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAllValue = 要修改的值&lt;/code&gt; ,并且&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cnt++&lt;/code&gt;
-        &lt;ul&gt;
-          &lt;li&gt;注意，这一步并不会修改&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key-value&lt;/code&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;执行&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get()&lt;/code&gt;操作的时候，检查&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time&lt;/code&gt;与&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setAllTime&lt;/code&gt;若&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time &amp;lt; setAllTime&lt;/code&gt;则修改&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;value = setAllvalue&lt;/code&gt;否则直接获得值&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;实现lru结构&quot;&gt;实现&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LRU&lt;/code&gt;结构&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接 &lt;a href=&quot;https://leetcode.cn/problems/lru-cache/&quot;&gt;leetcode 146.&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LRU&lt;/code&gt;缓存 mid&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;设计思路&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;双向链表 + 哈希表&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/2025-6-5-DateStrucutreDesign/image-20250605142733342.png&quot; alt=&quot;image-20250605142733342&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;插入&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key-value&lt;/code&gt;的时候创建一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;双向链表节点&lt;/code&gt; ,并且&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;value&lt;/code&gt;为指向该节点的指针&lt;/li&gt;
-  &lt;li&gt;利用全局指针&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;head&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tail&lt;/code&gt;定位链表的头节点和尾节点&lt;/li&gt;
-  &lt;li&gt;每次添加、修改、查询时候将对应节点移动到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tail&lt;/code&gt;的后面，并让&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tail&lt;/code&gt;指向该节点
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tail&lt;/code&gt;指向的永远是最新被操作的数据&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;head&lt;/code&gt;指向永远是最最旧未被使用的数据&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;容量不够的时候，释放&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;head&lt;/code&gt;对应的节点，并移动&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;head = head-&amp;gt;next&lt;/code&gt;,同时去除哈希表中&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k-v&lt;/code&gt;对&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;o1时间插入删除和获取随机元素&quot;&gt;O(1)时间插入、删除和获取随机元素&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;测试链接： &lt;a href=&quot;https://leetcode.cn/problems/insert-delete-getrandom-o1/&quot;&gt;leetcode 380. O(1) 时间插入、删除和获取随机元素&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;设计思路&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;肯定会有一个哈希表，同时申请一个动态数组(vector)存输入的数据
-    &lt;ul&gt;
-      &lt;li&gt;哈希表为了去重&lt;/li&gt;
-      &lt;li&gt;动态数组为了random操作&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;考虑&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;remove&lt;/code&gt;操作，如果仅仅是删除哈希表的记录，而不对数组进行任何处理，空余的位置将会越来越多从而十分影响&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random&lt;/code&gt;操作
-    &lt;ul&gt;
-      &lt;li&gt;解决办法：使用最后一个元素覆盖被&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;remove&lt;/code&gt;的元素，同时更新哈希表记录即可&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Thu, 05 Jun 2025 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2025-06-05-DateStrucutreDesign/</link>
-        <guid isPermaLink="true">http://localhost:4000/2025-06-05-DateStrucutreDesign/</guid>
-        
-        <category>算法</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>二叉树（不含树型bp）的经典习题</title>
-        <description>&lt;div style=&quot;top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;重点&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question&quot; target=&quot;_block&quot;&gt;题目1-9参考实现&lt;/a&gt;
-      &lt;br /&gt;
-      &lt;a href=&quot;https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question&quot; target=&quot;_block&quot;&gt;题目10-16参考实现&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;ul class=&quot;task-list&quot;&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目1： &lt;a href=&quot;https://leetcode.cn/problems/binary-tree-level-order-traversal/&quot;&gt;bfs的两种方法&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目2： &lt;a href=&quot;https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/&quot;&gt;锯齿状遍历&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目3： &lt;a href=&quot;https://leetcode.cn/problems/maximum-width-of-binary-tree/&quot;&gt;最大特殊宽度&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目4.1： &lt;a href=&quot;https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/&quot;&gt;最大深度&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目4.2：&lt;a href=&quot;https://leetcode.cn/problems/minimum-depth-of-binary-tree/&quot;&gt;最小深度&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目5： &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/&quot;&gt;先序遍历序列化和反序列化&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目6： &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/&quot;&gt;层序遍历序列化和反序列化&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目7： &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&quot;&gt;先序遍历和中序遍历还原二叉树&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目8： &lt;a href=&quot;https://leetcode.cn/problems/check-completeness-of-a-binary-tree/&quot;&gt;判断完全二叉树&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目9： &lt;a href=&quot;https://leetcode.cn/problems/count-complete-tree-nodes/&quot;&gt;求完全二叉树节点个数&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目10: &lt;a href=&quot;https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/&quot;&gt;普通二叉树上求解LCA&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目11：&lt;a href=&quot;https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/&quot;&gt;搜索二叉树上求解LCA&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目12：&lt;a href=&quot;https://leetcode.cn/problems/path-sum-ii/&quot;&gt;收集累加和为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k&lt;/code&gt;的所有路径&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;题目13：&lt;a href=&quot;https://leetcode.cn/problems/balanced-binary-tree/&quot;&gt;判断平衡二叉树&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目14：&lt;a href=&quot;https://leetcode.cn/problems/validate-binary-search-tree/&quot;&gt;判断搜索二叉树&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目15：&lt;a href=&quot;https://leetcode.cn/problems/trim-a-binary-search-tree/description/&quot;&gt;修剪搜索二叉树&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;题目16：&lt;a href=&quot;https://leetcode.cn/problems/house-robber-iii/description/&quot;&gt;二叉树上的打家劫舍问题&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;二叉树的基本概念&quot;&gt;二叉树的基本概念&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;&quot;&gt;基本概念&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;p&gt;
-      &lt;p style=&quot;color : blue&quot;&gt;深度与高度&lt;/p&gt;
-      节点的高度(height):从根节点到该节点经过的边数。
-      二叉树的深度(depth):从距离该节点最远的叶节点到该节点所需要经过的边树。
-      注意，不同的题、教材对于根叶节点的高度、深度从0还是从1开始并不统一。
-      但一般而言，说根节点的深度为0，叶子节点的高度为0。
-      &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;二叉树的层序遍历&quot;&gt;二叉树的层序遍历&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;题目1： &lt;a href=&quot;https://leetcode.cn/problems/binary-tree-level-order-traversal/&quot;&gt;bfs的两种方法&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;主要介绍使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;队列&lt;/code&gt;一次遍历一层的解法&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;算法图解&lt;/th&gt;
-      &lt;th&gt;解释&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161145520.png&quot; alt=&quot;image-20250606161145520&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;从根节点开始遍历&lt;br /&gt;创建一个和节点个数一样多的队列&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161603674.png&quot; alt=&quot;image-20250606161603674&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161712585.png&quot; alt=&quot;image-20250606161712585&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161832318.png&quot; alt=&quot;image-20250606161832318&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606161933423.png&quot; alt=&quot;image-20250606161933423&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;首先将根节点加入队列，同时记录队列的长度&lt;br /&gt;执行&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;次如下操作，n为上一步记录的长度&lt;br /&gt;1. 弹出队尾元素，加入这一层的答案数组中&lt;br /&gt;2. 有左孩子则把左孩子加入队列&lt;br /&gt;3.有右孩子则把右孩子加入队列&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606162345155.png&quot; alt=&quot;image-20250606162345155&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;提示&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-    &lt;p style=&quot;margin: 0;&quot;&gt;对于算法竞赛或者面试一般不是用库自带的队列，而是用数组模拟队列，具体看[入门]阶段的课程。&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;锯齿形层序遍历&quot;&gt;锯齿形层序遍历&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solidrgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/description/&quot;&gt;leetcode 103.二叉树的锯齿形层序遍历&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div style=&quot; top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;&quot;&gt;提示&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-    &lt;p style=&quot;margin: 0;&quot;&gt;这道题和上一道题思路上一致，只是需要注意每轮左右子树的加入顺序要交替&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;方法一：完全按照上题的做法，只是在读入答案的时候判断一下是从左往右的读还是从右往左读，如果是从右往左读，就反转一下&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;list&lt;/code&gt;数组，其他什么都不需要改&lt;/p&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// false 表示 从左 往右读入&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// true 表示 从右往左读入&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;......;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reserve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;方法二：先收集list再把左右节点加入队列&lt;/p&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// reverse == false, 左 -&amp;gt; 右， l....r-1, 收集size个&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// reverse == true,  右 -&amp;gt; 左， r-1....l, 收集size个&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 左 -&amp;gt; 右, i = i + 1&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 右 -&amp;gt; 左, i = i - 1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 加入左右节点&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;最大特殊宽度&quot;&gt;最大特殊宽度&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;前序遍历的序列化和反序列化&quot;&gt;前序遍历的序列化和反序列化&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/&quot;&gt;leetcode297.二叉树的序列化和反序列化&lt;/a&gt;
-      &lt;br /&gt;
-      &lt;br /&gt;
-      &lt;p&gt;
-          序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。
-   		&lt;br /&gt;&lt;br /&gt;
-          二叉树的前序和后序都可以完成序列化但中序并不能唯一确定！
-      &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;操作倒是简单这道题感觉不是算法题是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;coding&lt;/code&gt;能力测试题&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;对该二叉树进行一次先序遍历&lt;/li&gt;
-  &lt;li&gt;对于非空节点&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt;记录其为字符串&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x,&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;对于空节点记录为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#,&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;注意某一节点若其左右子树为空也需要记录为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#,&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;算法图解&lt;/th&gt;
-      &lt;th&gt;解释&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606230807305.png&quot; alt=&quot;image-20250606230807305&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606230826158.png&quot; alt=&quot;image-20250606230826158&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606231103213.png&quot; alt=&quot;image-20250606231103213&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;记录&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1, &lt;/code&gt;&lt;br /&gt;&lt;br /&gt;记录&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2,&lt;/code&gt;同时记录其子结点为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#, #,&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;其余节点同理处理即可&lt;br /&gt;最终字符串为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1,2,#,#,3,4,#,#,5,#,#&lt;/code&gt;&lt;br /&gt;反序列化就比较简单了遍历上述字符串即可&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;技巧&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;可以使用 istringstream类型把字符串转化为流输出，进而可以用&amp;gt;&amp;gt;直接过滤空格&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 感觉这道题考语法？&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Codec&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Encodes a tree to a single string.&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;# &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;// Decodes your encoded data to tree.&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deserialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;istringstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 使用字符串流简化解析&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;istringstream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 自动跳过空格&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stoi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 处理多位数&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;层序遍历的序列化和反序列化&quot;&gt;层序遍历的序列化和反序列化&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/&quot;&gt;leetcode297.二叉树的序列化和反序列化&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;通过先序遍历和中序遍历复原二叉树&quot;&gt;通过先序遍历和中序遍历复原二叉树&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&quot;&gt;leetcode105.从前序遍历与中序遍历构造二叉树&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这个题的知识点倒是考研经常会考的:joy:&lt;/p&gt;
-
-&lt;p&gt;关键思路&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;前序遍历&lt;/code&gt;确定根节点&lt;/li&gt;
-  &lt;li&gt;通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;中序遍历&lt;/code&gt;确定左右子树&lt;/li&gt;
-  &lt;li&gt;递归这个过程就能还原出原二叉树&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这道题的关键是理解这个边界图&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606225527651.png&quot; alt=&quot;image-20250606225527651&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;&quot;&gt;额外&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;p&gt;
-          还有两个类似的题目，但要注意如果单纯通过前序和后序是无法唯一还原二叉树的！
-      &lt;/p&gt;
-      &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&quot;&gt;leetcode106.从中序遍历和后序遍历构造二叉树&lt;/a&gt;
-      &lt;br /&gt;
-     &lt;a href=&quot;https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/description/&quot;&gt;leetcode889.根据前序遍历和后序遍历复原二叉树&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;算法图解&lt;/th&gt;
-      &lt;th&gt;解释&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606221824464.png&quot; alt=&quot;image-20250606221824464&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;先序:&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3 9 20 15 7&lt;/code&gt;&lt;br /&gt;中序:&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;9 3 15 20 7&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222146455.png&quot; alt=&quot;image-20250606222146455&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;首先通过先序遍历找到整颗树的根&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;&lt;br /&gt;同时在中序中找到对应的节点&lt;br /&gt;其左边就是左子树&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;9&lt;/code&gt;&lt;br /&gt;右边就是右子树 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;15 20 7&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222324406.png&quot; alt=&quot;image-20250606222324406&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222412694.png&quot; alt=&quot;image-20250606222412694&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222455878.png&quot; alt=&quot;image-20250606222455878&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;br /&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/image-20250606222548148.png&quot; alt=&quot;image-20250606222548148&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;然后递归处理左右子树&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;技巧&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;这里找对应节点的时候可以用哈希表&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;判断完全二叉树&quot;&gt;判断完全二叉树&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://leetcode.cn/problems/check-completeness-of-a-binary-tree/description/&quot;&gt;leetcode958.二叉树完全性的验证&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;算法步骤&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;层序遍历&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;如果一个节点左右子树齐全，则无需处理遍历下一个即可&lt;/li&gt;
-  &lt;li&gt;如果一个节点有右子树，而左子树缺失则直接返回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;如果一个节点缺少右孩子，则记录之，遍历之后的节点&lt;/li&gt;
-  &lt;li&gt;如果之后遍历的节点不全为叶子节点，则返回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;否则 返回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;完全二叉树的节点个数&quot;&gt;完全二叉树的节点个数&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solidrgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;测试链接&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;a href=&quot;https://leetcode.cn/problems/count-complete-tree-nodes/description/&quot;&gt;leetcode222.完全二叉树的节点个数&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;如果不考虑任何特性，遍历一边二叉树经过O(N) 的时间就能获得答案，所以这道题的难度为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Easy&lt;/code&gt;。但人肯定还是得有点追求的啦，如何在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt; O(N)&lt;/code&gt;的时间内获得节点数目呢？&lt;/p&gt;
-
-&lt;p&gt;考虑完全二叉树的特性&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;一个完全二叉树，必然是由一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;满二叉子树&lt;/code&gt;和一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;完全二叉子树&lt;/code&gt;或&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;满二叉子树&lt;/code&gt;构成&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;具体算法图解如下&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;算法图解&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;../images/2025-6-5-Binary-Tree/21260ae8cb220729f958b56a61248c55.jpeg&quot; alt=&quot;img&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;对于当前节点，检查其右子树的最左节点是否能到达整棵树的最底层 如果可以，说明左子树是满二叉树，直接计算左子树节点数(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^(h-level)&lt;/code&gt;)，然后递归处理右子树 如果不可以，说明右子树是满二叉树(但少一层)，直接计算右子树节点数(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^(h-level-1)&lt;/code&gt;)，然后递归处理左子树&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;由于是递归算法还是比较抽象的！&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;普通二叉树求lca问题&quot;&gt;普通二叉树求LCA问题&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;引言&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;p style=&quot;color : blue&quot;&gt;
-          LCA问题(Lowest Common Ancestor， 最近公共祖先)
-          &lt;br /&gt;
-      &lt;/p&gt;
-      &lt;p&gt;
-          其中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
-      &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;分类讨论&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p&lt;/code&gt;或者&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;q&lt;/code&gt;包含于另一颗树中
-    &lt;ul&gt;
-      &lt;li&gt;则为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p&lt;/code&gt;或者&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;q&lt;/code&gt; （父节点）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;q&lt;/code&gt;分属于两颗树&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这道题看答案确实很好理解，但自己想可能就要费老鼻子力气了….&lt;/p&gt;
-
-&lt;p&gt;算法思路&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;如果当前节点是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p&lt;/code&gt;或者&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;q&lt;/code&gt;或者&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;空&lt;/code&gt; 则返回该节点&lt;/li&gt;
-  &lt;li&gt;否则递归遍历该节点的左右子树&lt;/li&gt;
-  &lt;li&gt;如果左子树返回了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nullpter&lt;/code&gt;，则返回右子树的结果&lt;/li&gt;
-  &lt;li&gt;反正若右子树返回了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nullpter&lt;/code&gt;则返回左子树的结果&lt;/li&gt;
-  &lt;li&gt;如果都非空则当前节点是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p、q&lt;/code&gt;的最近公共祖先&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lowestCommonAncestor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 如果找到p、q或者节点为空则返回&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 左树遍历结果&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lowestCommonAncestor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
-        &lt;span class=&quot;c1&quot;&gt;// 右树遍历结果&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lowestCommonAncestor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		
-        &lt;span class=&quot;c1&quot;&gt;// 左右子树各有p或者q，则当前节点为公共祖先&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 左右子树都没找到，返回空&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 否则，返回p或者q对应情况1&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;搜索二叉树的lca问题&quot;&gt;搜索二叉树的LCA问题&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;引言&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;p style=&quot;color : blue&quot;&gt;
-          搜索二叉树
-          &lt;br /&gt;
-      &lt;/p&gt;
-      &lt;p&gt;
-          平衡二叉树 中序遍历有序的树
-      &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;和上一道题一样，但这里可以利用其左子树&amp;lt;根节点&amp;lt;右子树的特性，一次筛选出不少点。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;如果&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root == p&lt;/code&gt;或者&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root == q&lt;/code&gt;则直接就是答案&lt;/li&gt;
-  &lt;li&gt;如果&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root.val &amp;gt; max(p.val, q.val)&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p和q&lt;/code&gt;必然位于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root-&amp;gt;left&lt;/code&gt;中&lt;/li&gt;
-  &lt;li&gt;如果&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root.val &amp;lt; min(p.val, q.val)&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p和q&lt;/code&gt;必然位于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root-&amp;gt;right&lt;/code&gt;中&lt;/li&gt;
-  &lt;li&gt;如果&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root.val&lt;/code&gt;位于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p.val&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;q.val&lt;/code&gt;直接，则直接返回&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt;为答案&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lowestCommonAncestor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;收集路径和为k的路径&quot;&gt;收集路径和为k的路径&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #e74c3c;&quot;&gt;技巧&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;递归回溯要注意还原现场&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;题目&lt;/p&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;targetSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;targetSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 将当前节点加入路径&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;ans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 找到一条路径，加入答案&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 递归左子树&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;dfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 递归右子树&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;判断一个树是否为平衡二叉树&quot;&gt;判断一个树是否为平衡二叉树&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;引言&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;p style=&quot;color : blue&quot;&gt;
-          平衡二叉树
-          &lt;br /&gt;
-      &lt;/p&gt;
-      &lt;p&gt;
-          平衡二叉树 是指该树所有节点的左右子树的高度相差不超过 1。
-      &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;判断还是蛮简单的，只需要递归计算子树的高度即可。看代码就可以看懂！&lt;/p&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isBalanced&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;hight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;balance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeNode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 如果已经不平衡直接返回&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 空节点返回0&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;// 递归计算左子树的高度&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 递归计算右子树的高度&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;// 判断左右子树的高度差&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// 返回树的高度&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;判断一个树是否为搜索二叉树&quot;&gt;判断一个树是否为搜索二叉树&lt;/h3&gt;
-
-&lt;div style=&quot;top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;&quot;&gt;
-  &lt;div style=&quot;padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;&quot;&gt;引言&lt;/div&gt;
-  &lt;div style=&quot;padding: 8px 12px; padding-top: 0; color: #333;&quot;&gt;
-      &lt;p style=&quot;color : blue&quot;&gt;
-          搜索二叉树
-          &lt;br /&gt;
-      &lt;/p&gt;
-      &lt;p&gt;
-          平衡二叉树 中序遍历有序的树
-      &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;方法一：利用搜索二叉树 — 中序遍历有序的特性&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 05 Jun 2025 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2025-06-05-Binary-Tree/</link>
-        <guid isPermaLink="true">http://localhost:4000/2025-06-05-Binary-Tree/</guid>
-        
-        <category>算法</category>
         
         
       </item>
