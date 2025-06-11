@@ -1,6 +1,5 @@
 ---
 title: C++ Primer Chapter 3 Strings Vectors and Arrays
-layout: post
 date: 2025-06-08
 description: C++语言学习
 tags: [C++]

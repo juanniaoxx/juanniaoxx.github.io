@@ -10,7 +10,7 @@ theme:
   # font: #谷歌字体，自行搜索
   #   text: Bitter  #文本字体
   #   code: Roboto Mono  #代码字体
-  # logo: assets/favicon.png #左上角logo，可插入图片链接
+  logo: http://www.huixueba.net/Content/WebImage/day_191009/201910091021452744_watermark.jpg #左上角logo，可插入图片链接
 
   palette:
     - media: "(prefers-color-scheme)"
@@ -67,10 +67,27 @@ repo_name: Weary Bird # 右上角的名字
 # [Navigtion]
 nav:
   - 标签: tag.md
-  - note: 
-      - Prefix_Sum: note/Algorithm/Prefix_Sum.md
-      - Linear Model: note/Machine Learning/Linear-model.md
-  
+  - Algorithm:
+      - Beginner:
+        - Trie Tree: note/Algorithm/Trie Tree.md
+        - Binary Tree: note/Algorithm/Binary Tree.md
+        - DateStrucutreDesign: note/Algorithm/DateStrucutreDesign.md
+        - Difference: note/Algorithm/Difference.md
+        - GCD and Congruence: note/Algorithm/GCD and Congruence.md
+        - Prefix_Sum: note/Algorithm/Prefix_Sum.md
+        - N Queen Question: note/Algorithm/N Queen Question.md
+        - Recursion: note/Algorithm/Recursion.md
+        - Nest Recursion: note/Algorithm/Nest Recursion.md
+      - Tips:
+        - Infer by data: note/Algorithm/Infer by data.md
+        - Logarithmic meter: note/Algorithm/Logarithmic meter.md
+      # - advanced:
+  - Machine Learning:
+    - Linear Model: note/Machine Learning/Linear-model.md
+  - Program Language:
+    - C++: 
+      - Strings Vectors and Arrays: note/C++ Language/Strings Vectors and Arrays.md
+      - Expression: note/C++ Language/Expressions.md
 
 copyright: Copyright &copy; 2025~2026 Weary Bird # 左下角的版权声明
 
