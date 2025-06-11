@@ -57,40 +57,7 @@
         <span>本站访问量：</span>
         <script async src="//finicounter.eu.org/finicounter.js"></script>
         <span id="finicount_views"></span>
-        &nbsp;|&nbsp;
-        <a
-          href="https://icp.gov.moe/?keyword=20230640"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="icp-link"
-          >萌ICP备20230640号</a
-        >
-        &nbsp;|&nbsp;
-        <span class="runtime-info">
-          <span>本站已经运行</span>
-          <span id="box1"></span>
-        </span>
       </div>
-      <script>
-        function timingTime() {
-          const start = "2022-10-20T00:00:00";
-          const startTime = new Date(start).getTime();
-          const now = Date.now();
-          let diff = Math.floor((now - startTime) / 1000);
-          const days = Math.floor(diff / 86400);
-          diff %= 86400;
-          const hours = Math.floor(diff / 3600);
-          diff %= 3600;
-          const minutes = Math.floor(diff / 60);
-          const seconds = diff % 60;
-          return `${days}天${hours}时${minutes}分${seconds}秒`;
-        }
-        setInterval(() => {
-          const el = document.getElementById("box1");
-          if (el) el.textContent = timingTime();
-        }, 1000);
-      </script>
-
       <style>
         .footer-visit-count {
           display: flex;
