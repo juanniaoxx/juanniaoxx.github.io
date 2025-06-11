@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>数据结构设计习题</title>
-  <meta name="description" content="  重点        参考实现    主要内容      题目1: setAll功能的哈希表    题目2: 实现LRU结构    题目3: 插删随$O(1)$的结构    题目4: 插删随$O(1)$的结构加强版    题目5: 快速获得数据流的中位数     题目6: 最大频率栈    题目7: 全是O(1...">
+  <title>西瓜书 第三章：线性模型</title>
+  <meta name="description" content="Chapter 3 线性模型">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="数据结构设计习题">
-  <meta name="twitter:description" content="  重点        参考实现    主要内容      题目1: setAll功能的哈希表    题目2: 实现LRU结构    题目3: 插删随$O(1)$的结构    题目4: 插删随$O(1)$的结构加强版    题目5: 快速获得数据流的中位数     题目6: 最大频率栈    题目7: 全是O(1...">
+  <meta name="twitter:title" content="西瓜书 第三章：线性模型">
+  <meta name="twitter:description" content="Chapter 3 线性模型">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="数据结构设计习题">
-  <meta property="og:description" content="  重点        参考实现    主要内容      题目1: setAll功能的哈希表    题目2: 实现LRU结构    题目3: 插删随$O(1)$的结构    题目4: 插删随$O(1)$的结构加强版    题目5: 快速获得数据流的中位数     题目6: 最大频率栈    题目7: 全是O(1...">
+  <meta property="og:title" content="西瓜书 第三章：线性模型">
+  <meta property="og:description" content="Chapter 3 线性模型">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2025-06-05-DateStrucutreDesign/">
+  <link rel="canonical" href="http://localhost:4000/2025-06-10-Chapter-3-Linear-model/">
   <link rel="alternate" type="application/rss+xml" title="Weary Bird" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -178,10 +178,10 @@
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">数据结构设计习题</h1>
+    <h1 class="post-title">西瓜书 第三章：线性模型</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2025-06-05 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2025-06-05</time>  
+      <time datetime="2025-06-10 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2025-06-10</time>  
 
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -191,110 +191,95 @@
   
     <h2 class="post-title">目录</h2>
     <ul>
-  <li><a href="#setall功能的哈希表"><code class="language-plaintext highlighter-rouge">setAll</code>功能的哈希表</a></li>
-  <li><a href="#实现lru结构">实现<code class="language-plaintext highlighter-rouge">LRU</code>结构</a></li>
-  <li><a href="#o1时间插入删除和获取随机元素">O(1)时间插入、删除和获取随机元素</a></li>
+  <li><a href="#chapter-3-线性模型">Chapter 3 线性模型</a>
+      - {:.} <a href="#线性回归linear-regression">线性回归(Linear regression)</a></li>
 </ul>
 
   
 
   <section class="post">
-    <div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_035%20Date%20Structure%20Design%20Question" target="_block">参考实现</a>
-  </div>
+    <h1 id="chapter-3-线性模型">Chapter 3 线性模型</h1>
+
+<p>​</p>
+
+<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">⚠️ 重要</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">线性模型的基本样式与向量形式</div>
 </div>
-<p><br /></p>
-<blockquote>
-  <p>主要内容</p>
 
-  <ul class="task-list">
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目1: <a href="https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967"><code class="language-plaintext highlighter-rouge">setAll</code>功能的哈希表</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />题目2: <a href="https://leetcode.cn/problems/lru-cache/">实现<code class="language-plaintext highlighter-rouge">LRU</code>结构</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目3: <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">插删随$O(1)$的结构</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目4: <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1-duplicates-allowed/description/">插删随$O(1)$的结构加强版</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目5: <a href="https://leetcode.cn/problems/find-median-from-data-stream/">快速获得数据流的中位数 </a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目6: <a href="https://leetcode.cn/problems/maximum-frequency-stack/">最大频率栈</a></li>
-    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />题目7: <a href="https://leetcode.cn/problems/all-oone-data-structure/">全是O(1)的结构</a></li>
-  </ul>
-</blockquote>
+\[\begin{align*}
+\text{基本形式} &amp;: f(\textbf{x})=w_1x_1+w_2x_2+\dots+w_dx_d+b \\
+\text{向量形式} &amp;: f(\textbf{x})=\textbf{w}^{T}\textbf{x}+b
+\end{align*}\]
 
-<h3 id="setall功能的哈希表"><code class="language-plaintext highlighter-rouge">setAll</code>功能的哈希表</h3>
+<h3 id="线性回归linear-regression">线性回归(Linear regression)</h3>
 
-<blockquote>
-  <p>测试链接 <a href="https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967">牛客. 设计有<code class="language-plaintext highlighter-rouge">setAll</code>功能的哈希表</a></p>
-</blockquote>
+<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">⚠️ 重要</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">线性回归的目的为试图学习一个线性模型以尽可能准确地预测实际值的输出</div>
+</div>
 
-<p>提示:C++选手若有需要可以使用unordered_map替换map来将复杂度从O(log n)降为O(1)</p>
+\[f(x_i)=wx_i+b\ \ 使得f(x_i)\approx y_i\]
 
-<p>设计思路</p>
+<div style="top: 10px; left: 10px; background: #f5f9fe; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #3498db;">🧠 求解模型</div>
+    <div style="padding: 8px 12px; padding-top: 0; color: #333;">基于均方误差最小化求解模型的方法称为最小二乘法</div>
+</div>
 
-<ul>
-  <li>
-    <p>将 <code class="language-plaintext highlighter-rouge">key-value</code>改成<code class="language-plaintext highlighter-rouge">key - pair&lt;value, time&gt;</code></p>
-  </li>
-  <li>
-    <p>设置三个全局变量<code class="language-plaintext highlighter-rouge">setAllTime</code> 和 <code class="language-plaintext highlighter-rouge">setAllValue</code> 与 <code class="language-plaintext highlighter-rouge">cnt</code></p>
-    <ul>
-      <li>每次加入加入一对<code class="language-plaintext highlighter-rouge">key-value</code> <code class="language-plaintext highlighter-rouge">cnt++</code> ,并且将<code class="language-plaintext highlighter-rouge">time = cnt</code></li>
-      <li>每次执行<code class="language-plaintext highlighter-rouge">setAll</code>的时候设置<code class="language-plaintext highlighter-rouge">setAllTime = cnt</code> 和 <code class="language-plaintext highlighter-rouge">setAllValue = 要修改的值</code> ,并且<code class="language-plaintext highlighter-rouge">cnt++</code>
-        <ul>
-          <li>注意，这一步并不会修改<code class="language-plaintext highlighter-rouge">key-value</code></li>
-        </ul>
-      </li>
-      <li>执行<code class="language-plaintext highlighter-rouge">get()</code>操作的时候，检查<code class="language-plaintext highlighter-rouge">time</code>与<code class="language-plaintext highlighter-rouge">setAllTime</code>若<code class="language-plaintext highlighter-rouge">time &lt; setAllTime</code>则修改<code class="language-plaintext highlighter-rouge">value = setAllvalue</code>否则直接获得值</li>
-    </ul>
-  </li>
-</ul>
+\[\begin{align*}
+(w^*,b^*) &amp;=\arg_{(w,b)}\min\sum_{i=1}^m(f(x_i)-y_i)^2 \\
+ &amp;=\arg_{(w,b)}\min\sum_{i=1}^m(y_i-wx_i-b)^2 \\
+\end{align*}\]
 
-<hr />
+<p>均方根误差的几何意义：<strong>对应了常用的欧几里德距离</strong></p>
 
-<h3 id="实现lru结构">实现<code class="language-plaintext highlighter-rouge">LRU</code>结构</h3>
+<div style="top: 10px; left: 10px; background: #f9f0ff; border-left: 4px solid #9b59b6; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #9b59b6;">🔄 凸函数的差异</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">这本书采用的凸函数定义与同济定义的凸函数相反，x^2为凸函数而非凹函数</div>
+</div>
+<p><strong>参数估计</strong>:求解参数<code class="language-plaintext highlighter-rouge">w*</code>和<code class="language-plaintext highlighter-rouge">b*</code>使得$\sum_{i=1}^m(y_i - w x_i - b)^2$最小，其过程如下</p>
 
-<blockquote>
-  <p>测试链接 <a href="https://leetcode.cn/problems/lru-cache/">leetcode 146.<code class="language-plaintext highlighter-rouge">LRU</code>缓存 mid</a></p>
-</blockquote>
+\[\begin{align*}
+\frac{\partial{E}_{(w,b)}}{\partial{w}}=2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i) \\
+\frac{\partial{E}_{(w,b)}}{\partial{b}}=2(mb-\sum_{i=1}^m(y_i-wx_i))
+\end{align*}\]
 
-<p>设计思路</p>
+<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
+  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">⚠️ 重要</div>
+  <div style="padding: 8px 12px; padding-top: 0; color: #333;">凸函数的局部最优解</div>
+</div>
+<p>函数 $f: \mathbb{R}^n \to \mathbb{R}$是凸函数，如果对任意 $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n $ 和 $ \theta \in [0, 1] $，满足：
+\(\begin{align*}
+f(\theta \mathbf{x} + (1-\theta) \mathbf{y}) \leq \theta f(\mathbf{x}) + (1-\theta) f(\mathbf{y})
+\end{align*}\)
+直观上，连接函数图像上任意两点的线段位于函数图像上方。</p>
 
-<p><code class="language-plaintext highlighter-rouge">双向链表 + 哈希表</code></p>
-
-<p><img src="../images/2025-6-5-DateStrucutreDesign/image-20250605142733342.png" alt="image-20250605142733342" style="zoom:50%;" /></p>
+<p>若$f$可微，则$f$是凸函数的充要条件是：
+\(\begin{align*}
+f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^\top (\mathbf{y} - \mathbf{x}), \quad \forall \mathbf{x}, \mathbf{y}.
+\end{align*}\)</p>
 
 <ul>
-  <li>插入<code class="language-plaintext highlighter-rouge">key-value</code>的时候创建一个<code class="language-plaintext highlighter-rouge">双向链表节点</code> ,并且<code class="language-plaintext highlighter-rouge">value</code>为指向该节点的指针</li>
-  <li>利用全局指针<code class="language-plaintext highlighter-rouge">head</code>和<code class="language-plaintext highlighter-rouge">tail</code>定位链表的头节点和尾节点</li>
-  <li>每次添加、修改、查询时候将对应节点移动到<code class="language-plaintext highlighter-rouge">tail</code>的后面，并让<code class="language-plaintext highlighter-rouge">tail</code>指向该节点
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">tail</code>指向的永远是最新被操作的数据</li>
-      <li><code class="language-plaintext highlighter-rouge">head</code>指向永远是最最旧未被使用的数据</li>
-    </ul>
-  </li>
-  <li>容量不够的时候，释放<code class="language-plaintext highlighter-rouge">head</code>对应的节点，并移动<code class="language-plaintext highlighter-rouge">head = head-&gt;next</code>,同时去除哈希表中<code class="language-plaintext highlighter-rouge">k-v</code>对</li>
+  <li><strong>非凸函数</strong>：梯度为零可能是鞍点或局部极值（如 $f(x) = x^3$ 在 $x=0$ 处）。</li>
+  <li><strong>严格凸函数</strong>：若 $f$ 严格凸，梯度为零的点是唯一的全局最小值。</li>
 </ul>
 
-<h3 id="o1时间插入删除和获取随机元素">O(1)时间插入、删除和获取随机元素</h3>
+<p>基于上述理论，求解参数$w^<em>$和$b^</em>$只需要令上面的式子为零即可—-&gt; <strong>最优解的闭式(closed-form)解</strong></p>
 
-<blockquote>
-  <p>测试链接： <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">leetcode 380. O(1) 时间插入、删除和获取随机元素</a></p>
-</blockquote>
+<p>先解关于<code class="language-plaintext highlighter-rouge">b</code>的式子 
+\(\begin{align*}
+2(mb-\sum_{i=1}^m(y_i-wx_i))=0 \\
+b^*=\frac{1}{m}\sum_{i=1}^m(y_i-wx_i)
+\end{align*}\)
+在计算关于<code class="language-plaintext highlighter-rouge">w</code>的式子
+\(\begin{align*}
+2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i)=0 \\
+w\sum_{i=1}^mx_i^2=\sum_{i=1}^m(y_i-b)x_i \\
+w=\frac{\sum_{i=1}^m(y_i-b)x_i}{\sum_{i=1}^mx_i^2} 
+\end{align*}\)
+将上面求得的<code class="language-plaintext highlighter-rouge">b*</code>带入即可求出<code class="language-plaintext highlighter-rouge">w*</code></p>
 
-<p>设计思路</p>
-
-<ul>
-  <li>肯定会有一个哈希表，同时申请一个动态数组(vector)存输入的数据
-    <ul>
-      <li>哈希表为了去重</li>
-      <li>动态数组为了random操作</li>
-    </ul>
-  </li>
-  <li>考虑<code class="language-plaintext highlighter-rouge">remove</code>操作，如果仅仅是删除哈希表的记录，而不对数组进行任何处理，空余的位置将会越来越多从而十分影响<code class="language-plaintext highlighter-rouge">random</code>操作
-    <ul>
-      <li>解决办法：使用最后一个元素覆盖被<code class="language-plaintext highlighter-rouge">remove</code>的元素，同时更新哈希表记录即可</li>
-    </ul>
-  </li>
-</ul>
+<p><strong>TO-DO-List 这里没推完</strong></p>
 
 
   </section>
@@ -336,13 +321,13 @@
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2025-06-05-Binary-Tree/" data-toggle="tooltip" data-placement="top" title="二叉树（不含树型bp）的经典习题">上一篇：  <span>二叉树（不含树型bp）的经典习题</span>
+            <a href="/2025-06-09-N-Queen-Question/" data-toggle="tooltip" data-placement="top" title="N皇后问题--重点在于位运算问题">上一篇：  <span>N皇后问题--重点在于位运算问题</span>
             </a>
         </li>
         
         
         <li class="next">
-            <a href="/2025-06-05-ListQuestions/" data-toggle="tooltip" data-placement="top" title="链表高频题目">下一篇：  <span>链表高频题目</span>
+            <a href="/2025-06-11-Difference/" data-toggle="tooltip" data-placement="top" title="差分">下一篇：  <span>差分</span>
             </a>
         </li>
         

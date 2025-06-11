@@ -3,7 +3,7 @@ title: 前缀树（字典树）
 layout: post
 date: 2025-06-09
 description: 前缀树基础、代码实现与相关习题
-tags: 编程语言 算法
+tags: 算法
 ---
 
 ### 前缀树的基本概念
@@ -308,7 +308,7 @@ void erase(const string &word) {
 
 下面两个方法都可以使时间复杂度降低至$O(\log{V}N)$,其中`V`是最大的数值，$\log{V}$最高不过32位所以这个复杂度为$O(N)$
 
-##### 方法一：使用前缀树(相对好想但速度慢一些)
+##### 方法一：使用贪心+前缀树(相对好想但速度慢一些)
 
 leetcode的测试结果为`253ms(65.7%)` 与 `85.66MB (67.23%)`
 
@@ -328,11 +328,36 @@ leetcode的测试结果为`253ms(65.7%)` 与 `85.66MB (67.23%)`
 | ![未命名绘图.drawio](../images/2025-6-10-Trie-Tree/未命名绘图.drawio-1749572429112-7.svg) | 构建对应的字典树                                             |
 |                                                              | 遍历数组，第一个数为`3`期望获得的XOR最大值为`11100`<br />可以通过上面建立的字典树$O(\log{V})$查找是否存在对应的节点 |
 
-##### 方法二： 使用哈希表(更快但更难想)
+##### 方法二： 使用哈希表+贪心(更快但更难想)
 
 leetcode的测试结果为`67ms(98.45%)` 与 `75.42MB(93.82%)`
 
+```cpp
+int findMaximumXOR(vector<int>& nums) {
+    // 第一步：找到数组中的最大值
+    int max = 0;
+    for (int num : nums) max = max > num ? max : num;
+    
+    int ans = 0;  // 存储最终的最大异或值
+    unordered_set<int> set;  // 用于存储处理后的数字
 
+    // 第二步：从最高有效位开始逐位确定最大异或值
+    for (int i = 31 - numberOfLeadingZeros(max); i >= 0; i--) {
+        int better = ans | (1 << i);  // 尝试将当前位设为1，得到可能的更大异或值
+        set.clear();  // 清空集合
+        for (auto num : nums) {
+            num = (num >> i) << i;  // 将数字右移i位再左移i位，相当于保留i位及以上的高位，低位清0
+            set.insert(num);  // 将处理后的数字加入集合
+            // 检查是否存在一个数字，使得当前数字与它的异或等于better
+            if (set.find(better ^ num) != set.end()) {
+                ans = better;  // 如果存在，更新ans
+                break;  // 找到就可以跳出循环，继续处理下一位
+            }
+        }
+    } 
+    return ans;
+}
+```
 
 #### 单词搜索II
 
@@ -361,28 +386,6 @@ leetcode的测试结果为`67ms(98.45%)` 与 `75.42MB(93.82%)`
 | <img src="../images/2025-6-10-Trie-Tree/image-20250610224005983.png" alt="image-20250610224005983" style="zoom:50%;" /> | 左侧为board、右侧为words                                     |
 | <img src="../images/2025-6-10-Trie-Tree/image-20250610224315205.png" alt="image-20250610224315205" style="zoom:50%;" /> | 构建Tire                                                     |
 |                                                              | 遍历board，查a发现Tire中有a的分支<br />遍历`a`的前后左右四个方向可以访问的元素<br />并放置`a`为`#` (避免重复遍历)<br />发现`b`也在Tire中，继续遍历四个方向,并置`#`<br />发现`c`也在Tire中，并且是`end=1`的节点，从而将`abd`<br />加入答案并删除这一条路，回溯。 |
-
-### 构建前缀信息的技巧-解决子数组相关问题
-
-<div style="top: 10px; left: 10px; background: #f5f5f5; border-left: 4px solid #7f8c8d; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #7f8c8d;">💻 测试链接</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-	<a href="https://leetcode.cn/problems/range-sum-query-immutable/description/">Q1:leetcode303.区域和检索-数组不可变</a>
-      <br>
-      <a href="https://www.nowcoder.com/practice/36fb0fd3c656480c92b569258a1223d5">Q2:牛客.未排序数组中累加和为给定值的最长子数组长度</a>
-      <br>
-      <a href="https://leetcode.cn/problems/subarray-sum-equals-k/">Q3:leetcode560.和为k的子数组</a>
-      <br>
-     <a href="https://leetcode.cn/problems/range-sum-query-immutable/description/">Q4:牛客.未排序数组中累加和为给定值的最长子数组系列问题补1</a>
-      <br>
-      <a href="https://leetcode.cn/problems/longest-well-performing-interval/">Q5:leetcode1124.表明良好的最长时间段</a>
-      <br>
-      <a href="https://leetcode.cn/problems/range-sum-query-immutable/description/">Q6:leetcode1590.使数组和能被P整除</a>
-      <br>
-      <a href="https://leetcode.cn/problems/find-the-longest-substring-containing-vowels-in-even-counts/description/">Q7:leetcode1371.每个元音包含偶数次的最长子字符串</a>
-      <br>
-    </div>
-</div>
 
 ### 前缀树的总结
 

@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>西瓜书 第三章：线性模型</title>
-  <meta name="description" content="Chapter 3 线性模型">
+  <title>差分</title>
+  <meta name="description" content="">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="西瓜书 第三章：线性模型">
-  <meta name="twitter:description" content="Chapter 3 线性模型">
+  <meta name="twitter:title" content="差分">
+  <meta name="twitter:description" content="">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="西瓜书 第三章：线性模型">
-  <meta property="og:description" content="Chapter 3 线性模型">
+  <meta property="og:title" content="差分">
+  <meta property="og:description" content="">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2025-06-05-Chapter-3-Linear-model/">
+  <link rel="canonical" href="http://localhost:4000/2025-06-11-Difference/">
   <link rel="alternate" type="application/rss+xml" title="Weary Bird" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -178,10 +178,10 @@
 
 <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">西瓜书 第三章：线性模型</h1>
+    <h1 class="post-title">差分</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2025-06-05 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2025-06-05</time>  
+      <time datetime="2025-06-11 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2025-06-11</time>  
 
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -189,91 +189,13 @@
   </header>
 
   
+    <h2 class="post-title">目录</h2>
+    
+
+  
 
   <section class="post">
-    <h1 id="chapter-3-线性模型">Chapter 3 线性模型</h1>
-
-<p>​</p>
-
-<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">⚠️ 重要</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">线性模型的基本样式与向量形式</div>
-</div>
-
-\[\begin{align*}
-\text{基本形式} &amp;: f(\textbf{x})=w_1x_1+w_2x_2+\dots+w_dx_d+b \\
-\text{向量形式} &amp;: f(\textbf{x})=\textbf{w}^{T}\textbf{x}+b
-\end{align*}\]
-
-<h3 id="线性回归linear-regression">线性回归(Linear regression)</h3>
-
-<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">⚠️ 重要</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">线性回归的目的为试图学习一个线性模型以尽可能准确地预测实际值的输出</div>
-</div>
-
-\[f(x_i)=wx_i+b\ \ 使得f(x_i)\approx y_i\]
-
-<div style="top: 10px; left: 10px; background: #f5f9fe; border-left: 4px solid #3498db; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db;">🧠 求解模型</div>
-    <div style="padding: 8px 12px; padding-top: 0; color: #333;">基于均方误差最小化求解模型的方法称为最小二乘法</div>
-</div>
-
-\[\begin{align*}
-(w^*,b^*) &amp;=\arg_{(w,b)}\min\sum_{i=1}^m(f(x_i)-y_i)^2 \\
- &amp;=\arg_{(w,b)}\min\sum_{i=1}^m(y_i-wx_i-b)^2 \\
-\end{align*}\]
-
-<p>均方根误差的几何意义：<strong>对应了常用的欧几里德距离</strong></p>
-
-<div style="top: 10px; left: 10px; background: #f9f0ff; border-left: 4px solid #9b59b6; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #9b59b6;">🔄 凸函数的差异</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">这本书采用的凸函数定义与同济定义的凸函数相反，x^2为凸函数而非凹函数</div>
-</div>
-<p><strong>参数估计</strong>:求解参数<code class="language-plaintext highlighter-rouge">w*</code>和<code class="language-plaintext highlighter-rouge">b*</code>使得$\sum_{i=1}^m(y_i - w x_i - b)^2$最小，其过程如下</p>
-
-\[\begin{align*}
-\frac{\partial{E}_{(w,b)}}{\partial{w}}=2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i) \\
-\frac{\partial{E}_{(w,b)}}{\partial{b}}=2(mb-\sum_{i=1}^m(y_i-wx_i))
-\end{align*}\]
-
-<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">⚠️ 重要</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">凸函数的局部最优解</div>
-</div>
-<p>函数 $f: \mathbb{R}^n \to \mathbb{R}$是凸函数，如果对任意 $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n $ 和 $ \theta \in [0, 1] $，满足：
-\(\begin{align*}
-f(\theta \mathbf{x} + (1-\theta) \mathbf{y}) \leq \theta f(\mathbf{x}) + (1-\theta) f(\mathbf{y})
-\end{align*}\)
-直观上，连接函数图像上任意两点的线段位于函数图像上方。</p>
-
-<p>若$f$可微，则$f$是凸函数的充要条件是：
-\(\begin{align*}
-f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^\top (\mathbf{y} - \mathbf{x}), \quad \forall \mathbf{x}, \mathbf{y}.
-\end{align*}\)</p>
-
-<ul>
-  <li><strong>非凸函数</strong>：梯度为零可能是鞍点或局部极值（如 $f(x) = x^3$ 在 $x=0$ 处）。</li>
-  <li><strong>严格凸函数</strong>：若 $f$ 严格凸，梯度为零的点是唯一的全局最小值。</li>
-</ul>
-
-<p>基于上述理论，求解参数$w^<em>$和$b^</em>$只需要令上面的式子为零即可—-&gt; <strong>最优解的闭式(closed-form)解</strong></p>
-
-<p>先解关于<code class="language-plaintext highlighter-rouge">b</code>的式子 
-\(\begin{align*}
-2(mb-\sum_{i=1}^m(y_i-wx_i))=0 \\
-b^*=\frac{1}{m}\sum_{i=1}^m(y_i-wx_i)
-\end{align*}\)
-在计算关于<code class="language-plaintext highlighter-rouge">w</code>的式子
-\(\begin{align*}
-2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i)=0 \\
-w\sum_{i=1}^mx_i^2=\sum_{i=1}^m(y_i-b)x_i \\
-w=\frac{\sum_{i=1}^m(y_i-b)x_i}{\sum_{i=1}^mx_i^2} 
-\end{align*}\)
-将上面求得的<code class="language-plaintext highlighter-rouge">b*</code>带入即可求出<code class="language-plaintext highlighter-rouge">w*</code></p>
-
-<p><strong>TO-DO-List 这里没推完</strong></p>
-
+    
 
   </section>
 
@@ -313,9 +235,14 @@ w=\frac{\sum_{i=1}^m(y_i-b)x_i}{\sum_{i=1}^mx_i^2}
 
        <ul class="pager">
         
+        <li class="previous">
+            <a href="/2025-06-10-Chapter-3-Linear-model/" data-toggle="tooltip" data-placement="top" title="西瓜书 第三章：线性模型">上一篇：  <span>西瓜书 第三章：线性模型</span>
+            </a>
+        </li>
+        
         
         <li class="next">
-            <a href="/2025-06-05-Binary-Tree/" data-toggle="tooltip" data-placement="top" title="二叉树（不含树型bp）的经典习题">下一篇：  <span>二叉树（不含树型bp）的经典习题</span>
+            <a href="/2025-06-11-Prefix-Sum/" data-toggle="tooltip" data-placement="top" title="构建前缀信息的技巧-解决子数组相关问题">下一篇：  <span>构建前缀信息的技巧-解决子数组相关问题</span>
             </a>
         </li>
         
