@@ -1,8 +1,6 @@
 ---
 title: 二叉树（不含树型bp）的经典习题
-layout: post
 date: 2025-06-05
-description: 二叉树经典题笔记
 tags: [Algorithm]
 ---
 <div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
