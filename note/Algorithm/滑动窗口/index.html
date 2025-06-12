@@ -6,19 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="学习并推导西瓜书公式">
+        <meta name="description" content="Content and ambitious, gentle yet firm.">
       
       
         <meta name="author" content="Weary Bird">
       
       
-        <link rel="canonical" href="https://juanniaoxx.github.io/note/Machine%20Learning/Linear-model/">
+        <link rel="canonical" href="https://juanniaoxx.github.io/note/Algorithm/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
       
       
-        <link rel="prev" href="../../Algorithm/Logarithmic%20meter/">
-      
-      
-        <link rel="next" href="../../C%2B%2B%20Language/Strings%20Vectors%20and%20Arrays/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +22,7 @@
     
     
       
-        <title>西瓜书 第三章：线性模型 - Weary Bird's Blog</title>
+        <title>滑动窗口与相关习题 - Weary Bird's Blog</title>
       
     
     
@@ -88,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chapter-3" class="md-skip">
+        <a href="#question-1" class="md-skip">
           跳转至
         </a>
       
@@ -121,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              西瓜书 第三章：线性模型
+              滑动窗口与相关习题
             
           </span>
         </div>
@@ -277,7 +273,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Algorithm/Trie%20Tree/" class="md-tabs__link">
+        <a href="../Trie%20Tree/" class="md-tabs__link">
           
   
   
@@ -298,13 +294,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../Machine%20Learning/Linear-model/" class="md-tabs__link">
           
   
   
@@ -539,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/Trie%20Tree/" class="md-nav__link">
+      <a href="../Trie%20Tree/" class="md-nav__link">
         
   
   
@@ -562,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/Binary%20Tree/" class="md-nav__link">
+      <a href="../Binary%20Tree/" class="md-nav__link">
         
   
   
@@ -585,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/DateStrucutreDesign/" class="md-nav__link">
+      <a href="../DateStrucutreDesign/" class="md-nav__link">
         
   
   
@@ -608,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/Difference/" class="md-nav__link">
+      <a href="../Difference/" class="md-nav__link">
         
   
   
@@ -631,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/GCD%20and%20Congruence/" class="md-nav__link">
+      <a href="../GCD%20and%20Congruence/" class="md-nav__link">
         
   
   
@@ -654,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/Prefix_Sum/" class="md-nav__link">
+      <a href="../Prefix_Sum/" class="md-nav__link">
         
   
   
@@ -677,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/N%20Queen%20Question/" class="md-nav__link">
+      <a href="../N%20Queen%20Question/" class="md-nav__link">
         
   
   
@@ -700,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/Recursion/" class="md-nav__link">
+      <a href="../Recursion/" class="md-nav__link">
         
   
   
@@ -723,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/Nest%20Recursion/" class="md-nav__link">
+      <a href="../Nest%20Recursion/" class="md-nav__link">
         
   
   
@@ -805,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/Infer%20by%20data/" class="md-nav__link">
+      <a href="../Infer%20by%20data/" class="md-nav__link">
         
   
   
@@ -828,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/Logarithmic%20meter/" class="md-nav__link">
+      <a href="../Logarithmic%20meter/" class="md-nav__link">
         
   
   
@@ -863,10 +857,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -876,22 +868,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -904,7 +895,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Machine Learning
@@ -915,32 +906,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Linear Model
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Machine%20Learning/Linear-model/" class="md-nav__link">
         
   
   
@@ -951,35 +920,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#linear-regression" class="md-nav__link">
-    <span class="md-ellipsis">
-      线性回归(Linear regression)
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1170,8 +1110,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1180,9 +1118,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#linear-regression" class="md-nav__link">
+  <a href="#question-1" class="md-nav__link">
     <span class="md-ellipsis">
-      线性回归(Linear regression)
+      Question 1 : 长度最小的子数组
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 2 :
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 3 :
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 4 :
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 5 :
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 6 :
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 7 :
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑动窗口问题的总结
     </span>
   </a>
   
@@ -1207,14 +1208,14 @@
       
       
       
-        <a href="../../../tag/#tag:机器学习" class="md-tag">机器学习</a>
+        <a href="../../../tag/#tag:algorithm" class="md-tag">Algorithm</a>
       
     
   </nav>
 
 
   
-    <a href="https://github.com/juanniaoxx/edit/main/docs/note/Machine Learning/Linear-model.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/juanniaoxx/edit/main/docs/note/Algorithm/滑动窗口.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1223,89 +1224,125 @@
     
       
     
-    <a href="https://github.com/juanniaoxx/raw/main/docs/note/Machine Learning/Linear-model.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/juanniaoxx/raw/main/docs/note/Algorithm/滑动窗口.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="chapter-3">Chapter 3 线性模型<a class="headerlink" href="#chapter-3" title="Permanent link">&para;</a></h1>
+  <h1>滑动窗口与相关习题</h1>
+
+<div class="admonition abstract">
+<p class="admonition-title">主要内容</p>
+<p>通过维护一个动态窗口（通常为数组/字符串的子区间）来高效解决连续区间问题。核心思想是<strong>双指针遍历</strong>，根据条件调整窗口左右边界，避免重复计算。适用于<strong>子数组/子串的最值、定和、覆盖等问题</strong>（如最长无重复子串、最小覆盖子串）。关键点包括窗口收缩/扩展的触发条件、哈希表辅助统计等，时间复杂度通常为O(n)。本质是<strong>用空间换时间</strong>，优化暴力解法。</p>
+</div>
+<p>示意图：
+    <img alt="" src="../../images/2025-6-12-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/sliding-window1.png" /></p>
+<h2 id="question-1">Question 1 : 长度最小的子数组<a class="headerlink" href="#question-1" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">测试链接</p>
+<p><a href="https://leetcode.cn/problems/minimum-size-subarray-sum/">
+<img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="leetcode图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
+leetcode209.长度最小的子数组</a></p>
+</div>
 <div class="admonition info">
-<p class="admonition-title">线性模型的基本样式与向量形式</p>
-<div class="arithmatex">\[
-\begin{align*}
-\text{基本形式} &amp;: f(\textbf{x})=w_1x_1+w_2x_2+\dots+w_dx_d+b \\
-\text{向量形式} &amp;: f(\textbf{x})=\textbf{w}^{T}\textbf{x}+b
-\end{align*}
-\]</div>
+<p class="admonition-title">问题描述</p>
+<p>给定一个含有 n 个正整数的数组和一个正整数 target 。</p>
+<p>找出该数组中满足其总和大于等于 target 的长度最小的 子数组 [numsl, numsl+1, ..., numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0 。</p>
 </div>
-<h3 id="linear-regression">线性回归(Linear regression)<a class="headerlink" href="#linear-regression" title="Permanent link">&para;</a></h3>
-<div class="admonition danger">
-<p class="admonition-title">线性回归的目的</p>
-<p>线性回归的目的为试图学习一个线性模型以尽可能准确地预测实际值的输出</p>
+<details class="success">
+<summary>参考实现</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">滑动窗口O(N)</label><label for="__tabbed_1_2">前缀和与二分O(NlogN)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// 滑动窗口</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">minSubArrayLen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0fffff</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">            </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">                </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 记录当前窗口大小</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">                </span><span class="n">sum</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span><span class="w">           </span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x0fffff</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
 </div>
-<p><span class="arithmatex">\(f(x_i)=wx_i+b\ \ 使得f(x_i)\approx y_i\)</span></p>
-<div class="admonition info">
-<p class="admonition-title">求解模型</p>
-<p>基于均方误差最小化求解模型的方法称为最小二乘法</p>
-<div class="arithmatex">\[
-\begin{align*}
-(w^*,b^*) &amp;=\arg_{(w,b)}\min\sum_{i=1}^m(f(x_i)-y_i)^2 \\
-&amp;=\arg_{(w,b)}\min\sum_{i=1}^m(y_i-wx_i-b)^2 \\
-\end{align*}
-\]</div>
-<p>均方根误差的几何意义：<strong>对应了常用的欧几里德距离</strong> </p>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 寻找子数组&gt;=target的最短子数组长度</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">minSubArrayLen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="c1">// O(NlogN)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">            </span><span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="c1">// 使用二分查找对于每个i查找一个最小的j O(N log N)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">min_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0fffff</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">target</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">(</span><span class="n">prefix_sum</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">find</span><span class="p">);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">                </span><span class="n">min_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">min_len</span><span class="p">);</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">min_len</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mh">0x0fffff</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">min_len</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
 </div>
-<div class="admonition danger">
-<p class="admonition-title">教材差异</p>
-<p>这本书采用的凸函数定义与同济定义的凸函数相反，<span class="arithmatex">\(x^2\)</span>为凸函数而非凹函数</p>
 </div>
-<p><strong>参数估计</strong>:求解参数<code>w*</code>和<code>b*</code>使得 <span class="arithmatex">\(\sum_{i=1}^m(y_i - w x_i - b)^2\)</span> 最小，其过程如下 </p>
-<div class="arithmatex">\[
-\begin{align*}
-\frac{\partial{E}_{(w,b)}}{\partial{w}}=2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i) \\
-\frac{\partial{E}_{(w,b)}}{\partial{b}}=2(mb-\sum_{i=1}^m(y_i-wx_i))
-\end{align*}
-\]</div>
-<div class="admonition info">
-<p class="admonition-title">凸函数的性质</p>
-<p>函数 <span class="arithmatex">\(f: \mathbb{R}^n \to \mathbb{R}\)</span>是凸函数，如果对任意 <span class="arithmatex">\(\mathbf{x}, \mathbf{y} \in \mathbb{R}^n \)</span> 和 <span class="arithmatex">\( \theta \in [0, 1] \)</span>，满足：</p>
-<div class="arithmatex">\[
-\begin{align*}
-f(\theta \mathbf{x} + (1-\theta) \mathbf{y}) \leq \theta f(\mathbf{x}) + (1-\theta) f(\mathbf{y})
-\end{align*}
-\]</div>
-<p>直观上，连接函数图像上任意两点的线段位于函数图像上方。</p>
-<p>若<span class="arithmatex">\(f\)</span>可微，则<span class="arithmatex">\(f\)</span>是凸函数的充要条件是：</p>
-<div class="arithmatex">\[
-\begin{align*}
-f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x})^\top (\mathbf{y} - \mathbf{x}), \quad \forall \mathbf{x}, \mathbf{y}.
-\end{align*}
-\]</div>
-<ul>
-<li><strong>非凸函数</strong>：梯度为零可能是鞍点或局部极值（如 <span class="arithmatex">\(f(x) = x^3\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处）。</li>
-<li><strong>严格凸函数</strong>：若 <span class="arithmatex">\(f\)</span> 严格凸，梯度为零的点是唯一的全局最小值。</li>
-</ul>
 </div>
-<p>基于上述理论，求解参数<span class="arithmatex">\(w^*\)</span>和<span class="arithmatex">\(b^*\)</span>只需要令上面的式子为零即可----&gt; 最优解的闭式(closed-form)解</p>
-<p>先解关于<code>b</code>的式子 </p>
-<div class="arithmatex">\[
-\begin{align*}
-2(mb-\sum_{i=1}^m(y_i-wx_i))=0 \\
-b^*=\frac{1}{m}\sum_{i=1}^m(y_i-wx_i)
-\end{align*}
-\]</div>
-<p>在计算关于<code>w</code>的式子</p>
-<div class="arithmatex">\[
-\begin{align*}
-2(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i)=0 \\
-w\sum_{i=1}^mx_i^2=\sum_{i=1}^m(y_i-b)x_i \\
-w=\frac{\sum_{i=1}^m(y_i-b)x_i}{\sum_{i=1}^mx_i^2} 
-\end{align*}
-\]</div>
-<p>将上面求得的<code>b*</code>带入即可求出<code>w*</code></p>
-<p><strong>TO-DO-List 这里没推完</strong></p>
+</details>
+<h2 id="question-2">Question 2 :<a class="headerlink" href="#question-2" title="Permanent link">&para;</a></h2>
+<h2 id="question-3">Question 3 :<a class="headerlink" href="#question-3" title="Permanent link">&para;</a></h2>
+<h2 id="question-4">Question 4 :<a class="headerlink" href="#question-4" title="Permanent link">&para;</a></h2>
+<h2 id="question-5">Question 5 :<a class="headerlink" href="#question-5" title="Permanent link">&para;</a></h2>
+<h2 id="question-6">Question 6 :<a class="headerlink" href="#question-6" title="Permanent link">&para;</a></h2>
+<h2 id="question-7">Question 7 :<a class="headerlink" href="#question-7" title="Permanent link">&para;</a></h2>
+<h2 id="_1">滑动窗口问题的总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 
 
 
@@ -1370,46 +1407,6 @@ w=\frac{\sum_{i=1}^m(y_i-b)x_i}{\sum_{i=1}^mx_i^2}
 <footer class="md-footer">
   <!-- Link to previous and/or next page -->
     
-  <nav
-    class="md-footer__inner md-grid"
-    aria-label="页脚"
-    
-  >
-    <!-- Link to previous page -->
-     
-    <a
-      href="../../Algorithm/Logarithmic%20meter/"
-      class="md-footer__link md-footer__link--prev"
-      aria-label="上一页: Logarithmic meter"
-    >
-      <div class="md-footer__button md-icon">
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </div>
-      <div class="md-footer__title">
-        <span class="md-footer__direction"> 上一页 </span>
-        <div class="md-ellipsis">Logarithmic meter</div>
-      </div>
-    </a>
-    
-
-    <!-- Link to next page -->
-     
-    <a
-      href="../../C%2B%2B%20Language/Strings%20Vectors%20and%20Arrays/"
-      class="md-footer__link md-footer__link--next"
-      aria-label="下一页: Strings Vectors and Arrays"
-    >
-      <div class="md-footer__title">
-        <span class="md-footer__direction"> 下一页 </span>
-        <div class="md-ellipsis">Strings Vectors and Arrays</div>
-      </div>
-      <div class="md-footer__button md-icon">
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-      </div>
-    </a>
-    
-  </nav>
-   
 
   <!-- Further information -->
   <div class="md-footer-meta md-typeset">
