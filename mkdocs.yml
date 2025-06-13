@@ -84,6 +84,9 @@ nav:
       # - advanced:
   - Machine Learning:
     - Linear Model: note/Machine Learning/Linear-model.md
+  - Compete:
+    - Codeforces:
+      - 2025-6-12(Div 2) : Compete/Codeforces/Codeforces Round 1030 (Div. 2).md
   - Program Language:
     - C++: 
       - Strings Vectors and Arrays: note/C++ Language/Strings Vectors and Arrays.md
