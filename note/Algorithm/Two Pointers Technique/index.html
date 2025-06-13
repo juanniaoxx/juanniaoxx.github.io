@@ -12,13 +12,13 @@
         <meta name="author" content="Weary Bird">
       
       
-        <link rel="canonical" href="https://juanniaoxx.github.io/note/Algorithm/Recursion/">
+        <link rel="canonical" href="https://juanniaoxx.github.io/note/Algorithm/Two%20Pointers%20Technique/">
       
       
-        <link rel="prev" href="../N%20Queen%20Question/">
+        <link rel="prev" href="../Recursion/">
       
       
-        <link rel="next" href="../Two%20Pointers%20Technique/">
+        <link rel="next" href="../Sliding%20Window/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Recursion - Weary Bird's Blog</title>
+        <title>Two Pointers - Weary Bird's Blog</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Recursion
+              Two Pointers
             
           </span>
         </div>
@@ -1013,6 +1013,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recursion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1025,31 +1048,20 @@
         
       
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
   
   
   <span class="md-ellipsis">
-    Recursion
+    Two Pointers
     
   </span>
   
 
-      </a>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Two%20Pointers%20Technique/" class="md-nav__link">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1060,6 +1072,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1-ii" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1 按奇偶排序数组II
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2 寻找重复数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q3-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: 接雨水(hard)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: 救生艇
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5: 盛水最多的容器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q6: 供暖器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q7-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q7: 缺失的第一个正数(hard)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2579,6 +2674,77 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1-ii" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1 按奇偶排序数组II
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2 寻找重复数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q3-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: 接雨水(hard)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: 救生艇
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5: 盛水最多的容器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q6: 供暖器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q7-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q7: 缺失的第一个正数(hard)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2591,19 +2757,9 @@
                 
                   
 
-  <nav class="md-tags" >
-    
-      
-      
-      
-        <a href="../../../tag/#tag:algorithm" class="md-tag">Algorithm</a>
-      
-    
-  </nav>
-
 
   
-    <a href="https://github.com/juanniaoxx/edit/main/docs/note/Algorithm/Recursion.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/juanniaoxx/edit/main/docs/note/Algorithm/Two Pointers Technique.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2612,14 +2768,339 @@
     
       
     
-    <a href="https://github.com/juanniaoxx/raw/main/docs/note/Algorithm/Recursion.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/juanniaoxx/raw/main/docs/note/Algorithm/Two Pointers Technique.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="_1">常见递归问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="_1">双指针算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">简介</p>
+<p>双指针（Two Pointers）是一种通过使用两个指针（或索引）在数组、链表或字符串中协同遍历的高效技巧。它通常能将 O(n²) 的时间复杂度优化为 O(n)，适用于多种场景。</p>
+<p>通常双指针包括如下类型</p>
+<ul>
+<li>同向双指针</li>
+<li>快慢双指针</li>
+<li>从两头往中间的双指针</li>
+<li>其他</li>
+</ul>
+<p>严格来说双指针并不是算法，而更多只能算一种思路</p>
+</div>
+<details class="question">
+<summary>相关习题</summary>
+<p><a href="https://leetcode.cn/problems/sort-array-by-parity-ii/description/">leetcode922.按奇偶排序数组 II</a></p>
+<p><a href="https://leetcode.cn/problems/find-the-duplicate-number/">leetcode287.寻求重复数</a></p>
+<p><a href="https://leetcode.cn/problems/trapping-rain-water/description/">leetcode42.接雨水</a></p>
+<p><a href="https://leetcode.cn/problems/boats-to-save-people/description/">leetcode881.救生艇</a></p>
+<p><a href="https://leetcode.cn/problems/container-with-most-water/">leetcode11.盛最多水的容器</a></p>
+<p><a href="https://leetcode.cn/problems/heaters/description/">leetcode475.供暖器</a></p>
+<p><a href="https://leetcode.cn/problems/first-missing-positive/description/">leetcode41.缺失的第一个正数</a></p>
+</details>
+<h2 id="q1-ii">Q1 按奇偶排序数组II<a class="headerlink" href="#q1-ii" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">问题描述</p>
+</div>
+<details class="success">
+<summary>参考实现</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">简单拷贝O(N) O(N)</label><label for="__tabbed_1_2">双指针O(N) O(1)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="c1">// O(N) O(N)简单遍历拷贝</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sortArrayByParityII</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ans</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">                </span><span class="n">ans</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">                </span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">                </span><span class="n">ans</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">                </span><span class="n">k</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// O(N) O(1) 双指针</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sortArrayByParityII</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">                </span><span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="q2">Q2 寻找重复数<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">问题描述</p>
+<p>给定一个包含 n + 1 个整数的数组 nums ，其数字都在 [1, n] 范围内（包括 1 和 n），可知至少存在一个重复的整数。</p>
+<p>假设 nums 只有 一个重复的整数 ，返回 这个重复的数 。</p>
+<p>你设计的解决方案必须<mark class="critic">不修改</mark>数组nums且<mark class="critic">只用常量级 O(1) 的额外空间</mark>。</p>
+</div>
+<details class="success">
+<summary>参考实现</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">二进制</label><label for="__tabbed_2_2">快慢双指针-Floyd判圈</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">算法描述</p>
+<p>通过逐位分析二进制位来确定重复的数字。具体来说，对于每一个二进制位，比较数组中该位为1的数字的个数（x）与1到n的数字中该位为1的数字的个数（y）。如果x &gt; y，说明重复数字的该位为1；否则为0。通过这种方式，可以逐位构建出重复的数字。
+时间复杂度 <span class="arithmatex">\(O(N\log{N})\)</span> <span class="arithmatex">\(O(1)\)</span></p>
+<details class="info">
+<summary>正确性的证明</summary>
+<p>如果重复数字（target）出现两次：</p>
+<p>对于target的第i位为1的位，nums中该位的1的个数比1到n中多1（因为target多出现了一次）。</p>
+<p>对于target的第i位为0的位，nums中该位的1的个数与1到n中相同。</p>
+<p>如果重复数字出现超过两次：</p>
+<p>相当于用target替换了一些缺失的数字。替换时：</p>
+<p>如果被替换的数字的第i位为1且target的第i位为1：x不变。</p>
+<p>如果被替换的数字的第i位为0且target的第i位为1：x增加。</p>
+<p>如果被替换的数字的第i位为1且target的第i位为0：x减少。</p>
+<p>如果被替换的数字的第i位为0且target的第i位为0：x不变。</p>
+</details>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">findDuplicate</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// n为数组长度，ans用于存储最终结果（重复的数字）</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">        </span><span class="c1">// 确定最高有效位的位置（bit_max）</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="c1">// 例如，n=5时，数字范围是1~4（因为有一个重复），4的二进制是100，最高位是第2位</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bit_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span><span class="w">  </span><span class="c1">// 初始设为31</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">bit_max</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">bit_max</span><span class="o">--</span><span class="p">;</span><span class="w">  </span><span class="c1">// 找到最高有效位的位置</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// 逐位检查（从最低位到bit_max位）</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="c1">// 外层 log(n)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">bit_max</span><span class="p">;</span><span class="w"> </span><span class="n">bit</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// x统计nums中该位为1的数的个数，y统计1~n-1中该位为1的数的个数</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">            </span><span class="c1">// 计算x：nums数组中当前bit位为1的数的个数</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bit</span><span class="p">))</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// 检查nums[i]的第bit位是否为1</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">            </span><span class="c1">// 计算y：1~n-1的数字中当前bit位为1的数的个数</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">            </span><span class="c1">// 注意：因为nums的长度是n，且包含1~n-1的数字和一个重复数字</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">            </span><span class="c1">// 内层n</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// i从1到n-1</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bit</span><span class="p">))</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// 检查i的第bit位是否为1</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">            </span><span class="c1">// 如果nums中该位为1的数的个数 &gt; 1~n-1中该位为1的数的个数</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">            </span><span class="c1">// 说明重复数字的该位为1，将其设置到ans中</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bit</span><span class="p">;</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span><span class="w">  </span><span class="c1">// 返回找到的重复数字</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">算法描述</p>
+<p>对于<code>nums</code>的每个数建立一条<span class="arithmatex">\(i\rightarrow nums[i]\)</span>,由于存在重复数字，则该图中比如存在环，由下方介绍的Floyd判圈算法只需要使用快慢双指针就可以确定环的入口。</p>
+<p>时间复杂度 <span class="arithmatex">\(O(N)\)</span> <span class="arithmatex">\(O(1)\)</span></p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">findDuplicate</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]];</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="c1">// 让fast和slow一直走，直到相遇</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">slow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">fast</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">            </span><span class="c1">// slow走一次</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">            </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">slow</span><span class="p">];</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">            </span><span class="c1">// fast走两次</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">            </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">fast</span><span class="p">]];</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="c1">// 将指针放回起点</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">slow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">fast</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">            </span><span class="c1">// slow和fast都调整为一次走一步</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">            </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">slow</span><span class="p">];</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">            </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">fast</span><span class="p">];</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fast</span><span class="p">;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<details class="question">
+<summary>Floyd判圈算法</summary>
+<p>如果有限状态机、迭代函数或者链表存在环，那么一定存在一个起点可以到达某个环的某处(这个起点也可以在某个环上)。</p>
+<p>初始状态下，假设已知某个起点节点为节点S。现设两个指针t和h，将它们均指向S。</p>
+<p>接着，同时让t和h往前推进，但是二者的速度不同：t每前进1步，h前进2步。只要二者都可以前进而且没有相遇，就如此保持二者的推进。当h无法前进，即到达某个没有后继的节点时，就可以确定从S出发不会遇到环。反之当t与h再次相遇时，就可以确定从S出发一定会进入某个环，设其为环C。</p>
+<p>如果确定了存在某个环，就可以求此环的起点与长度。</p>
+<p>上述算法刚判断出存在环C时，显然t和h位于同一节点，设其为节点M。显然，仅需令h不动，而t不断推进，最终又会返回节点M，统计这一次t推进的步数，显然这就是环C的长度。</p>
+<p>为了求出环C的起点，只要令h仍位于节点M，而令t返回起点节点S，此时h与t之间距为环C长度的整数倍。随后，同时让t和h往前推进，且<mark class="critic">保持二者的速度相同</mark>：t每前进1步，h前进1步。持续该过程直至t与h再一次相遇，设此次相遇时位于同一节点P，则节点P即为从节点S出发所到达的环C的第一个节点，即环C的一个起点。</p>
+<div class="admonition info">
+<p class="admonition-title">证明环起点</p>
+<p>假设从跑道起点A到环起点B的路程为<span class="arithmatex">\(m\)</span>,从B点到相遇点C的路程为<span class="arithmatex">\(k\)</span>,环的长度为<span class="arithmatex">\(n\)</span>,则相遇的时候乌龟(慢指针)走过的距离为:</p>
+<div class="arithmatex">\[S_1=m+k+t_1*n\]</div>
+<p>兔子(快指针)走过的距离为：</p>
+<div class="arithmatex">\[S_2=m + k + t_2 * n(t_2&gt;t_1)\]</div>
+<p>且<span class="arithmatex">\(S_2=2*S_1\)</span>则由上式可以推出</p>
+<div class="arithmatex">\[
+\begin{align*}
+    S_1&amp;=S_2-S_1=(t_2-t_1)*n \\
+    S_2 &amp;= 2 * (t_2-t_1) * n
+\end{align*}
+\]</div>
+<p>即快慢指针走过的距离都是环长的倍数，而<span class="arithmatex">\(m + k = (t_2 - 2 * t_1) * n\)</span>也是环长的倍数
+当快指针回到跑道起始点的时候，慢指针从相遇点出发.此时当快指针走到环起点的时候经过了m此时慢指针走过了<span class="arithmatex">\(k+m\)</span>即环长倍数也就回到了环的起点。</p>
+</div>
+</details>
+<h2 id="q3-hard">Q3: <mark class="critic">接雨水(hard)</mark><a class="headerlink" href="#q3-hard" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">问题描述</p>
+<p>给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。</p>
+<p><img alt="" src="../../images/2025-6-12-Two-Pointers/%E6%8E%A5%E9%9B%A8%E6%B0%B4.png" /></p>
+<p>输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]</p>
+<p>输出：6</p>
+<p>解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。</p>
+</div>
+<h2 id="q4">Q4: 救生艇<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">问题描述</p>
+<p>给定数组 people 。people[i]表示第 i 个人的体重 ，船的数量不限，每艘船可以承载的最大重量为 limit。</p>
+<p>每艘船最多可同时载两人，但条件是这些人的重量之和最多为 limit。</p>
+<p>返回 承载所有人所需的最小船数 。</p>
+</div>
+<h2 id="q5">Q5: 盛水最多的容器<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">问题描述</p>
+<p>给定一个长度为 n 的整数数组 height 。有 n 条垂线，第 i 条线的两个端点是 (i, 0) 和 (i, height[i]) 。</p>
+<p>找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+<p>返回容器可以储存的最大水量。</p>
+<p><mark class="critic">说明：你不能倾斜容器。</mark></p>
+<p><img alt="alt text" src="../../images/2025-6-12-Two-Pointers/%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8.png" /></p>
+<p>输入：[1,8,6,2,5,4,8,3,7]</p>
+<p>输出：49 </p>
+<p>解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
+</div>
+<p>问题可以转换为求解<span class="arithmatex">\(\min{(左边界,有边界)}*区间长度\)</span> </p>
+<h2 id="q6">Q6: 供暖器<a class="headerlink" href="#q6" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">问题描述</p>
+<p>冬季已经来临。 你的任务是设计一个有固定加热半径的供暖器向所有房屋供暖。</p>
+<p>在加热器的加热半径范围内的每个房屋都可以获得供暖。</p>
+<p>现在，给出位于一条水平线上的房屋 houses 和供暖器 heaters 的位置，请你找出并返回可以覆盖所有房屋的最小加热半径。</p>
+<p>注意：所有供暖器 heaters 都遵循你的半径标准，加热的半径也一样。</p>
+</div>
+<h2 id="q7-hard">Q7: <mark class="critic">缺失的第一个正数(hard)</mark><a class="headerlink" href="#q7-hard" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">问题描述</p>
+<p>给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。</p>
+<p>请你实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方案。</p>
+</div>
 
 
 
@@ -2692,16 +3173,16 @@
     <!-- Link to previous page -->
      
     <a
-      href="../N%20Queen%20Question/"
+      href="../Recursion/"
       class="md-footer__link md-footer__link--prev"
-      aria-label="上一页: N Queen Question"
+      aria-label="上一页: Recursion"
     >
       <div class="md-footer__button md-icon">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </div>
       <div class="md-footer__title">
         <span class="md-footer__direction"> 上一页 </span>
-        <div class="md-ellipsis">N Queen Question</div>
+        <div class="md-ellipsis">Recursion</div>
       </div>
     </a>
     
@@ -2709,13 +3190,13 @@
     <!-- Link to next page -->
      
     <a
-      href="../Two%20Pointers%20Technique/"
+      href="../Sliding%20Window/"
       class="md-footer__link md-footer__link--next"
-      aria-label="下一页: Two Pointers"
+      aria-label="下一页: Sliding Window"
     >
       <div class="md-footer__title">
         <span class="md-footer__direction"> 下一页 </span>
-        <div class="md-ellipsis">Two Pointers</div>
+        <div class="md-ellipsis">Sliding Window</div>
       </div>
       <div class="md-footer__button md-icon">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="前缀树基础、代码实现与相关习题">
+        <meta name="description" content="Content and ambitious, gentle yet firm.">
       
       
         <meta name="author" content="Weary Bird">
@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://juanniaoxx.github.io/note/Algorithm/Trie%20Tree/">
       
       
-        <link rel="prev" href="../../../tag/">
+        <link rel="prev" href="../Binary%20Tree/">
       
       
-        <link rel="next" href="../Binary%20Tree/">
+        <link rel="next" href="../Difference/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>前缀树（字典树） - Weary Bird's Blog</title>
+        <title>Trie Tree - Weary Bird's Blog</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              前缀树（字典树）
+              Trie Tree
             
           </span>
         </div>
@@ -280,8 +280,26 @@
   
     
     
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../ListQuestions/" class="md-tabs__link">
           
   
   
@@ -297,6 +315,12 @@
     
   
 
+    
+  
+
+    
+  
+
       
         
   
@@ -305,17 +329,37 @@
   
     
     
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
-        <a href="../../Machine%20Learning/Linear-model/" class="md-tabs__link">
+        <a href="../../AI/Introduction/Chapter%201/" class="md-tabs__link">
           
   
   
     
   
-  Machine Learning
+  Artificial Intelligence
 
         </a>
       </li>
+    
+  
+
+    
+  
+
     
   
 
@@ -366,6 +410,13 @@
   
     
     
+      
+  
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
         <a href="../../C%2B%2B%20Language/Strings%20Vectors%20and%20Arrays/" class="md-tabs__link">
           
@@ -381,6 +432,72 @@
   
 
     
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Read
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  杂谈
+
+      </a>
+    </li>
   
 
       
@@ -463,8 +580,6 @@
       
         
       
-        
-      
     
     
     
@@ -519,20 +634,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
     
@@ -580,160 +681,105 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+        
+      
+        
+      
+        
+      
+    
+    
+    
       
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" checked>
+        
           
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
-    Trie Tree
+    Topic
     
   </span>
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-  
-  
-  <span class="md-ellipsis">
-    Trie Tree
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      前缀树的基本概念
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    <span class="md-ellipsis">
-      不推荐-前缀树的类实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      推荐-前缀树的静态数组实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      前缀树的相关习题
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="前缀树的相关习题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      接头密钥
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      数组中两个数的最大异或值
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="数组中两个数的最大异或值">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法一：使用贪心+前缀树(相对好想但速度慢一些)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法二： 使用哈希表+贪心(更快但更难想)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ii" class="md-nav__link">
-    <span class="md-ellipsis">
-      单词搜索II
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      前缀树的总结
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Topic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_1" id="__nav_2_1_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数据结构
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -742,12 +788,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../Binary%20Tree/" class="md-nav__link">
+      <a href="../ListQuestions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Binary Tree
+    Question Of LinkList
     
   </span>
   
@@ -788,12 +834,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../Difference/" class="md-nav__link">
+      <a href="../Binary%20Tree/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Difference
+    Binary Tree
     
   </span>
   
@@ -808,15 +854,249 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../GCD%20and%20Congruence/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Trie Tree
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    GCD and Congruence
+    Trie Tree
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      前缀树的基本概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      不推荐-前缀树的类实现
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      推荐-前缀树的静态数组实现
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      前缀树的相关习题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="前缀树的相关习题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      接头密钥
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      数组中两个数的最大异或值
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数组中两个数的最大异或值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法一：使用贪心+前缀树(相对好想但速度慢一些)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法二： 使用哈希表+贪心(更快但更难想)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii" class="md-nav__link">
+    <span class="md-ellipsis">
+      单词搜索II
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      前缀树的总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_2" id="__nav_2_1_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    算法
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Difference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Difference
     
   </span>
   
@@ -903,17 +1183,128 @@
   
   
     <li class="md-nav__item">
-      <a href="../Nest%20Recursion/" class="md-nav__link">
+      <a href="../Two%20Pointers%20Technique/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Nest Recursion
+    Two Pointers
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sliding%20Window/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sliding Window
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1_3" id="__nav_2_1_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    杂项
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            杂项
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GCD%20and%20Congruence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GCD and Congruence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -946,22 +1337,19 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
             
   
   
@@ -974,8 +1362,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
             <span class="md-nav__icon md-icon"></span>
             Tips
           </label>
@@ -1041,6 +1429,14 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
@@ -1050,6 +1446,14 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -1076,7 +1480,7 @@
   
   
   <span class="md-ellipsis">
-    Machine Learning
+    Artificial Intelligence
     
   </span>
   
@@ -1086,6 +1490,194 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Artificial Intelligence
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduce
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduce
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Artificial Intelligence A Modern Approach
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Artificial Intelligence A Modern Approach
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AI/Introduction/Chapter%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1 Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Machine Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Machine Learning
           </label>
@@ -1097,13 +1689,284 @@
   
   
   
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    西瓜书
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            西瓜书
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../Machine%20Learning/Linear-model/" class="md-nav__link">
+      <a href="../../AI/Machine%20Learning/%E8%A5%BF%E7%93%9C%E4%B9%A6/Linear-model/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Linear Model
+    Chapter 3 Linear Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pattern Recognition and Machine Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    花书
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Reinforcement Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning An Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Paper
     
   </span>
   
@@ -1319,6 +2182,8 @@
       
         
       
+        
+      
     
     
     
@@ -1354,6 +2219,57 @@
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_1" id="__nav_5_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C++ Primer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            C++ Primer
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1411,9 +2327,368 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Effective C++
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Effective STL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Principles of Mathematical Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Probability Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Convex optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Read
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Read
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    中文-近代
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    中文-古代
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    英文
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    杂谈
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1435,6 +2710,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1443,7 +2720,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       前缀树的基本概念
     </span>
@@ -1470,7 +2747,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       前缀树的相关习题
     </span>
@@ -1480,7 +2757,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       接头密钥
     </span>
@@ -1489,7 +2766,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       数组中两个数的最大异或值
     </span>
@@ -1499,7 +2776,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       方法一：使用贪心+前缀树(相对好想但速度慢一些)
     </span>
@@ -1508,7 +2785,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       方法二： 使用哈希表+贪心(更快但更难想)
     </span>
@@ -1536,7 +2813,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       前缀树的总结
     </span>
@@ -1586,9 +2863,8 @@
   
 
 
-  <h1>Trie Tree</h1>
-
-<h3 id="_1">前缀树的基本概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h1 id="_1">前缀树（字典树）<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h3 id="_2">前缀树的基本概念<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid #e74c3c; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
   <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">⚠️ 重要</div>
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">前缀树相关操作的复杂度</div>
@@ -1989,7 +3265,7 @@
 <a id="__codelineno-7-86" name="__codelineno-7-86"></a><span class="w">    </span><span class="c1">// 如果单词不存在，则不做任何操作</span>
 <a id="__codelineno-7-87" name="__codelineno-7-87"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_2">前缀树的相关习题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">前缀树的相关习题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div style="top: 10px; left: 10px; background: #f5f5f5; border-left: 4px solid #7f8c8d; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
   <div style="padding: 8px 12px; font-weight: bold; color: #7f8c8d;">💻 测试链接</div>
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">
@@ -2000,7 +3276,7 @@
       <a href="https://leetcode.cn/problems/word-search-ii/">Q3:leetcode212.单词搜索II</a>
     </div>
 </div>
-<h4 id="_3">接头密钥<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<h4 id="_4">接头密钥<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>这道题的关键点在于意识到这是一个<code>前缀</code>问题，并且要相当吧<code>int</code>-&gt;<code>string</code>来构建前缀树</p>
 <div style="top: 10px; left: 10px; background: #f0fff4; border-left: 4px solid #2ecc71; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
   <div style="padding: 8px 12px; font-weight: bold; color: #2ecc71;">💡 提示</div>
@@ -2013,7 +3289,7 @@
 <li>使用<code>1</code> <code>2</code> <code>3</code>和<code>#</code> 构成这个字符串</li>
 <li><code>#</code>表明一个数字的结束</li>
 </ul>
-<h4 id="_4">数组中两个数的最大异或值<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<h4 id="_5">数组中两个数的最大异或值<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <div style="top: 10px; left: 10px;background: #f9f0ff; border-left: 4px solid #9b59b6; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
   <div style="padding: 8px 12px; font-weight: bold; color: #9b59b6;">🔄 朴素解法</div>
   <div style="padding: 8px 12px; padding-top: 0; color: #333;">朴素想法，遍历数组并记录异化运算(^)的最大结果</div>
@@ -2029,7 +3305,7 @@
 </div>
 
 <p>下面两个方法都可以使时间复杂度降低至<span class="arithmatex">\(O(\log{V}N)\)</span>,其中<code>V</code>是最大的数值，<span class="arithmatex">\(\log{V}\)</span>最高不过32位所以这个复杂度为<span class="arithmatex">\(O(N)\)</span></p>
-<h5 id="_5">方法一：使用贪心+前缀树(相对好想但速度慢一些)<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<h5 id="_6">方法一：使用贪心+前缀树(相对好想但速度慢一些)<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
 <p>leetcode的测试结果为<code>253ms(65.7%)</code> 与 <code>85.66MB (67.23%)</code></p>
 <p>算法步骤</p>
 <ul>
@@ -2065,7 +3341,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="_6">方法二： 使用哈希表+贪心(更快但更难想)<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<h5 id="_7">方法二： 使用哈希表+贪心(更快但更难想)<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
 <p>leetcode的测试结果为<code>67ms(98.45%)</code> 与 <code>75.42MB(93.82%)</code></p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
@@ -2158,7 +3434,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_7">前缀树的总结<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_8">前缀树的总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 
 
 
@@ -2231,16 +3507,16 @@
     <!-- Link to previous page -->
      
     <a
-      href="../../../tag/"
+      href="../Binary%20Tree/"
       class="md-footer__link md-footer__link--prev"
-      aria-label="上一页: 标签"
+      aria-label="上一页: Binary Tree"
     >
       <div class="md-footer__button md-icon">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </div>
       <div class="md-footer__title">
         <span class="md-footer__direction"> 上一页 </span>
-        <div class="md-ellipsis">标签</div>
+        <div class="md-ellipsis">Binary Tree</div>
       </div>
     </a>
     
@@ -2248,13 +3524,13 @@
     <!-- Link to next page -->
      
     <a
-      href="../Binary%20Tree/"
+      href="../Difference/"
       class="md-footer__link md-footer__link--next"
-      aria-label="下一页: Binary Tree"
+      aria-label="下一页: Difference"
     >
       <div class="md-footer__title">
         <span class="md-footer__direction"> 下一页 </span>
-        <div class="md-ellipsis">Binary Tree</div>
+        <div class="md-ellipsis">Difference</div>
       </div>
       <div class="md-footer__button md-icon">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
@@ -2273,11 +3549,6 @@
       Copyright &copy; 2025~2026 Weary Bird
     </div>
   
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       <div class="footer-visit-count">
@@ -2328,6 +3599,8 @@
         <script src="../../../javascripts/latex.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../javascripts/favicons.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
