@@ -1,10 +1,6 @@
 ---
-title: 西瓜书 第三章：线性模型
-layout: post
 date: 2025-06-10
-description: 学习并推导西瓜书公式
 tags: [机器学习]
-
 ---
 
 # Chapter 3 线性模型

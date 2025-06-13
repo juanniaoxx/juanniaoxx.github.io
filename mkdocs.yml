@@ -67,35 +67,72 @@ repo_name: Weary Bird # 右上角的名字
 # [Navigtion]
 nav:
   - 标签: tag.md
+  # 硬计类算法
   - Algorithm:
       - Beginner:
-        - Trie Tree: note/Algorithm/Trie Tree.md
-        - Binary Tree: note/Algorithm/Binary Tree.md
-        - DateStrucutreDesign: note/Algorithm/DateStrucutreDesign.md
-        - Difference: note/Algorithm/Difference.md
-        - GCD and Congruence: note/Algorithm/GCD and Congruence.md
-        - Prefix_Sum: note/Algorithm/Prefix_Sum.md
-        - N Queen Question: note/Algorithm/N Queen Question.md
-        - Recursion: note/Algorithm/Recursion.md
-        - Nest Recursion: note/Algorithm/Nest Recursion.md
-      - Tips:
-        - Infer by data: note/Algorithm/Infer by data.md
-        - Logarithmic meter: note/Algorithm/Logarithmic meter.md
+        - Topic:
+          - 数据结构:
+            - Question Of LinkList: note/Algorithm/ListQuestions.md
+            - DateStrucutreDesign: note/Algorithm/DateStrucutreDesign.md
+            - Binary Tree: note/Algorithm/Binary Tree.md
+            - Trie Tree: note/Algorithm/Trie Tree.md
+          - 算法:
+            - Difference: note/Algorithm/Difference.md
+            - Prefix_Sum: note/Algorithm/Prefix_Sum.md
+            - N Queen Question: note/Algorithm/N Queen Question.md
+            - Recursion: note/Algorithm/Recursion.md
+            - Two Pointers: note/Algorithm/Two Pointers Technique.md
+            - Sliding Window: note/Algorithm/Sliding Window.md
+          - 杂项:
+            - GCD and Congruence: note/Algorithm/GCD and Congruence.md
+        - Tips:
+          - Infer by data: note/Algorithm/Infer by data.md
+          - Logarithmic meter: note/Algorithm/Logarithmic meter.md
       # - advanced:
-  - Machine Learning:
-    - Linear Model: note/Machine Learning/Linear-model.md
+  # AI相关内容
+  - Artificial Intelligence:
+    - Introduce:
+      - Artificial Intelligence A Modern Approach:
+        - Chapter 1 Introduction: note/AI/Introduction/Chapter 1.md
+    - Machine Learning:
+      - 西瓜书:
+        - Chapter 3 Linear Model: note/AI/Machine Learning/西瓜书/Linear-model.md
+      - Pattern Recognition and Machine Learning: []
+    - Deep Learning: 
+      - 花书: []
+    - Reinforcement Learning: 
+      - Reinforcement Learning An Introduction: []
+    - Paper: []
+  # 比赛记录
   - Compete:
     - Codeforces:
       - 2025-6-12(Div 2) : Compete/Codeforces/Codeforces Round 1030 (Div. 2).md
+  # 语言特性
   - Program Language:
     - C++: 
-      - Strings Vectors and Arrays: note/C++ Language/Strings Vectors and Arrays.md
-      - Expression: note/C++ Language/Expressions.md
+      - C++ Primer:
+        - Strings Vectors and Arrays: note/C++ Language/Strings Vectors and Arrays.md
+        - Expression: note/C++ Language/Expressions.md
+      - Effective C++: []
+      - Effective STL: []
+  # 数学
+  - Math:
+    - Principles of Mathematical Analysis: []
+    - Linear Algebra: []
+    - Probability Theory: []
+    - Convex optimization: []
+  # 阅读记录
+  - Read:
+    - 中文-近代: []
+    - 中文-古代: []
+    - 英文: []
+  # 杂谈类
+  - 杂谈: []
 
 copyright: Copyright &copy; 2025~2026 Weary Bird # 左下角的版权声明
 
 extra:
-  generator: true #是否删除页脚显示“使用 MkDocs 材料制造”
+  generator: false #是否在页脚显示“使用 MkDocs 材料制造”
 
     # 网页底部反馈
   feedback:
@@ -209,6 +246,7 @@ extra_javascript:
   - javascripts/latex.js #自定义javascript
   - javascripts/mathjax.js #Latex支持
   # - https://polyfill.io/v3/polyfill.min.js?features=es6 #Latex支持
+  - javascripts/favicons.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js #Latex支持
   # - ckplayer/js/ckplayer.js #播放器配置
   # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js  #gitalk支持

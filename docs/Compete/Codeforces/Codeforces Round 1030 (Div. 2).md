@@ -3,6 +3,23 @@ title: Codeforces Round 1030 (Div. 2)
 date: 2025-06-12
 tags: [compete]
 ---
+!!! abstract 
+    参加时间：2025-6-12 10PM
+
+    完成情况：
+    A :white_check_mark:
+    B :x:
+    C :x:
+    D :x:
+    E :x:
+    F :x:
+
+    补题记录：
+    B :x:
+    C :x:
+    D :x:
+    E :x:
+    F :x:
 # Codeforces Round 1030 (Div. 2)
 ## A题 Equal Subsequences
 !!! danger "限制"

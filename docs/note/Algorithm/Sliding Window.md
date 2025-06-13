@@ -1,20 +1,29 @@
 ---
-title: 滑动窗口与相关习题
 date: 2025-06-05
 tags: [Algorithm]
 ---
-
+# 滑动窗口与相关习题
 !!! abstract "主要内容"
-    通过维护一个动态窗口（通常为数组/字符串的子区间）来高效解决连续区间问题。核心思想是**双指针遍历**，根据条件调整窗口左右边界，避免重复计算。适用于**子数组/子串的最值、定和、覆盖等问题**（如最长无重复子串、最小覆盖子串）。关键点包括窗口收缩/扩展的触发条件、哈希表辅助统计等，时间复杂度通常为O(n)。本质是**用空间换时间**，优化暴力解法。
+    通过维护一个动态窗口（通常为数组/字符串的子区间）来高效解决连续区间问题。核心思想是{==双指针遍历==}，根据条件调整窗口左右边界，避免重复计算。适用于**子数组/子串的最值、定和、覆盖等问题**（如最长无重复子串、最小覆盖子串）。关键点包括窗口收缩/扩展的触发条件、哈希表辅助统计等，时间复杂度通常为O(n)。
 示意图：
-    ![](../images/2025-6-12-滑动窗口/sliding-window1.png)
+    ![示意图](../images/2025-6-12-滑动窗口/sliding-window1.png)
+
+??? danger "相关习题"
+    [leetcode209.长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/)
+
+    [leetcode3.无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
+
+    [leetcode76.最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/)
+
+    [leetcode134.加油站](https://leetcode.cn/problems/gas-station/)
+
+    [leetcode1234.替换子串得到平衡字符串](https://leetcode.cn/problems/replace-the-substring-for-balanced-string/)
+
+    [leetcode992.K个不同整数的子数组](https://leetcode.cn/problems/subarrays-with-k-different-integers/)
+
+    [leetcode395.至少有K个重复字符的最长子串](https://leetcode.cn/problems/longest-substring-with-at-least-k-repeating-characters/)
 
 ## Question 1 : 长度最小的子数组
-!!! note "测试链接"
-    <a href="https://leetcode.cn/problems/minimum-size-subarray-sum/">
-    <img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="leetcode图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
-    leetcode209.长度最小的子数组</a>
-
 !!! info "问题描述"
     给定一个含有 n 个正整数的数组和一个正整数 target 。
 
@@ -68,7 +77,6 @@ tags: [Algorithm]
         ```
 
 ## Question 2 : 无重复字符的最长子串
-
 !!! note "问题描述"
     给定一个字符串 `s` ，请你找出其中不含有重复字符的最长子串的长度。
 
@@ -145,11 +153,6 @@ tags: [Algorithm]
     };
     ```
 ## Question 4 : 加油站
-!!! note "测试链接"
-    <a href="https://leetcode.cn/problems/gas-station/description/">
-    <img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="leetcode图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
-    leetcode134. 加油站</a>
-
 !!! note "题目描述"
     在一条环路上有 n 个加油站，其中第 i 个加油站有汽油 gas[i] 升。
 
@@ -187,11 +190,6 @@ tags: [Algorithm]
     ```
 
 ## Question 5 : 替换子串得到平衡字符串
-!!! note "测试链接"
-    <a href="https://leetcode.cn/problems/replace-the-substring-for-balanced-string/description/">
-    <img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="leetcode图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
-    leetcode1234. 替换子串得到平衡字符串</a>
-
 !!! note "题目描述"
     有一个只含有 'Q', 'W', 'E', 'R' 四种字符，且长度为 n 的字符串。
 
@@ -251,11 +249,6 @@ tags: [Algorithm]
     };
     ```
 ## Question 6 : K个不同整数的子数组
-!!! note "测试链接"
-    <a href="https://leetcode.cn/problems/subarrays-with-k-different-integers/description/">
-    <img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="leetcode图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
-    leetcode992. K个不同整数的子数组</a>
-
 !!! note "题目描述"
     给定一个正整数数组 nums和一个整数 k，返回 nums 中 「好子数组」 的数目。
 
@@ -264,13 +257,9 @@ tags: [Algorithm]
     例如，[1,2,3,1,2] 中有 3 个不同的整数：1，2，以及 3。
 
 ## Question 7 : 至少有k个重复字符的最长子串
-!!! note "测试链接"
-    <a href="https://leetcode.cn/problems/longest-substring-with-at-least-k-repeating-characters/description/">
-    <img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="leetcode图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
-    leetcode395. 至少有k个重复字符的最长子串</a>
-
 !!! note "题目描述"
     给你一个字符串 s 和一个整数 k ，请你找出 s 中的最长子串， 要求该子串中的每一字符出现次数都不少于 k 。返回这一子串的长度。
 
     如果不存在这样的子字符串，则返回 0。
 ## 滑动窗口问题的总结
+
