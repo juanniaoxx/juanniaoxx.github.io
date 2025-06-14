@@ -11,24 +11,14 @@ tags: [Algorithm]
 	离散化：将稀疏大范围数据映射为紧凑连续值，保留大小关系，常用于节省空间或处理非数值索引。  
 
 ## 一维差分与等差数列差分
+!!! question "相关习题"
+	[leetcode 1109.航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings/description/)
 
-<div style="top: 10px; left: 10px; background: #f5f5f5; border-left: 4px solid #7f8c8d; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #7f8c8d;">💻 相关习题</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-    <a href="https://leetcode.cn/problems/corporate-flight-bookings/description/">
-        <img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="洛谷图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
-        leetcode 1109.航班预订统计</a><br>
-      <a href="https://www.luogu.com.cn/problem/P4231">
-          <img src="https://www.google.com/s2/favicons?domain=luogu.com.cn" alt="洛谷图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
-          洛谷P4231 三步必杀</a><br>
-      <a href="https://www.luogu.com.cn/problem/P5026">
-  <img src="https://www.google.com/s2/favicons?domain=luogu.com.cn" alt="洛谷图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">
-  洛谷P5026 Lycanthropy
-</a>
-    </div>
-</div>
+	[洛谷P4231 三步必杀](https://www.luogu.com.cn/problem/P4231)
 
-### 一维差分
+	[洛谷P5026 Lycanthropy](https://www.luogu.com.cn/problem/P5026)
+
+## 一维差分
 
 假设要在一个数组的[left, right]上进行n次操作
 
@@ -84,10 +74,10 @@ tags: [Algorithm]
 
 ## 二维前缀和
 !!! note "参考习题"
+
 	<div style="padding: 8px 12px; padding-top: 0; color: #333;">
-		<a href="https://leetcode.cn/problems/range-sum-query-2d-immutable/description/">
-			<img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="洛谷图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">leetcode 304.二维区域和检索-矩阵不可变(二维前缀和模板)</a><br>
-		<a href="https://leetcode.cn/problems/largest-1-bordered-square/description/"><img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="洛谷图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">leetcode 1139.最大以1为边界的正方形</a>
+		<a href="https://leetcode.cn/problems/range-sum-query-2d-immutable/description/">leetcode 304.二维区域和检索-矩阵不可变(二维前缀和模板)</a><br>
+		<a href="https://leetcode.cn/problems/largest-1-bordered-square/description/">leetcode 1139.最大以1为边界的正方形</a>
 	</div>
 
 详细的数学推导见[Oi-wiki:前缀和&差分](https://oi-wiki.org/basic/prefix-sum/)
@@ -199,9 +189,9 @@ tags: [Algorithm]
 
 !!! note "参考习题"
 	<div style="padding: 8px 12px; padding-top: 0; color: #333;">
-		<a href="https://www.luogu.com.cn/problem/P3397"><img src="https://www.google.com/s2/favicons?domain=luogu.com.cn" alt="洛谷图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">洛谷P3397地毯(二维差分模板)</a>
+		<a href="https://www.luogu.com.cn/problem/P3397">洛谷P3397地毯(二维差分模板)</a>
 		<br>
-		<a href="https://leetcode.cn/problems/stamping-the-grid/description/"><img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="洛谷图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">leetcode2132.用邮票贴满网格图</a>
+		<a href="https://leetcode.cn/problems/stamping-the-grid/description/">leetcode2132.用邮票贴满网格图</a>
 		</div>
 
 !!! note "问题描述"
@@ -233,7 +223,7 @@ tags: [Algorithm]
 参考前缀和计算，如果采用原大小的数组构建差分数组则需要进行各种边界判断。因为差分数组会都四个角周围的元素进行操作，所以只需要在原数组外面围一圈`0`则无论是进行`add`操作还是`build`操作都不需要进行边界检查了。
 
 ### 洛谷P3397
-{==难度: 普及-==} 模板题，注意数组大小即可。
+模板题，注意数组大小即可。
 ### 牛客 [模板]二维差分
 注意如果数组本来就不全为0,需要对每一个初始元素进行一次单独的`add`操作，来保证最终结果的正确性
 ??? success "参考代码"
@@ -286,9 +276,10 @@ tags: [Algorithm]
 	要判断某一个空白位置`0`是否至少存在一个大小为邮票大小且形状和邮票一致的相邻全零区域如果含有`1`则会有啥不同呢？
 
 	若能找到，肯定要标记该区域用于与原矩阵对比而判断答案，但如何标记呢？
-	??? note "解法"
-		通过前缀和计算某一区域是否为`0`进而确认该位置是否可以贴邮票，并且不再原数组上进行标记。而是采用一个
-		差分数组，记录每次贴邮票的操作。最终只需要对比差分数组和原数组，若存在两者均为`0`的格子则说明无法贴全。
+
+??? note "解法"
+	通过前缀和计算某一区域是否为`0`进而确认该位置是否可以贴邮票，并且不再原数组上进行标记。而是采用一个
+	差分数组，记录每次贴邮票的操作。最终只需要对比差分数组和原数组，若存在两者均为`0`的格子则说明无法贴全。
 
 ??? success "参考代码"
 	```cpp
@@ -347,14 +338,14 @@ tags: [Algorithm]
 ## 离散化技巧
 !!! note "参考习题"
 	<div style="padding: 8px 12px; padding-top: 0; color: #333;">
-		<a href="https://leetcode.cn/problems/xepqZ5/description/"><img src="https://www.google.com/s2/favicons?domain=leetcode.com.cn" alt="洛谷图标" style="vertical-align:middle;margin-right:5px;width:16px;height:16px;">leetcode LCP74.最强祝福力场</a>
+		<a href="https://leetcode.cn/problems/xepqZ5/description/">leetcode LCP74.最强祝福力场</a>
 	</div>
 
 一句话说清离散化，对于稀疏数据的{==有序关系==}的一种映射
 
 例如leetcode这道题，力场的可能范围非常大但我们并不需要一个矩形边长上的全部数据只需要四个角的数据即可。通过合理的映射可以简单的把数据长度长但内容稀疏的数据集转换为数据长度小且密集的数据集。
 
-!!! tip "提示"
+!!! tip "编码技巧"
 	可以使用`std::erase`和`std::unique`对有序数组进行去重
 
 	使用`lower_bound`返回最早出现大于等于参数的迭代器
