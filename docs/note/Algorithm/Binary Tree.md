@@ -303,7 +303,8 @@ tags: [Algorithm]
     };
     ```
 ## 判断一个树是否为平衡二叉树
-
+!!! tip "平衡二叉树的特性"
+    
 ??? success "参考实现"
     ```cpp
     class Solution {
