@@ -2714,30 +2714,17 @@
 
 
 <h1 id="_1">数据结构设计习题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_035%20Date%20Structure%20Design%20Question" target="_block">参考实现</a>
-  </div>
+<div class="admonition question">
+<p class="admonition-title">相关习题</p>
+<p><a href="https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967"><code>setAll</code>功能的哈希表</a></p>
+<p><a href="https://leetcode.cn/problems/lru-cache/">实现<code>LRU</code>结构</a></p>
+<p><a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">插删随<span class="arithmatex">\(O(1)\)</span>的结构</a></p>
+<p><a href="https://leetcode.cn/problems/insert-delete-getrandom-o1-duplicates-allowed/description/">插删随<span class="arithmatex">\(O(1)\)</span>的结构加强版</a></p>
+<p><a href="https://leetcode.cn/problems/find-median-from-data-stream/">快速获得数据流的中位数 </a></p>
+<p><a href="https://leetcode.cn/problems/maximum-frequency-stack/">最大频率栈</a></p>
+<p><a href="https://leetcode.cn/problems/all-oone-data-structure/">全是O(1)的结构</a></p>
 </div>
-<p><br></p>
-<blockquote>
-<p>主要内容</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目1: <a href="https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967"><code>setAll</code>功能的哈希表</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目2: <a href="https://leetcode.cn/problems/lru-cache/">实现<code>LRU</code>结构</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目3: <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">插删随<span class="arithmatex">\(O(1)\)</span>的结构</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目4: <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1-duplicates-allowed/description/">插删随<span class="arithmatex">\(O(1)\)</span>的结构加强版</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目5: <a href="https://leetcode.cn/problems/find-median-from-data-stream/">快速获得数据流的中位数 </a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目6: <a href="https://leetcode.cn/problems/maximum-frequency-stack/">最大频率栈</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目7: <a href="https://leetcode.cn/problems/all-oone-data-structure/">全是O(1)的结构</a></li>
-</ul>
-</blockquote>
-<h3 id="setall"><code>setAll</code>功能的哈希表<a class="headerlink" href="#setall" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>测试链接 <a href="https://www.nowcoder.com/practice/7c4559f138e74ceb9ba57d76fd169967">牛客. 设计有<code>setAll</code>功能的哈希表</a></p>
-</blockquote>
-<p>提示:C++选手若有需要可以使用unordered_map替换map来将复杂度从O(log n)降为O(1)</p>
+<h2 id="setall"><code>setAll</code>功能的哈希表<a class="headerlink" href="#setall" title="Permanent link">&para;</a></h2>
 <p>设计思路</p>
 <ul>
 <li>
@@ -2753,14 +2740,10 @@
 </li>
 <li>执行<code>get()</code>操作的时候，检查<code>time</code>与<code>setAllTime</code>若<code>time &lt; setAllTime</code>则修改<code>value = setAllvalue</code>否则直接获得值</li>
 </ul>
-<hr />
-<h3 id="lru">实现<code>LRU</code>结构<a class="headerlink" href="#lru" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>测试链接 <a href="https://leetcode.cn/problems/lru-cache/">leetcode 146.<code>LRU</code>缓存 mid</a></p>
-</blockquote>
+<h2 id="lru">实现<code>LRU</code>结构<a class="headerlink" href="#lru" title="Permanent link">&para;</a></h2>
 <p>设计思路</p>
-<p><code>双向链表 + 哈希表</code></p>
-<p><img src="../images/2025-6-5-DateStrucutreDesign/image-20250605142733342.png" alt="image-20250605142733342" style="zoom:50%;" /></p>
+<p><mark class="critic">双向链表 + 哈希表</mark></p>
+<p><img alt="" src="../../images/2025-6-5-DateStrucutreDesign/image-20250605142733342.png" /></p>
 <ul>
 <li>插入<code>key-value</code>的时候创建一个<code>双向链表节点</code> ,并且<code>value</code>为指向该节点的指针</li>
 <li>利用全局指针<code>head</code>和<code>tail</code>定位链表的头节点和尾节点</li>
@@ -2769,10 +2752,7 @@
 <li><code>head</code>指向永远是最最旧未被使用的数据</li>
 <li>容量不够的时候，释放<code>head</code>对应的节点，并移动<code>head = head-&gt;next</code>,同时去除哈希表中<code>k-v</code>对</li>
 </ul>
-<h3 id="o1">O(1)时间插入、删除和获取随机元素<a class="headerlink" href="#o1" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>测试链接： <a href="https://leetcode.cn/problems/insert-delete-getrandom-o1/">leetcode 380. O(1) 时间插入、删除和获取随机元素</a></p>
-</blockquote>
+<h2 id="o1">O(1)时间插入、删除和获取随机元素<a class="headerlink" href="#o1" title="Permanent link">&para;</a></h2>
 <p>设计思路</p>
 <ul>
 <li>肯定会有一个哈希表，同时申请一个动态数组(vector)存输入的数据</li>

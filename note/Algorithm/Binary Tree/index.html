@@ -2912,117 +2912,80 @@
 
 
 <h1 id="_1">二叉树<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question" target="_block">题目1-9参考实现</a>
-      <br>
-      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_036%20Binary%20Tree%20Question" target="_block">题目10-16参考实现</a>
-  </div>
+<div class="admonition abstract">
+<p class="admonition-title">主要内容</p>
 </div>
-<p><br></p>
-<blockquote>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目1： <a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目2： <a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/">锯齿状遍历</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目3： <a href="https://leetcode.cn/problems/maximum-width-of-binary-tree/">最大特殊宽度</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目4.1： <a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/">最大深度</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目4.2：<a href="https://leetcode.cn/problems/minimum-depth-of-binary-tree/">最小深度</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目5： <a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/">先序遍历序列化和反序列化</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目6： <a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/">层序遍历序列化和反序列化</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目7： <a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">先序遍历和中序遍历还原二叉树</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目8： <a href="https://leetcode.cn/problems/check-completeness-of-a-binary-tree/">判断完全二叉树</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目9： <a href="https://leetcode.cn/problems/count-complete-tree-nodes/">求完全二叉树节点个数</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目10: <a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/">普通二叉树上求解LCA</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目11：<a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/">搜索二叉树上求解LCA</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目12：<a href="https://leetcode.cn/problems/path-sum-ii/">收集累加和为<code>k</code>的所有路径</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 题目13：<a href="https://leetcode.cn/problems/balanced-binary-tree/">判断平衡二叉树</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目14：<a href="https://leetcode.cn/problems/validate-binary-search-tree/">判断搜索二叉树</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目15：<a href="https://leetcode.cn/problems/trim-a-binary-search-tree/description/">修剪搜索二叉树</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 题目16：<a href="https://leetcode.cn/problems/house-robber-iii/description/">二叉树上的打家劫舍问题</a></li>
-</ul>
-</blockquote>
-<hr />
-<h3 id="_2">二叉树的基本概念<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <div style="padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;">基本概念</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <p>
-      <p style="color : blue">深度与高度</p>
-      节点的高度(height):从根节点到该节点经过的边数。
-      二叉树的深度(depth):从距离该节点最远的叶节点到该节点所需要经过的边树。
-      注意，不同的题、教材对于根叶节点的高度、深度从0还是从1开始并不统一。
-      但一般而言，说根节点的深度为0，叶子节点的高度为0。
-      </p>
-  </div>
+<details class="question">
+<summary>相关习题</summary>
+<p><a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></p>
+<p><a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/">锯齿状遍历</a></p>
+<p><a href="https://leetcode.cn/problems/maximum-width-of-binary-tree/">最大特殊宽度</a></p>
+<p><a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/">最大深度</a></p>
+<p><a href="https://leetcode.cn/problems/minimum-depth-of-binary-tree/">最小深度</a></p>
+<p><a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/">先序遍历序列化和反序列化</a></p>
+<p><a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/">层序遍历序列化和反序列化</a></p>
+<p><a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">先序遍历和中序遍历还原二叉树</a></p>
+<p><a href="https://leetcode.cn/problems/check-completeness-of-a-binary-tree/">判断完全二叉树</a></p>
+<p><a href="https://leetcode.cn/problems/count-complete-tree-nodes/">求完全二叉树节点个数</a></p>
+<p><a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/">普通二叉树上求解LCA</a></p>
+<p><a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/">搜索二叉树上求解LCA</a></p>
+<p><a href="https://leetcode.cn/problems/path-sum-ii/">收集累加和为<code>k</code>的所有路径</a></p>
+<p><a href="https://leetcode.cn/problems/balanced-binary-tree/">判断平衡二叉树</a></p>
+<p><a href="https://leetcode.cn/problems/validate-binary-search-tree/">判断搜索二叉树</a></p>
+<p><a href="https://leetcode.cn/problems/trim-a-binary-search-tree/description/">修剪搜索二叉树</a></p>
+<p><a href="https://leetcode.cn/problems/house-robber-iii/description/">二叉树上的打家劫舍问题</a></p>
+</details>
+<h2 id="_2">二叉树的基本概念<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">基本参数</p>
+<p><mark class="critic">深度与高度</mark></p>
+<p>节点的高度(height):从根节点到该节点经过的边数。
+二叉树的深度(depth):从距离该节点最远的叶节点到该节点所需要经过的边树。
+注意，不同的题、教材对于根叶节点的高度、深度从0还是从1开始并不统一。
+但一般而言，说根节点的深度为0，叶子节点的高度为0</p>
 </div>
-
-<hr />
-<h3 id="_3">二叉树的层序遍历<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>题目1： <a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">bfs的两种方法</a></p>
-</blockquote>
+<h2 id="_3">二叉树的层序遍历<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>主要介绍使用<code>队列</code>一次遍历一层的解法</p>
-<table>
-<thead>
-<tr>
-<th>算法图解</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="../images/2025-6-5-Binary-Tree/image-20250606161145520.png" alt="image-20250606161145520" style="zoom:50%;" /></td>
-<td>从根节点开始遍历<br />创建一个和节点个数一样多的队列</td>
-</tr>
-<tr>
-<td><img src="../images/2025-6-5-Binary-Tree/image-20250606161603674.png" alt="image-20250606161603674" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161712585.png" alt="image-20250606161712585" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161832318.png" alt="image-20250606161832318" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606161933423.png" alt="image-20250606161933423" style="zoom:50%;" /></td>
-<td>首先将根节点加入队列，同时记录队列的长度<br />执行<code>n</code>次如下操作，n为上一步记录的长度<br />1. 弹出队尾元素，加入这一层的答案数组中<br />2. 有左孩子则把左孩子加入队列<br />3.有右孩子则把右孩子加入队列</td>
-</tr>
-<tr>
-<td><img src="../images/2025-6-5-Binary-Tree/image-20250606162345155.png" alt="image-20250606162345155" style="zoom:50%;" /></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-    <p style="margin: 0;">对于算法竞赛或者面试一般不是用库自带的队列，而是用数组模拟队列，具体看[入门]阶段的课程。</p>
-  </div>
+<div class="admonition tip">
+<p class="admonition-title">关于队列</p>
+<p>若比赛且队列可能是算法的<mark class="critic">瓶颈</mark>尽量用静态数组实现的版本，否则用stl库中的队列就可以了。</p>
 </div>
-
-<h3 id="_4">锯齿形层序遍历<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solidrgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/description/">leetcode 103.二叉树的锯齿形层序遍历</a>
-  </div>
+<h2 id="_4">锯齿形层序遍历<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">测试链接</p>
+<p><a href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/description/">leetcode 103.二叉树的锯齿形层序遍历</a></p>
 </div>
-<p><br></p>
-<div style=" top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-    <p style="margin: 0;">这道题和上一道题思路上一致，只是需要注意每轮左右子树的加入顺序要交替</p>
-  </div>
-</div>
-
-<p>方法一：完全按照上题的做法，只是在读入答案的时候判断一下是从左往右的读还是从右往左读，如果是从右往左读，就反转一下<code>list</code>数组，其他什么都不需要改</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span>
-<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// false 表示 从左 往右读入</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1">// true 表示 从右往左读入</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kt">bool</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">......;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="n">reserve</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">flag</span><span class="p">;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+<details class="note">
+<summary>算法提示</summary>
+<p>这道题和上一道题思路上一致，只是需要注意每轮左右子树的加入顺序要交替</p>
+</details>
+<details class="success">
+<summary>参考实现</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">方法1，按照上题解法</label><label for="__tabbed_1_2">方法二：先收集list再把左右节点加入队列</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// 方法一：完全按照上题的做法，只是在读入答案的时候判断一下</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1">// 是从左往右的读还是从右往左读，如果是从右往左读，就反转一</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">//下`list`数组，其他什么都不需要改</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1">// false 表示 从左 往右读入</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1">// true 表示 从右往左读入</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kt">bool</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">......;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="n">reserve</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">flag</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
-<p>方法二：先收集list再把左右节点加入队列</p>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span>
@@ -3039,24 +3002,21 @@
 <a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="p">}</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1">// 加入左右节点</span>
 </code></pre></div></td></tr></table></div>
-<hr />
-<h3 id="_5">最大特殊宽度<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<hr />
-<h3 id="_6">前序遍历的序列化和反序列化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/">leetcode297.二叉树的序列化和反序列化</a>
-      <br>
-      <br>
-      <p>
-          序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。
-        <br><br>
-          二叉树的前序和后序都可以完成序列化但中序并不能唯一确定！
-      </p>
-  </div>
 </div>
-
+</div>
+</div>
+</details>
+<h2 id="_5">最大特殊宽度<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">前序遍历的序列化和反序列化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">序列化与反序列化</p>
+<p>序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。</p>
+<p><mark class="critic">二叉树的前序序列和后序序列都可以完成序列化但中序序列并不能唯一确定西序列化的结果</mark></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">测试链接</p>
+<p><a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/">leetcode297.二叉树的序列化和反序列化</a></p>
+</div>
 <p>操作倒是简单这道题感觉不是算法题是<code>coding</code>能力测试题</p>
 <ul>
 <li>对该二叉树进行一次先序遍历</li>
@@ -3064,33 +3024,12 @@
 <li>对于空节点记录为<code>#,</code> </li>
 <li>注意某一节点若其左右子树为空也需要记录为<code>#,</code> </li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>算法图解</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="../images/2025-6-5-Binary-Tree/image-20250606230807305.png" alt="image-20250606230807305" style="zoom:50%;" /></td>
-<td></td>
-</tr>
-<tr>
-<td><img src="../images/2025-6-5-Binary-Tree/image-20250606230826158.png" alt="image-20250606230826158" style="zoom:50%;" /><img src="../images/2025-6-5-Binary-Tree/image-20250606231103213.png" alt="image-20250606231103213" style="zoom:50%;" /></td>
-<td>记录<code>1</code>为 <code>1,</code><br /><br />记录<code>2</code>为<code>2,</code>同时记录其子结点为<code>#, #,</code></td>
-</tr>
-<tr>
-<td></td>
-<td>其余节点同理处理即可<br />最终字符串为<code>1,2,#,#,3,4,#,#,5,#,#</code><br />反序列化就比较简单了遍历上述字符串即可</td>
-</tr>
-</tbody>
-</table>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">技巧</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">可以使用 istringstream类型把字符串转化为流输出，进而可以用>>直接过滤空格</div>
+<div class="admonition tip">
+<p class="admonition-title">编码技巧</p>
+<p>可以使用 <code>istringstream</code>类型把字符串转化为流输出，进而可以用&gt;&gt;直接过滤空格</p>
 </div>
-
+<details class="success">
+<summary>参考实现</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -3143,81 +3082,36 @@
 <a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<hr />
-<h3 id="_7">层序遍历的序列化和反序列化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/">leetcode297.二叉树的序列化和反序列化</a>
-  </div>
+</details>
+<h2 id="_7">层序遍历的序列化和反序列化<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">测试链接</p>
+<p><a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/description/">leetcode297.二叉树的序列化和反序列化</a></p>
 </div>
-
-<hr />
-<h3 id="_8">通过先序遍历和中序遍历复原二叉树<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">leetcode105.从前序遍历与中序遍历构造二叉树</a>
-  </div>
+<h2 id="_8">通过先序遍历和中序遍历复原二叉树<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">测试链接</p>
+<p><a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">leetcode105.从前序遍历与中序遍历构造二叉树</a></p>
 </div>
-
-<p>这个题的知识点倒是考研经常会考的<img alt="😂" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f602.svg" title=":joy:" /> </p>
 <p>关键思路</p>
 <ul>
 <li>通过<code>前序遍历</code>确定根节点</li>
 <li>通过<code>中序遍历</code>确定左右子树</li>
 <li>递归这个过程就能还原出原二叉树</li>
 </ul>
-<p>这道题的关键是理解这个边界图</p>
-<p><img src="../images/2025-6-5-Binary-Tree/image-20250606225527651.png" alt="image-20250606225527651" style="zoom:50%;" /></p>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(10, 243, 37); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color:rgb(85, 219, 52); white-space: nowrap;">额外</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <p>
-          还有两个类似的题目，但要注意如果单纯通过前序和后序是无法唯一还原二叉树的！
-      </p>
-      <a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">leetcode106.从中序遍历和后序遍历构造二叉树</a>
-      <br>
-     <a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/description/">leetcode889.根据前序遍历和后序遍历复原二叉树</a>
-  </div>
+<p>这道题的关键是理解这个边界图
+<img alt="" src="../../images/2025-6-5-Binary-Tree/image-20250606225527651.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">额外练习</p>
+<p>还有两个类似的题目，但要注意如果单纯通过前序和后序是无法唯一还原二叉树的！</p>
+<p><a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">leetcode106.从中序遍历和后序遍历构造二叉树</a></p>
+<p><a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/description/">leetcode889.根据前序遍历和后序遍历复原二叉树</a></p>
 </div>
-
-<table>
-<thead>
-<tr>
-<th>算法图解</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="../images/2025-6-5-Binary-Tree/image-20250606221824464.png" alt="image-20250606221824464" style="zoom:50%;" /></td>
-<td>先序:<code>3 9 20 15 7</code><br />中序:<code>9 3 15 20 7</code></td>
-</tr>
-<tr>
-<td><img src="../images/2025-6-5-Binary-Tree/image-20250606222146455.png" alt="image-20250606222146455" style="zoom:50%;" /></td>
-<td>首先通过先序遍历找到整颗树的根<code>3</code><br />同时在中序中找到对应的节点<br />其左边就是左子树<code>9</code><br />右边就是右子树 <code>15 20 7</code></td>
-</tr>
-<tr>
-<td><img src="../images/2025-6-5-Binary-Tree/image-20250606222324406.png" alt="image-20250606222324406" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606222412694.png" alt="image-20250606222412694" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606222455878.png" alt="image-20250606222455878" style="zoom:50%;" /><br /><img src="../images/2025-6-5-Binary-Tree/image-20250606222548148.png" alt="image-20250606222548148" style="zoom:50%;" /></td>
-<td>然后递归处理左右子树</td>
-</tr>
-</tbody>
-</table>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">技巧</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">这里找对应节点的时候可以用哈希表</div>
+<h2 id="_9">判断完全二叉树<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">测试链接</p>
+<p><a href="https://leetcode.cn/problems/check-completeness-of-a-binary-tree/description/">leetcode958.二叉树完全性的验证</a></p>
 </div>
-
-<hr />
-<h3 id="_9">判断完全二叉树<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://leetcode.cn/problems/check-completeness-of-a-binary-tree/description/">leetcode958.二叉树完全性的验证</a>
-  </div>
-</div>
-
 <p><strong>算法步骤</strong></p>
 <ul>
 <li>
@@ -3231,21 +3125,16 @@
 <li>如果之后遍历的节点不全为叶子节点，则返回<code>false</code></li>
 <li>否则 返回<code>true</code></li>
 </ul>
-<hr />
-<h3 id="_10">完全二叉树的节点个数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solidrgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">测试链接</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://leetcode.cn/problems/count-complete-tree-nodes/description/">leetcode222.完全二叉树的节点个数</a>
-  </div>
+<h2 id="_10">完全二叉树的节点个数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">测试链接</p>
+<p><a href="https://leetcode.cn/problems/count-complete-tree-nodes/description/">leetcode222.完全二叉树的节点个数</a></p>
 </div>
-
 <p>如果不考虑任何特性，遍历一边二叉树经过O(N) 的时间就能获得答案，所以这道题的难度为<code>Easy</code>。但人肯定还是得有点追求的啦，如何在<code>&lt; O(N)</code>的时间内获得节点数目呢？</p>
-<p>考虑完全二叉树的特性</p>
-<ul>
-<li>一个完全二叉树，必然是由一个<code>满二叉子树</code>和一个<code>完全二叉子树</code>或<code>满二叉子树</code>构成</li>
-</ul>
-<p>具体算法图解如下</p>
+<details class="tip">
+<summary>完全二叉树特性</summary>
+<p>一个完全二叉树，必然是由一个<code>满二叉子树</code>和一个<code>完全二叉子树</code>或<code>满二叉子树</code>构成</p>
+</details>
 <table>
 <thead>
 <tr>
@@ -3260,29 +3149,18 @@
 </tr>
 </tbody>
 </table>
-<p>由于是递归算法还是比较抽象的！</p>
-<hr />
-<h3 id="lca">普通二叉树求LCA问题<a class="headerlink" href="#lca" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <p style="color : blue">
-          LCA问题(Lowest Common Ancestor， 最近公共祖先)
-          <br>
-      </p>
-      <p>
-          其中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
-      </p>
-  </div>
+<h2 id="lca">普通二叉树求LCA问题<a class="headerlink" href="#lca" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">LAC问题</p>
+<p><mark class="critic">LCA问题(Lowest Common Ancestor， 最近公共祖先)</mark></p>
+<p>其中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”</p>
 </div>
-
 <p>分类讨论</p>
 <ul>
 <li><code>p</code>或者<code>q</code>包含于另一颗树中</li>
 <li>则为<code>p</code>或者<code>q</code> （父节点）</li>
 <li><code>p</code>和<code>q</code>分属于两颗树</li>
 </ul>
-<p>这道题看答案确实很好理解，但自己想可能就要费老鼻子力气了....</p>
 <p>算法思路</p>
 <ul>
 <li>如果当前节点是<code>p</code>或者<code>q</code>或者<code>空</code> 则返回该节点</li>
@@ -3291,6 +3169,8 @@
 <li>反正若右子树返回了<code>nullpter</code>则返回左子树的结果</li>
 <li>如果都非空则当前节点是<code>p、q</code>的最近公共祖先</li>
 </ul>
+<details class="success">
+<summary>参考实现</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -3327,28 +3207,17 @@
 <a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<hr />
-<h3 id="lca_1">搜索二叉树的LCA问题<a class="headerlink" href="#lca_1" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <p style="color : blue">
-          搜索二叉树
-          <br>
-      </p>
-      <p>
-          平衡二叉树 中序遍历有序的树
-      </p>
-  </div>
-</div>
-
-<p>和上一道题一样，但这里可以利用其左子树&lt;根节点&lt;右子树的特性，一次筛选出不少点。</p>
+</details>
+<h2 id="lca_1">搜索二叉树的LCA问题<a class="headerlink" href="#lca_1" title="Permanent link">&para;</a></h2>
+<p>和上一道题一样，但这里可以利用其<mark class="critic">左子树&lt;根节点&lt;右子树</mark>的特性，一次筛选出不少点。</p>
 <ul>
 <li>如果<code>root == p</code>或者<code>root == q</code>则直接就是答案</li>
 <li>如果<code>root.val &gt; max(p.val, q.val)</code> <code>p和q</code>必然位于<code>root-&gt;left</code>中</li>
 <li>如果<code>root.val &lt; min(p.val, q.val)</code> <code>p和q</code>必然位于<code>root-&gt;right</code>中</li>
 <li>如果<code>root.val</code>位于<code>p.val</code>和<code>q.val</code>直接，则直接返回<code>root</code>为答案</li>
 </ul>
+<details class="success">
+<summary>参考实现</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -3369,14 +3238,10 @@
 <a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<hr />
-<h3 id="k">收集路径和为k的路径<a class="headerlink" href="#k" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">技巧</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">递归回溯要注意还原现场</div>
-</div>
-
-<p>题目</p>
+</details>
+<h2 id="k">收集路径和为k的路径<a class="headerlink" href="#k" title="Permanent link">&para;</a></h2>
+<details class="success">
+<summary>参考实现</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -3435,22 +3300,10 @@
 <a id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<hr />
-<h3 id="_11">判断一个树是否为平衡二叉树<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <p style="color : blue">
-          平衡二叉树
-          <br>
-      </p>
-      <p>
-          平衡二叉树 是指该树所有节点的左右子树的高度相差不超过 1。
-      </p>
-  </div>
-</div>
-
-<p>判断还是蛮简单的，只需要递归计算子树的高度即可。看代码就可以看懂！</p>
+</details>
+<h2 id="_11">判断一个树是否为平衡二叉树<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<details class="success">
+<summary>参考实现</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
@@ -3499,21 +3352,8 @@
 <a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_12">判断一个树是否为搜索二叉树<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid rgb(57, 130, 179); border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #3498db; white-space: nowrap;">引言</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <p style="color : blue">
-          搜索二叉树
-          <br>
-      </p>
-      <p>
-          平衡二叉树 中序遍历有序的树
-      </p>
-  </div>
-</div>
-
-<p>方法一：利用搜索二叉树 --- 中序遍历有序的特性</p>
+</details>
+<h2 id="_12">判断一个树是否为搜索二叉树<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 
 
 

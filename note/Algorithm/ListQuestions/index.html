@@ -2815,27 +2815,23 @@
   
 
 
+<details class="abstract">
+<summary>简介</summary>
+<p>讲解及</p>
+</details>
 <h1 id="_1">链表高频题目<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div style="top: 10px; left: 10px;background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">重点</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      <a href="https://github.com/juanniaoxx/zuo_Algorithm/tree/main/zuo_034%20List%20Question" target="_block">参考实现</a>
-  </div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>链表面试题一般是考察`coding`能力而不是算法思维，所以下面的链表题一定要全部掌握!
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">参考习题</p>
+<p><a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">leetcode 160.相交链表 Easy</a></p>
+<p><a href="https://leetcode.cn/problems/reverse-nodes-in-k-group/description/">leetcode 25 K个一组反转链表 Hard</a></p>
+<p><a href="https://leetcode.cn/problems/copy-list-with-random-pointer/description/">leetcode 138.随机链表的复制 mid</a></p>
+<p><a href="https://leetcode.cn/problems/palindrome-linked-list/description/">leetcode 234回文链表 easy</a></p>
+<p><a href="https://leetcode.cn/problems/linked-list-cycle-ii/description/">leetcode 142环形链表II mid</a></p>
+<p><a href="https://leetcode.cn/problems/sort-list/solutions/2993518/liang-chong-fang-fa-fen-zhi-die-dai-mo-k-caei/">leetcode 148链表排序(思路mid,代码hard)</a></p>
 </div>
-<p><br></p>
-<blockquote>
-<p><span style="color:red;font-size:30px">链表题目并不是算法设计题，而是很经典的Coding能力考察！</span></p>
-<p>一般也是<code>填函数风格</code>而不会是<code>Acw</code> </p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">leetcode 160.相交链表 Easy</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://leetcode.cn/problems/reverse-nodes-in-k-group/description/">leetcode 25 K个一组反转链表 Hard</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://leetcode.cn/problems/copy-list-with-random-pointer/description/">leetcode 138.随机链表的复制 mid</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://leetcode.cn/problems/palindrome-linked-list/description/">leetcode 234回文链表 easy</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://leetcode.cn/problems/linked-list-cycle-ii/description/">leetcode 142环形链表II mid</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://leetcode.cn/problems/sort-list/solutions/2993518/liang-chong-fang-fa-fen-zhi-die-dai-mo-k-caei/">leetcode 148链表排序(思路mid,代码hard)</a></li>
-</ul>
-</blockquote>
-<h3 id="_2">链表题的注意点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h2 id="_2">链表题的注意点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>空间要求不严格 使用容器实现即可</li>
 <li>空间要求严格  要求O(1)的空间复杂度</li>
@@ -2843,188 +2839,40 @@
 <li>本质不是算法设计能力而是coding能力</li>
 <li>链表需要多多训练才可以！</li>
 </ul>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e67e22; white-space: nowrap;">提示</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">
-      和链表相关的难题会在[拓展]约瑟夫环中涉及
-  </div>
+<div class="admonition note">
+<p class="admonition-title">提醒</p>
+<p>更难的链表题会在约瑟夫环专题中讲解</p>
 </div>
-
-<h3 id="_3">经典题目<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<h4 id="question-1">Question 1 两个链表相交的第一个节点<a class="headerlink" href="#question-1" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>测试链接 <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">leetcode 160.相交链表 Easy</a>
-</p>
-</blockquote>
-<p>最直观的想法，使用<code>Hashset</code>遍历某一个链表一次，再遍历另一个链表一次，每次遍历都查询一次。</p>
-<ul>
-<li>这需要额外的容器，如果要求严格的空间复杂度则不对</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>算法思路</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img alt="image-20250604175209328" src="../../images/posts/Algorithm/image-20250604175209328.png" /></td>
-<td>对于<code>A</code> <code>B</code>两个链表，若二者会相遇<br />则必然最总会达到同一个节点，且我们发现<br /><code>A</code> 与 <code>B</code>的长度之差一定在第一次相遇之前<br />故算法思路为<br />- 长链表 - 长度之差 并往下遍历，直到相同</td>
-</tr>
-</tbody>
-</table>
-<h4 id="question-2">Question 2 按组反转链表<a class="headerlink" href="#question-2" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>测试链接 <a href="https://leetcode.cn/problems/reverse-nodes-in-k-group/description/">leetcode 25 K个一组反转链表 Hard</a></p>
-</blockquote>
-<p>这道题思路倒是不难，难的是<code>Coding</code>实现的细节，如果不考虑<span class="arithmatex">\(O(1)\)</span>的时间可以使用一个数组存入在进行反转，但考虑<span class="arithmatex">\(O(1)\)</span>即进行原地反转需要考虑的细节就很多了。</p>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">重要</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">这道题思路不难难点在于如何写出不含bug的代码</div>
-</div>
-
-<table>
-<thead>
-<tr>
-<th>算法图解</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img alt="image-20250604190719359" src="../../images/posts/Algorithm/image-20250604190719359.png" /></td>
-<td>假设k=2</td>
-</tr>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604190816679.png" alt="image-20250604190816679" style="zoom:50%;" /><br /><img src="../images/posts/Algorithm/image-20250604190933920.png" alt="image-20250604190933920" style="zoom:50%;" /></td>
-<td>第一次操作的时候注意换头<br />两个一组，单独反转<br /></td>
-</tr>
-<tr>
-<td><strong><img src="../images/posts/Algorithm/image-20250604191115086.png" alt="image-20250604191115086" style="zoom:50%;" /></strong><br /><img src="../images/posts/Algorithm/image-20250604191327015.png" alt="image-20250604191327015" style="zoom:50%;" /></td>
-<td>特别注意，这一条红色的线最终是要指向<code>d</code></td>
-</tr>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604191439760.png" alt="image-20250604191439760" style="zoom:50%;" /></td>
-<td><code>g</code> 不足2不需要改变</td>
-</tr>
-</tbody>
-</table>
-<h4 id="question-3">Question 3 复制带随机指针的链表<a class="headerlink" href="#question-3" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>测试链接<a href="https://leetcode.cn/problems/copy-list-with-random-pointer/description/">leetcode 138.随机链表的复制 mid</a></p>
-</blockquote>
-<p>这道题题意很简单，朴素思路也很简单。</p>
-<ul>
-<li>
-<p>使用<code>Hash</code>存储拷贝节点和原节点的<code>key-value</code>关系，通过遍历原节点，查<code>Hash</code>的办法确定拷贝节点的<code>next</code>和<code>random</code>指针的目标</p>
-</li>
-<li>
-<p>不是用额外空间就需要一点技巧</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>算法图解</th>
-<th>讲解</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604202000373.png" alt="image-20250604202000373" style="zoom:50%;" /></td>
-<td><code>next</code>指针为蓝色<br /><code>random</code>指针为绿色</td>
-</tr>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604202235646.png" alt="image-20250604202235646" style="zoom:50%;" /></td>
-<td>首先在每一个节点后面拷贝一个节点</td>
-</tr>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604202643657.png" alt="image-20250604202643657" style="zoom:50%;" /></td>
-<td>然后通过原来的节点的<code>random</code>指针确定<br />拷贝节点的<code>random</code>指针<br /><code>copy-&gt;random = original-&gt;random-&gt;next</code><br />注意图中省去了原来的random指针，实际编码不可以改变</td>
-</tr>
-<tr>
-<td></td>
-<td>分离链表即可</td>
-</tr>
-</tbody>
-</table>
-<h4 id="question-4">Question 4 判断链表是否存有回文结构<a class="headerlink" href="#question-4" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>测试链接 <a href="https://leetcode.cn/problems/palindrome-linked-list/description/">leetcode 234回文链表 easy</a></p>
-</blockquote>
-<p>简单思路：使用栈<span class="arithmatex">\(O(N)\)</span> ,读入读出一次即可判断</p>
-<p>进阶思路：使用快慢指针</p>
-<ul>
-<li>求中点</li>
-<li>逆序另一边的链表</li>
-<li>判断是否相同</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>算法图解</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604220043026.png" alt="image-20250604220043026" style="zoom:50%;" /><br /><img src="../images/posts/Algorithm/image-20250604220101353.png" alt="image-20250604220101353" style="zoom:50%;" /><br /><img src="../images/posts/Algorithm/image-20250604220155015.png" alt="image-20250604220155015" style="zoom:50%;" /></td>
-<td>设置快慢双指针<code>s</code>表示满指针<code>f</code>表示快指针<br />其中<code>s</code>每次走一格,<code>f</code>每次走两格<br />当<code>f</code>为走不下去的时候<code>s</code>为中点<br />反转另一半链表，逐个比较就可以判断是否回文</td>
-</tr>
-</tbody>
-</table>
-<div style="top: 10px; left: 10px; max-width: 80%; background: #f8f9fa; border-left: 4px solid #e67e22; border-radius: 4px; font-family: Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: inline-block;">
-  <div style="padding: 8px 12px; font-weight: bold; color: #e74c3c;">重要</div>
-  <div style="padding: 8px 12px; padding-top: 0; color: #333;">这道题思路不难,难点在于如何写出不含bug的代码</div>
-</div>
-
-<h4 id="question-5">Question 5 链表第一个入环节点<a class="headerlink" href="#question-5" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>测试链接 <a href="https://leetcode.cn/problems/linked-list-cycle-ii/description/">leetcode 142环形链表II mid</a></p>
-</blockquote>
-<p>这是一道比较经典的快慢双指针问题(<span class="arithmatex">\(O(1)\)</span>时间复杂度的解法)</p>
-<p>本质是一道数学题</p>
-<table>
-<thead>
-<tr>
-<th>算法图解</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604230109093.png" alt="image-20250604230109093" style="zoom:50%;" /></td>
-<td>设置快慢双指针<br />快指针每次走两步<br />慢指针每次走一步数</td>
-</tr>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604230120925.png" alt="image-20250604230120925" style="zoom:50%;" /><img src="../images/posts/Algorithm/image-20250604230145385.png" alt="image-20250604230145385" style="zoom:50%;" /><img src="../images/posts/Algorithm/image-20250604230223391.png" alt="image-20250604230223391" style="zoom:50%;" /><img src="../images/posts/Algorithm/image-20250604230244854.png" alt="image-20250604230244854" style="zoom:50%;" /><img src="../images/posts/Algorithm/image-20250604230309379.png" alt="image-20250604230309379" style="zoom:50%;" /></td>
-<td>快慢指针必然会相遇</td>
-</tr>
-<tr>
-<td><img src="../images/posts/Algorithm/image-20250604231558111.png" alt="image-20250604231558111" style="zoom:50%;" /></td>
-<td>根据下方数学推到，从头节点和<code>slow</code><br />此后<code>slow</code>和<code>p</code>每次向前<code>一步</code>，最终相遇的结点，比如是入环节点</td>
-</tr>
-</tbody>
-</table>
-<p>数学推导</p>
-<p><img src="https://assets.leetcode-cn.com/solution-static/142/142_fig1.png" alt="fig1" style="zoom: 25%;" /></p>
-<ul>
-<li>假设环外部分距离为<code>a</code> ,<code>slow</code>指针进入环后走了<code>b</code>与<code>fast</code>指针相遇</li>
-<li>此时<code>fast</code>指针走完了<code>n</code>圈环</li>
-<li><code>fast</code>走过的总距离为<code>a+n(b+c)+b = a+(n+1)b+nc</code></li>
-<li>由于任意时刻<code>fast</code>走过的距离一定为<code>slow</code>的两倍</li>
-<li>则有<code>2a+2b = a+(n+1)b+nc</code> 即 <code>a=c+(n-1)(b+c)</code></li>
-</ul>
-<h4 id="question-6">Question 6 链表排序<a class="headerlink" href="#question-6" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>测试链接<a href="https://leetcode.cn/problems/sort-list/solutions/2993518/liang-chong-fang-fa-fen-zhi-die-dai-mo-k-caei/">leetcode 148链表排序</a></p>
-</blockquote>
-<p>可以使用额外辅助空间的解法就很多了，比如使用递归版本的归并，甚至直接sort都可以，但是如果要求<span class="arithmatex">\(O(1)\)</span>的常数空间并<span class="arithmatex">\(O(n\log{n})\)</span>的时间复杂度并保证稳定性呢？</p>
-<ul>
-<li>这个要求很明显只能用非递归版本的归并排序，具体算法图解看 1.2归并排序与归并分治</li>
-<li>但由于是链表，些这段代码还是非常折磨的！</li>
-</ul>
+<h2 id="_3">经典题目<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="question-1">Question 1 两个链表相交的第一个节点<a class="headerlink" href="#question-1" title="Permanent link">&para;</a></h3>
+<h3 id="question-2">Question 2 按组反转链表<a class="headerlink" href="#question-2" title="Permanent link">&para;</a></h3>
+<h3 id="question-3">Question 3 复制带随机指针的链表<a class="headerlink" href="#question-3" title="Permanent link">&para;</a></h3>
+<h3 id="question-4">Question 4 判断链表是否存有回文结构<a class="headerlink" href="#question-4" title="Permanent link">&para;</a></h3>
+<h3 id="question-5">Question 5 链表第一个入环节点<a class="headerlink" href="#question-5" title="Permanent link">&para;</a></h3>
+<details class="info">
+<summary>Floyd判圈算法</summary>
+<p>如果有限状态机、迭代函数或者链表存在环，那么一定存在一个起点可以到达某个环的某处(这个起点也可以在某个环上)。</p>
+<p>初始状态下，假设已知某个起点节点为节点S。现设两个指针t和h，将它们均指向S。</p>
+<p>接着，同时让t和h往前推进，但是二者的速度不同：t每前进1步，h前进2步。只要二者都可以前进而且没有相遇，就如此保持二者的推进。当h无法前进，即到达某个没有后继的节点时，就可以确定从S出发不会遇到环。反之当t与h再次相遇时，就可以确定从S出发一定会进入某个环，设其为环C。</p>
+<p>如果确定了存在某个环，就可以求此环的起点与长度。</p>
+<p>上述算法刚判断出存在环C时，显然t和h位于同一节点，设其为节点M。显然，仅需令h不动，而t不断推进，最终又会返回节点M，统计这一次t推进的步数，显然这就是环C的长度。</p>
+<p>为了求出环C的起点，只要令h仍位于节点M，而令t返回起点节点S，此时h与t之间距为环C长度的整数倍。随后，同时让t和h往前推进，且<mark class="critic">保持二者的速度相同</mark>：t每前进1步，h前进1步。持续该过程直至t与h再一次相遇，设此次相遇时位于同一节点P，则节点P即为从节点S出发所到达的环C的第一个节点，即环C的一个起点。</p>
+<p><mark class="critic">证明寻找入环节点的正确性</mark></p>
+<p>假设从跑道起点A到环起点B的路程为<span class="arithmatex">\(m\)</span>,从B点到相遇点C的路程为<span class="arithmatex">\(k\)</span>,环的长度为<span class="arithmatex">\(n\)</span>,则相遇的时候乌龟(慢指针)走过的距离为:</p>
+<div class="arithmatex">\[S_1=m+k+t_1*n\]</div>
+<p>兔子(快指针)走过的距离为：</p>
+<div class="arithmatex">\[S_2=m + k + t_2 * n(t_2&gt;t_1)\]</div>
+<p>且<span class="arithmatex">\(S_2=2*S_1\)</span>则由上式可以推出</p>
+<div class="arithmatex">\[
+\begin{align*}
+    S_1&amp;=S_2-S_1=(t_2-t_1)*n \\
+    S_2 &amp;= 2 * (t_2-t_1) * n
+\end{align*}
+\]</div>
+<p>即快慢指针走过的距离都是环长的倍数，而<span class="arithmatex">\(m + k = (t_2 - 2 * t_1) * n\)</span>也是环长的倍数
+当快指针回到跑道起始点的时候，慢指针从相遇点出发.此时当快指针走到环起点的时候经过了m此时慢指针走过了<span class="arithmatex">\(k+m\)</span>即环长倍数也就回到了环的起点。</p>
+</details>
+<h3 id="question-6">Question 6 链表排序<a class="headerlink" href="#question-6" title="Permanent link">&para;</a></h3>
 
 
 
