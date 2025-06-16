@@ -70,27 +70,27 @@ nav:
   # 硬计类算法
   - Algorithm:
       - Beginner:
-        - Topic:
-          - 数据结构:
-            - Question Of LinkList: note/Algorithm/ListQuestions.md
-            - DateStrucutreDesign: note/Algorithm/DateStrucutreDesign.md
-            - Binary Tree: note/Algorithm/Binary Tree.md
-            - Trie Tree: note/Algorithm/Trie Tree.md
-          - 算法:
-            - Difference: note/Algorithm/Difference.md
-            - Prefix_Sum: note/Algorithm/Prefix_Sum.md
-            - N Queen Question: note/Algorithm/N Queen Question.md
-            - Recursion: note/Algorithm/Recursion.md
-            - Two Pointers: note/Algorithm/Two Pointers Technique.md
-            - Sliding Window: note/Algorithm/Sliding Window.md
-          - 杂项:
-            - GCD and Congruence: note/Algorithm/GCD and Congruence.md
-        - Tips:
+        - 数据结构:
+          - Question Of LinkList: note/Algorithm/ListQuestions.md
+          - DateStructureDesign: note/Algorithm/DateStructureDesign.md
+          - Binary Tree: note/Algorithm/Binary Tree.md
+          - Trie Tree: note/Algorithm/Trie Tree.md
+          - Monotonic Stack: note/Algorithm/Monotonic stack.md
+          - Monotonic Queen: []
+        - 算法:
+          - Difference: note/Algorithm/Difference.md
+          - Prefix_Sum: note/Algorithm/Prefix_Sum.md
+          - N Queen Question: note/Algorithm/N Queen Question.md
+          - Recursion: note/Algorithm/Recursion.md
+          - Two Pointers: note/Algorithm/Two Pointers Technique.md
+          - Sliding Window: note/Algorithm/Sliding Window.md
+        - 杂项:
+          - GCD and Congruence: note/Algorithm/GCD and Congruence.md
           - Infer by data: note/Algorithm/Infer by data.md
           - Logarithmic meter: note/Algorithm/Logarithmic meter.md
       # - advanced:
   # AI相关内容
-  - Artificial Intelligence:
+  - The Book of Artificial Intelligence:
     - Introduce:
       - Artificial Intelligence A Modern Approach:
         - Chapter 1 Introduction: note/AI/Introduction/Chapter 1.md
@@ -102,12 +102,15 @@ nav:
       - 花书: []
     - Reinforcement Learning: 
       - Reinforcement Learning An Introduction: []
-    - Paper: []
+  - Paper: []
+  - The coures: []
   # 比赛记录
   - Compete:
     - Codeforces:
       - 2025-6-12(Div 2) : Compete/Codeforces/Codeforces Round 1030 (Div. 2).md
-  # 语言特性
+    - Leetcode: []
+    - the set of problems: []
+  # 语言学习
   - Program Language:
     - C++: 
       - C++ Primer:
@@ -127,7 +130,8 @@ nav:
     - 中文-古代: []
     - 英文: []
   # 杂谈类
-  - 杂谈: []
+  - 杂谈: 
+    - MacOS配置开发环境: blog/mac配置环境.md
 
 copyright: Copyright &copy; 2025~2026 Weary Bird # 左下角的版权声明
 

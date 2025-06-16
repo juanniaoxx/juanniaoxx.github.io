@@ -3,20 +3,10 @@ date: 2025-06-09
 tags: [Algorithm]
 ---
 # 前缀树（字典树）
+!!! abstract "简介"
+    字典树（Trie） 是一种专为字符串处理设计的高效树形数据结构，它像一本智能字典，通过共享前缀的方式存储和检索词汇，将字符串操作的时间复杂度优化至 O(L)（L为字符串长度）。
 
 ## 前缀树的基本概念
-
-- 插入操作 $O(N)$ 与 $O(N)$ 
-- 搜索操作$O(N)$与$O(1)$
-- 前缀查找操作$O(N)$和$O(1)$
-- 删除操作$O(M)$和$O(1)$
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/1024px-Trie_example.svg.png" alt="undefined" style="zoom:50%;" />
-
-!!! quote "trie"
-    The Trie data structure is a tree-like structure used for storing a dynamic set of strings. It allows for efficient retrieval and storage of keys, making it highly effective in handling large datasets. Trie supports operations such as insertion, search, deletion of keys, and prefix searches.
-
- 经典的前缀树一般不在节点内存储信息（上图只是个示意）而是通过路径存储形象，节点一般存有`poss`与`end`，其中`poss`表明有多少个字符串经过该节点，`end`表示多少个字符串以该节点结束。
 
 ## 不推荐-前缀树的类实现
 

@@ -3,6 +3,9 @@ date: [2025-06-11]
 tags: [Algorithm]
 ---
 # 构建前缀信息的技巧-解决子数组相关问题
+!!! abstract "简介"
+    前缀和（Prefix Sum） 是一种简单却强大的预处理技术，它通过将原始数据转换为累加和数组，使得任意区间和的查询时间复杂度从 O(n) 优化至 O(1)。这种“空间换时间”的思想，在需要频繁查询区间统计量的场景中展现出巨大优势，成为算法优化中的基础工具。
+
 !!! question "参考习题"
     [leetcode303.区域和检索-数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/description/)
 
