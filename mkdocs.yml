@@ -71,23 +71,25 @@ nav:
   - Algorithm:
       - Beginner:
         - 数据结构:
-          - Question Of LinkList: note/Algorithm/ListQuestions.md
-          - DateStructureDesign: note/Algorithm/DateStructureDesign.md
-          - Binary Tree: note/Algorithm/Binary Tree.md
-          - Trie Tree: note/Algorithm/Trie Tree.md
-          - Monotonic Stack: note/Algorithm/Monotonic stack.md
-          - Monotonic Queen: []
+          - Question Of LinkList: note/Algorithm/Beginner/ListQuestions.md
+          - DateStructureDesign: note/Algorithm/Beginner/DateStructureDesign.md
+          - Binary Tree: note/Algorithm/Beginner/Binary Tree.md
+          - Trie Tree: note/Algorithm/Beginner/Trie Tree.md
+          - Monotonic Stack: note/Algorithm/Beginner/Monotonic Stack.md
+          - Monotonic Queen: note/Algorithm/Beginner/Monotonic Queen.md
+          - Disjoined Set: note/Algorithm/Beginner/Disjoined Set.md
         - 算法:
-          - Difference: note/Algorithm/Difference.md
-          - Prefix_Sum: note/Algorithm/Prefix_Sum.md
-          - N Queen Question: note/Algorithm/N Queen Question.md
-          - Recursion: note/Algorithm/Recursion.md
-          - Two Pointers: note/Algorithm/Two Pointers Technique.md
-          - Sliding Window: note/Algorithm/Sliding Window.md
+          - Difference: note/Algorithm/Beginner/Difference.md
+          - Prefix_Sum: note/Algorithm/Beginner/Prefix_Sum.md
+          - N Queen Question: note/Algorithm/Beginner/N Queen Question.md
+          - Recursion: note/Algorithm/Beginner/Recursion.md
+          - Two Pointers: note/Algorithm/Beginner/Two Pointers Technique.md
+          - Sliding Window: note/Algorithm/Beginner/Sliding Window.md
+          - Flood fill: note/Algorithm/Beginner/Flood Fill.md
         - 杂项:
-          - GCD and Congruence: note/Algorithm/GCD and Congruence.md
-          - Infer by data: note/Algorithm/Infer by data.md
-          - Logarithmic meter: note/Algorithm/Logarithmic meter.md
+          - GCD and Congruence: note/Algorithm/Beginner/GCD and Congruence.md
+          - Infer by data: note/Algorithm/Beginner/Infer by data.md
+          - Logarithmic meter: note/Algorithm/Beginner/Logarithmic meter.md
       # - advanced:
   # AI相关内容
   - The Book of Artificial Intelligence:
@@ -114,8 +116,11 @@ nav:
   - Program Language:
     - C++: 
       - C++ Primer:
-        - Strings Vectors and Arrays: note/C++ Language/Strings Vectors and Arrays.md
-        - Expression: note/C++ Language/Expressions.md
+        - Part I:Strings Vectors and Arrays: note/C++ Language/C++_Primer/Strings Vectors and Arrays.md
+        - Part I:Expression: note/C++ Language/C++_Primer/Expressions.md
+        - Part I:Statements: note/C++ Language/C++_Primer/Statements.md
+        - Part I:Functions: note/C++ Language/C++_Primer/Function.md
+        - Part I:Class: note/C++ Language/C++_Primer/Class.md
       - Effective C++: []
       - Effective STL: []
   # 数学

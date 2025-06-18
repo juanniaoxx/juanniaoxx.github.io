@@ -1,7 +1,4 @@
 ---
-title: C++ Primer Chapter 4 Expression
-date: 2025-06-09
-description: C++语言学习
 tags: [C++]
 ---
 
@@ -352,8 +349,8 @@ string finalgrad = (grade < 60) ? "fail" : "pass";
 
 ## The sizeof Operator
 
-## THe comma Operator
+## The comma Operator
 
 ## Type Conversions
 
-## 
+## Summarize
