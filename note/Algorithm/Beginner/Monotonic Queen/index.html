@@ -3053,6 +3053,7 @@
 <div class="admonition abstract">
 <p class="admonition-title">简介</p>
 <p>单调队列（Monotonic Queue）是一种特殊的队列数据结构，主要用于高效维护滑动窗口内的极值（最大值/最小值），在算法优化中能显著降低时间复杂度。</p>
+<p>这一章还是比较难的，通过例题也能看出来基本全是hard题....</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">相关例题</p>
@@ -3166,11 +3167,143 @@
 </div>
 <h2 id="_4">课上例题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="q1-longest-continuous-sub-array-with-absolute-diff-less-than-or-equal-to-limit">Q1: Longest Continuous Sub-array with absolute diff less than or equal to limit<a class="headerlink" href="#q1-longest-continuous-sub-array-with-absolute-diff-less-than-or-equal-to-limit" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">题目描述</p>
+<p>Given an array of integers nums and an integer limit, return the size of the longest non-empty subarray such that the absolute difference between any two elements of this subarray is less than or equal to limit.</p>
+</div>
+<p>这个问题可以转换为在滑动窗口内最大值与最小值的差的绝对值要小于等于limit的最大窗口长度,</p>
+<details class="tip">
+<summary>Hit</summary>
+<ul>
+<li>考虑如下单调性,一个窗口范围变大,其<code>MAX</code>只可能变大或者保持,<code>MIN</code>只可能变小或者保持,一个窗口范围变小,其<code>MAX</code>只可能变小或者保持,<code>MIN</code>只可能变大或者保持。<ul>
+<li>若一个窗口满足条件则缩少其大小仍然满足条件</li>
+<li>若一个窗口不满足调整则增加其长度必然也不满足条件 </li>
+</ul>
+</li>
+<li>为滑动窗口维持两个单调队列，分别维持最大值与最小值</li>
+</ul>
+</details>
+<details class="success">
+<summary>参考实现</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">longestSubarray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">limit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">            </span><span class="c1">// sliding windows : [l, r)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">can_join</span><span class="p">(</span><span class="n">limit</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">                </span><span class="n">join</span><span class="p">(</span><span class="n">r</span><span class="o">++</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">            </span><span class="c1">// 从while出来表明当前位置以及不可能在扩大了，结算答案并弹出窗口左边的元素</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span><span class="p">);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">            </span><span class="n">remove</span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deque_max</span><span class="p">;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">    </span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deque_min</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">h_min</span><span class="p">{</span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="n">t_min</span><span class="p">{</span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="n">h_max</span><span class="p">{</span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="n">t_max</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">    </span><span class="c1">// 判断当前元素是否可以加入滑动窗口</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">can_join</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">limit</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h_max</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t_max</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">deque_max</span><span class="p">[</span><span class="n">h_max</span><span class="p">]],</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h_min</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t_min</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">deque_min</span><span class="p">[</span><span class="n">h_min</span><span class="p">]],</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">limit</span><span class="p">;</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">    </span><span class="c1">// 新元素加入时候不要忘记修改单调栈的结构</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">h_max</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t_max</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">deque_max</span><span class="p">[</span><span class="n">t_max</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">])</span><span class="w"> </span><span class="o">--</span><span class="n">t_max</span><span class="p">;</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">        </span><span class="n">deque_max</span><span class="p">[</span><span class="n">t_max</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">h_min</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t_min</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">deque_min</span><span class="p">[</span><span class="n">t_min</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">])</span><span class="w"> </span><span class="o">--</span><span class="n">t_min</span><span class="p">;</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">        </span><span class="n">deque_min</span><span class="p">[</span><span class="n">t_min</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">    </span><span class="c1">// 删除元素也不要忘记修改单调栈的结构</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">h_max</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t_max</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">deque_max</span><span class="p">[</span><span class="n">h_max</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">++</span><span class="n">h_max</span><span class="p">;</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">h_min</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t_min</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">deque_min</span><span class="p">[</span><span class="n">h_min</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">++</span><span class="n">h_min</span><span class="p">;</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</details>
 <h3 id="q2-flowerpot-s">Q2: Flowerpot S<a class="headerlink" href="#q2-flowerpot-s" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">题目</p>
+<p><img alt="" src="https://cdn.luogu.com.cn/upload/pic/9174.png" /> </p>
+<p>老板需要你帮忙浇花。给出 <span class="arithmatex">\(N\)</span> 滴水的坐标，<span class="arithmatex">\(y\)</span> 表示水滴的高度，<span class="arithmatex">\(x\)</span> 表示它下落到 <span class="arithmatex">\(x\)</span> 轴的位置。</p>
+<p>每滴水以每秒 <span class="arithmatex">\(1\)</span> 个单位长度的速度下落。你需要把花盆放在 <span class="arithmatex">\(x\)</span> 轴上的某个位置，使得从被花盆接着的第 <span class="arithmatex">\(1\)</span> 滴水开始，到被花盆接着的最后 <span class="arithmatex">\(1\)</span> 滴水结束，之间的时间差至少为 <span class="arithmatex">\(D\)</span>。</p>
+<p>我们认为，只要水滴落到 <span class="arithmatex">\(x\)</span> 轴上，与花盆的边沿对齐，就认为被接住。给出 <span class="arithmatex">\(N\)</span> 滴水的坐标和 <span class="arithmatex">\(D\)</span> 的大小，请算出最小的花盆的宽度 <span class="arithmatex">\(W\)</span>。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行 <span class="arithmatex">\(2\)</span> 个整数 <span class="arithmatex">\(N\)</span> 和 <span class="arithmatex">\(D\)</span>。</p>
+<p>接下来 <span class="arithmatex">\(N\)</span> 行每行 <span class="arithmatex">\(2\)</span> 个整数，表示水滴的坐标 <span class="arithmatex">\((x,y)\)</span>。</p>
+<p><strong>输出格式</strong></p>
+<p>仅一行 <span class="arithmatex">\(1\)</span> 个整数，表示最小的花盆的宽度。如果无法构造出足够宽的花盆，使得在 <span class="arithmatex">\(D\)</span> 单位的时间接住满足要求的水滴，则输出 <span class="arithmatex">\(-1\)</span>。</p>
+<p><strong>【数据范围】</strong></p>
+<p><span class="arithmatex">\(40\%\)</span> 的数据：<span class="arithmatex">\(1 \le N \le 1000\)</span> ，<span class="arithmatex">\(1 \le D \le 2000\)</span>。</p>
+<p><span class="arithmatex">\(100\%\)</span> 的数据：<span class="arithmatex">\(1 \le N \le 10 ^ 5\)</span>，<span class="arithmatex">\(1 \le D \le 10 ^ 6\)</span>，<span class="arithmatex">\(0\le x,y\le10^6\)</span>。</p>
+</div>
+<p>这道题可以转换为求给你一个含有重复数字的数组,询问满足<code>max - min&gt;= limit</code>要求的最小窗口长度</p>
 <h3 id="q3-shortest-sub-array-with-sum-at-least-k">Q3: Shortest Sub-array with Sum at least K<a class="headerlink" href="#q3-shortest-sub-array-with-sum-at-least-k" title="Permanent link">&para;</a></h3>
 <h3 id="q4-max-value-of-equation">Q4: Max Value of Equation<a class="headerlink" href="#q4-max-value-of-equation" title="Permanent link">&para;</a></h3>
 <h3 id="q5-maximum-number-of-tasks-you-can-assign">Q5: Maximum Number of Tasks you can Assign<a class="headerlink" href="#q5-maximum-number-of-tasks-you-can-assign" title="Permanent link">&para;</a></h3>
 <h2 id="_5">单调队列的总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">总结</p>
+<p>无论是单调队列还是单调栈,本质都在于找一种<code>单调</code>关系，通过这种单调关系去<code>优化</code>暴力解法中的无用形象。而如何寻找这种单调关系就是需要去学习的点。</p>
+<p>比如说Q1 Q2 通过<mark class="critic">正数数组拓展一个位置其最大值不可能减少，最小值不可能增大的特性</mark>,并结合单调队列能在摊还消耗下每次以O(1)的复杂度获取最大值\最小值从而维持队列的最大值与最小值的差值,从而避免暴力解法中每次窗口改变都需要重新遍历的糟糕操作。</p>
+</div>
 
 
 

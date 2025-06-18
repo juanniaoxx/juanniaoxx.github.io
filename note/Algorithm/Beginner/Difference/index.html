@@ -3138,7 +3138,7 @@
 最终1-n范围上的每个数字都要正确得到</p>
 </div>
 <p>具体的推导过程如下(通过最终状态反推参数)</p>
-<p><img alt="等差数列推导" src="../images/2025-6-11-Difference/未命名绘图.drawio-1749630707158-2.svg" /></p>
+<p><img alt="等差数列推导" src="../../../images/2025-6-11-Difference/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio-1749630707158-2.svg" /></p>
 <details class="danger">
 <summary>等差数列差分模板</summary>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
@@ -3186,11 +3186,11 @@
 <summary>一个小技巧</summary>
 <p>如果创建一个和原数组一般大小的<code>sum</code>数组，则单独讨论第<code>0</code>行和第<code>0</code>列边界条件
 但是我们可以按照如图的方式扩大<code>sum</code>数组避免边界条件的讨论 
-<img alt="" src="../images/2025-6-11-Difference/边界讨论.svg" /></p>
+<img alt="" src="../../../images/2025-6-11-Difference/%E8%BE%B9%E7%95%8C%E8%AE%A8%E8%AE%BA.svg" /></p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">一张图了解二维前缀和</p>
-<p><img alt="alt text" src="../images/2025-6-11-Difference/image-1.png" /></p>
+<p><img alt="alt text" src="../../../images/2025-6-11-Difference/image-1.png" /></p>
 </div>
 <details class="danger">
 <summary>二维前缀和模板</summary>
@@ -3275,7 +3275,7 @@
 <details class="note">
 <summary>优化方案</summary>
 <p>对于给定的正方形(a,b)-(c,d)可以计算其前缀和求得在其中所有元素之和，若减去其内部(a+1, b+1)-(c-1,d-1)的小正方形元素之和，则剩下的就是边上那一圈元素之和。此时只需要判断其是否等于周长即可。
-如图<img alt="" src="../images/2025-6-11-Difference/优化方案.svg" /></p>
+如图<img alt="" src="../../../images/2025-6-11-Difference/%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88.svg" /></p>
 </details>
 <details class="success">
 <summary>参考实现</summary>

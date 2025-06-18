@@ -3318,7 +3318,7 @@
 <li>递归这个过程就能还原出原二叉树</li>
 </ul>
 <p>这道题的关键是理解这个边界图
-<img alt="" src="../images/2025-6-5-Binary-Tree/image-20250606225527651.png" /></p>
+<img alt="" src="../../../images/2025-6-5-Binary-Tree/image-20250606225527651.png" /></p>
 <div class="admonition question">
 <p class="admonition-title">额外练习</p>
 <p>还有两个类似的题目，但要注意如果单纯通过前序和后序是无法唯一还原二叉树的！</p>
@@ -3362,7 +3362,7 @@
 </thead>
 <tbody>
 <tr>
-<td><img alt="img" src="../images/2025-6-5-Binary-Tree/21260ae8cb220729f958b56a61248c55.jpeg" /></td>
+<td><img alt="img" src="../../../images/2025-6-5-Binary-Tree/21260ae8cb220729f958b56a61248c55.jpeg" /></td>
 <td>对于当前节点，检查其右子树的最左节点是否能到达整棵树的最底层 如果可以，说明左子树是满二叉树，直接计算左子树节点数(<code>2^(h-level)</code>)，然后递归处理右子树 如果不可以，说明右子树是满二叉树(但少一层)，直接计算右子树节点数(<code>2^(h-level-1)</code>)，然后递归处理左子树</td>
 </tr>
 </tbody>
