@@ -7,7 +7,7 @@ tags: [Algorithm]
     通过维护一个动态窗口（通常为数组/字符串的子区间）来高效解决连续区间问题。核心思想是{==双指针遍历==}，根据条件调整窗口左右边界，避免重复计算。适用于**子数组/子串的最值、定和、覆盖等问题**（如最长无重复子串、最小覆盖子串）。关键点包括窗口收缩/扩展的触发条件、哈希表辅助统计等，时间复杂度通常为O(n)。
 
 示意图：
-    ![示意图](../images/2025-6-12-滑动窗口/sliding-window1.png)
+    ![示意图](../../images/2025-6-12-滑动窗口/sliding-window1.png)
 
 ??? danger "相关习题"
     [leetcode209.长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/)

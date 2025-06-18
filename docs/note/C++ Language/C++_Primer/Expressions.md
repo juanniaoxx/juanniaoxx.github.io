@@ -1,5 +1,5 @@
 ---
-tags: [C++]
+tags: [C++ Primer]
 ---
 
 ## Fundamentals

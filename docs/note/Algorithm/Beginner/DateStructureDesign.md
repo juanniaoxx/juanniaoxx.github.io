@@ -36,7 +36,7 @@ tags: [Algorithm]
 
 {==双向链表 + 哈希表==}
 
-![](../images/2025-6-5-DateStrucutreDesign/image-20250605142733342.png)
+![](../../images/2025-6-5-DateStrucutreDesign/image-20250605142733342.png)
 
 - 插入`key-value`的时候创建一个`双向链表节点` ,并且`value`为指向该节点的指针
 - 利用全局指针`head`和`tail`定位链表的头节点和尾节点

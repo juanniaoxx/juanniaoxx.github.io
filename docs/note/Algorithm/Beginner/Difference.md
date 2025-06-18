@@ -48,7 +48,7 @@ tags: [Algorithm]
 
 具体的推导过程如下(通过最终状态反推参数)
 
-![等差数列推导](../images/2025-6-11-Difference/未命名绘图.drawio-1749630707158-2.svg)
+![等差数列推导](../../images/2025-6-11-Difference/未命名绘图.drawio-1749630707158-2.svg)
 
 ??? danger "等差数列差分模板"
 	```cpp
@@ -84,10 +84,10 @@ tags: [Algorithm]
 ??? tip "一个小技巧"
 	如果创建一个和原数组一般大小的`sum`数组，则单独讨论第`0`行和第`0`列边界条件
 	但是我们可以按照如图的方式扩大`sum`数组避免边界条件的讨论 
-	![](../images/2025-6-11-Difference/边界讨论.svg)
+	![](../../images/2025-6-11-Difference/边界讨论.svg)
 
 !!! note "一张图了解二维前缀和"
-    ![alt text](../images/2025-6-11-Difference/image-1.png)
+    ![alt text](../../images/2025-6-11-Difference/image-1.png)
 
 ??? danger "二维前缀和模板"
 	```cpp
@@ -135,7 +135,7 @@ tags: [Algorithm]
 枚举过程无法优化，只能优化{==验证==}过程.
 ??? note "优化方案"
 	对于给定的正方形(a,b)-(c,d)可以计算其前缀和求得在其中所有元素之和，若减去其内部(a+1, b+1)-(c-1,d-1)的小正方形元素之和，则剩下的就是边上那一圈元素之和。此时只需要判断其是否等于周长即可。
-	如图![](../images/2025-6-11-Difference/优化方案.svg)
+	如图![](../../images/2025-6-11-Difference/优化方案.svg)
 
 ??? success "参考实现"
 	```cpp

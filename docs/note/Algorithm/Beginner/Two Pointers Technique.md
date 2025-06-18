@@ -212,7 +212,7 @@ tag: [Algorithm]
 !!! note "问题描述"
     给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
 
-    ![](../images/2025-6-12-Two-Pointers/接雨水.png)
+    ![](../../images/2025-6-12-Two-Pointers/接雨水.png)
     
     输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]
     
@@ -238,7 +238,7 @@ tag: [Algorithm]
 
     {==说明：你不能倾斜容器。==}
 
-    ![alt text](../images/2025-6-12-Two-Pointers/盛水最多的容器.png)
+    ![alt text](../../images/2025-6-12-Two-Pointers/盛水最多的容器.png)
 
     输入：[1,8,6,2,5,4,8,3,7]
     
