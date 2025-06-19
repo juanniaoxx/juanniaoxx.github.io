@@ -336,6 +336,7 @@ string finalgrad = (grade < 60) ? "fail" : "pass";
 	```
 
 ## The Bitwise Operators
+
 !!! info inline begin "bitwise operators"
 	|Operator|Function|
 	|---|---|
@@ -346,11 +347,197 @@ string finalgrad = (grade < 60) ? "fail" : "pass";
 	|^|bit-wise XOR|
 	|`|`|bit-wise OR|
 ----------------
+!!! warning 
+	若一个操作数是负数这对其进行某些位运算(比如说>>对于符号位的处理) 则其结果依赖于机器类型，这种情况下在C/C++标准下是UB的
+----------------
+`Shift Operators(<< >>)` return a copy of left-hand operand with the bits shifted ad directed by the right-hand operand.
+⚠️ 若右边操作数的数值大于左操作数的位数,则该行为也是UB
+
+Associative: left -> right
+!!! info "Overload"
+	I/O库重载的`>>` 和 `<<`,具有和位运算(内置含义)相同的结合律与优先级.
+	```cpp
+	std::cout << 42 + 10; // ok, + has higher precedence, so sum is printed
+	std::cout << (10 < 42); // ok
+	std::cout << 10 < 42; // error: attempt to compare cout to 42!
+	```
+--------
+`NOT(~)` return a new value with the bits of its operand inverted.
+
+- `char` will be promoted to `int` 
+
+--------
+`AND(&) OR(|) XOR (^)` return a new value with the bit pattern composed from its two operands.
+
+- `char` will be promoted to `int`
 
 ## The sizeof Operator
+Associative: right -> left
 
-## The comma Operator
+The `sizeof` operator returns the size, in bytes, of an expression or type name.the result of `sizeof` is a constant expression of type `size_t`.
+
+!!! note inline begin 
+	```cpp
+	sizeof (type);
+	sizeof expr;
+	```
+The operator takes one of two forms.
+
+The `sizeof` not evaluate its operand, as `decltype`. 
+
+```cpp
+Sales_data data, *p;
+sizeof(Sales_data);
+sizeof data; // size of data's type, i.e. sizeof(Sales_data)
+sizeof p; // size of a pointer(基于机器若是64位系统,则大小为8B)
+sizeof *p; // size of the type to which op points,i.e. sizeof (Sales_data)
+sizeof data.revenue; // size of the type of Sales_data's revenue member
+// C++ 11:可以不提供对象访问成员(函数)
+sizeof Sales_data::revenue; // alternative way to get the size of revenue
+```
+
+!!! info "the result of sizeof"
+	- `char` or an expression of type `char` si guaranteed to be 1
+	- a `reference` type returns the size of an object of the referenced type
+	- {==a pointer returns the size needed hold a pointer==}
+	- an `array` is the size of the entire array.
+    	- that sizeof does not convent the array to a pointer
+		```cpp
+		constexpr size_t sz = sizeof(ia) / sizeof(*ia);
+		int arr2[sz]; // ok sizeof return a constant expression
+		```
+	- a `string` or `vector` returns only the size of the fixed part of these types, it does not return the size used by the object's elements.
+## The comma Operator(,)
+The comma operator takes two operands, which it **evaluates** from {==left to right.==}
+
+- left-hand will be discard when there are evaluated.
+- the result of comma expression is the value of its right-hand expression
+- the result is an lvalue if the right-hand operand is an lvaule
+
 
 ## Type Conversions
+### Implicit Conversions
+!!! info "When implicit conversions occur"
+	- In most expressions, values of integral types smaller than int are first promoted to an appropriate larger integral type.
+	- In conditions, non`bool` expressions are converted `bool`
+	- In initializations, the initializer is converted to the type of the variable; in assignments, the right-hand operand is converted to the type of the left-hand
+	- IN arithmetic and relational expressions with operands of mixed types, the types are converted to a common type.
+	- conversions also happen during function cells.
 
+**Pointer Conversions**
+```cpp
+int ia[10];
+int *ip = ia; // convert ia to a pointer to the first element
+```
+!!! warning 
+	将数组名转换为指针有几个例外
+
+	- `decltype`
+	```cpp
+		int arr[10];
+		decltype(arr) var; // the type of var is int[10]
+	```
+	- `&`
+	```cpp
+	int arr[10];
+	int (*ptr)[10] = &arr; // the type ptr is int(*)[10]
+	```
+	- `sizeof`
+	```cpp
+	int arr[10];
+	constexpr size_t size = sizeof(arr); // size is 10
+	```
+	- `typeid`
+	- reference of array
+	```cpp
+	int arr[10];
+	int (&ref)[10] = arr; // ref is reference of arr
+	```
+!!! info "Some other pointer conversions"
+	- A constant integral value of 0 and the literal nullptr can be converted to and pointer type
+	```cpp
+	int *p1 = 0; // 0 -> int *
+	double *p2 = nullptr; // nullptr -> double *
+	```
+	- a pointer to any non-const type can be converted to `void*`
+	```cpp
+	int x = 10;
+	int *p_int = &x;
+	void *p_void = p_int; // int* -> void*
+	```
+	- a pointer to any type can be converted to a `const void*`
+	```cpp
+	const char *p_str = "hello";
+	const void *p_const_void = p_str; // const char * -> const void *
+	```
+### Explicit Conversions
+`casts` ---> explicit conversion
+```cpp
+cast-name<type> (expression);
+```
+- cast-name: one of these
+  - `static_cast` 
+  - `dynamic_cast` : will be cover in 19.2
+  - `const_cast`
+  - `reinterpret_cast`
+- type : the target type of the conversion
+- expression: the value to be cast
+!!! note 
+	If type is reference, then the result is an lvalue.
+
+**static_cast** 除去涉及底层const的强制类型转换都可以用
+```cpp
+int i, j;
+double slope = static_cast<double>(j) / i; // j:int->double, i: int -> double
+```
+
+注意这里`i、j`的类型转换是不同的, `j`是被显示转换为double，而`i`是由于除法隐式提升为`double`
+
+显示类型转换即使发生精度损失编译器也不会给出警告
+```cpp
+double d = 3.1415;
+void *p = &d; // ok non const object can be stored in a void*
+double *dp = static_cast<double*> (p); // converts void * back to the original pointer type
+```
+
+**const_cast** changes only a low-level const in its operand
+```cpp
+const char *pc;
+char *p = const_cast<char*> (pc); // ok: but writing through p is undefined
+```
+
+{==Only a const_cast may be used to change the constness of an expression==}
+```cpp
+const char *cp;
+char *q = static_cast<char*> (cp); // error: static_cast can't cast away const
+static_const<string> (cp); // ok: converts string literal to string
+const_cast<string>(cp); // error: const_cast only changes constness
+```
+
+**reinterpret_cast(非常危险一般不用)** a low-level reinterpretation(重新解释) of the bit pattern of its operands.
+
+```cpp
+int *ip;
+char *pc = reinterpret_cast<char*> (ip);
+```
+!!! warning 
+	如果真的将pc当char*使用会导致run-time error
+	```cpp
+	string str(pc); // result in bizarre run-time behavior.
+	```
+
+### Old-style cast
+```cpp
+type (expr); // function-style cast notation
+(type) expr; // C-language-style cast notation
+```
 ## Summarize
+!!! abstract 
+	C++ 提供了一套丰富的运算符，并定义了这些运算符作用于内置类型值时的行为。此外，C++ 还支持运算符重载，允许我们为自定义类类型定义运算符的含义。我们将在第14章学习如何为自己的类型定义运算符。​​
+	
+	​要理解包含多个运算符的表达式，必须掌握优先级（precedence）、结合性（associativity）和操作数求值顺序（order of operand evaluation）。每个运算符都有优先级和结合性。优先级决定了运算符在复合表达式中的分组方式，而结合性则决定了相同优先级的运算符如何分组。​​
+	<br>
+	<br>​
+	大多数运算符不会规定操作数的求值顺序：编译器可以自由选择先计算左操作数还是右操作数。通常，操作数的求值顺序不会影响表达式的结果。然而，如果两个操作数引用同一个对象，并且其中一个操作数修改了该对象，那么程序就会存在严重的错误——而且这种错误可能很难被发现。​​
+	
+	最后，操作数通常会从其初始类型自动转换为另一种相关类型。例如，在所有表达式中，较小的整型会被提升为较大的整型。转换既适用于内置类型，也适用于类类型。转换也可以通过强制类型转换（cast）显式进行。

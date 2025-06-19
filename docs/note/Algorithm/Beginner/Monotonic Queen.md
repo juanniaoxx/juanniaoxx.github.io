@@ -178,14 +178,176 @@ tags: [Algorithm]
 
 这道题可以转换为求给你一个含有重复数字的数组,询问满足`max - min>= limit`要求的最小窗口长度
 
-### Q3: Shortest Sub-array with Sum at least K
+
+### Q3: Maximum Number of Tasks you can Assign
+!!! note "题目"
+    You have `n` tasks and `m` workers. Each task has a strength requirement stored in a **0-indexed** integer array `tasks`, with the `i^th` task requiring `tasks[i]` strength to complete. The strength of each worker is stored in a **0-indexed** integer array `workers`, with the `j^th` worker having `workers[j]` strength. Each worker can only be assigned to a **single** task and must have a strength **greater than or equal** to the task's strength requirement (i.e., `workers[j] >= tasks[i]`).
+
+    Additionally, you have `pills` magical pills that will **increase a worker's strength** by `strength`. You can decide which workers receive the magical pills, however, you may only give each worker **at most one** magical pill.
+
+    Given the **0-indexed** integer arrays `tasks` and `workers` and the integers `pills` and `strength`, return *the **maximum** number of tasks that can be completed.*
+??? info "举例与数据范围"
+    **Example 1:**
+
+    ```txt
+    Input: tasks = [3,2,1], workers = [0,3,3], pills = 1, strength = 1
+    Output: 3
+    Explanation:
+    We can assign the magical pill and tasks as follows:
+    - Give the magical pill to worker 0.
+    - Assign worker 0 to task 2 (0 + 1 >= 1)
+    - Assign worker 1 to task 1 (3 >= 2)
+    - Assign worker 2 to task 0 (3 >= 3)
+    ```
+
+    **Example 2:**
+
+    ```txt
+    Input: tasks = [5,4], workers = [0,0,0], pills = 1, strength = 5
+    Output: 1
+    Explanation:
+    We can assign the magical pill and tasks as follows:
+    - Give the magical pill to worker 0.
+    - Assign worker 0 to task 0 (0 + 5 >= 5)
+    ```
+
+    **Example 3:**
+
+    ```txt
+    Input: tasks = [10,15,30], workers = [0,10,10,10,10], pills = 3, strength = 10
+    Output: 2
+    Explanation:
+    We can assign the magical pills and tasks as follows:
+    - Give the magical pill to worker 0 and worker 1.
+    - Assign worker 0 to task 0 (0 + 10 >= 10)
+    - Assign worker 1 to task 1 (10 + 10 >= 15)
+    The last pill is not given because it will not make any worker strong enough for the last task.
+    ```
+
+    **Constraints:**
+
+    -   `n == tasks.length`
+    -   `m == workers.length`
+    -   `1 <= n, m <= 5 * 10^4`
+    -   `0 <= pills <= m`
+    -   `0 <= tasks[i], workers[j], strength <= 10^9`
 
 ### Q4: Max Value of Equation
 
-### Q5: Maximum Number of Tasks you can Assign
+!!! note "描述"
+    You are given an array `points` containing the coordinates of points on a 2D plane, sorted by the x-values, where `points[i] = [xi, yi]` such that `xi < xj` for all `1 <= i < j <= points.length`. You are also given an integer `k`.
 
+    Return *the maximum value of the equation* `yi + yj + |xi - xj|` where `|xi - xj| <= k` and `1 <= i < j <= points.length`.
+
+    It is guaranteed that there exists at least one pair of points that satisfy the constraint `|xi - xj| <= k`.
+??? info "举例和数据范围"
+    **Example 1:**
+
+    ```txt
+    Input: points = [[1,3],[2,0],[5,10],[6,-10]], k = 1
+    Output: 4
+    Explanation: The first two points satisfy the condition |xi - xj| <= 1 and if we calculate the equation we get 3 + 0 + |1 - 2| = 4. Third and fourth points also satisfy the condition and give a value of 10 + -10 + |5 - 6| = 1.
+    No other pairs satisfy the condition, so we return the max of 4 and 1.
+    ```
+
+    **Example 2:**
+
+    ```txt
+    Input: points = [[0,0],[3,0],[9,2]], k = 3
+    Output: 3
+    Explanation: Only the first two points have an absolute difference of 3 or less in the x-values, and give the value of 0 + 0 + |0 - 3| = 3.
+    ```
+
+    **Constraints:**
+
+    -   `2 <= points.length <= 10^5`
+    -   `points[i].length == 2`
+    -   `-10^8 <= xi, yi <= 10^8`
+    -   `0 <= k <= 2 * 10^8`
+    -   `xi < xj` for all `1 <= i < j <= points.length`
+    -   `xi` form a strictly increasing sequence.
+
+!!! tip "hit"
+    这道题的关键在于将$y_i+y_j+|x_i-x_j|$通过题目给的`i < j`则必然有$x_i < x_j$可以转换为求$\max{y_i+y_j+x_j-x_i} = \max{((y_i-x_i)+(y_j+x_j))}$则可以通过记录在`j`点左侧与其距离小于等于限制的点$y_i - x_i$点最大值来快速得出以该点为右端点的线段关于题目不等式的最大值。
+
+??? success "参考实现"
+    ```cpp
+    ```
+### Q5: Shortest Subarray with Sum at Least K
+!!! note "描述" 
+    Given an integer array `nums` and an integer `k`, return *the length of the shortest non-empty **subarray** of* `nums` *with a sum of at least* `k`. If there is no such **subarray**, return `-1`.
+    
+    A **subarray** is a **contiguous** part of an array.
+
+??? info "举例与数据范围"
+    **Example 1:**
+
+    ```txt
+    Input: nums = [1], k = 1
+    Output: 1
+    ```
+
+    **Example 2:**
+
+    ```txt
+    Input: nums = [1,2], k = 4
+    Output: -1
+    ```
+
+    **Example 3:**
+
+    ```txt
+    Input: nums = [2,-1,2], k = 3
+    Output: 3
+    ```
+
+    **Constraints:**
+
+    -   `1 <= nums.length <= 10^5`
+    -   {==-10^5 <= nums[i] <= 10^5==} ⚠️ 可以是负数
+    -   `1 <= k <= 10^9`
+这道题如果全是正数就是个普通的滑动窗口的题,但如果有负数就不可能简简单单的通过滑动窗口做出来。
+
+??? tip "hit"
+    - 这道题和前缀和专题的 寻找和为K的最长子数组思路类似
+    - 变成寻找以r结尾的子数组最小的l在哪里[l....r] 
+        - 假设当前[0...r]的前缀和是 x
+        - 目标就变成了寻找[0...l]的前缀合 <= x - k 且要求l最大
+    - 维护一个前缀和的{==单调递增==}队列
+
+??? success "参考实现"
+    ```cpp
+    class Solution {
+    public:
+        int shortestSubarray(vector<int>& nums, int k) {
+            vector<long long> sum{0}; // ⚠️防止溢出 
+            // 处理前缀和数组
+            // sum[0] = 0
+            // sum[1] = nums[0] + 0
+            // sum[2] = nums[1] + nums[2] + 0
+            for(int i = 0; i < nums.size(); ++i) sum.push_back(sum[i] + nums[i]);
+            int ans = INT_MAX;
+            for (int i = 0; i <= nums.size(); ++i) {
+                // 如果当前[i...deque[h]]的和满足条件则弹出队头,并计算一次结果
+                while (h != t && sum[i] - sum[deque[h]] >= k) ans = std::min(ans, i - deque[h++]);
+                // 如果当前前缀和的结果小于队列尾的结果则弹出队尾
+                while (h != t && sum[deque[t - 1]] >= sum[i]) --t;
+                deque[t++] = i;
+            }
+
+            return ans == INT_MAX ? -1 : ans;
+
+        }
+    private:
+        static constexpr int N = 1e5 + 10;
+        array<int, N> deque;
+        int h{0}, t{0};
+    };
+    ```
 ## 单调队列的总结
 !!! abstract "总结"
     无论是单调队列还是单调栈,本质都在于找一种`单调`关系，通过这种单调关系去`优化`暴力解法中的无用形象。而如何寻找这种单调关系就是需要去学习的点。
 
     比如说Q1 Q2 通过{==正数数组拓展一个位置其最大值不可能减少，最小值不可能增大的特性==},并结合单调队列能在摊还消耗下每次以O(1)的复杂度获取最大值\最小值从而维持队列的最大值与最小值的差值,从而避免暴力解法中每次窗口改变都需要重新遍历的糟糕操作。
+
+    

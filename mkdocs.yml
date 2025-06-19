@@ -85,7 +85,7 @@ nav:
           - Recursion: note/Algorithm/Beginner/Recursion.md
           - Two Pointers: note/Algorithm/Beginner/Two Pointers Technique.md
           - Sliding Window: note/Algorithm/Beginner/Sliding Window.md
-          - Flood fill: note/Algorithm/Beginner/Flood Fill.md
+          - Flood Fill: note/Algorithm/Beginner/Flood Fill.md
         - 杂项:
           - GCD and Congruence: note/Algorithm/Beginner/GCD and Congruence.md
           - Infer by data: note/Algorithm/Beginner/Infer by data.md

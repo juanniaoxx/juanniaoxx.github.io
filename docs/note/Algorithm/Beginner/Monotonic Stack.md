@@ -6,30 +6,23 @@ tags: [Algorithm]
     在算法问题中，我们常常需要快速找到一个元素附近（左侧或右侧）第一个比它大或小的元素，或者计算由这些边界定义的区间特征（如面积、距离等）。这类问题的朴素解法通常是双重循环遍历，时间复杂度为$O(n²)$，而单调栈(Monotonic Stack)则能以$O(n)$的时间复杂度高效解决，其核心在于利用栈结构维护数据的单调性，以空间换时间。
 !!! question "课程例题"
     ----
-    !!! info inline begin "基本应用"
-        单调栈的基本应用,下面的题目用单调栈比较明显
+    [单调栈结构(进阶)](https://www.nowcoder.com/practice/2a2c00e7a88a498693568cef63a4b7bb)
 
-        [单调栈结构(进阶)](https://www.nowcoder.com/practice/2a2c00e7a88a498693568cef63a4b7bb)
+    [739.Daily Temperatures](https://leetcode.cn/problems/daily-temperatures/description/)
 
-        [739.Daily Temperatures](https://leetcode.cn/problems/daily-temperatures/description/)
+    [907.Sum of sub-array Minimus](https://leetcode.cn/problems/sum-of-subarray-minimums/description/)
 
-        [907.Sum of sub-array Minimus](https://leetcode.cn/problems/sum-of-subarray-minimums/description/)
+    [84.Largest Rectangle in Histogram](https://leetcode.cn/problems/largest-rectangle-in-histogram/description/)
 
-        [84.Largest Rectangle in Histogram](https://leetcode.cn/problems/largest-rectangle-in-histogram/description/)
-
-        [85.Maximal Rectangle](https://leetcode.cn/problems/maximal-rectangle/description/)
-
+    [85.Maximal Rectangle](https://leetcode.cn/problems/maximal-rectangle/description/)
     ----
-    !!! info inline end "拓展应用"
-        单调栈的拓展应用,下面这些题用单调栈需要额外想一下
+    [962.Maximum Width Ramp](https://leetcode.cn/problems/maximum-width-ramp/)
 
-        [962.Maximum Width Ramp](https://leetcode.cn/problems/maximum-width-ramp/)
+    [316.Remove Duplicate Letters](https://leetcode.cn/problems/remove-duplicate-letters/description/)
 
-        [316.Remove Duplicate Letters](https://leetcode.cn/problems/remove-duplicate-letters/description/)
+    [2289.Steps to Make Array non Decreasing](https://leetcode.cn/problems/steps-to-make-array-non-decreasing/description/)
 
-        [2289.Steps to Make Array non Decreasing](https://leetcode.cn/problems/steps-to-make-array-non-decreasing/description/)
-
-        [1504.Count sub-matrices with all ones](https://leetcode.cn/problems/count-submatrices-with-all-ones/description/)
+    [1504.Count sub-matrices with all ones](https://leetcode.cn/problems/count-submatrices-with-all-ones/description/)
 
 ## 单调栈的内容
 
