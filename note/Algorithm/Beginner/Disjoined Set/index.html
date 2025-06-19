@@ -984,6 +984,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="相关例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1couples-holding-hands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1:Couples Holding Hands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2similar-string-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2:Similar String Groups
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3number-of-islands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3:Number of Islands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1223,7 +1256,7 @@
   
   
   <span class="md-ellipsis">
-    Flood fill
+    Flood Fill
     
   </span>
   
@@ -2894,6 +2927,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="相关例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1couples-holding-hands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1:Couples Holding Hands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2similar-string-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2:Similar String Groups
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3number-of-islands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3:Number of Islands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2950,13 +3016,142 @@
 <h1 id="_1">并查集(不相交集)<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">简介</p>
+<p>并查集（Disjoint Set Union，DSU）​是一种高效处理不相交集合合并及查询的数据结构，支持两种核心操作：</p>
+<p>​合并（Union）​​：将两个集合合并为一个。
+​查找（Find）​​：确定元素属于哪个集合（通常通过“代表元”标识）。</p>
+<p>通过路径压缩和按秩合并优化，单次操作时间复杂度接近常数。</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">相关例题</p>
+<p><a href="https://www.nowcoder.com/practice/e7ed657974934a30b2010046536a5372">并查集模板</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P3367">并查集模板</a></p>
+<p><a href="https://leetcode.cn/problems/couples-holding-hands/description/">leetcode765.Couples Holding Hands</a></p>
+<p><a href="https://leetcode.cn/problems/similar-string-groups/description/">leetcode839.Similar String Groups</a></p>
+<p><a href="https://leetcode.cn/problems/number-of-islands/description/">leetcode200.Number of Islands</a></p>
+<p><a href="https://leetcode.cn/problems/most-stones-removed-with-same-row-or-column/description/">leetcode947.Most Stones Removed with Same Row or Column</a></p>
+<p><a href="https://leetcode.cn/problems/find-all-people-with-secret/description/">leetcode2092.Find All People With Secret</a> </p>
+<p><a href="https://leetcode.cn/problems/number-of-good-paths/description/">leetcode2421.Number of Good Paths</a> </p>
+<p><a href="https://leetcode.cn/problems/minimize-malware-spread-ii/description/">leetcode928.Minimize Malware Spread II</a></p>
 </div>
 <h2 id="_2">并查集基本内容<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>带权并查集、可持久化并查集、可撤销并查集，都是备战算法竞赛的必备内容会在<code>intermediate</code>标签下面总结</p>
+</div>
 <h2 id="_3">并查集模板<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">参考模板</p>
+<p>// find 操作
+int find(int i) {
+    int top = 0;
+    // 用栈模拟递归
+    while (i != father[i]) {
+        stack[top++] = i;
+        i = father[i];
+    }</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>// 将沿途节点全部指向根节点
+// 路径压缩
+while (top &gt; 0) father[stack[--top]] = i;
+return i;
+</code></pre></div></td></tr></table></div>
+<p>}</p>
+<p>// Union操作
+void Union(int x, int y) {
+    int fx = find(x);
+    int fy = find(y);
+    if (fx != fy) {
+        // 按秩合并
+        if (size[fx] &gt;= size[fy]) {
+            size[fx] += size[fy];
+            father[fy] = fx;
+        } else {
+            size[fy] += size[fx];
+            father[fx] = fy;
+        }
+    }
+}</p>
+</div>
 <h2 id="_4">相关例题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="q1couples-holding-hands">Q1:Couples Holding Hands<a class="headerlink" href="#q1couples-holding-hands" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">题目</p>
+<p><code>n</code> 对情侣坐在连续排列的 <code>2n</code> 个座位上，想要牵到对方的手。</p>
+<p>人和座位由一个整数数组 <code>row</code> 表示，其中 <code>row[i]</code> 是坐在第 <code>i</code> 个座位上的人的 <strong>ID</strong>。情侣们按顺序编号，第一对是 <code>(0, 1)</code>，第二对是 <code>(2, 3)</code>，以此类推，最后一对是 <code>(2n-2, 2n-1)</code>。</p>
+<p>返回 <em>最少交换座位的次数，以便每对情侣可以并肩坐在一起</em>。 <em>每次</em>交换可选择任意两人，让他们站起来交换座位。</p>
+</div>
+<details class="tip">
+<summary>hit</summary>
+</details>
+<details class="success">
+<summary>参考实现</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">minSwapsCouples</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">row</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="n">build</span><span class="p">(</span><span class="n">row</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">Union</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sets</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">father</span><span class="p">;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 统计集合数</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="n">sets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">father</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Union</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">fx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">fy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fx</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">fy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">            </span><span class="n">father</span><span class="p">[</span><span class="n">fx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fy</span><span class="p">;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">            </span><span class="o">--</span><span class="n">sets</span><span class="p">;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="q2similar-string-groups">Q2:Similar String Groups<a class="headerlink" href="#q2similar-string-groups" title="Permanent link">&para;</a></h3>
+<h3 id="q3number-of-islands">Q3:Number of Islands<a class="headerlink" href="#q3number-of-islands" title="Permanent link">&para;</a></h3>
 <h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 
 

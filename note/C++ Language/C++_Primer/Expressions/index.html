@@ -1139,7 +1139,7 @@
   
   
   <span class="md-ellipsis">
-    Flood fill
+    Flood Fill
     
   </span>
   
@@ -2411,7 +2411,7 @@
         <li class="md-nav__item">
   <a href="#the-comma-operator" class="md-nav__link">
     <span class="md-ellipsis">
-      The comma Operator
+      The comma Operator(,)
     </span>
   </a>
   
@@ -2423,6 +2423,39 @@
       Type Conversions
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Type Conversions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implicit-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit Conversions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicit-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicit Conversions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#old-style-cast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Old-style cast
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3085,7 +3118,7 @@
         <li class="md-nav__item">
   <a href="#the-comma-operator" class="md-nav__link">
     <span class="md-ellipsis">
-      The comma Operator
+      The comma Operator(,)
     </span>
   </a>
   
@@ -3097,6 +3130,39 @@
       Type Conversions
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Type Conversions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implicit-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicit Conversions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicit-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicit Conversions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#old-style-cast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Old-style cast
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3676,10 +3742,220 @@ if cond is true, then expr1 is evaluated, otherwise, expr 2 is evaluated. (必�
 </table>
 </div>
 <hr />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>若一个操作数是负数这对其进行某些位运算(比如说&gt;&gt;对于符号位的处理) 则其结果依赖于机器类型，这种情况下在C/C++标准下是UB的</p>
+</div>
+<hr />
+<p><code>Shift Operators(&lt;&lt; &gt;&gt;)</code> return a copy of left-hand operand with the bits shifted ad directed by the right-hand operand.
+⚠️ 若右边操作数的数值大于左操作数的位数,则该行为也是UB</p>
+<p>Associative: left -&gt; right</p>
+<div class="admonition info">
+<p class="admonition-title">Overload</p>
+<p>I/O库重载的<code>&gt;&gt;</code> 和 <code>&lt;&lt;</code>,具有和位运算(内置含义)相同的结合律与优先级.
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok, + has higher precedence, so sum is printed</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span><span class="w"> </span><span class="c1">// ok</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// error: attempt to compare cout to 42!</span>
+</code></pre></div></td></tr></table></div></p>
+</div>
+<hr />
+<p><code>NOT(~)</code> return a new value with the bits of its operand inverted.</p>
+<ul>
+<li><code>char</code> will be promoted to <code>int</code> </li>
+</ul>
+<hr />
+<p><code>AND(&amp;) OR(|) XOR (^)</code> return a new value with the bit pattern composed from its two operands.</p>
+<ul>
+<li><code>char</code> will be promoted to <code>int</code></li>
+</ul>
 <h2 id="the-sizeof-operator">The sizeof Operator<a class="headerlink" href="#the-sizeof-operator" title="Permanent link">&para;</a></h2>
-<h2 id="the-comma-operator">The comma Operator<a class="headerlink" href="#the-comma-operator" title="Permanent link">&para;</a></h2>
+<p>Associative: right -&gt; left</p>
+<p>The <code>sizeof</code> operator returns the size, in bytes, of an expression or type name.the result of <code>sizeof</code> is a constant expression of type <code>size_t</code>.</p>
+<div class="admonition note inline begin">
+<p class="admonition-title">Note</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">sizeof</span><span class="w"> </span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">sizeof</span><span class="w"> </span><span class="n">expr</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<p>The operator takes one of two forms.</p>
+<p>The <code>sizeof</code> not evaluate its operand, as <code>decltype</code>. </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">6</a></span>
+<span class="normal"><a href="#__codelineno-21-7">7</a></span>
+<span class="normal"><a href="#__codelineno-21-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">Sales_data</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="k">sizeof</span><span class="p">(</span><span class="n">Sales_data</span><span class="p">);</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">sizeof</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="c1">// size of data&#39;s type, i.e. sizeof(Sales_data)</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="k">sizeof</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// size of a pointer(基于机器若是64位系统,则大小为8B)</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="k">sizeof</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// size of the type to which op points,i.e. sizeof (Sales_data)</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="k">sizeof</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">revenue</span><span class="p">;</span><span class="w"> </span><span class="c1">// size of the type of Sales_data&#39;s revenue member</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="c1">// C++ 11:可以不提供对象访问成员(函数)</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="k">sizeof</span><span class="w"> </span><span class="n">Sales_data</span><span class="o">::</span><span class="n">revenue</span><span class="p">;</span><span class="w"> </span><span class="c1">// alternative way to get the size of revenue</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">the result of sizeof</p>
+<ul>
+<li><code>char</code> or an expression of type <code>char</code> si guaranteed to be 1</li>
+<li>a <code>reference</code> type returns the size of an object of the referenced type</li>
+<li><mark class="critic">a pointer returns the size needed hold a pointer</mark></li>
+<li>an <code>array</code> is the size of the entire array.<ul>
+<li>that sizeof does not convent the array to a pointer
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">sz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">ia</span><span class="p">);</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">arr2</span><span class="p">[</span><span class="n">sz</span><span class="p">];</span><span class="w"> </span><span class="c1">// ok sizeof return a constant expression</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+</li>
+<li>a <code>string</code> or <code>vector</code> returns only the size of the fixed part of these types, it does not return the size used by the object's elements.</li>
+</ul>
+</div>
+<h2 id="the-comma-operator">The comma Operator(,)<a class="headerlink" href="#the-comma-operator" title="Permanent link">&para;</a></h2>
+<p>The comma operator takes two operands, which it <strong>evaluates</strong> from <mark class="critic">left to right.</mark></p>
+<ul>
+<li>left-hand will be discard when there are evaluated.</li>
+<li>the result of comma expression is the value of its right-hand expression</li>
+<li>the result is an lvalue if the right-hand operand is an lvaule</li>
+</ul>
 <h2 id="type-conversions">Type Conversions<a class="headerlink" href="#type-conversions" title="Permanent link">&para;</a></h2>
+<h3 id="implicit-conversions">Implicit Conversions<a class="headerlink" href="#implicit-conversions" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">When implicit conversions occur</p>
+<ul>
+<li>In most expressions, values of integral types smaller than int are first promoted to an appropriate larger integral type.</li>
+<li>In conditions, non<code>bool</code> expressions are converted <code>bool</code></li>
+<li>In initializations, the initializer is converted to the type of the variable; in assignments, the right-hand operand is converted to the type of the left-hand</li>
+<li>IN arithmetic and relational expressions with operands of mixed types, the types are converted to a common type.</li>
+<li>conversions also happen during function cells.</li>
+</ul>
+</div>
+<p><strong>Pointer Conversions</strong>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">ia</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ia</span><span class="p">;</span><span class="w"> </span><span class="c1">// convert ia to a pointer to the first element</span>
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>将数组名转换为指针有几个例外</p>
+<ul>
+<li><code>decltype</code>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="n">var</span><span class="p">;</span><span class="w"> </span><span class="c1">// the type of var is int[10]</span>
+</code></pre></div></td></tr></table></div></li>
+<li><code>&amp;</code>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">)[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">arr</span><span class="p">;</span><span class="w"> </span><span class="c1">// the type ptr is int(*)[10]</span>
+</code></pre></div></td></tr></table></div></li>
+<li><code>sizeof</code>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span><span class="w"> </span><span class="c1">// size is 10</span>
+</code></pre></div></td></tr></table></div></li>
+<li><code>typeid</code></li>
+<li>reference of array
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">ref</span><span class="p">)[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span><span class="w"> </span><span class="c1">// ref is reference of arr</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Some other pointer conversions</p>
+<ul>
+<li>A constant integral value of 0 and the literal nullptr can be converted to and pointer type
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0 -&gt; int *</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="c1">// nullptr -&gt; double *</span>
+</code></pre></div></td></tr></table></div></li>
+<li>a pointer to any non-const type can be converted to <code>void*</code>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p_int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p_void</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_int</span><span class="p">;</span><span class="w"> </span><span class="c1">// int* -&gt; void*</span>
+</code></pre></div></td></tr></table></div></li>
+<li>a pointer to any type can be converted to a <code>const void*</code>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p_const_void</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_str</span><span class="p">;</span><span class="w"> </span><span class="c1">// const char * -&gt; const void *</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+</div>
+<h3 id="explicit-conversions">Explicit Conversions<a class="headerlink" href="#explicit-conversions" title="Permanent link">&para;</a></h3>
+<p><code>casts</code> ---&gt; explicit conversion
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="n">cast</span><span class="o">-</span><span class="n">name</span><span class="o">&lt;</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+- cast-name: one of these
+  - <code>static_cast</code> 
+  - <code>dynamic_cast</code> : will be cover in 19.2
+  - <code>const_cast</code>
+  - <code>reinterpret_cast</code>
+- type : the target type of the conversion
+- expression: the value to be cast</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If type is reference, then the result is an lvalue.</p>
+</div>
+<p><strong>static_cast</strong> 除去涉及底层const的强制类型转换都可以用
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span>
+<span class="normal"><a href="#__codelineno-32-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">slope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// j:int-&gt;double, i: int -&gt; double</span>
+</code></pre></div></td></tr></table></div></p>
+<p>注意这里<code>i、j</code>的类型转换是不同的, <code>j</code>是被显示转换为double，而<code>i</code>是由于除法隐式提升为<code>double</code></p>
+<p>显示类型转换即使发生精度损失编译器也不会给出警告
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span>
+<span class="normal"><a href="#__codelineno-33-2">2</a></span>
+<span class="normal"><a href="#__codelineno-33-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1415</span><span class="p">;</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok non const object can be stored in a void*</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">*&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// converts void * back to the original pointer type</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>const_cast</strong> changes only a low-level const in its operand
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
+<span class="normal"><a href="#__codelineno-34-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pc</span><span class="p">;</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="p">);</span><span class="w"> </span><span class="c1">// ok: but writing through p is undefined</span>
+</code></pre></div></td></tr></table></div></p>
+<p><mark class="critic">Only a const_cast may be used to change the constness of an expression</mark>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span>
+<span class="normal"><a href="#__codelineno-35-2">2</a></span>
+<span class="normal"><a href="#__codelineno-35-3">3</a></span>
+<span class="normal"><a href="#__codelineno-35-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cp</span><span class="p">;</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">cp</span><span class="p">);</span><span class="w"> </span><span class="c1">// error: static_cast can&#39;t cast away const</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="n">static_const</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">cp</span><span class="p">);</span><span class="w"> </span><span class="c1">// ok: converts string literal to string</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="k">const_cast</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cp</span><span class="p">);</span><span class="w"> </span><span class="c1">// error: const_cast only changes constness</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>reinterpret_cast(非常危险一般不用)</strong> a low-level reinterpretation(重新解释) of the bit pattern of its operands.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
+<span class="normal"><a href="#__codelineno-36-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ip</span><span class="p">;</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">*&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">ip</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>如果真的将pc当char*使用会导致run-time error
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="n">string</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">pc</span><span class="p">);</span><span class="w"> </span><span class="c1">// result in bizarre run-time behavior.</span>
+</code></pre></div></td></tr></table></div></p>
+</div>
+<h3 id="old-style-cast">Old-style cast<a class="headerlink" href="#old-style-cast" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1">1</a></span>
+<span class="normal"><a href="#__codelineno-38-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="n">type</span><span class="w"> </span><span class="p">(</span><span class="n">expr</span><span class="p">);</span><span class="w"> </span><span class="c1">// function-style cast notation</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="p">(</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="n">expr</span><span class="p">;</span><span class="w"> </span><span class="c1">// C-language-style cast notation</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="summarize">Summarize<a class="headerlink" href="#summarize" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>C++ 提供了一套丰富的运算符，并定义了这些运算符作用于内置类型值时的行为。此外，C++ 还支持运算符重载，允许我们为自定义类类型定义运算符的含义。我们将在第14章学习如何为自己的类型定义运算符。​​</p>
+<p>​要理解包含多个运算符的表达式，必须掌握优先级（precedence）、结合性（associativity）和操作数求值顺序（order of operand evaluation）。每个运算符都有优先级和结合性。优先级决定了运算符在复合表达式中的分组方式，而结合性则决定了相同优先级的运算符如何分组。​​
+<br>
+<br>​
+大多数运算符不会规定操作数的求值顺序：编译器可以自由选择先计算左操作数还是右操作数。通常，操作数的求值顺序不会影响表达式的结果。然而，如果两个操作数引用同一个对象，并且其中一个操作数修改了该对象，那么程序就会存在严重的错误——而且这种错误可能很难被发现。​​</p>
+<p>最后，操作数通常会从其初始类型自动转换为另一种相关类型。例如，在所有表达式中，较小的整型会被提升为较大的整型。转换既适用于内置类型，也适用于类类型。转换也可以通过强制类型转换（cast）显式进行。</p>
+</div>
 
 
 
