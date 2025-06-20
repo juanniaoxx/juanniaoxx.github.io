@@ -12,24 +12,28 @@
         <meta name="author" content="Weary Bird">
       
       
-        <link rel="canonical" href="https://juanniaoxx.github.io/note/AI/Machine%20Learning/%E6%9D%8E%E5%AE%8F%E6%AF%85-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%282021%29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+        <link rel="canonical" href="https://juanniaoxx.github.io/blog/CMake%20Tutorial/">
       
       
+        <link rel="prev" href="../mac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/">
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+        <link rel="next" href="../Learn%20Makefile/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>机器学习的基本概念 - Weary Bird's Blog</title>
+        <title>CMake Tutorial - Weary Bird's Blog</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,17 +52,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../../../stylesheets/link.css">
+      <link rel="stylesheet" href="../../stylesheets/link.css">
     
-      <link rel="stylesheet" href="../../../../../stylesheets/customize.css">
+      <link rel="stylesheet" href="../../stylesheets/customize.css">
     
       <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -84,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#cmake-tutorial" class="md-skip">
           跳转至
         </a>
       
@@ -98,7 +102,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../../.." title="Weary Bird&#39;s Blog" class="md-header__button md-logo" aria-label="Weary Bird's Blog" data-md-component="logo">
+    <a href="../.." title="Weary Bird&#39;s Blog" class="md-header__button md-logo" aria-label="Weary Bird's Blog" data-md-component="logo">
       
   <img src="http://www.huixueba.net/Content/WebImage/day_191009/201910091021452744_watermark.jpg" alt="logo">
 
@@ -117,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              机器学习的基本概念
+              CMake Tutorial
             
           </span>
         </div>
@@ -245,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../tag/" class="md-tabs__link">
+      <a href="../../tag/" class="md-tabs__link">
         
   
   
@@ -255,6 +259,28 @@
 
       </a>
     </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Classic Technical Books
+
+        </a>
+      </li>
+    
   
 
       
@@ -280,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../Algorithm/Beginner/ListQuestions/" class="md-tabs__link">
+        <a href="../../note/Algorithm/Beginner/ListQuestions/" class="md-tabs__link">
           
   
   
@@ -305,50 +331,8 @@
   
   
   
-    
-    
-      
-  
-  
-  
-  
-    
-    
-      
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../Introduction/Chapter%201/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  The Book of Artificial Intelligence
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-  
-  
     <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -366,17 +350,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
   
   
     
   
-  The coures
+  Course
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -395,7 +382,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../Compete/Codeforces/Codeforces%20Round%201030%20%28Div.%202%29/" class="md-tabs__link">
+        <a href="../../Compete/Codeforces/Codeforces%20Round%201030%20%28Div.%202%29/" class="md-tabs__link">
           
   
   
@@ -434,7 +421,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../C%2B%2B%20Language/C%2B%2B_Primer/Strings%20Vectors%20and%20Arrays/" class="md-tabs__link">
+        <a href="../../note/C%2B%2B%20Language/C%2B%2B_Primer/Strings%20Vectors%20and%20Arrays/" class="md-tabs__link">
           
   
   
@@ -462,7 +449,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../.." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -484,7 +471,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../.." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -502,11 +489,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../../blog/mac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../mac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/" class="md-tabs__link">
           
   
   
@@ -542,7 +531,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="Weary Bird&#39;s Blog" class="md-nav__button md-logo" aria-label="Weary Bird's Blog" data-md-component="logo">
+    <a href="../.." title="Weary Bird&#39;s Blog" class="md-nav__button md-logo" aria-label="Weary Bird's Blog" data-md-component="logo">
       
   <img src="http://www.huixueba.net/Content/WebImage/day_191009/201910091021452744_watermark.jpg" alt="logo">
 
@@ -571,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../tag/" class="md-nav__link">
+      <a href="../../tag/" class="md-nav__link">
         
   
   
@@ -594,6 +583,8 @@
   
     
     
+      
+        
       
         
       
@@ -620,7 +611,7 @@
   
   
   <span class="md-ellipsis">
-    Algorithm
+    Classic Technical Books
     
   </span>
   
@@ -630,6 +621,200 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Classic Technical Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer System A Programmer's Perspective
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Operating System Internals and Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Operating System Internals and Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TextBook/Operating-Systems-Internals-and-Design-Principles/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机系统概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TextBook/Operating-Systems-Internals-and-Design-Principles/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    操作系统概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Algorithm
           </label>
@@ -665,10 +850,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
             
   
   
@@ -681,8 +866,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Beginner
           </label>
@@ -726,10 +911,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
             
   
   
@@ -742,8 +927,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
             <span class="md-nav__icon md-icon"></span>
             数据结构
           </label>
@@ -756,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/ListQuestions/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/ListQuestions/" class="md-nav__link">
         
   
   
@@ -779,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/DateStructureDesign/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/DateStructureDesign/" class="md-nav__link">
         
   
   
@@ -802,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Binary%20Tree/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Binary%20Tree/" class="md-nav__link">
         
   
   
@@ -825,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Trie%20Tree/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Trie%20Tree/" class="md-nav__link">
         
   
   
@@ -848,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Monotonic%20Stack/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Monotonic%20Stack/" class="md-nav__link">
         
   
   
@@ -871,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Monotonic%20Queen/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Monotonic%20Queen/" class="md-nav__link">
         
   
   
@@ -894,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Disjoined%20Set/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Disjoined%20Set/" class="md-nav__link">
         
   
   
@@ -956,10 +1141,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
             
   
   
@@ -972,8 +1157,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
             <span class="md-nav__icon md-icon"></span>
             算法
           </label>
@@ -986,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Difference/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Difference/" class="md-nav__link">
         
   
   
@@ -1009,7 +1194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Prefix_Sum/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Prefix_Sum/" class="md-nav__link">
         
   
   
@@ -1032,7 +1217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/N%20Queen%20Question/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/N%20Queen%20Question/" class="md-nav__link">
         
   
   
@@ -1055,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Recursion/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Recursion/" class="md-nav__link">
         
   
   
@@ -1078,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Two%20Pointers%20Technique/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Two%20Pointers%20Technique/" class="md-nav__link">
         
   
   
@@ -1101,7 +1286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Sliding%20Window/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Sliding%20Window/" class="md-nav__link">
         
   
   
@@ -1124,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Flood%20Fill/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Flood%20Fill/" class="md-nav__link">
         
   
   
@@ -1178,10 +1363,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
             
   
   
@@ -1194,8 +1379,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
             <span class="md-nav__icon md-icon"></span>
             杂项
           </label>
@@ -1208,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/GCD%20and%20Congruence/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/GCD%20and%20Congruence/" class="md-nav__link">
         
   
   
@@ -1231,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Infer%20by%20data/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Infer%20by%20data/" class="md-nav__link">
         
   
   
@@ -1254,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Algorithm/Beginner/Logarithmic%20meter/" class="md-nav__link">
+      <a href="../../note/Algorithm/Beginner/Logarithmic%20meter/" class="md-nav__link">
         
   
   
@@ -1286,165 +1471,28 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    The Book of Artificial Intelligence
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            The Book of Artificial Intelligence
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Introduce
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            Introduce
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Artificial Intelligence A Modern Approach
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            Artificial Intelligence A Modern Approach
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1453,12 +1501,81 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Introduction/Chapter%201/" class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Chapter 1 Introduction
+    Intermediate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    手推机器学习算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    手搓深度学习算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    手搓强化学习算法
     
   </span>
   
@@ -1475,344 +1592,6 @@
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Machine Learning
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            Machine Learning
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    西瓜书
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            西瓜书
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E8%A5%BF%E7%93%9C%E4%B9%A6/Linear-model/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Chapter 3 Linear Model
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Pattern Recognition and Machine Learning
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Deep Learning
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            Deep Learning
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    花书
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Reinforcement Learning
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reinforcement Learning
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Reinforcement Learning An Introduction
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
     
       
       
@@ -1821,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -1842,18 +1621,182 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Course
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Course
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    The coures
+    CS189
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    李宏毅-机器学习与深度学习
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            李宏毅-机器学习与深度学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../note/Course/%E6%9D%8E%E5%AE%8F%E6%AF%85-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%282021%29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Missing Semester of Your Cs Eduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1967,7 +1910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../Compete/Codeforces/Codeforces%20Round%201030%20%28Div.%202%29/" class="md-nav__link">
+      <a href="../../Compete/Codeforces/Codeforces%20Round%201030%20%28Div.%202%29/" class="md-nav__link">
         
   
   
@@ -1997,9 +1940,31 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+    
+    
+      
         
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -2008,7 +1973,42 @@
   </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Leetcode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compete/leetcode/454/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    leetcode周赛 454
+    
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2021,12 +2021,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    the set of problems
+    The set of problems
     
   </span>
   
@@ -2210,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../C%2B%2B%20Language/C%2B%2B_Primer/Strings%20Vectors%20and%20Arrays/" class="md-nav__link">
+      <a href="../../note/C%2B%2B%20Language/C%2B%2B_Primer/Strings%20Vectors%20and%20Arrays/" class="md-nav__link">
         
   
   
@@ -2233,7 +2233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../C%2B%2B%20Language/C%2B%2B_Primer/Expressions/" class="md-nav__link">
+      <a href="../../note/C%2B%2B%20Language/C%2B%2B_Primer/Expressions/" class="md-nav__link">
         
   
   
@@ -2256,7 +2256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../C%2B%2B%20Language/C%2B%2B_Primer/Statements/" class="md-nav__link">
+      <a href="../../note/C%2B%2B%20Language/C%2B%2B_Primer/Statements/" class="md-nav__link">
         
   
   
@@ -2279,7 +2279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../C%2B%2B%20Language/C%2B%2B_Primer/Function/" class="md-nav__link">
+      <a href="../../note/C%2B%2B%20Language/C%2B%2B_Primer/Function/" class="md-nav__link">
         
   
   
@@ -2302,7 +2302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../C%2B%2B%20Language/C%2B%2B_Primer/Class/" class="md-nav__link">
+      <a href="../../note/C%2B%2B%20Language/C%2B%2B_Primer/Class/" class="md-nav__link">
         
   
   
@@ -2333,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2356,7 +2356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2395,6 +2395,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -2449,7 +2453,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Discrete Mathematics and Its Applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Understanding Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2472,7 +2522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2495,7 +2545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2518,7 +2568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2601,7 +2651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2624,7 +2674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2647,7 +2697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -2674,10 +2724,16 @@
       
   
   
+    
   
   
+  
     
     
+      
+        
+      
+        
       
         
       
@@ -2685,21 +2741,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
-        
-          
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
             
   
   
@@ -2712,7 +2769,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             杂谈
@@ -2726,12 +2783,256 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../blog/mac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+      <a href="../mac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     MacOS配置开发环境
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    CMake Tutorial
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    CMake Tutorial
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1a-basic-starting-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1:A Basic Starting Point
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1:A Basic Starting Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-a-basic-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building a Basic Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifying-the-c-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifying the C++ Standard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2adding-a-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2:Adding a Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2:Adding a Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-an-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding an Option
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3adding-usage-requirements-for-a-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3:Adding Usage Requirements for a Library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4adding-generator-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4:Adding Generator Expressions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5installing-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5:Installing and Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6adding-support-for-a-testing-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6:Adding Support for a Testing Dashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7adding-system-introspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7:Adding System Introspection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8adding-a-custom-command-and-generated-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8:Adding a Custom Command and Generated File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9packaging-an-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9:Packaging an Install
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10selecting-static-or-shared-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10:Selecting Static or Shared Libraries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11adding-export-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11:Adding Export Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-12packaging-debug-adn-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 12:Packaging Debug adn Release
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Learn%20Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
     
   </span>
   
@@ -2776,72 +3077,156 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#step-1a-basic-starting-point" class="md-nav__link">
     <span class="md-ellipsis">
-      基本内容
+      Step 1:A Basic Starting Point
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1:A Basic Starting Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-a-basic-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building a Basic Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifying-the-c-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifying the C++ Standard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2adding-a-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2:Adding a Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2:Adding a Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-an-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding an Option
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3adding-usage-requirements-for-a-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3:Adding Usage Requirements for a Library
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#colab" class="md-nav__link">
+  <a href="#step-4adding-generator-expressions" class="md-nav__link">
     <span class="md-ellipsis">
-      Colab教学
+      Step 4:Adding Generator Expressions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pytorch" class="md-nav__link">
+  <a href="#step-5installing-and-testing" class="md-nav__link">
     <span class="md-ellipsis">
-      Pytorch教程
+      Step 5:Installing and Testing
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#step-6adding-support-for-a-testing-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
-      (选修)深度学习简介
+      Step 6:Adding Support for a Testing Dashboard
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#step-7adding-system-introspection" class="md-nav__link">
     <span class="md-ellipsis">
-      (选修)反向传播
+      Step 7:Adding System Introspection
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#step-8adding-a-custom-command-and-generated-file" class="md-nav__link">
     <span class="md-ellipsis">
-      (选修)预测神奇宝贝
+      Step 8:Adding a Custom Command and Generated File
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#step-9packaging-an-install" class="md-nav__link">
     <span class="md-ellipsis">
-      (选修)分类神奇宝贝
+      Step 9:Packaging an Install
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#step-10selecting-static-or-shared-libraries" class="md-nav__link">
     <span class="md-ellipsis">
-      (选修)逻辑回归
+      Step 10:Selecting Static or Shared Libraries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11adding-export-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11:Adding Export Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-12packaging-debug-adn-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 12:Packaging Debug adn Release
     </span>
   </a>
   
@@ -2866,14 +3251,20 @@
       
       
       
-        <a href="../../../../../tag/#tag:李宏毅-机器学习" class="md-tag">李宏毅-机器学习</a>
+        <a href="../../tag/#tag:cmake" class="md-tag">CMake</a>
+      
+    
+      
+      
+      
+        <a href="../../tag/#tag:杂谈" class="md-tag">杂谈</a>
       
     
   </nav>
 
 
   
-    <a href="https://github.com/juanniaoxx/edit/main/docs/note/AI/Machine Learning/李宏毅-机器学习与深度学习(2021)/机器学习的基本概念.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/juanniaoxx/edit/main/docs/blog/CMake Tutorial.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2882,29 +3273,65 @@
     
       
     
-    <a href="https://github.com/juanniaoxx/raw/main/docs/note/AI/Machine Learning/李宏毅-机器学习与深度学习(2021)/机器学习的基本概念.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/juanniaoxx/raw/main/docs/blog/CMake Tutorial.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="_1">机器学习的基本概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div class="admonition abstract">
-<p class="admonition-title">简介</p>
-<p><mark class="critic">Machine Learning <span class="arithmatex">\(\approx\)</span> Looking for Function</mark></p>
-</div>
-<h2 id="_2">基本内容<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Regression(回归): The function outputs a scalar(标量\常量)</p>
-<p>Classification(分类): Given options(classes), the function outputs the correct one.</p>
-<p>Structured Learning: create something with structure(image, document)</p>
-<h2 id="colab">Colab教学<a class="headerlink" href="#colab" title="Permanent link">&para;</a></h2>
-<h2 id="pytorch">Pytorch教程<a class="headerlink" href="#pytorch" title="Permanent link">&para;</a></h2>
-<h2 id="_3">(选修)深度学习简介<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h2 id="_4">(选修)反向传播<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h2 id="_5">(选修)预测神奇宝贝<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h2 id="_6">(选修)分类神奇宝贝<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<h2 id="_7">(选修)逻辑回归<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h1 id="cmake-tutorial">CMake Tutorial<a class="headerlink" href="#cmake-tutorial" title="Permanent link">&para;</a></h1>
+<p><a href="https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html">参考链接</a></p>
+<h2 id="step-1a-basic-starting-point">Step 1:A Basic Starting Point<a class="headerlink" href="#step-1a-basic-starting-point" title="Permanent link">&para;</a></h2>
+<h3 id="building-a-basic-project">Building a Basic Project<a class="headerlink" href="#building-a-basic-project" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CMake</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.10</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">project</span><span class="p">(</span><span class="s">Tutorial</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">add_executable</span><span class="p">(</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="s">Tutorial</span><span class="w"> </span><span class="s">tutorial.cxx</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+三个主要标签
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CMake</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">&lt;min&gt;</span><span class="w"> </span><span class="s">|</span><span class="w"> </span><span class="s">...&lt;policy_max&gt;|</span><span class="w"> </span><span class="s">[FATAL_ERROR]</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<p><code>cmake_minimum_required</code>: 指明cmake的最低版本要求</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CMake</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nb">project</span><span class="p">(</span><span class="s">&lt;PROJECT-NAME&gt;</span><span class="w"> </span><span class="s">[&lt;language-name&gt;...]</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>project</code> 设置项目名字,并将其储存在变量PROJECT_NAME中,当从顶层CMakeLists.txt调用时,还会将项目
+名称存储在CMAKE_PROJECT_NAME中</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CMake</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">add_executable</span><span class="p">(</span><span class="s">&lt;name&gt;</span><span class="w"> </span><span class="s">&lt;options&gt;</span><span class="w"> </span><span class="s">...</span><span class="w"> </span><span class="s">&lt;sources&gt;</span><span class="w"> </span><span class="s">....</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>cmake</code> 添加一个名为<name>的可执行目标,该目标将由命令调用中列出的源文件构建而成.</p>
+<p>构建与运行
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdir<span class="w"> </span>Step1_build<span class="w"> </span><span class="c1"># 创建build目录</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>Step1_build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cmake<span class="w"> </span>../Step1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cmake<span class="w"> </span>--build<span class="w"> </span>.<span class="w"> </span><span class="c1"># 进入build目录并编译文件</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># 此时build文件夹下就会生成对应的可执行文件</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="specifying-the-c-standard">Specifying the C++ Standard<a class="headerlink" href="#specifying-the-c-standard" title="Permanent link">&para;</a></h3>
+<p><code>CMAKE_CXX_STANDARD</code>变量的值来指明需要的c++版本,通过<code>set()</code>来设置.</p>
+<p><code>CMAKE_CXX_STANDARD_REQUIRED</code>是布尔值变量若其值为<code>true(on\yes)</code>表明如果当前编译器不支持<code>CMAKE_CXX_STANDARD</code>中指明的cpp版本则CMake会直接报错并停止配置过程.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">设置cpp版本为c11</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_STANDARD_REQUIRED</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="step-2adding-a-library">Step 2:Adding a Library<a class="headerlink" href="#step-2adding-a-library" title="Permanent link">&para;</a></h2>
+<h3 id="creating-a-library">Creating a Library<a class="headerlink" href="#creating-a-library" title="Permanent link">&para;</a></h3>
+<h3 id="adding-an-option">Adding an Option<a class="headerlink" href="#adding-an-option" title="Permanent link">&para;</a></h3>
+<h2 id="step-3adding-usage-requirements-for-a-library">Step 3:Adding Usage Requirements for a Library<a class="headerlink" href="#step-3adding-usage-requirements-for-a-library" title="Permanent link">&para;</a></h2>
+<h2 id="step-4adding-generator-expressions">Step 4:Adding Generator Expressions<a class="headerlink" href="#step-4adding-generator-expressions" title="Permanent link">&para;</a></h2>
+<h2 id="step-5installing-and-testing">Step 5:Installing and Testing<a class="headerlink" href="#step-5installing-and-testing" title="Permanent link">&para;</a></h2>
+<h2 id="step-6adding-support-for-a-testing-dashboard">Step 6:Adding Support for a Testing Dashboard<a class="headerlink" href="#step-6adding-support-for-a-testing-dashboard" title="Permanent link">&para;</a></h2>
+<h2 id="step-7adding-system-introspection">Step 7:Adding System Introspection<a class="headerlink" href="#step-7adding-system-introspection" title="Permanent link">&para;</a></h2>
+<h2 id="step-8adding-a-custom-command-and-generated-file">Step 8:Adding a Custom Command and Generated File<a class="headerlink" href="#step-8adding-a-custom-command-and-generated-file" title="Permanent link">&para;</a></h2>
+<h2 id="step-9packaging-an-install">Step 9:Packaging an Install<a class="headerlink" href="#step-9packaging-an-install" title="Permanent link">&para;</a></h2>
+<h2 id="step-10selecting-static-or-shared-libraries">Step 10:Selecting Static or Shared Libraries<a class="headerlink" href="#step-10selecting-static-or-shared-libraries" title="Permanent link">&para;</a></h2>
+<h2 id="step-11adding-export-configuration">Step 11:Adding Export Configuration<a class="headerlink" href="#step-11adding-export-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="step-12packaging-debug-adn-release">Step 12:Packaging Debug adn Release<a class="headerlink" href="#step-12packaging-debug-adn-release" title="Permanent link">&para;</a></h2>
 
 
 
@@ -2969,6 +3396,46 @@
 <footer class="md-footer">
   <!-- Link to previous and/or next page -->
     
+  <nav
+    class="md-footer__inner md-grid"
+    aria-label="页脚"
+    
+  >
+    <!-- Link to previous page -->
+     
+    <a
+      href="../mac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/"
+      class="md-footer__link md-footer__link--prev"
+      aria-label="上一页: MacOS配置开发环境"
+    >
+      <div class="md-footer__button md-icon">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </div>
+      <div class="md-footer__title">
+        <span class="md-footer__direction"> 上一页 </span>
+        <div class="md-ellipsis">MacOS配置开发环境</div>
+      </div>
+    </a>
+    
+
+    <!-- Link to next page -->
+     
+    <a
+      href="../Learn%20Makefile/"
+      class="md-footer__link md-footer__link--next"
+      aria-label="下一页: Makefile"
+    >
+      <div class="md-footer__title">
+        <span class="md-footer__direction"> 下一页 </span>
+        <div class="md-ellipsis">Makefile</div>
+      </div>
+      <div class="md-footer__button md-icon">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+      </div>
+    </a>
+    
+  </nav>
+   
 
   <!-- Further information -->
   <div class="md-footer-meta md-typeset">
@@ -3019,18 +3486,18 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["announce.dismiss", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
-        <script src="../../../../../javascripts/extra.js"></script>
+        <script src="../../javascripts/extra.js"></script>
       
-        <script src="../../../../../javascripts/latex.js"></script>
+        <script src="../../javascripts/latex.js"></script>
       
-        <script src="../../../../../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
-        <script src="../../../../../javascripts/favicons.js"></script>
+        <script src="../../javascripts/favicons.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
