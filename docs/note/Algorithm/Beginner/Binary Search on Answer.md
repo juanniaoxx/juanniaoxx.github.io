@@ -1,5 +1,5 @@
 ---
-tags: [Algorithm, tips]
+tags: [Algorithm, Tips]
 ---
 
 # 二分答案法(‼️重要技巧)

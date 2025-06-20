@@ -12,7 +12,7 @@ comments: false
 -   :material-notebook-edit-outline:{ .lg .middle } __导航栏__
 
     ---
-    ![image](http://www.huixueba.net/Content/WebImage/day_191009/201910091021452744_watermark.jpg){ class="responsive-image" align=right width="230" height="300" style="border-radius: 25px;" }
+    ![image](./note/images/Wery%20Bird.png){ class="responsive-image" align=right width="230" height="300" style="border-radius: 25px;" }
 
     
     - [x] 基于{~~~>Material for MkDocs~~}美化

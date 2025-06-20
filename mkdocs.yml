@@ -67,6 +67,11 @@ repo_name: Weary Bird # 右上角的名字
 # [Navigtion]
 nav:
   - 标签: tag.md
+  - Classic Technical Books:
+      - Computer System A Programmer's Perspective: []
+      - Operating System Internals and Design:
+        - TextBook/Operating-Systems-Internals-and-Design-Principles/计算机系统概述.md
+        - TextBook/Operating-Systems-Internals-and-Design-Principles/操作系统概述.md
   # 硬计类算法
   - Algorithm:
       - Beginner:
@@ -90,28 +95,25 @@ nav:
           - GCD and Congruence: note/Algorithm/Beginner/GCD and Congruence.md
           - Infer by data: note/Algorithm/Beginner/Infer by data.md
           - Logarithmic meter: note/Algorithm/Beginner/Logarithmic meter.md
-      # - advanced:
-  # AI相关内容
-  - The Book of Artificial Intelligence:
-    - Introduce:
-      - Artificial Intelligence A Modern Approach:
-        - Chapter 1 Introduction: note/AI/Introduction/Chapter 1.md
-    - Machine Learning:
-      - 西瓜书:
-        - Chapter 3 Linear Model: note/AI/Machine Learning/西瓜书/Linear-model.md
-      - Pattern Recognition and Machine Learning: []
-    - Deep Learning: 
-      - 花书: []
-    - Reinforcement Learning: 
-      - Reinforcement Learning An Introduction: []
+      - Advanced: []
+      - Intermediate: []
+      # 软计算类算法 
+      - 手推机器学习算法: []
+      - 手搓深度学习算法: []
+      - 手搓强化学习算法: []
   - Paper: []
-  - The coures: []
+  - Course:
+    - CS189: []
+    - 李宏毅-机器学习与深度学习:
+      - 基本概念: note/Course/李宏毅-机器学习与深度学习(2021)/机器学习的基本概念.md
+    - The Missing Semester of Your Cs Eduction: []
   # 比赛记录
   - Compete:
     - Codeforces:
       - 2025-6-12(Div 2) : Compete/Codeforces/Codeforces Round 1030 (Div. 2).md
-    - Leetcode: []
-    - the set of problems: []
+    - Leetcode: 
+      - leetcode周赛 454: Compete/leetcode/454.md
+    - The set of problems: []
   # 语言学习
   - Program Language:
     - C++: 
@@ -125,6 +127,8 @@ nav:
       - Effective STL: []
   # 数学
   - Math:
+    - Discrete Mathematics and Its Applications: []
+    - Understanding Analysis: []
     - Principles of Mathematical Analysis: []
     - Linear Algebra: []
     - Probability Theory: []
@@ -137,6 +141,8 @@ nav:
   # 杂谈类
   - 杂谈: 
     - MacOS配置开发环境: blog/mac配置环境.md
+    - CMake Tutorial: blog/CMake Tutorial.md
+    - Makefile: blog/Learn Makefile.md
 
 copyright: Copyright &copy; 2025~2026 Weary Bird # 左下角的版权声明
 
@@ -167,29 +173,6 @@ extra:
 
 plugins:
   - search #搜索配置
-  # - git-committers:
-  #     enabled: !ENV [CI, false]
-  #     repository: Wcowin/Mkdocs-Wcowin
-  #     branch: main
-  #     exclude:
-  #       - index.md
-  #       - tag.md
-  #       - waline.md
-  #       - blog/posts/update.md
-  #       - blog/posts/wkw.md
-  #       - about/link.md
-  # - git-revision-date-localized:
-  #     enabled: !ENV [CI, false]
-  #     type: iso_date
-  #     enable_creation_date: false
-  #     exclude:
-  #       - index.md
-  #       - tag.md
-  #       - liuyanban.md
-  #       - blog/posts/update.md
-  #       - blog/posts/wkw.md
-  #       - about/link.md
-  #       - websitebeauty/linktech.md
   - blog: #博客配置
       post_date_format: full #时间
       draft: true
@@ -205,23 +188,33 @@ plugins:
   - tags
 
 markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
-  - abbr
+  # 缩写词 语法为 *[HTML]: HyperText Markup Language 
+  - abbr 
+  # 运行为MarkDown元素添加HTML属性
   - attr_list
+  # 支持警告/提示框 
   - admonition
+  # 支持定义列表(类似<dl>)
   - def_list
+  # 支持脚注 
+  # 语法为 
+  # 这是一个脚注[1](@ref) 
+  # [1](@ref): 脚注内容
   - footnotes
+  # 运行在HTML内嵌套markdown语法
+  # <div markdown="1"> </div>
   - md_in_html
   # - meta # 支持Markdown文件上方自定义标题标签等
-  - pymdownx.caret
-  - pymdownx.betterem
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.snippets
-  - pymdownx.smartsymbols
-  - pymdownx.tilde
+  - pymdownx.caret # 支持插入符(^)格式
+  - pymdownx.betterem # 增强强调语法
+  - pymdownx.critic #支持批判性标记 (增删改注释)
+  - pymdownx.details  # 支持可折叠区域 
+  - pymdownx.inlinehilite # 支持行内代码高亮
+  - pymdownx.keys ## 支持渲染键盘按键
+  - pymdownx.mark ## 支持标记文本 ==高亮== -> 高亮
+  - pymdownx.snippets # 支持代码片段复用
+  - pymdownx.smartsymbols # 将符号转换为特殊字符
+  - pymdownx.tilde # 支持删除线
 
   - pymdownx.superfences:
       custom_fences:
