@@ -1,0 +1,26 @@
+\input{\path/package.tex}
+
+% 定理环境设置
+\input{\path/theorem1.tex}
+
+\input{\path/custom.tex}
+
+% 修改参数改变封面样式，0 默认原始封面、内置其他1、2、3种封面样式
+\def\myIndex{0}
+
+
+\ifnum\myIndex>0
+    \input{\path/cover_package_\myIndex} 
+\fi
+
+\def\myTitle{冲刺150}
+\def\myAuthor{Weary Bired}
+\def\myDateCover{\today}
+\def\myDateForeword{\today}
+\def\myForeword{浪淘沙令·帘外雨潺潺}
+\def\myForewordText{
+    帘外雨潺潺，春意阑珊。罗衾不耐五更寒。梦里不知身是客，一晌贪欢。
+    独自莫凭栏，无限江山，别时容易见时难。流水落花春去也，天上人间。
+}
+\def\mySubheading{一晌贪欢}
+

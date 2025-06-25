@@ -1,0 +1,298 @@
+#[Info]
+site_name: Weary Bird's Blog #your site name 显示在左上角
+site_url: https://juanniaoxx.github.io/
+site_description: Content and ambitious, gentle yet firm.
+site_author: Weary Bird # your name
+#[UI]
+theme:
+  name: material
+  custom_dir: docs/overrides #覆写路径
+  # font: #谷歌字体，自行搜索
+  #   text: Bitter  #文本字体
+  #   code: Roboto Mono  #代码字体
+  logo: http://www.huixueba.net/Content/WebImage/day_191009/201910091021452744_watermark.jpg #左上角logo，可插入图片链接
+
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: 关闭自动模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default # 日间模式
+      primary: blue # 上方的
+      accent: indigo # 链接等可交互元件的高亮色
+      # teal 
+      toggle:
+        icon: material/toggle-switch # 图标
+        name: 切换至夜间模式 # 鼠标悬浮提示
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate # 夜间模式
+      primary: black 
+      accent: indigo
+      # teal
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: 切换至日间模式
+
+  features:
+    - announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
+    # - navigation.instant
+    #- header.autohide  #自动隐藏
+    - navigation.tracking #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
+    - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
+    # - navigation.tabs.sticky  #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
+    - navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
+    - navigation.top # 返回顶部的按钮 在上滑时出现
+    - navigation.footer #页脚将呈现在边栏中，但在移动设备上保持原样
+    - search.suggest # 搜索输入一些字母时推荐补全整个单词
+    - search.highlight # 搜索出的文章关键词加入高亮
+    - search.share #搜索分享按钮
+    - navigation.expand # 打开Tab时左侧目录全部展开
+    - navigation.indexes #启用节索引页后，可以将文档直接附加到节
+    - content.tabs.link
+    - content.tooltips
+    - content.code.copy #代码复制
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+  language: zh # 一些提示性的文字会变成中文
+
+  icon:
+    repo: fontawesome/brands/github #右上角图标
+    logo: logo
+edit_uri: edit/main/docs # 编辑按钮跳转的链接
+repo_url: https://github.com/juanniaoxx # 右上角点击跳转的链接
+repo_name: Weary Bird # 右上角的名字
+
+# [Navigtion]
+nav:
+  - 标签: tag.md
+  - Classic Technical Books:
+      - Computer System A Programmer's Perspective: []
+      - Operating System Internals and Design:
+        - TextBook/Operating-Systems-Internals-and-Design-Principles/计算机系统概述.md
+        - TextBook/Operating-Systems-Internals-and-Design-Principles/操作系统概述.md
+  # 硬计类算法
+  - Algorithm:
+      - Beginner:
+        - 数据结构:
+          - Question Of LinkList: CS/Algorithm/Beginner/ListQuestions.md
+          - DateStructureDesign: CS/Algorithm/Beginner/DateStructureDesign.md
+          - Binary Tree: CS/Algorithm/Beginner/Binary Tree.md
+          - Trie Tree: CS/Algorithm/Beginner/Trie Tree.md
+          - Monotonic Stack: CS/Algorithm/Beginner/Monotonic Stack.md
+          - Monotonic Queen: CS/Algorithm/Beginner/Monotonic Queen.md
+          - Disjoined Set: CS/Algorithm/Beginner/Disjoined Set.md
+        - 算法:
+          - Difference: CS/Algorithm/Beginner/Difference.md
+          - Prefix_Sum: CS/Algorithm/Beginner/Prefix_Sum.md
+          - N Queen Question: CS/Algorithm/Beginner/N Queen Question.md
+          - Recursion: CS/Algorithm/Beginner/Recursion.md
+          - Two Pointers: CS/Algorithm/Beginner/Two Pointers Technique.md
+          - Sliding Window: CS/Algorithm/Beginner/Sliding Window.md
+          - Flood Fill: CS/Algorithm/Beginner/Flood Fill.md
+        - 杂项:
+          - GCD and Congruence: CS/Algorithm/Beginner/GCD and Congruence.md
+          - Infer by data: CS/Algorithm/Beginner/Infer by data.md
+          - Logarithmic meter: CS/Algorithm/Beginner/Logarithmic meter.md
+      - Advanced: []
+      - Intermediate: []
+      # 软计算类算法 
+      - 手推机器学习算法: []
+      - 手搓深度学习算法: []
+      - 手搓强化学习算法: []
+  - Paper: []
+  - Course:
+    - CS61A Structure and Interpretation of Computer Programs:
+      - CS61A Week 1: CS/Course/CS61A  Structure and Interpretation of Computer Programs/Week 1.md
+      - CS61A Week 2: CS/Course/CS61A  Structure and Interpretation of Computer Programs/Week 2.md
+      - CS61A Week 3: CS/Course/CS61A  Structure and Interpretation of Computer Programs/Week 3.md
+      - CS61A Week 4: CS/Course/CS61A  Structure and Interpretation of Computer Programs/Week 4.md
+      - CS61A Week 5: CS/Course/CS61A  Structure and Interpretation of Computer Programs/Week 5.md
+      - CS61A Week 6: CS/Course/CS61A  Structure and Interpretation of Computer Programs/Week 6.md
+      - CS61A Week 7: CS/Course/CS61A  Structure and Interpretation of Computer Programs/Week 7.md
+      - CS61A Projects: CS/Course/CS61A  Structure and Interpretation of Computer Programs/Projects.md
+    - CS61B Data Structures: []
+    - CS61C Great Ideas in Computer Architecture: []
+    - CS70 Discrete Mathematics and Probability Theory:
+      - CS70 Week 0: CS/Course/CS70 Discrete Mathematics and Probability Theory/Week 0.md
+      - CS70 Week 1: CS/Course/CS70 Discrete Mathematics and Probability Theory/Week 1.md
+      - CS70 Week 2: CS/Course/CS70 Discrete Mathematics and Probability Theory/Week 2.md
+      - CS70 Week 3: CS/Course/CS70 Discrete Mathematics and Probability Theory/Week 3.md
+      - CS70 Week 4: CS/Course/CS70 Discrete Mathematics and Probability Theory/Week 4.md
+      - CS70 Week 5: CS/Course/CS70 Discrete Mathematics and Probability Theory/Week 5.md
+      - CS70 Week 6: CS/Course/CS70 Discrete Mathematics and Probability Theory/Week 6.md
+      - CS70 Week 7: CS/Course/CS70 Discrete Mathematics and Probability Theory/Week 7.md
+      - CS70 Discussion: CS/Course/CS70 Discrete Mathematics and Probability Theory/Discussion.md
+    - CS168 The Modern Internet: 
+      - Introduction to the Internet: CS/Course/CS168-The-Modern-Internet/Introduction to the Internet.md
+    - CS188 Introduction to Artificial Intelligence: 
+      - Introduction AI: CS/Course/CS188 Introduction to Artificial Intelligence/Introduction.md
+    - CS189: []
+    - 李宏毅-机器学习与深度学习:
+      - 基本概念: CS/Course/李宏毅-机器学习与深度学习(2021)/机器学习的基本概念.md
+    - The Missing Semester of Your Cs Eduction: []
+    - CMU15-213 Introduction to Computer System: []
+  # 比赛记录
+  - Compete:
+    - Codeforces:
+      - 2025-6-12(Div 2) : Compete/Codeforces/Codeforces Round 1030 (Div. 2).md
+    - Leetcode: 
+      - leetcode周赛 454: Compete/leetcode/454.md
+    - The set of problems: []
+  # 语言学习
+  - Program Language:
+    - C++: 
+      - C++ Primer:
+        - Part I:Strings Vectors and Arrays: CS/C++ Language/C++_Primer/Strings Vectors and Arrays.md
+        - Part I:Expression: CS/C++ Language/C++_Primer/Expressions.md
+        - Part I:Statements: CS/C++ Language/C++_Primer/Statements.md
+        - Part I:Functions: CS/C++ Language/C++_Primer/Function.md
+        - Part I:Class: CS/C++ Language/C++_Primer/Class.md
+      - Effective C++: []
+      - Effective STL: []
+  # 数学
+  - Math:
+    - Discrete Mathematics and Its Applications: []
+    - Understanding Analysis: []
+    - Principles of Mathematical Analysis: []
+    - Linear Algebra: 
+      - 线性代数入门:
+        - math/线性代数入门/线性映射与矩阵.md
+    - Probability Theory: []
+    - Convex optimization: []
+  # 阅读记录
+  - Read:
+    - 中文-近代: []
+    - 中文-古代: []
+    - 英文: []
+  # 杂谈类
+  - 杂谈: 
+    - MacOS配置开发环境: blog/mac配置环境.md
+    - CMake Tutorial: blog/CMake Tutorial.md
+    - Makefile: blog/Learn Makefile.md
+
+copyright: Copyright &copy; 2025~2026 Weary Bird # 左下角的版权声明
+
+extra:
+  generator: false #是否在页脚显示“使用 MkDocs 材料制造”
+
+    # 网页底部反馈
+  feedback:
+    title: 此页面有帮助吗？
+    ratings:
+      - icon: material/thumb-up-outline #图标可自定义
+        name: This page was helpful
+        data: 1
+        note: >-
+          谢谢你的反馈！
+      - icon: material/thumb-down-outline
+        name: This page could be improved
+        data: 0
+        note: >-
+          Thanks for your feedback! Help us improve this page by
+          using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
+  # cookies设置（可选）
+  # consent:
+  #   title: Cookie consent
+  #   description: >-
+  #     我们也使用cookies来识别您的重复访问和偏好来衡量我们文档的有效性以及用户是否找到他们要找的东西。
+  #     如果你同意,你可以帮助我们让我们的网站更好
+
+plugins:
+  - search #搜索配置
+  - blog: #博客配置
+      post_date_format: full #时间
+      draft: true
+      draft_if_future_date: true #自动将具有未来日期的帖子标记为草稿
+      post_readtime: true
+      post_readtime_words_per_minute: 265 #计算帖子的阅读时间时读者每分钟预计阅读的字数
+      post_url_format: "{date}/{slug}"
+      # categories_slugify: !!python/object/apply:pymdownx.slugs.slugify
+      #   kwds:
+      #     case: lower
+      pagination_url_format: "page/{page}"
+      authors_file: "{blog}/.authors.yml" #作者信息
+  - tags
+
+markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+  # 缩写词 语法为 *[HTML]: HyperText Markup Language 
+  - abbr 
+  # 运行为MarkDown元素添加HTML属性
+  - attr_list
+  # 支持警告/提示框 
+  - admonition
+  # 支持定义列表(类似<dl>)
+  - def_list
+  # 支持脚注 
+  # 语法为 
+  # 这是一个脚注[1](@ref) 
+  # [1](@ref): 脚注内容
+  - footnotes
+  # 运行在HTML内嵌套markdown语法
+  # <div markdown="1"> </div>
+  - md_in_html
+  # - meta # 支持Markdown文件上方自定义标题标签等
+  - pymdownx.caret # 支持插入符(^)格式
+  - pymdownx.betterem # 增强强调语法
+  - pymdownx.critic #支持批判性标记 (增删改注释)
+  - pymdownx.details  # 支持可折叠区域 
+  - pymdownx.inlinehilite # 支持行内代码高亮
+  - pymdownx.keys ## 支持渲染键盘按键
+  - pymdownx.mark ## 支持标记文本 ==高亮== -> 高亮
+  - pymdownx.snippets # 支持代码片段复用
+  - pymdownx.smartsymbols # 将符号转换为特殊字符
+  - pymdownx.tilde # 支持删除线
+
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format:
+            !!python/name:pymdownx.superfences.fence_code_format # 代码块高亮插件
+
+  - pymdownx.arithmatex: # latex支持
+      generic: true
+      smart_dollar: false
+  - toc:
+      permalink: true # 固定标题位置为当前位置
+  - pymdownx.highlight: # 代码块高亮
+      anchor_linenums: true
+      linenums: true # 显示行号
+      auto_title: true # 显示编程语言名称
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  # - markdown.extensions.toc:
+  #     slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+  #     permalink: "\ue157"
+
+extra_javascript:
+  - javascripts/extra.js
+  - javascripts/latex.js #自定义javascript
+  - javascripts/mathjax.js #Latex支持
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6 #Latex支持
+  - javascripts/favicons.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js #Latex支持
+  # - ckplayer/js/ckplayer.js #播放器配置
+  # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js  #gitalk支持
+  # - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js #忘了 
+
+extra_css:
+  - stylesheets/extra.css # 自定义CSS
+  - stylesheets/link.css #友链配置
+  - stylesheets/customize.css # 搜索圆角优化
+  # - stylesheets/video.css #播放器可选配置
+  # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.css #gitalk支持
+  # - ckplayer/css/ckplayer.css   #播放器配置
+  - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css # font-awesome表情支持
+  # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css  #分享支持
+
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css #字体
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css #字体
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css  #字体
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css  #字体

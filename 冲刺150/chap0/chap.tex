@@ -1,0 +1,591 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+\input{../config/cover}
+\else
+\fi
+
+\chapter{高等数学 第一讲}
+
+\section{函数性态}
+
+\begin{example}
+设f(x)为以T为周期的连续函数,则下列结论中正确的为().
+
+\textcircled{1} $\int _ {0}^ {x} f(t)dt$以T为周期
+
+\textcircled{2} $\int _ {0}^ {x} f(t)dt - \frac {x}{T} \int _ {0}^ {T} f(t)dt$以T为周期
+
+\textcircled{3} 若$f(x)$为奇函数,则 $\int _ {0}^ {x} f(t)dt$以$T$为周期
+
+\textcircled{4} $\int _ {0}^ {x} [f(t)-f(-t)]$dt以$T$为周期
+
+\textcircled{5} 若 $\int _ {0}^ {+\infty } f(x)dx$收数,则$ \int _ {0}^ {x} f(t)dt$以$T$为周期
+
+\end{example} 
+\begin{solution} 
+    \textcircled{1} 不满足充要条件 $\int _ {0}^ {x} f(t)dt$为以T为周期的函数$\iff \int_{0}^{T}f(x)=0$
+
+    \textcircled{2} 令$F(x)=\int _ {0}^ {x} f(t)dt - \frac {x}{T} \int _ {0}^ {T} f(t)dt$,则
+    \begin{align*}
+        F(x+T)  &= \int _ {0}^ {x+T} f(t)dt - \frac {x+T}{T} \int _ {0}^ {T} f(t)dt \\
+                &= \int _ {0}^ {x} f(t)dt + \int _ {x}^ {x + T} f(t)dt - \frac {x}{T} \int _ {0}^ {T} f(t)dt - \int _ {0}^ {T} f(t)dt \\
+                &= \int _ {0}^ {x} f(t)dt - \frac {x}{T} \int _ {0}^ {T} f(t)dt \\
+                &= F(x)
+    \end{align*}
+    \textcircled{3} 由于$f(x)$是奇函数,则对于一个周期$\int _ {0}^ {T} f(t)dt = \int _ {-\frac{T}{2}}^ {\frac{T}{2}} f(t)dt = 0$ 
+    \newline 
+    \textcircled{4} $f(t)-f(-t)$是一个奇函数,由于\textcircled{4}可知该选项正确
+    \newline
+    \textcircled{5} 
+    \begin{align*}
+    \int _ {0}^ {+\infty } f(x)dx &= \lim_{n\rightarrow\infty}\int _ {0}^ {nT } f(x)dx \\
+    &=\lim_{n\rightarrow\infty}n\int _ {0}^ {T} f(x)dx \\
+    &\implies \int _ {0}^ {T} f(x) = 0
+    \end{align*}
+\end{solution}
+\begin{remark}
+    判断连续函数的原函数是否为周期函数要么按照周期函数的定义如\textcircled{2},要么证明该函数在周期上的积分为0,如
+    \textcircled{3} \textcircled{4} \textcircled{5}
+\end{remark}
+
+\section{函数极限值的计算}
+
+\begin{example}
+    设$f(x)$为$x$的三次多项式,且$\lim_{x->2a}\frac{f(x)}{x-2a}=\lim_{x->4a}\frac{f(x)}{x-4a}=1(a\neq 0)$,则
+    $\lim_{x->3a}\frac{f(x)}{x-3a}=?$
+\end{example}
+
+\begin{solution}
+    由题设可知其必然有两个根,而三次方程只有三个实数根,故假设$f(x)=A(x-2a)(x-4a)(x-x_0)$,带入两个极限式得
+    \[
+    -2aA(2a-x_0) = 1
+    \]
+    与
+    \[
+    2aA(4a-x_0) = 1
+    \]
+    联立可以解出$x_0=3a,A=\frac{1}{2a^2}$,带入待求极限式有
+    \[
+    \lim_{x->3a}\frac{f(x)}{x-3a} = \frac{1}{2a^2}\lim_{x\rightarrow 3a}=-\frac{1}{2}
+    \]
+\end{solution}
+
+\begin{example}
+    设 $ y=y(x) $ 为微分方程 $ y^{\prime\prime}+(x+1)y^{\prime}+x^{2}y=e^{x} $ 
+    满足初始条件 $ y(0)=0 $, $ y^{\prime}(0)=1 $ 的特解.
+    若 $ \lim\limits_{x\to 0}\frac{y(x)-x}{x^{k}}=c $ ($ c\neq 0 $),
+    则 $ c= $ \underline{\quad}, $ k= $ \underline{\quad}.
+\end{example}
+\begin{solution}
+    代入$y(0)=0, y'(0)=1$于微分方程,则$y''(0)=0$,对微分方程两边求导有
+    \[
+    y^{\prime\prime\prime} + y' + (x+1)y'' + 2xy + x^2 y' = e^x
+    \]
+    在代入$y(0)=0, y'(0)=1,y''(0)=0$则可以求出$y^{\prime\prime\prime}(0)=0$,同理可以求出
+    $y^{(4)}(0)=1$,则$y$的泰勒展开如下
+    \[
+    y=y(x)-\frac{f^{4}(0)}{4!}x^4 + o(x^4) = y(x) + \frac{1}{24}x^4 + o(x^4)
+    \]
+    带入待求的极限式子得$c=\frac{1}{24},k=4$
+\end{solution}
+\begin{remark} 
+    形如 $f(x)=\int_{a}^{x}f(t)dt+\ldots (\text{可导函数})$,$f(x)$连续
+
+    形如 $f'(x)=f(x)+\ldots(\text{可导函数})$
+
+    形如 $f''(x)=f'(x)+\ldots(\text{可导函数})$
+
+    则$f(x)$ 无穷阶可导
+\end{remark}
+\begin{example}
+    设 $ f(x) $ 在点 $ x=0 $ 处三阶可导，
+    且 $ f(0)=f^{\prime}(0)=f^{\prime\prime}(0)=0 $, 
+    $ f^{\prime\prime\prime}(0)\neq 0 $,
+    求极限 
+    \[ 
+    \lim\limits_{x\to 0}\frac{\int_{0}^{x}tf(x-t)dt}{x\int_{0}^{x}f(x-t)dt}
+    \].
+\end{example}
+\begin{solution}
+    % TODO:
+    令$u=x-t$,则这个变限积分转换为
+    \begin{align*}
+        \lim\limits_{x\to 0}\frac{\int_{0}^{x}tf(x-t)dt}{x\int_{0}^{x}f(x-t)dt} 
+        & = 1 - \lim_{x\to 0}\frac{\int_{0}^{x}uf(u)\d u}{x\int_{0}^{x}f(u)\d u} \\
+        & = 1 - \lim_{x\to 0}\frac{xf(x)}{\int_{0}^{x}f(u)\d u + xf(x)} \\
+        & = 1 - \lim_{x\to 0}\frac{f(x)+xf'(x)}{2f(x)+xf'(x)} \\
+        & = 1 - \lim_{x\to 0}\frac{2f'(x)+xf''(x)}{xf''(x)+3f'(x)} \\
+        & = 1 - \lim_{x \to 0} \frac{\frac{2f'(x)}{x^{2}} + \frac{f''(x)}{x}}{\frac{3f'(x)}{x^{2}} + \frac{f''(x)}{x}} \\
+        & = 1 = \frac{4}{5} \\
+        & = \frac{1}{5}
+    \end{align*}
+\end{solution}
+\begin{remark}
+    \textbf{在某一点n阶可导}:只能用 $n-1$次洛必达,而后要用导数定义
+    \textbf{n阶连续可导}: 可以用$n$次洛必达
+\end{remark}
+\begin{example}
+\item[(1)](证明变限积分的等价代换) 设 $f(x)$, $g(x)$ 连续，且 $\lim\limits_{x\to 0}\frac{f(x)}{g(x)}=1$，$\lim\limits_{x\to x_{0}}\varphi(x)=0$。证明：当 $x\to x_{0}$ 时，
+$$
+\int_{0}^{\varphi(x)}f(t)\,\mathrm{d}t \sim \int_{0}^{\varphi(x)}g(t)\,\mathrm{d}t
+$$
+
+\item[(2)] 求极限
+$$
+\lim\limits_{x\to 0}\frac{\int_{0}^{x}\ln(1+2\tan t)\,\mathrm{d}t}{\left[\int_{0}^{x}\ln(1+2\tan t)\,\mathrm{d}t\right]^{2}}
+$$
+
+\item[(3)] 设 $f(x)$ 连续，且 $\lim\limits_{x\to 0}\frac{f(x)}{x}=1$，求极限
+$$
+\lim\limits_{x\to 0}\frac{f(x)\left[\int_{0}^{x}\mathrm{e}^{x-t} f(t)\,\mathrm{d}t\right]^{2}}{(\tan x - \arcsin x)\sin x^{2}}
+$$
+\end{example}
+\begin{solution}
+\item[(1)] 利用换元法令 $ u = \varphi(x) $，展示两个积分比值的极限为 1:
+$$
+\lim_{x \to x_0} \frac{\int_{0}^{\varphi(x)} f(t) \, \mathrm{d}t}{\int_{0}^{\varphi(x)} g(t) \, \mathrm{d}t} 
+\xlongequal[\text{令 }u=\varphi(x)]{\lim}
+\frac{\int_{0}^{u} f(t) \, \mathrm{d}t}{\int_{0}^{u} g(t) \, \mathrm{d}t} 
+= \lim_{u \to 0} \frac{f(u)}{g(u)} = 1.
+$$
+故当 $ x \to x_0 $ 时，$ \int_{0}^{\varphi(x)} f(t) \, \mathrm{d}t \sim \int_{0}^{\varphi(x)} g(t) \, \mathrm{d}t $。
+
+\item[(2)] 直接计算积分比值的极限：
+$$
+\lim_{x \to 0} \frac{\int_{0}^{x^2} \ln(1+2\tan t) \, \mathrm{d}t}{\left[ \int_{0}^{x} \ln(1+2\tan t) \, \mathrm{d}t \right]^2}
+= \lim_{x \to 0} \frac{\int_{0}^{x^2} 2t \, \mathrm{d}t}{\left( \int_{0}^{x} 2t \, \mathrm{d}t \right)^2}
+= \lim_{x \to 0} \frac{x^4}{x^4} = 1.
+$$
+
+\item[(3)] 先对 $ \tan x - \arcsin x $ 进行等价无穷小替换，再计算复杂积分比值的极限：
+$$
+\tan x - \arcsin x = \tan x - x + x - \arcsin x \sim \frac{x^3}{3} - \frac{x^3}{6} = \frac{x^3}{6},
+$$
+$$
+\lim_{x \to 0} \frac{f(x) \left[ \int_{0}^{x} e^{x-t} f(t) \, \mathrm{d}t \right]^2}{(\tan x - \arcsin x) \sin x^2}
+= \lim_{x \to 0} \frac{f(x) e^{2x} \left[ \int_{0}^{x} e^{-t} f(t) \, \mathrm{d}t \right]^2}{\frac{x^5}{6}}
+= 6 \lim_{x \to 0} \frac{\left( \int_{0}^{x} t \, \mathrm{d}t \right)^2}{x^4}
+= 6 \lim_{x \to 0} \frac{\frac{x^4}{4}}{x^4} = \frac{3}{2}.
+$$
+\end{solution}
+\begin{remark}
+    变限积分的等价有如下结论:
+    \[
+    \int_{0}^{\varphi(x)}f(t)dt,\varphi(x) \sim x^n, f(t) \sim x^m
+    \]
+    则该变限积分与$x^{n(m+1)}$等价
+\end{remark}
+\begin{example}
+设极限 $\lim\limits_{x\to 0}\frac{1}{x}\int_{-x}^{x}\left(1-\frac{|t|}{x}\right)\cos(\theta-t)\,\mathrm{d}t$ 存在，求 $\theta$ 的值。
+\end{example}
+
+\begin{solution}
+这道题还要考虑两角和差公式
+\begin{align*}
+& \lim_{x \to 0} \frac{1}{x} \int_{-x}^{x} \left(1 - \frac{|t|}{x}\right) \cos(\theta - t) \, \mathrm{d}t \\
+= & \lim_{x \to 0} \frac{\int_{-x}^{x} (x - |t|)(\cos\theta \cos t + \sin\theta \sin t) \, \mathrm{d}t}{x^{2}} \\
+= & 2\cos\theta \lim_{x \to 0} \frac{\int_{0}^{x} (x - |t|) \cos t \, \mathrm{d}t}{x^{2}},
+\end{align*}
+
+对于 $ x \to 0^{+} $ 的情况：
+\begin{align*}
+& \lim_{x \to 0^{+}} \frac{\int_{0}^{x} (x - |t|) \cos t \, \mathrm{d}t}{x^{2}} \\
+= & \lim_{x \to 0^{+}} \frac{\int_{0}^{x} (x - t) \cos t \, \mathrm{d}t}{x^{2}} \\
+= & \lim_{x \to 0^{+}} \frac{x \int_{0}^{x} \cos t \, \mathrm{d}t - \int_{0}^{x} t \cos t \, \mathrm{d}t}{x^{2}} \\
+= & \lim_{x \to 0^{+}} \frac{x^{2} - \frac{x^{2}}{2}}{x^{2}} = \frac{1}{2},
+\end{align*}
+
+对于 $ x \to 0^{-} $ 的情况：
+\begin{align*}
+& \lim_{x \to 0^{-}} \frac{\int_{0}^{x} (x - |t|) \cos t \, \mathrm{d}t}{x^{2}} \\
+= & \lim_{x \to 0^{-}} \frac{\int_{0}^{x} (x + t) \cos t \, \mathrm{d}t}{x^{2}} \\
+= & \lim_{x \to 0^{-}} \frac{x \int_{0}^{x} \cos t \, \mathrm{d}t + \int_{0}^{x} t \cos t \, \mathrm{d}t}{x^{2}} \\
+= & \lim_{x \to 0^{-}} \frac{x^{2} + \frac{x^{2}}{2}}{x^{2}} = \frac{3}{2}.
+\end{align*}
+
+由 $ 2\cos\theta \cdot \frac{1}{2} = 2\cos\theta \cdot \frac{3}{2} $，得 $ \cos\theta = 0 $，故
+$$ \theta = k\pi + \frac{\pi}{2} \quad (k \in \mathbf{Z}). $$
+\end{solution}
+\begin{remark}
+    \item 两角和公式：
+    \begin{align*}
+        \sin(\alpha + \beta) &= \sin\alpha\cos\beta + \cos\alpha\sin\beta \\
+        \cos(\alpha + \beta) &= \cos\alpha\cos\beta - \sin\alpha\sin\beta \\
+        \tan(\alpha + \beta) &= \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha\tan\beta}
+    \end{align*}
+    
+    \item 两角差公式：
+    \begin{align*}
+        \sin(\alpha - \beta) &= \sin\alpha\cos\beta - \cos\alpha\sin\beta \\
+        \cos(\alpha - \beta) &= \cos\alpha\cos\beta + \sin\alpha\sin\beta \\
+        \tan(\alpha - \beta) &= \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta}
+    \end{align*}
+    
+    \item 和差化积公式：
+    \begin{align*}
+        \sin\alpha + \sin\beta &= 2\sin\left(\frac{\alpha+\beta}{2}\right)\cos\left(\frac{\alpha-\beta}{2}\right) \\
+        \sin\alpha - \sin\beta &= 2\cos\left(\frac{\alpha+\beta}{2}\right)\sin\left(\frac{\alpha-\beta}{2}\right) \\
+        \cos\alpha + \cos\beta &= 2\cos\left(\frac{\alpha+\beta}{2}\right)\cos\left(\frac{\alpha-\beta}{2}\right) \\
+        \cos\alpha - \cos\beta &= -2\sin\left(\frac{\alpha+\beta}{2}\right)\sin\left(\frac{\alpha-\beta}{2}\right)
+    \end{align*}
+    
+    \item 积化和差公式：
+    \begin{align*}
+        \sin\alpha\cos\beta &= \frac{1}{2}[\sin(\alpha+\beta) + \sin(\alpha-\beta)] \\
+        \cos\alpha\sin\beta &= \frac{1}{2}[\sin(\alpha+\beta) - \sin(\alpha-\beta)] \\
+        \cos\alpha\cos\beta &= \frac{1}{2}[\cos(\alpha+\beta) + \cos(\alpha-\beta)] \\
+        \sin\alpha\sin\beta &= -\frac{1}{2}[\cos(\alpha+\beta) - \cos(\alpha-\beta)]
+    \end{align*}
+\end{remark}
+\begin{example}(莫斯科1976年竞赛题)
+设 $f(x)=(1+x)^{\frac{1}{x}}$，当 $x\to 0^{+}$ 时，$f(x)=e+Ax+Bx^{2}+o(x^{2})$，求 $A$，$B$ 的值。
+\end{example}
+\begin{solution}
+\textbf{嵌套的Taylor公式}
+\begin{align*}
+    f(x)
+    &= e^{\frac{\ln(1+x)}{x}} \\
+    &= e^{\frac{1}{x}\left[x-\frac{1}{2}x^{2}+\frac{1}{3}x^{3}+o\left(x^{3}\right)\right]} \\
+    &= e^{1-\frac{1}{2}x+\frac{1}{3}x^{2}+o\left(x^{2}\right)} \\
+    &= e\cdot e^{-\frac{1}{2}x+\frac{1}{3}x^{2}+o\left(x^{2}\right)}
+\end{align*}
+
+$$ =e\left\{1+\left[-\frac{1}{2} x+\frac{1}{3} x^{2}+o\left(x^{2}\right)\right]+\frac{1}{2}\left[-\frac{1}{2} x+o(x)\right]^{2}+o\left(x^{2}\right)\right\} $$
+
+$$ =e-\frac{e}{2} x+\frac{11}{24} e x^{2}+o\left(x^{2}\right) . $$
+
+得$ A=-\frac{e}{2}, B=\frac{11}{24} e $。
+
+\end{solution}
+\begin{example}
+    计算如下极限值
+\begin{enumerate}
+    \item[(1)](莫斯科1977年竞赛题) $\lim\limits_{x\to 0}\frac{\tan\tan x-\sin\sin x}{\tan x-\sin x}$.
+    \item[(2)] $\lim\limits_{x\to 0}\frac{\sin\sin x-\sin\tan x}{x^{2}(\sqrt{1+x}-\mathrm{e}^{x})}$.
+    \item[(3)] $\lim\limits_{x\to 0}\frac{\cos\sin x-\cos\tan x}{x^{3}(\sqrt{1+x}-\mathrm{e}^{x})}$.
+\end{enumerate}
+\end{example}
+
+\begin{solution}
+等价无穷小结论：
+\begin{align*}
+\tan x - \sin x &= \tan x - x + x - \sin x \sim \frac{x^{3}}{3} + \frac{x^{3}}{6} = \frac{x^{3}}{2} \\
+\sqrt{1+x} - e^{x} &= \sqrt{1+x} - 1 + 1 - e^{x} \sim \frac{x}{2} - x = -\frac{x}{2}
+\end{align*}
+
+\item[(1)]
+\begin{itemize}
+\item 方法一(凑等价代换)
+\begin{align*}
+&\lim_{x\to 0}\frac{\tan\tan x - \sin\sin x}{\tan x - \sin x} \\
+&= \lim_{x\to 0}\frac{\tan\tan x - \tan x + \tan x - \sin x + \sin x - \sin\sin x}{\tan x - \sin x} \\
+&= \lim_{x\to 0}\frac{\frac{x^{3}}{3} + \frac{x^{3}}{2} + \frac{x^{3}}{6}}{\frac{x^{3}}{2}} = 2
+\end{align*}
+
+\item 方法二（泰勒展开）：
+\begin{align*}
+\tan\tan x &= x + \frac{2}{3}x^{3} + o(x^{3}) \\
+\sin\sin x &= x - \frac{1}{3}x^{3} + o(x^{3}) \\
+&\Rightarrow \lim_{x\to 0}\frac{\tan\tan x - \sin\sin x}{\tan x - \sin x} = \lim_{x\to 0}\frac{x^{3} + o(x^{3})}{\frac{x^{3}}{2}} = 2
+\end{align*}
+\end{itemize}
+
+\item[(2)]
+\begin{itemize}
+\item 方法一（泰勒展开）：
+\begin{align*}
+\sin\sin x &= x - \frac{1}{3}x^{3} + o(x^{3}) \\
+\sin\tan x &= x + \frac{1}{6}x^{3} + o(x^{3}) \\
+&\Rightarrow \lim_{x\to 0}\frac{\sin\sin x - \sin\tan x}{x^{2}(\sqrt{1+x}-e^{x})} = \lim_{x\to 0}\frac{-\frac{1}{2}x^{3}}{-\frac{x^{3}}{2}} = 1
+\end{align*}
+
+\item 方法二（拉格朗日中值定理）：
+存在$\xi$介于$\sin x$与$\tan x$之间，使得
+\begin{align*}
+\lim_{x\to 0}\frac{\sin\sin x - \sin\tan x}{x^{2}(\sqrt{1+x}-e^{x})} &= \lim_{x\to 0}\frac{\cos\xi(\sin x - \tan x)}{-\frac{x^{3}}{2}} \\
+&= \lim_{x\to 0}\frac{-\frac{x^{3}}{2}}{-\frac{x^{3}}{2}} = 1
+\end{align*}
+\end{itemize}
+
+\item[(3)]
+\begin{itemize}
+\item 方法一（泰勒展开）：
+\begin{align*}
+\cos\sin x &= 1 - \frac{1}{2}x^{2} + \frac{5}{24}x^{4} + o(x^{4}) \\
+\cos\tan x &= 1 - \frac{1}{2}x^{2} - \frac{7}{24}x^{4} + o(x^{4}) \\
+&\Rightarrow \lim_{x\to 0}\frac{\cos\sin x - \cos\tan x}{x^{3}(\sqrt{1+x}-e^{x})} = \lim_{x\to 0}\frac{\frac{1}{2}x^{4}}{-\frac{x^{4}}{2}} = -1
+\end{align*}
+
+\item 方法二（拉格朗日中值定理）：
+存在$\xi$介于$\sin x$与$\tan x$之间，使得
+\begin{align*}
+\lim_{x\to 0}\frac{\cos\sin x - \cos\tan x}{x^{3}(\sqrt{1+x}-e^{x})} &= \lim_{x\to 0}\frac{-\sin\xi(\sin x - \tan x)}{-\frac{x^{4}}{2}} \\
+&= \lim_{x\to 0}\frac{-x(-\frac{x^{3}}{2})}{-\frac{x^{4}}{2}} = -1
+\end{align*}
+\end{itemize}
+\end{solution}
+\begin{remark}
+    求极限的基本方法
+    \begin{enumerate}
+        \item 洛必达法则
+        \item 等价代换
+        \item Taylor公式
+        \item 拉格朗日中值定理结合夹逼准则
+    \end{enumerate}
+\end{remark}
+
+\begin{example} 结合极限存在求未知参数
+\begin{enumerate}
+    \item[(1)]设 $\lim\limits_{x\to 0}\frac{(1+\sin 2x^{2})^{\frac{1}{x^{2}}}-e^{2}}{x^{n}}=a$ ($a\neq 0$)，求 $a,n$。
+    \item[(2)]设 $\lim\limits_{x\to 0}\frac{(1+\tan 3x^{2})^{\frac{1}{x^{2}}}-e^{3}}{x^{n}}=a$ ($a\neq 0$)，求 $a,n$。
+\end{enumerate}
+\end{example}
+
+\newpage
+
+\begin{solution}
+\item[(1)]
+\begin{align*}
+&\lim_{x \to 0} \frac{e^{\frac{\ln(1 + \sin 2x^2)}{x^2}} - e^2}{x^n} \\
+&= e^2 \lim_{x \to 0} \frac{e^{\frac{\ln(1 + \sin 2x^2) - 2x^2}{x^2}} - 1}{x^n} \\
+&= e^2 \lim_{x \to 0} \frac{\ln(1 + \sin 2x^2) - 2x^2}{x^{n+2}} \\
+&= e^2 \lim_{x \to 0} \frac{-\frac{1}{2}(2x^2)^2 + o(x^4)}{x^{n+2}} \\
+&= -2e^2 \lim_{x \to 0} \frac{x^4}{x^{n+2}} \\
+&= -2e^2 \lim_{x \to 0} x^{2-n}
+\end{align*}
+
+结论：
+\begin{itemize}
+\item 当 $n > 2$ 时，极限不存在
+\item 当 $n < 2$ 时，极限为 $0$（与题意不符）
+\item 当 $n = 2$ 时，极限为 $-2e^2$
+\end{itemize}
+
+\item[(2)]
+\begin{align*}
+&\lim_{x \to 0} \frac{e^{\frac{\ln(1 + \tan 3x^2)}{x^2}} - e^3}{x^n} \\
+&= e^3 \lim_{x \to 0} \frac{e^{\frac{\ln(1 + \tan 3x^2) - 3x^2}{x^2}} - 1}{x^n} \\
+&= e^3 \lim_{x \to 0} \frac{\ln(1 + \tan 3x^2) - 3x^2}{x^{n+2}} \\
+&= e^3 \lim_{x \to 0} \frac{-\frac{1}{2}(3x^2)^2 + o(x^4)}{x^{n+2}} \\
+&= -\frac{9}{2}e^3 \lim_{x \to 0} \frac{x^4}{x^{n+2}} \\
+&= -\frac{9}{2}e^3 \lim_{x \to 0} x^{2-n}
+\end{align*}
+
+结论：
+\begin{itemize}
+\item 当 $n = 2$ 时，极限为 $-\frac{9}{2}e^3$
+\end{itemize}
+\end{solution}
+
+
+\begin{example}(第十二届全国大学生数学竞赛题,2021年)
+求极限
+$$
+\lim\limits_{x\to 0}\frac{\prod\limits_{k=1}^{n}\sqrt{\frac{1+kx}{1-kx}}-1}{3\pi\arcsin x-(x^{2}+1)\arctan^{3}x} \quad (n\geqslant 1).
+$$
+\end{example}
+
+\begin{solution}
+$$ \lim_{x \to 0}\frac{\sqrt{\frac{1+x}{1-x}}\sqrt{\frac{1+2x}{1-2x}}\cdots\sqrt{\frac{1+nx}{1-nx}}-1}{3\pi\arcsin x - (x^2+1)\arctan^3 x} $$
+
+\begin{itemize}
+\item 方法一：
+令 $f(x)=\sqrt{\frac{1+x}{1-x}}\sqrt{\frac{1+2x}{1-2x}}\cdots\sqrt{\frac{1+nx}{1-nx}}$，则 $f(0)=1$。
+
+取对数得：
+$$ \ln f(x) = \frac{1}{2}\ln\frac{1+x}{1-x} + \frac{1}{4}\ln\frac{1+2x}{1-2x} + \cdots + \frac{1}{2n}\ln\frac{1+nx}{1-nx} $$
+
+求导得：
+$$ \frac{f'(x)}{f(x)} = \frac{1}{2}\left(\frac{1}{1+x}+\frac{1}{1-x}\right) + \frac{1}{4}\left(\frac{2}{1+2x}+\frac{2}{1-2x}\right) + \cdots + \frac{1}{2n}\left(\frac{n}{1+nx}+\frac{n}{1-nx}\right) $$
+
+计算极限：
+\begin{align*}
+&\lim_{x\to 0}\frac{f(x)-1}{3\pi\arcsin x - (x^2+1)\arctan^3 x} \\
+&= \frac{1}{3\pi}\lim_{x\to 0}\frac{f(x)-1}{x} \quad (\text{因为分母}\sim 3\pi x) \\
+&= \frac{1}{3\pi}f'(0) = \frac{n}{3\pi}
+\end{align*}
+
+\item 方法二：
+直接使用泰勒展开：
+\begin{align*}
+&\lim_{x\to 0}\frac{\ln f(x)}{3\pi\arcsin x - (x^2+1)\arctan^3 x} \\
+&= \frac{1}{3\pi}\lim_{x\to 0}\frac{\frac{1}{2}[\ln(1+x)-\ln(1-x)] + \frac{1}{4}[\ln(1+2x)-\ln(1-2x)] + \cdots}{x} \\
+&= \frac{1}{3\pi}\lim_{x\to 0}\frac{nx}{x} = \frac{n}{3\pi}
+\end{align*}
+\end{itemize}
+\end{solution}
+\begin{remark}
+    一般来说对于连乘积都可以通过$\ln$转换为累加和
+\end{remark}
+\begin{example}
+\begin{enumerate}
+    \item[(1)]求极限 $\lim\limits_{x\to 0}\left[\frac{1}{\ln(x+\sqrt{1+x^{2}})}-\frac{1}{\ln(1+x)}\right]$.
+    \item[(2)]求极限 $\lim\limits_{x\to 0}\left[\frac{\ln(x+\sqrt{1+x^{2}})}{\ln(1+x)}\right]^{\frac{1}{\ln(1+x)}}$.
+\end{enumerate}
+\end{example}
+
+\begin{solution}
+(1) 计算极限：
+$$ \lim_{x \to 0}\left[\frac{1}{\ln(x+\sqrt{1+x^2})}-\frac{1}{\ln(1+x)}\right] $$
+
+首先给出等价无穷小替换：
+$$ \ln\left(x+\sqrt{1+x^{2}}\right)=\ln\left(1+x+\sqrt{1+x^{2}}-1\right)\sim x+\frac{x}{2}\sim x $$
+
+\begin{itemize}
+\item \textbf{方法一}:
+\begin{align*}
+&\lim_{x \to 0}\left[\frac{1}{\ln(x+\sqrt{1+x^2})}-\frac{1}{\ln(1+x)}\right] \\
+&= \lim_{x \to 0}\frac{\ln(1+x)-\ln(x+\sqrt{1+x^2})}{\ln(x+\sqrt{1+x^2})\ln(1+x)} \\
+&= \lim_{x \to 0}\frac{\ln(1+x)-\ln(x+\sqrt{1+x^2})}{x^2} \quad (\text{分母替换为等价无穷小}) \\
+&= \lim_{x \to 0}\frac{\frac{1}{1+x}-\frac{1}{\sqrt{1+x^2}}}{2x} \quad (\text{洛必达法则}) \\
+&= \frac{1}{2}\lim_{x \to 0}\frac{\sqrt{1+x^2}-1-x}{x(1+x)\sqrt{1+x^2}} \\
+&= \frac{1}{2}\lim_{x \to 0}\frac{\frac{x^2}{2}-x}{x} = -\frac{1}{2}
+\end{align*}
+
+\item \textbf{方法二}:
+\begin{align*}
+&\lim_{x \to 0}\frac{\ln\frac{1+x}{x+\sqrt{1+x^2}}}{x^2} \\
+&= \lim_{x \to 0}\frac{\ln\left(1+\frac{1-\sqrt{1+x^2}}{x+\sqrt{1+x^2}}\right)}{x^2} \\
+&= \lim_{x \to 0}\frac{1-\sqrt{1+x^2}}{x^2(x+\sqrt{1+x^2})} \\
+&= \lim_{x \to 0}\frac{-\frac{x^2}{2}}{x^2} = -\frac{1}{2}
+\end{align*}
+
+\item \textbf{方法三（泰勒展开）}:
+\begin{align*}
+&\lim_{x \to 0}\frac{\ln(1+x)-\ln(x+\sqrt{1+x^2})}{x^2} \\
+&= \lim_{x \to 0}\frac{\left(x-\frac{1}{2}x^2+o(x^2)\right)-\left(x-\frac{1}{6}x^3+o(x^3)\right)}{x^2} \\
+&= \lim_{x \to 0}\frac{-\frac{1}{2}x^2+o(x^2)}{x^2} = -\frac{1}{2}
+\end{align*}
+
+\item \textbf{方法四（拉格朗日中值定理）}:
+存在$\xi\in(1+x, x+\sqrt{1+x^2})$，使得
+\begin{align*}
+&\lim_{x \to 0}\frac{\ln(1+x)-\ln(x+\sqrt{1+x^2})}{x^2} \\
+&= \lim_{x \to 0}\frac{\frac{1}{\xi}(1-\sqrt{1+x^2})}{x^2} \\
+&= \lim_{x \to 0}\frac{-\frac{x^2}{2}}{x^2} = -\frac{1}{2}
+\end{align*}
+\end{itemize}
+
+(2) 基于(1)的结果计算：
+\begin{align*}
+&\lim_{x \to 0}\left[\frac{\ln(x+\sqrt{1+x^2})}{\ln(1+x)}\right]^{\frac{1}{\ln(1+x)}} \\
+&= e^{\lim\limits_{x \to 0}\frac{\ln(x+\sqrt{1+x^2})-\ln(1+x)}{\ln^2(1+x)}} \\
+&= e^{\lim\limits_{x \to 0}\frac{-\frac{1}{2}x^2}{x^2}} = \sqrt{e}
+\end{align*}
+\end{solution}
+
+\begin{remark}
+    一个特殊的Taylor展开
+    $\ln{x+\sqrt{1+x^2}}=x -\frac{1}{6}x^3+o(x^3)$ 与$\sin{x}$在前两项一致
+\end{remark}
+\begin{example}
+求极限 $\lim\limits_{x\to+\infty}\left[\frac{x^{1+x}}{(1+x)^{x}}-\frac{x}{e}\right]$.
+\end{example}
+\begin{solution}
+\begin{align*}
+\lim _{x\rightarrow+\infty}\left[\frac{x^{\frac{1}{1+x}}}{(1+x)^{x}}-\frac{x}{e}\right] 
+&= \lim _{x\rightarrow+\infty} x\left[\frac{1}{\left(1+\frac{1}{x}\right)^{x}}-\frac{1}{e}\right] \\
+&= \lim _{x\rightarrow+\infty} x\frac{e-e^{x\ln\left(1+\frac{1}{x}\right)}}{e^{x\ln\left(1+\frac{1}{x}\right)} e} \\
+&= \frac{1}{e}\lim _{x\rightarrow+\infty} x\left[e^{1-x\ln\left(1+\frac{1}{x}\right)}-1\right] \\
+&= \frac{1}{e}\lim _{x\rightarrow+\infty} x\left[1-x\ln\left(1+\frac{1}{x}\right)\right] \\
+&= \frac{1}{e}\lim _{x\rightarrow+\infty} x^{2}\left[\frac{1}{x}-\ln\left(1+\frac{1}{x}\right)\right] \\
+&= \frac{1}{e}\lim _{x\rightarrow+\infty} x^{2}\frac{1}{2 x^{2}} \\
+&= \frac{1}{2 e}
+\end{align*}
+\end{solution}
+
+\begin{example}
+设极限 $\lim\limits_{x\to+\infty}\left[(x^{3}-x^{2}+\frac{x}{2})e^{\frac{1}{x}}-\sqrt{x^{n}+1}\right]$ 存在，求 $n$ 的值并求该极限。
+\end{example}
+\begin{solution}
+首先由极限存在可得：
+$$ \lim _{x\rightarrow+\infty} x^{3}\left[\left(1-\frac{1}{x}+\frac{1}{2 x^{2}}\right)\mathrm{e}^{\frac{1}{x}}-\sqrt{\frac{x^{n}+1}{x^{6}}}\right] $$
+存在，故 $n=6$。
+
+\begin{itemize}
+\item \textbf{方法一}：令 $x=\frac{1}{t}$
+\begin{align*}
+&\lim _{x\rightarrow+\infty}\left[\left(x^{3}-x^{2}+\frac{x}{2}\right)\mathrm{e}^{\frac{1}{x}}-\sqrt{x^{6}+1}\right] \\
+&= \lim _{t\rightarrow 0^{+}}\frac{\left(1-t+\frac{1}{2} t^{2}\right)\mathrm{e}^{t}-\sqrt{1+t^{6}}}{t^{3}} \\
+&= \lim _{t\rightarrow 0^{+}}\frac{\mathrm{e}^{t}\left(1-t+\frac{1}{2} t^{2}-\mathrm{e}^{-t}\right)}{t^{3}}-\lim _{t\rightarrow 0^{+}}\frac{\sqrt{1+t^{6}}-1}{t^{3}} \\
+&= \lim _{t\rightarrow 0^{+}}\frac{1-t+\frac{1}{2} t^{2}-\left[1-t+\frac{1}{2} t^{2}-\frac{1}{6} t^{3}+o\left(t^{3}\right)\right]}{t^{3}}-\lim _{t\rightarrow 0^{+}}\frac{\frac{t^{6}}{2}}{t^{3}} \\
+&= \lim _{t\rightarrow 0^{+}}\frac{\frac{1}{6} t^{3}+o\left(t^{3}\right)}{t^{3}} \\
+&= \frac{1}{6}
+\end{align*}
+
+\item \textbf{方法二}：直接泰勒展开
+\begin{align*}
+&\lim _{x\rightarrow+\infty} x^{3}\left[\left(1-\frac{1}{x}+\frac{1}{2 x^{2}}\right)\mathrm{e}^{\frac{1}{x}}-\sqrt{1+\frac{1}{x^{6}}}\right] \\
+&= \lim _{x\rightarrow+\infty} x^{3}\left[\left(1-\frac{1}{x}+\frac{1}{2 x^{2}}\right)\left[1+\frac{1}{x}+\frac{1}{2 x^{2}}+\frac{1}{6 x^{3}}+o\left(\frac{1}{x^{3}}\right)\right]-\left[1+\frac{1}{2 x^{6}}+o\left(\frac{1}{x^{6}}\right)\right]\right] \\
+&= \lim _{x\rightarrow+\infty} x^{3}\left[\frac{1}{6 x^{3}}+o\left(\frac{1}{x^{3}}\right)\right] \\
+&= \frac{1}{6}
+\end{align*}
+\end{itemize}
+\end{solution}
+
+
+\begin{example}
+\begin{enumerate}
+    \item[(1)]设 $f(x)$ 在 $x=x_{0}$ 处二阶可导，且 $f^{\prime\prime}(x_{0})\neq 0$。若 $f(x)=f(x_{0})+f^{\prime}[x_{0}+\theta(x-x_{0})](x-x_{0})$ ($0<\theta<1$)，求 $\lim\limits_{x\to x_{0}}\theta$。
+    \item[(2)]设 $f(x)$ 在 $x=x_{0}$ 处三阶可导，且 $f^{\prime\prime\prime}(x_{0})\neq 0$。若 $f(x)=f(x_{0})+f^{\prime}(x_{0})(x-x_{0})+\frac{f^{\prime\prime}[x_{0}+\theta(x-x_{0})]}{2!}(x-x_{0})^{2}$ ($0<\theta<1$)，求 $\lim\limits_{x\to x_{0}}\theta$。
+\end{enumerate}
+\end{example}
+\begin{solution}
+    \item[(1)]
+    由题意有
+    \[
+    f'(x_0+\theta(x-x_0)) = \frac{f(x)-f(x_0)}{x-x_0} 
+    \]
+    题目还剩下的条件仅有一个$f''(x_0)\neq 0$必然是要凑二阶导数的定义
+    \[
+    \lim_{x\rightarrow x_0}\frac{f'(x_0+\theta(x-x_0)) - f'(x_0)}{x-x_0} 
+    \]
+    $\text{为分母乘上一个}\theta\text{才是导数定义,故上式变换为}$
+    \[
+    \lim_{x\rightarrow x_0}\frac{f'(x_0+\theta(x-x_0)) - f'(x_0)}{(x-x_0\theta)}\theta
+    \]
+    带入第一个式子有
+    \[
+    \lim_{x\rightarrow x_0}\frac{f(x)-f(x+0)-f'(x)(x-x_0)}{(x-x_0)^2}
+    \]
+    
+    \begin{align*}
+        f''(x_0)\lim_{x\rightarrow x_0}\theta 
+        &= \lim_{x\rightarrow x_0}\frac{f(x)-f(x+0)-f'(x)(x-x_0)}{(x-x_0)^2} \\
+        & \text{在}x_0\text{处的泰勒展开} \\
+        &= \lim_{x\rightarrow x_0}\frac{\frac{f''(x_0)}{2}(x-x_0)^2+o(x-x_0)^2}{(x-x_0)^2} \\
+        &= \frac{1}{2}f''(x_0)
+    \end{align*}
+    故$\lim_{x\rightarrow x_0}\theta = \frac{1}{2}$
+    \item[(2)]
+    
+    由
+    \[  
+    f^{\prime\prime}\left[x_{0}+\theta\left(x-x_{0}\right)\right]=2\frac{f(x)-f\left(x_{0}\right)-f^{\prime}\left(x_{0}\right)\left(x-x_{0}\right)}{\left(x-x_{0}\right)^{2}}
+    \]
+    得
+    \[
+    \lim\limits_{x\to x_{0}}\frac{f^{\prime\prime}\left[x_{0}+\theta\left(x-x_{0}\right)\right]-f^{\prime\prime}\left(x_{0}\right)}{\theta\left(x-x_{0}\right)}\theta=2\lim\limits_{x\to x_{0}}\frac{f(x)-f\left(x_{0}\right)-f^{\prime}\left(x_{0}\right)\left(x-x_{0}\right)-\frac{f^{\prime\prime}\left(x_{0}\right)}{2}\left(x-x_{0}\right)^{2}}{\left(x-x_{0}\right)^{3}}
+    \]
+
+    \[
+    f^{\prime\prime\prime}\left(x_{0}\right)\lim\limits_{x\to x_{0}}\theta=2\lim\limits_{x\to x_{0}}\frac{\frac{f^{\prime\prime\prime}\left(x_{0}\right)}{6}\left(x-x_{0}\right)^{3}+o\left(x-x_{0}\right)^{3}}{\left(x-x_{0}\right)^{3}}=\frac{1}{3} f^{\prime\prime\prime}\left(x_{0}\right)
+    \]
+    \newline
+    由 $ f^{\prime\prime\prime}\left(x_{0}\right)\neq 0 $，得 $ \lim\limits_{x\to x_{0}}\theta=\frac{1}{3} $。
+\end{solution}
+\begin{corollary}[中值的极限值]
+    设$f(x)$在$x=0$处$n+1$阶可导,且$f^{(n+1)}(0)\neq 0$.若
+    \[
+    f(x)=f(0)+f'(0)x+\ldots+\frac{f^{(n-1)(0)}}{(n-1)!}x^{n-1} + \frac{f^{(n)(\theta x)}}{n!}x^{n},
+    \]
+    \newline
+    则$\lim_{x\rightarrow 0}\theta=\frac{1}{n+1}$
+\end{corollary}
+
+\ifx\allfiles\undefined
+\end{document} 
+\fi
