@@ -1,0 +1,139 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{二维随机变量}
+
+\section{联合分布函数的计算}
+
+\begin{enumerate}[label=\arabic*.]
+    \item 设随机变量$X$与$Y$相互独立,$X\sim B(1,p)$,$Y\sim E(\lambda)$,则$(X,Y)$的联合分布函数$F(x,y)=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{二维离散型随机变量分布的计算}
+
+\begin{enumerate}[label=\arabic*.,start=2]
+    \item 设随机变量$X$与$Y$相互独立,均服从参数为$p$的几何分布。
+    \begin{enumerate}
+        \item 求在$X+Y=n(n\geq 2)$的条件下,$X$的条件概率分布;
+        \item 求$P\{X+Y\geq n\}(n\geq 2)$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{二维连续型随机变量分布的计算}
+
+\begin{enumerate}[label=\arabic*.,start=4]
+    \item (2010,数一、三)设二维随机变量$(X,Y)$的概率密度为
+    \begin{align*}
+        f(x,y)=Ae^{-2x^2+2xy-y^2}, \quad -\infty<x<+\infty, -\infty<y<+\infty
+    \end{align*}
+    求常数$A$及条件概率密度$f_{Y|X}(y|x)$.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X\sim U(0,1)$,在$X=x(0<x<1)$的条件下,随机变量$Y\sim U(x,1)$。
+    \begin{enumerate}
+        \item 求$(X,Y)$的联合概率密度;
+        \item 求$(X,Y)$关于$Y$的边缘概率密度$f_Y(y)$;
+        \item 求$P\{X+Y>1\}$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设二维随机变量$(X,Y)\sim N(1,2;1,4;-\frac{1}{2})$,且$P\{aX+bY\leq 1\}=\frac{1}{2}$,则$(a,b)$可以为
+    \begin{align*}
+        (A)\ \left(\frac{1}{2},-\frac{1}{4}\right) \quad (B)\ \left(\frac{1}{4},-\frac{1}{2}\right) \\
+        (C)\ \left(-\frac{1}{4},\frac{1}{2}\right) \quad (D)\ \left(\frac{1}{2},\frac{1}{4}\right)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2020,数三)设二维随机变量$(X,Y)\sim N(0,0;1,4;-\frac{1}{2})$,则下列随机变量服从标准正态分布且与$X$相互独立的是
+    \begin{align*}
+        (A)\ \frac{\sqrt{5}}{5}(X+Y) \quad (B)\ \frac{\sqrt{5}}{5}(X-Y) \\
+        (C)\ \frac{\sqrt{3}}{3}(X+Y) \quad (D)\ \frac{\sqrt{3}}{3}(X-Y)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2022,数一)设随机变量$X\sim N(0,1)$,在$X=x$的条件下,随机变量$Y\sim N(x,1)$,则$X$与$Y$的相关系数为
+    \begin{align*}
+        (A)\ \frac{1}{4} \quad (B)\ \frac{1}{2} \quad (C)\ \frac{\sqrt{3}}{3} \quad (D)\ \frac{\sqrt{2}}{2}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{求二维离散型随机变量函数的分布}
+
+\begin{enumerate}[label=\arabic*.,start=12]
+    \item 设随机变量$X$与$Y$相互独立,$X\sim P(\lambda_1)$,$Y\sim P(\lambda_2)$,求$Z=X+Y$的概率分布.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{求二维连续型随机变量函数的分布}
+
+\begin{enumerate}[label=\arabic*.,start=13]
+    \item 设二维随机变量$(X,Y)$的联合概率密度为
+    \begin{align*}
+        f(x,y)=\begin{cases}
+            1, & 0<x<1,0<y<2x \\
+            0, & \text{其他}
+        \end{cases}
+    \end{align*}
+    求:
+    \begin{enumerate}
+        \item $(X,Y)$的联合分布函数$F(x,y)$;
+        \item $(X,Y)$的边缘概率密度$f_X(x),f_Y(y)$;
+        \item 条件概率密度$f_{X|Y}(x|y),f_{Y|X}(y|x)$;
+        \item $P\left\{Y\leq \frac{1}{2}|X\leq \frac{1}{2}\right\}$,$P\left\{Y\leq \frac{1}{2}|X=\frac{1}{2}\right\}$;
+        \item $Z=2X-Y$的概率密度$f_Z(z)$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{求一离散一连续随机变量函数的分布}
+
+\begin{enumerate}[label=\arabic*.,start=14]
+    \item  (2020,数一)设随机变量$X_1,X_2,X_3$相互独立,$X_1$与$X_2$均服从标准正态分布,$X_3$的概率分布为$P\{X_3=0\}=P\{X_3=1\}=\frac{1}{2}$,$Y=X_3X_1+(1-X_3)X_2$。
+    \begin{enumerate}
+        \item 求$(X_1,Y)$的联合分布函数(结果用标准正态分布函数$\Phi(x)$表示);
+        \item 证明$Y$服从标准正态分布.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

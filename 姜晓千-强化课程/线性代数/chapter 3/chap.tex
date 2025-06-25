@@ -1,0 +1,118 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\usepackage{multirow}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{向量}
+
+\section{线性表示的判定与计算}
+
+\begin{enumerate}[label=\arabic*.]
+    \item 设向量组 $\alpha, \beta, \gamma$ 与数 $k, l, m$ 满足 $k\alpha + l\beta + m\gamma = 0$ ($km \neq 0$)，则
+    \begin{enumerate}
+        \item (A) $\alpha, \beta$ 与 $\alpha, \gamma$ 等价
+        \item (B) $\alpha, \beta$ 与 $\beta, \gamma$ 等价
+        \item (C) $\alpha, \gamma$ 与 $\beta, \gamma$ 等价
+        \item (D) $\alpha$ 与 $\gamma$ 等价
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2004, 数三) 设 $\alpha_1 = (1,2,0)^T$, $\alpha_2 = (1, a+2, -3a)^T$, $\alpha_3 = (-1, -b-2, a+2b)^T$,
+    $\beta = (1,3,-3)^T$。当 $a, b$ 为何值时，
+    \begin{enumerate}
+        \item (II) $\beta$ 可由 $\alpha_1, \alpha_2, \alpha_3$ 唯一地线性表示，并求出表示式；
+        \item (III) $\beta$ 可由 $\alpha_1, \alpha_2, \alpha_3$ 线性表示，但表示式不唯一，并求出表示式。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2019, 数二、三) 设向量组 (I) $\alpha_1 = (1,1,4)^T$, $\alpha_2 = (1,0,4)^T$, $\alpha_3 = (1,2, a^2+3)^T$；
+    向量组 (II) $\beta_1 = (1,1, a+3)^T$, $\beta_2 = (0,2,1-a)^T$, $\beta_3 = (1,3, a^2+3)^T$。若向量组 (I) 与 (II) 等价，求 $a$ 的值，
+    并将 $\beta_3$ 由 $\alpha_1, \alpha_2, \alpha_3$ 线性表示。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{线性相关与线性无关的判定}
+
+\begin{enumerate}[label=\arabic*.,start=3]
+    \item (2014, 数一、二、三) 设 $\alpha_1, \alpha_2, \alpha_3$ 均为 3 维列向量，则对任意常数 $k, l$，$\alpha_1 + k\alpha_3$, $\alpha_2 + l\alpha_3$ 线性无关是 $\alpha_1, \alpha_2, \alpha_3$ 线性无关的
+    \begin{enumerate}
+        \item (A) 必要非充分条件
+        \item (B) 充分非必要条件
+        \item (C) 充分必要条件
+        \item (D) 既非充分又非必要条件
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设 $A$ 为 $n$ 阶矩阵，$\alpha_1, \alpha_2, \alpha_3$ 均为 $n$ 维列向量，满足 $A^2\alpha_1 = A\alpha_1 \neq 0$, $A^2\alpha_2 = \alpha_1 + A\alpha_2$,
+    $A^2\alpha_3 = \alpha_2 + A\alpha_3$，证明 $\alpha_1, \alpha_2, \alpha_3$ 线性无关。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设 4 维列向量 $\alpha_1, \alpha_2, \alpha_3$ 线性无关，与 4 维列向量 $\beta_1, \beta_2$ 两两正交，证明 $\beta_1, \beta_2$ 线性相关。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{极大线性无关组的判定与计算}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item 设 $\alpha_1 = (1,1,1,3)^T$, $\alpha_2 = (-1,-3,5,1)^T$, $\alpha_3 = (3,2,-1, a+2)^T$, $\alpha_4 = (-2,-6,10, a)^T$。
+    \begin{enumerate}
+        \item (I) 当 $a$ 为何值时，该向量组线性相关，并求其一个极大线性无关组；
+        \item (II) 当 $a$ 为何值时，该向量组线性无关，并将 $\alpha = (4,1,6,10)^T$ 由其线性表示。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 证明:
+    \begin{enumerate}
+        \item (I) 设 $A, B$ 为 $m \times n$ 矩阵，则 $r(A+B) \leq r(A) + r(B)$；
+        \item (II) 设 $A$ 为 $m \times n$ 矩阵，$B$ 为 $n \times s$ 矩阵，则 $r(AB) \leq \min\{r(A), r(B)\}$。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{向量空间(数一专题)}
+
+\begin{enumerate}[label=\arabic*.,start=8]
+    \item (2015, 数一) 设向量组 $\alpha_1, \alpha_2, \alpha_3$ 为 $R^3$ 的一个基，$\beta_1 = 2\alpha_1 + 2k\alpha_3$, $\beta_2 = 2\alpha_2$,
+    $\beta_3 = \alpha_1 + (k+1)\alpha_3$。
+    \begin{enumerate}
+        \item (I) 证明向量组 $\beta_1, \beta_2, \beta_3$ 为 $R^3$ 的一个基:
+        \item (II) 当 $k$ 为何值时，存在非零向量 $\xi$ 在基 $\alpha_1, \alpha_2, \alpha_3$ 与基 $\beta_1, \beta_2, \beta_3$ 下的坐标相同，并求所有的 $\xi$。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

@@ -1,0 +1,119 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\usepackage{multirow}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{二次型}
+
+\section{求二次型的标准形}
+
+\begin{enumerate}[label=\arabic*.]
+    \item (2016，数二、三) 设二次型 $ f(x_1, x_2, x_3) = a x_1^2 + a x_2^2 + (a-1) x_3^2 + 2 x_1 x_3 - 2 x_2 x_3 $ 的正、负惯性指数分别为 1，2，则
+    \begin{enumerate}
+        \item  $ a > 1 $
+        \item  $ a < -1 $
+        \item  $ -1 < a < 1 $
+        \item  $ a = 1 $ 或 $ a = -1 $
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2022，数一) 设二次型 $ f(x_1, x_2, x_3) = \sum_{i=1}^3 \sum_{j=1}^3 i j x_i x_j $。
+    \begin{enumerate}
+        \item 求 $ f(x_1, x_2, x_3) $ 对应的矩阵；
+        \item 求正交变换 $ x = Q y $，将 $ f(x_1, x_2, x_3) $ 化为标准形；
+        \item 求 $ f(x_1, x_2, x_3) = 0 $ 的解。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2020，数一、三) 设二次型 $ f(x_1, x_2) = 4 x_1^2 + 4 x_2^2 + 4 x_1 x_2 $ 经正交变换 $ \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = Q \begin{pmatrix} y_1 \\ y_2 \end{pmatrix} $ 化为二次型 $ g(y_1, y_2) = y_1^2 + b y_2^2 $，其中 $ b \geq 0 $。 
+    \begin{enumerate}
+        \item 求 $ a, b $ 的值；
+        \item 求正交矩阵 $ Q $。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{合同的判定}
+
+\begin{enumerate}[label=\arabic*.,start=4]
+    \item (2008，数二、三) 设 $ A = \begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix} $，与 $ A $ 合同的矩阵是
+    \begin{enumerate}
+        \item $ \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix} $
+        \item $ \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix} $
+        \item $ \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} $
+        \item $ \begin{pmatrix} 1 & 2 \\ 1 & 2 \end{pmatrix} $
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设 $ A, B $ 为 $ n $ 阶实对称可逆矩阵，则存在 $ n $ 阶可逆矩阵 $ P $，使得
+    \begin{enumerate}
+        \item $ P A P = B $；
+        \item $ P^{-1} A B P = B A $；
+        \item $ P^{-1} A P = B $；
+        \item $ P^T A P = B $。
+    \end{enumerate}
+    成立的个数是
+    \begin{enumerate}
+        \item 1
+        \item 2
+        \item 3
+        \item 4
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{二次型正定与正定矩阵的判定}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item (2017，数一、二、三) 设 $ A $ 为 $ m \times n $ 阶矩阵，且 $ r(A) = n $，则下列结论
+    \begin{enumerate}
+        \item $ A^T A $ 与单位矩阵等价；
+        \item $ A^T A $ 与对角矩阵相似；
+        \item $ A^T A $ 与单位矩阵合同；
+        \item $ A^T A $ 正定。
+    \end{enumerate}
+    正确的个数是
+    \begin{enumerate}
+        \item 1
+        \item 2
+        \item 3
+        \item 4
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 证明：
+    \begin{enumerate}
+        \item 设 $ A $ 为 $ n $ 阶正定矩阵，$ B $ 为 $ n $ 阶反对称矩阵，则 $ A - B^2 $ 为正定矩阵；
+        \item 设 $ A, B $ 为 $ n $ 阶矩阵，且 $ r(A + B) = n $，则 $ A^T A + B^T B $ 为正定矩阵。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

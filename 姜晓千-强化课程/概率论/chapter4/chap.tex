@@ -1,0 +1,160 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{数字特征}
+
+\section{期望与方差的计算}
+
+\begin{enumerate}[label=\arabic*.]
+    \item 设随机变量$X$的概率密度为$f(x)=\frac{1}{\pi(1+x^2)}$,$-\infty<x<\infty$,则$E[\min\{|X|,1\}]=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2016,数三)设随机变量$X$与$Y$相互独立,$X\sim N(1,2)$,$Y\sim N(1,4)$,则$D(XY)=$
+    \begin{align*}
+        (A)\ 6 \quad (B)\ 8 \quad (C)\ 14 \quad (D)\ 15
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X$与$Y$同分布,则$E\left(\frac{X+Y}{2}\right)=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X$与$Y$相互独立,$X\sim P(\lambda_1)$,$Y\sim P(\lambda_2)$,且$P\{X+Y>0\}=1-e^{-1}$,则$E(X+Y)^2=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X$与$Y$相互独立,$X\sim E(\lambda)$,$Y\sim E\left(\frac{1}{6}\right)$,若$U=\max\{X,Y\}$,$V=\min\{X,Y\}$,则$EU=$?,$EV=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2017,数一)设随机变量$X$的分布函数为$F(x)=0.5\Phi(x)+0.5\Phi\left(\frac{x-4}{2}\right)$,其中$\Phi(x)$为标准正态分布函数,则$EX=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X\sim N(0,1)$,则$E|X|=$?,$D|X|=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X$与$Y$相互独立,均服从$N(\mu,\sigma^2)$,求$E[\max\{X,Y\}]$,$E[\min\{X,Y\}]$.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设独立重复的射击每次命中的概率为$p$,$X$表示第$n$次命中时的射击次数,求$EX$,$DX$.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2015,数一、三)设随机变量$X$的概率密度为$f(x)=\begin{cases}2^{-x}\ln2, & x>0 \\ 0, & x\leq0\end{cases}$,对$X$进行独立的观测,直到第2个大于3的观测值出现时停止,记$Y$为观测次数。
+    \begin{enumerate}
+        \item 求$Y$的概率分布;
+        \item 求$EY$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{协方差的计算}
+
+\begin{enumerate}[label=\arabic*.,start=11]
+    \item  设$X_1,X_2,\cdots,X_n$为来自总体$X$的简单随机样本。若$DX=4$,正整数$s\leq n$,$t\leq n$,则
+    \begin{align*}
+        \text{Cov}\left(\frac{1}{s}\sum_{i=1}^s X_i,\frac{1}{t}\sum_{j=1}^t X_j\right)=
+    \end{align*}
+    \begin{align*}
+        (A)\ 4\max\{s,t\} \quad (B)\ 4\min\{s,t\} \quad (C)\ \frac{4}{\max\{s,t\}} \quad (D)\ \frac{4}{\min\{s,t\}}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2005,数三)设$X_1,X_2,\cdots,X_n(n>2)$为来自总体$N(0,\sigma^2)$的简单随机样本,样本均值为$\bar{X}$。记$Y_i=X_i-\bar{X}$,$i=1,2,\cdots,n$。
+    \begin{enumerate}
+        \item 求$Y_i$的方差$DY_i$,$i=1,2,\cdots,n$;
+        \item 若$c(Y_1+Y_n)^2$为$\sigma^2$的无偏估计量,求常数$c$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{相关系数的计算}
+
+\begin{enumerate}[label=\arabic*.,start=13]
+    \item  (2016,数一)设试验有三个两两互不相容的结果$A_1,A_2,A_3$,且三个结果发生的概率均为$\frac{1}{3}$。将试验独立重复地做两次,$X$表示两次试验中$A_1$发生的次数,$Y$表示两次试验中$A_2$发生的次数,则$X$与$Y$的相关系数为
+    \begin{align*}
+        (A)\ -\frac{1}{2} \quad (B)\ -\frac{1}{3} \quad (C)\ \frac{1}{3} \quad (D)\ \frac{1}{2}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  设随机变量$X\sim B\left(1,\frac{3}{4}\right)$,$Y\sim B\left(1,\frac{1}{2}\right)$,且$\rho_{XY}=\frac{\sqrt{3}}{3}$。
+    \begin{enumerate}
+        \item 求$(X,Y)$的联合概率分布;
+        \item 求$P\{Y=1|X=1\}$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{相关与独立的判定}
+
+\begin{enumerate}[label=\arabic*.,start=15]
+    \item  设二维随机变量$(X,Y)$服从区域$D=\{(x,y)|x^2+y^2\leq a^2\}$上的均匀分布,则
+    \begin{align*}
+        (A)\ X与Y不相关,也不相互独立 \\
+        (B)\ X与Y相互独立 \\
+        (C)\ X与Y相关 \\
+        (D)\ X与Y均服从U(-a,a)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  设随机变量$X$的概率密度为$f(x)=\frac{1}{2}e^{-|x|}$,$-\infty<x<+\infty$。
+    \begin{enumerate}
+        \item 求$X$的期望与方差;
+        \item 求$X$与$|X|$的协方差,问$X$与$|X|$是否不相关?
+        \item 问$X$与$|X|$是否相互独立?并说明理由.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+\ifx\allfiles\undefined
+\end{document}
+\fi

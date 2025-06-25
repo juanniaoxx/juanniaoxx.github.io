@@ -1,0 +1,50 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{大数定律与中心极限定理}
+
+\begin{enumerate}[label=\arabic*.]
+    \item (2022,数一)设随机变量$X_1,X_2,\cdots,X_n$相互独立同分布,$\mu_k=E(X_i^k)(k=1,2,3,4)$。由切比雪夫不等式,对任意$\varepsilon>0$,有
+    \begin{align*}
+        P\left\{\left|\frac{1}{n}\sum_{i=1}^n X_i^2-\mu_2\right|\geq\varepsilon\right\}\leq
+    \end{align*}
+    \begin{align*}
+        (A)\ \frac{\mu_4-\mu_2^2}{n\varepsilon^2} \quad (B)\ \frac{\mu_4-\mu_2^2}{\sqrt{n}\varepsilon^2} \quad (C)\ \frac{\mu_2-\mu_1^2}{n\varepsilon^2} \quad (D)\ \frac{\mu_2-\mu_1^2}{\sqrt{n}\varepsilon^2}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2022,数一)设随机变量$X_1,X_2,\cdots,X_n$相互独立同分布,$X_i$的概率密度为
+    \begin{align*}
+        f(x)=\begin{cases}
+            1-|x|, & |x|<1 \\
+            0, & \text{其他}
+        \end{cases}
+    \end{align*}
+    则当$n\rightarrow\infty$时,$\frac{1}{n}\sum_{i=1}^n X_i^2$依概率收敛于?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2020,数一)设$X_1,X_2,\cdots,X_n$为来自总体$X$的简单随机样本,$P\{X=0\}=P\{X=1\}=\frac{1}{2}$,$\Phi(x)$表示标准正态分布函数。利用中心极限定理得$P\left\{\sum_{i=1}^{100} X_i\leq 55\right\}$的近似值为
+    \begin{align*}
+        (A)\ 1-\Phi(1) \quad (B)\ \Phi(1) \quad (C)\ 1-\Phi(0.2) \quad (D)\ \Phi(0.2)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

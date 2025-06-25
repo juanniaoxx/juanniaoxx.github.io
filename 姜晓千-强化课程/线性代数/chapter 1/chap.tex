@@ -1,0 +1,318 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\usepackage{multirow}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{行列式}
+\begin{remark}
+    主要内容
+    $$
+\left\{\begin{matrix}
+    \text{行列式的概念}&\left\{\begin{matrix}
+    \text{定义}& n!\text{项不同行不同列元素乘积的代数和} \\
+    \text{性质}&
+    \end{matrix}\right. \\ 
+    \text{重要行列式}&\left\{\begin{matrix}
+    \text{上(或下)三角,主对角矩阵}\\
+    \text{副对角行列式}\\
+    \text{ab型行列式}\\
+    \text{拉普拉斯展开式}\\
+    \text{范德蒙行列式}\\
+
+\end{matrix}\right. \\
+    \text{展开定理}& \left\{\begin{matrix}
+    a_{i1}A_{j1}+a_{i2}A_{j2}+\ldots+a_{in}A_{jn} = & \left\{\begin{matrix}
+    \left | A \right |, &i=j \\
+    0,& i = j
+\end{matrix}\right. \\
+    a_{1i}A_{1j}+a_{2i}A_{2j}+\ldots+a_{ni}A_{nj} = & \left\{\begin{matrix}
+    \left | A \right |, &i=j \\
+    0,& i = j
+\end{matrix}\right. \\
+\end{matrix}\right.\\
+    \text{行列式的公式}& \left\{\begin{matrix}
+    \left | KA \right | = K^n\left | A \right | & \\
+    \left | AB \right | = \left | A \right | \left | B \right | &\\
+    \left | A^T \right |= \left | A \right |& \\
+    \left | A^{-1} \right | = \left | A \right | ^{-1}& \\
+    \left | A^{*} \right |=\left | A \right |^{n-1}& \\
+    \text{设A的特征值为}\lambda_1,\lambda _2,\ldots,\lambda_n,&\text{则}\left | A \right | =\prod_{i=1}^{n}\lambda_i  \\
+    \text{若A与B相似},&\text{则}\left | A \right | =\left | B \right | 
+\end{matrix}\right.\\
+    \text{Cramer法则}& x_1=\frac{D_1}{D},x_2=\frac{D_2}{D},\ldots,x_n\frac{D_n}{D}
+\end{matrix}\right.
+$$
+\end{remark}
+
+
+\section{数字行列式的计算}
+\begin{remark}
+    利用行列式的性质(5条)来化简
+    
+    \item [1.] 出现充要行列式(5组) 
+    \item [2.] 展开定理(0比较多的时候)
+\end{remark}
+\begin{enumerate}[label=\arabic*.]
+    % 例题1.1
+    \item 设
+    \begin{align*}
+    f(x)=\left|\begin{array}{lllll}
+    x-2 & x-1 & x-2 & x-3 \\
+    2 x-2 & 2 x-1 & 2 x-2 & 2 x-3 \\
+    3 x-3 & 3 x-2 & 4 x-5 & 3 x-5 \\
+    4 x & 4 x-3 & 5 x-7 & 4 x-3
+    \end{array}\right|
+    \end{align*}
+    则方程 $f(x)=0$ 根的个数为\_\_\_\_ 
+    \begin{solution}
+    第一列乘$-1$加到其他列
+    \begin{align*}
+    f(x) &\xlongequal{\text{第一列乘-1加到其他列上面去}}{}\left|\begin{array}{lllll}
+    x-2 & 1 & 0 & -1 \\
+    2 x-2 & 1 & 0 & -1 \\
+    3 x-3 & 1 &  x-2 &  -2 \\
+    4 x & 4 -3 & x-7 & -3
+    \end{array}\right| \\
+    &\xlongequal{\text{第二列加到第四列}}{}\left|\begin{array}{lllll}
+    x-2 & 1 & 0 & 0 \\
+    2 x-2 & 1 & 0 & 0 \\
+    3 x-3 & 1 &  x-2 &  -1 \\
+    4 x & -3 & x-7 & -6
+    \end{array}\right| \\
+    &\xlongequal{\text{拉普拉斯型}}{} = -x(-5x+5) = 0
+    \end{align*}
+    则$x=0$或$x=1$
+    \end{solution}
+    
+    % 例题1.2
+    \item 利用范德蒙行列式计算 
+    \begin{align*}
+    \left|\begin{array}{lll}
+    a & a^2 & bc \\
+    b & b^2 & a c \\
+    c & c^2 & a b 
+    \end{array}\right|=\_\_\_\_
+    \end{align*}
+    
+    \begin{solution}
+    \begin{align*}
+    \text{原式} &\xlongequal{\text{第一列乘以(a+b+c)加到第三列}}\left|\begin{array}{lll}
+    a & a^2 & a^2 + ac + ab + bc \\
+    b & b^2 & a^2 + ac + ab + bc \\
+    c & c^2 & a^2 + ac + ab + bc 
+    \end{array}\right| \\
+    &\xlongequal{\text{第二列乘-1加到最后一列,提取公因式,并交换}} (ab+ac+bc)\left|\begin{array}{lll}
+    1 & a & a^2 \\
+    1 & b & b^2 \\
+    1 & c & c^2 
+    \end{array}\right| \\
+    &= (ac+bc+ab)(b-a)(c-a)(c-b)
+    \end{align*}
+    \end{solution}
+    
+    % 例题1.3
+    \item 设 \( {x}_{1}{x}_{2}{x}_{3}{x}_{4} \neq  0 \) ,则 
+    \( \left| \begin{matrix} 
+        {x}_{1}+{a}_{1}^{2}&{a}_{1}{a}_{2}&{a}_{1}{a}_{3} & {a}_{1}{a}_{4} \\  
+        {a}_{2}{a}_{1} & {x}_{2} + {a}_{2}^{2} & {a}_{2}{a}_{3} & {a}_{2}{a}_{4} \\  
+        {a}_{3}{a}_{1} & {a}_{3}{a}_{2} & {x}_{3} + {a}_{3}^{2} & {a}_{3}{a}_{4} \\  
+        {a}_{4}{a}_{1} & {a}_{4}{a}_{2} & {a}_{4}{a}_{3} & {x}_{4} + {a}_{4}^{2} 
+    \end{matrix}\right|  = \) \_\_\_\_.
+    
+    \begin{solution}
+    考虑加边法,为该行列式增加一行一列,变成如下行列式 
+    \begin{align*}
+    \text{原行列式} 
+    &= 
+    \left| \begin{matrix} 
+        1 & 0 & 0 & 0 & 0 \\
+        a_1 &{x}_{1}+{a}_{1}^{2}&{a}_{1}{a}_{2}&{a}_{1}{a}_{3} & {a}_{1}{a}_{4} \\  
+        a_2 &{a}_{2}{a}_{1} & {x}_{2} + {a}_{2}^{2} & {a}_{2}{a}_{3} & {a}_{2}{a}_{4} \\  
+        a_3 &{a}_{3}{a}_{1} & {a}_{3}{a}_{2} & {x}_{3} + {a}_{3}^{2} & {a}_{3}{a}_{4} \\  
+        a_4 &{a}_{4}{a}_{1} & {a}_{4}{a}_{2} & {a}_{4}{a}_{3} & {x}_{4} + {a}_{4}^{2} 
+    \end{matrix}\right| \\
+    &\xlongequal{\text{将第一行分别乘以}-a_1,-a_2\ldots,\text{分别加到第}2,3,\ldots\text{列}}{}
+        \left| \begin{matrix} 
+        1   & -a_1 & -a_2 & -a_3 & -a_4 \\
+        a_1 &x_1   &0     & 0    & 0\\  
+        a_2 &0     & x_2  & 0    & 0\\  
+        a_3 &0     & 0    & x_3  & 0\\  
+        a_4 &0     & 0    & 0    & x_4
+    \end{matrix}\right| \\
+    &\xlongequal{\text{从下往上消,分别乘以}\frac{a_i}{x_i},\text{加到第一行}}{}
+        \left| \begin{matrix} 
+        1 + \sum_{i=1}^4 \frac{a_i^2}{x_i}   & 0 & 0 & 0 & 0 \\
+        a_1 &x_1   &0     & 0    & 0\\  
+        a_2 &0     & x_2  & 0    & 0\\  
+        a_3 &0     & 0    & x_3  & 0\\  
+        a_4 &0     & 0    & 0    & x_4
+    \end{matrix}\right| \\
+    & = (x_1x_2x_3x_4)(1 + \sum_{i=1}^4 \frac{a_i^2}{x_i})
+    \end{align*}
+    \end{solution}
+    
+    \begin{tcolorbox}[title=爪型行列式]
+        关键点在于\textbf{化简掉一条爪子}
+        $$
+        \begin{vmatrix}
+            a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & 0      & \cdots & 0      \\
+            a_{31} & 0      & a_{33} & \cdots & 0      \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & 0      & 0      & \cdots & a_{nn}
+        \end{vmatrix}
+        $$
+    \end{tcolorbox}
+    % 例题1.4
+    \item 计算三对角线行列式
+    \begin{align*}
+    D_{n}= 
+    \begin{vmatrix}
+    \alpha+\beta & \alpha & 0 & \cdots & 0 & 0 \\
+    \beta & \alpha+\beta & \alpha & \cdots & 0 & 0 \\
+    0 & \beta & \alpha+\beta & \cdots & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \cdots & \alpha+\beta & \alpha \\
+    0 & 0 & 0 & \cdots & \beta & \alpha+\beta
+    \end{vmatrix}
+    \end{align*}
+    
+    \begin{solution}
+    \item [(方法一) 递推法] 
+    \begin{align*}
+        D_1&=\alpha+\beta \\
+        D_2&=\alpha^2+\alpha\beta+\beta^2 \\
+        &\ldots \\
+        D_n &= (\alpha+\beta)D_{n-1} - \alpha\beta D_{n-2} \\
+        D_n-\alpha D_{n-1} &=\beta (D_{n-1}-\alpha D_{n-2}) \\
+        &=\beta^2(D_{n-2}-\alpha D_{n-3}) \\
+        &\ldots \\
+        &=\beta^{n-1}(D_2-D_1) = \beta^{n} \\
+        D_n &= \beta^n+\alpha D_{n-1} = \beta^n + \alpha (\beta^{n-1} + \alpha D_{n-2})\\
+        &\ldots \\
+        &= \beta^n + \alpha\beta^{n-1}+\ldots + \alpha^n
+    \end{align*}
+    \item [(方法二) 数学归纳法]
+    \begin{align*}
+        & if\ \alpha=\beta, D_1 = 2\alpha, D_2=3\alpha^2,assume,D_{n-1}=n\alpha^{n-1} \\
+        & then D_n=D_n = (\alpha+\beta)D_{n-1} - \alpha\beta D_{n-2} = (n+1)\alpha^n \\
+        & when\ \alpha\neq\beta, D_1=\frac{\alpha^2 - \beta ^ 2}{\alpha - \beta}, D_2=\frac{\alpha^3-\beta^3}{\alpha - \beta}, \\
+        & Assume,D_{n-1}=\frac{\alpha^n-\beta^n}{\alpha-\beta},then, \\
+        & D_n=\ldots= \frac{\alpha^{n+1}-\beta^{n+1}}{\alpha-\beta}
+    \end{align*}
+    \item [(方法三) 二阶差分方程]
+    \begin{align*}
+        & D_n - (\alpha+\beta)D_{n-1} + \alpha\beta D_{n-2} = 0 \\
+        & D_{n+2}-(\alpha+\beta)D_{n+1} + \alpha\beta D_{n} = 0 \\
+        &\text{类似于二阶微分方程解特征方程} \\
+        & r^2 - (\alpha+\beta) r + \alpha\beta = 0 \\
+        & r_1 = \alpha r_2 = \beta \\
+        & \text{如果}\ \alpha=\beta, \text{差分方程的关键}r^n\text{代换}e^{rx} \\
+        & D_n=(C_1+C_2n)\alpha^n, D_1 = 2\alpha, D_2 = 3\alpha^2 \\
+        & \text{得到}C_1=C_2=1,{故}D_n=(n+1)\alpha^n \\
+        & \text{如果} \alpha\neq\beta \\
+        &D_n=C_1\alpha^n+C_2\beta^n, \text{由}D_1 = 2\alpha, D_2 = 3\alpha^2 \\
+        &C_1 = \frac{\alpha}{\alpha - \beta}, C_2=\frac{-\beta}{\alpha-\beta}
+    \end{align*}
+    \end{solution}
+\end{enumerate}
+
+\begin{corollary}
+    如下行列式有和例题4完全相等的性质
+    $$ 
+    D_{n} = \left| 
+    \begin{array}{cccccc}
+    \alpha+\beta & \alpha\beta & 0 & \cdots & 0 & 0 \\
+    1 & \alpha+\beta & \alpha\beta & \cdots & 0 & 0 \\
+    0 & 1 & \alpha+\beta & \cdots & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \cdots & \alpha+\beta & \alpha\beta \\
+    0 & 0 & 0 & \cdots & 1 & \alpha+\beta \\
+    \end{array} 
+    \right| 
+    $$
+
+    \( {D}_{n} = 
+    \left\{  
+        {\begin{matrix} \left( {n + 1}\right) {\alpha }^{n}, 
+            & \alpha  = \beta \\  
+            \frac{{\alpha }^{n + 1} - {\beta }^{n + 1}}
+                {\alpha  - \beta }, & 
+                \alpha  \neq  \beta  \end{matrix}.}
+    \right. \)
+\end{corollary}
+\section{代数余子式求和}
+
+\begin{enumerate}[label=\arabic*.,start=4]
+    \item 已知 
+    \begin{align*}
+    |A|=\left|\begin{array}{lllll}
+    1 & 2 & 3 & 4 & 5 \\
+    2 & 2 & 2 & 1 & 1 \\
+    3 & 1 & 2 & 4 & 5 \\
+    1 & 1 & 1 & 2 & 2 \\
+    4 & 3 & 1 & 5 & 0
+    \end{array}\right|=27
+    \end{align*}
+    则 $A_{41}+A_{42}+A_{43}=$ \underline{\hspace{3cm}}, $A_{44}+A_{45}=$ \underline{\hspace{3cm}}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设 
+    \begin{align*}
+    A=\begin{pmatrix}
+    0 & 0 & \cdots & 0 & 1 \\
+    0 & 0 & \cdots & 2 & 0 \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & n-1 & \cdots & 0 & 0 \\
+    n & 0 & \cdots & 0 & 0
+    \end{pmatrix}
+    \end{align*}
+    则 $|A|$ 的所有代数余子式的和为\underline{\hspace{3cm}}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{抽象行列式的计算}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item (2005,数一、二) 设 $\alpha_1,\alpha_2,\alpha_3$ 均为 3维列向量, $A=(\alpha_1,\alpha_2,\alpha_3)$,
+    $B=(\alpha_1+\alpha_2+\alpha_3,\alpha_1+2\alpha_2+4\alpha_3,\alpha_1+3\alpha_2+9\alpha_3)$.若 $|A|=1$,则 $|B|=$ \underline{\hspace{3cm}}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设 A为 n阶矩阵, $\alpha,\beta$ 为 n维列向量.若 $|A|=a$,
+    $\left|\begin{array}{ll}A & \alpha \\ \beta^{T} & b\end{array}\right|=0$,则
+    $\left|\begin{array}{ll}A & \alpha \\ \beta^{T} & c\end{array}\right|=$ \underline{\hspace{3cm}}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设 A为 2阶矩阵, $B=\begin{pmatrix}2 & 4 \\ 2 & 2\end{pmatrix}A^2$.若 $|A|=-1$,则 $|B|=$ \underline{\hspace{3cm}}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  设 n阶矩阵 A满足 $A^2=A$, $A\neq E$,证明 $|A|=0$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

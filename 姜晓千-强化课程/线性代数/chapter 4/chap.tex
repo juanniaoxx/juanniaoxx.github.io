@@ -1,0 +1,223 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\usepackage{multirow}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{线性方程组}
+
+\section{解的判定}
+
+\begin{enumerate}[label=\arabic*.]
+    \item (2001，数三) 设 $A$ 为 $n$ 阶矩阵, $\alpha$ 为 $n$ 维列向量, 且 $\begin{pmatrix} A & \alpha \\ \alpha^T & 0 \end{pmatrix} = r(A)$，则线性方程组
+    \begin{enumerate}
+        \item (A) $Ax = \alpha$ 有无穷多解
+        \item (B) $Ax = \alpha$ 有唯一解
+        \item (C) $\begin{pmatrix} A & \alpha \\ \alpha^T & 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = 0$ 只有零解
+        \item (D) $\begin{pmatrix} A & \alpha \\ \alpha^T & 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = 0$ 有非零解
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设 $A$ 为 $m \times n$ 阶矩阵, 且 $r(A) = m < n$，则下列结论不正确的是
+    \begin{enumerate}
+        \item (A) 线性方程组 $A^T x = 0$ 只有零解
+        \item (B) 线性方程组 $A^T A x = 0$ 有非零解
+        \item (C) $\forall b$，线性方程组 $A^T x = b$ 有唯一解
+        \item (D) $\forall b$，线性方程组 $A x = b$ 有无穷多解
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{求齐次线性方程组的基础解系与通解}
+
+\begin{enumerate}[label=\arabic*.,start=2]
+    \item (2011, 数一,二) 设 $A = (\alpha_1, \alpha_2, \alpha_3, \alpha_4)$ 为 4 阶矩阵, $(1,0,1,0)^T$ 为线性方程组 $Ax = 0$ 的基础解系，则 $A^* x = 0$ 的基础解系可为
+    \begin{enumerate}
+        \item (A) $\alpha_1, \alpha_2$
+        \item (B) $\alpha_1, \alpha_3$
+        \item (C) $\alpha_1, \alpha_2, \alpha_3$
+        \item (D) $\alpha_2, \alpha_3, \alpha_4$
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2005, 数一、二) 设 3 阶矩阵 $A$ 的第 1 行为 $(a, b, c)$, $a, b, c$ 不全为零, $B = \begin{pmatrix} 2 & 4 & 6 \\ 3 & 6 & k \end{pmatrix}$ 满足 $AB = O$，求线性方程组 $Ax = 0$ 的通解。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2002, 数三) 设线性方程组
+    \begin{align*}
+    a x_1 + b x_2 + b x_3 + \cdots + b x_n &= 0 \\
+    b x_1 + a x_2 + b x_3 + \cdots + b x_n &= 0 \\
+    \vdots \\
+    b x_1 + b x_2 + b x_3 + \cdots + a x_n &= 0
+    \end{align*}
+    其中 $a \neq 0, b \neq 0, n \geq 2$。当 $a, b$ 为何值时，方程组只有零解、有非零解，当方程组有非零解时，求其通解。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{求非齐次线性方程组的通解}
+
+\begin{enumerate}[label=\arabic*.,start=5]
+    \item 设 $A$ 为 4 阶矩阵, $k$ 为任意常数, $\eta_1, \eta_2, \eta_3$ 为非齐次线性方程组 $Ax = b$ 的三个解, 满足
+    \begin{align*}
+    \eta_1 + \eta_2 &= \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}, \quad \eta_2 + 2\eta_3 = \begin{pmatrix} 2 \\ 3 \\ 4 \\ 5 \end{pmatrix}.
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2017, 数一、三、三) 设 3 阶矩阵 $A = (\alpha_1', \alpha_2', \alpha_3')$ 有三个不同的特征值, 其中 $\alpha_3 = \alpha_1 + 2\alpha_2$。
+    \begin{enumerate}
+        \item (I) 证明 $r(A) = 2$；
+        \item (II) 若 $\beta = \alpha_1 + \alpha_2 + \alpha_3$，求线性方程组 $Ax = \beta$ 的通解。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (I) 求 $\lambda, a$ 的值；
+    \item (II) 求方程组 $Ax = b$ 的通解。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (I) $\eta$ 为非齐次线性方程组 $Ax = b$ 的特解, 证明:
+    \begin{enumerate}
+        \item (II) $\eta, \eta + \xi_1, \eta + \xi_2, \cdots, \eta + \xi_{n-r}$ 线性无关；
+        \item (III) $\eta, \eta + \xi_1, \eta + \xi_2, \cdots, \eta + \xi_{n-r}$ 为 $Ax = b$ 所有解的极大线性无关组。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{解矩阵方程}
+
+\begin{enumerate}[label=\arabic*.,start=9]
+    \item 矩阵方程解的判定
+    \begin{align*}
+    AX = B \text{ 无解 } \Leftrightarrow r(A) < r(A|B) \\
+    AX = B \text{ 有唯一解 } \Leftrightarrow r(A) = r(A|B) = n \\
+    AX = B \text{ 有无穷多解 } \Leftrightarrow r(A) = r(A|B) < n
+    \end{align*}
+    
+    \item 矩阵方程的求法
+    对 $(A|B)$ 作初等行变换，化为行最简形矩阵，得矩阵 $X$。
+    
+    \item (例 4.10) 设 
+    \begin{align*}
+    A = \begin{pmatrix}
+    1 & -2 & 3 & -4 \\
+    0 & 1 & -1 & 1 \\
+    1 & 2 & 0 & -3
+    \end{pmatrix}
+    \end{align*}
+    矩阵 $X$ 满足 $AX + E = A^{2022} + 2X$，求矩阵 $X$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (例 4.11) (2014, 数一、二、三) 设 
+    \begin{align*}
+    A = \begin{pmatrix}
+    1 & -2 & 3 & -4 \\
+    0 & 1 & -1 & 1 \\
+    1 & 2 & 0 & -3
+    \end{pmatrix}
+    \end{align*}
+    \begin{enumerate}
+        \item (I) 求线性方程组 $Ax = 0$ 的一个基础解系；
+        \item (II) 求满足 $AB = E$ 的所有矩阵 $B$。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{公共解的判定与计算}
+
+\begin{enumerate}[label=\arabic*.,start=12]
+    \item (2007, 数三) 设线性方程组
+    \begin{align*}
+    (I) \begin{cases}
+    x_1 + x_2 + x_3 = 0 \\
+    x_1 + 2x_2 + a x_3 = 0 \\
+    x_1 + 4x_2 + a^2 x_3 = 0
+    \end{cases}
+    \end{align*}
+    与方程
+    \begin{align*}
+    (II) x_1 + 2x_2 + x_3 = a - 1
+    \end{align*}
+    有公共解，求 $a$ 的值及所有公共解。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设齐次线性方程组
+    \begin{align*}
+    (I) \begin{cases}
+    2x_1 + 3x_2 - x_3 = 0 \\
+    x_1 + 2x_2 + x_3 - x_4 = 0
+    \end{cases}
+    \end{align*}
+    齐次线性方程组 (II) 的一个基础解系为 $\alpha_1 = (2, -1, a+2, 1)^T$, $\alpha_2 = (-1, 2, 4, a+8)^T$ 
+    \begin{enumerate}
+        \item (1) 求方程组 (I) 的一个基础解系；
+        \item (2) 当 $a$ 为何值时，方程组 (I) 与 (II) 有非零公共解，并求所有非零公共解。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2005，数三) 设线性方程组
+    \begin{align*}
+    (I) \begin{cases}
+    x_1 + 2x_2 + 3x_3 = 0 \\
+    2x_1 + 3x_2 + 5x_3 = 0 \\
+    x_1 + x_2 + a x_3 = 0
+    \end{cases}
+    \end{align*}
+    与 (II) 
+    \begin{align*}
+    \begin{cases}
+    x_1 + b x_2 + c x_3 = 0 \\
+    2x_1 + b^2 x_2 + (c+1) x_3 = 0
+    \end{cases}
+    \end{align*}
+    同解，求 $a, b, c$ 的值。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

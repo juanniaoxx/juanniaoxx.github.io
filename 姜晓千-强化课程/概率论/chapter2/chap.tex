@@ -1,0 +1,194 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{一维随机变量}
+
+\section{分布函数的判定与计算}
+
+\begin{enumerate}[label=\arabic*.]
+    % 例题 2.1
+    \item 设随机变量$X$的分布函数为$F(x)$,$a,b$为任意常数,则下列一定不是分布函数的是
+    \begin{align*}
+        (A)\ F(ax+b) \quad (B)\ F(x^2+b) \quad (C)\ F(x^3+b) \quad (D)\ 1-F(-x)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X$的概率密度为
+    \begin{align*}
+        f(x)=\begin{cases}
+            1-|x|, & |x|<1 \\
+            0, & \text{其他}
+        \end{cases}
+    \end{align*}
+    则$X$的分布函数$F(x)=$?,$P\{-2<X<\frac{1}{4}\}=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{概率密度的判定与计算}
+
+\begin{enumerate}[label=\arabic*.,start=3]
+    \item 设随机变量$X$的概率密度为$f(x)$,则下列必为概率密度的是
+    \begin{align*}
+        (A)\ f(-x+1) \quad (B)\ f(2x-1) \quad (C)\ f(-2x+1) \quad (D)\ f\left(\frac{1}{2}x-1\right)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2011,数一、三)设$F_1(x),F_2(x)$为分布函数,对应的概率密度$f_1(x),f_2(x)$为连续函数,则下列必为概率密度的是
+    \begin{align*}
+        (A)\ f_1(x)f_2(x) \quad (B)\ 2f_2(x)F_1(x) \quad (C)\ f_1(x)F_2(x) \quad (D)\ f_1(x)F_2(x)+f_2(x)F_1(x)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2000,三)设随机变量$X$的概率密度为
+    \begin{align*}
+        f(x)=\begin{cases}
+            \frac{1}{3}, & x\in[0,1] \\
+            \frac{2}{9}, & x\in[3,6] \\
+            0, & \text{其他}
+        \end{cases}
+    \end{align*}
+    若$P\{X\geq k\}=\frac{2}{3}$,则$k$的取值范围是?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{关于八大分布}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item 设随机变量$X$的概率分布为$P\{X=k\}=C\frac{\lambda^k}{k!}$,$k=1,2,\cdots$,则$C=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X$的概率密度为$f(x)=Ae^{-\frac{x^2}{2}+Bx}$,且$EX=DX$,则$A=$?,$B=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2004,数一、三)设随机变量$X\sim N(0,1)$,对给定的$\alpha(0<\alpha<1)$,数$u_\alpha$满足$P\{X>u_\alpha\}=\alpha$。若$P\{|X|<x\}=\alpha$,则$x$等于
+    \begin{align*}
+        (A)\ u_{\frac{\alpha}{2}} \quad (B)\ u_{1-\frac{\alpha}{2}} \quad (C)\ u_{\frac{1-\alpha}{2}} \quad (D)\ u_{1-\alpha}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 设随机变量$X\sim N(2,\sigma^2)$,且$P\{2<X<4\}=0.3$,则$P\{X<0\}=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  设随机变量$X\sim N(\mu,\sigma^2)(\mu<0)$,$F(x)$为其分布函数,$a$为任意常数,则
+    \begin{align*}
+        (A)\ F(a)+F(-a)>1 \quad (B)\ F(a)+F(-a)=1 \\
+        (C)\ F(a)+F(-a)<1 \quad (D)\ F(\mu+a)+F(\mu-a)=\frac{1}{2}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  设随机变量$X$与$Y$相互独立,均服从参数为1的指数分布,则$P\{1<\max\{X,Y\}<2\}=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  设随机变量$X$与$Y$相互独立,均服从区间$[0,3]$上的均匀分布,则$P\{1<\min\{X,Y\}<2\}=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2013,数一)设随机变量$Y\sim E(1)$,$a>0$,则$P\{Y\leq a+1|Y>a\}=$?.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  设随机变量$X\sim G(p)$,$m,n$为正整数,则$P\{X>m+n|X>m\}$
+    \begin{align*}
+        (A)\ 与m无关,与n有关,且随n的增大而减少 \\
+        (B)\ 与m无关,与n有关,且随n的增大而增大 \\
+        (C)\ 与n无关,与m有关,且随m的增大而减少 \\
+        (D)\ 与n无关,与m有关,且随m的增大而增大
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{求一维连续型随机变量函数的分布}
+
+\begin{enumerate}[label=\arabic*.,start=15]
+    \item  设随机变量$X\sim E(\lambda)$,则$Y=\min\{X,2\}$的分布函数
+    \begin{align*}
+        (A)\ 为连续函数 \quad (B)\ 为阶梯函数 \\
+        (C)\ 至少有两个间断点 \quad (D)\ 恰好有一个间断点
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2013,数一)设随机变量$X$的概率密度为
+    \begin{align*}
+        f(x)=\begin{cases}
+            \frac{2x}{a^2}, & 0<x<a \\
+            0, & \text{其他}
+        \end{cases}
+    \end{align*}
+    $Y=\begin{cases}
+        \frac{1}{3}X, & X\leq 1 \\
+        X, & 1<X<2 \\
+        1, & X\geq 2
+    \end{cases}$
+    \begin{enumerate}
+        \item 求$Y$的分布函数;
+        \item 求$P\{X\leq Y\}$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2021,数一、三)在区间$(0,2)$上随机取一点,将该区间分成两段,较短一段的长度记为$X$,较长一段的长度记为$Y$。
+    \begin{enumerate}
+        \item 求$X$的概率密度;
+        \item 求$Z=\frac{Y}{X}$的概率密度;
+        \item 求$E\left(\frac{Y}{X}\right)$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

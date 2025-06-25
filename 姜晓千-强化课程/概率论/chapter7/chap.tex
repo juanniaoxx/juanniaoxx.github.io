@@ -1,0 +1,73 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{参数估计}
+
+\section{求矩估计与最大似然估计}
+
+\begin{enumerate}[label=\arabic*.]
+    \item (2002,数一)设总体$X$的概率分布为
+    \begin{align*}
+        \begin{array}{c|ccc}
+        X & 0 & 1 & 2 \\
+        \hline
+        P & \theta^2 & 2\theta(1-\theta) & 1-2\theta
+        \end{array}
+    \end{align*}
+    其中$0<\theta<\frac{1}{2}$为未知参数,利用总体$X$的如下样本值$3,1,3,0,3,1,2,3$,求$\theta$的矩估计值与最大似然估计值。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2011,数一)设$X_1,X_2,\cdots,X_n$为来自正态总体$N(\mu_0,\sigma^2)$的简单随机样本,其中$\mu_0$已知,$\sigma^2>0$未知,样本均值为$\bar{X}$,样本方差为$S^2$。
+    \begin{enumerate}
+        \item 求$\sigma^2$的最大似然估计量$\hat{\sigma}^2$；
+        \item 求$E(\hat{\sigma}^2)$与$D(\hat{\sigma}^2)$。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item (2022,数一、三)设$X_1,X_2,\cdots,X_n$为来自期望为$\theta$的指数分布总体的简单随机样本,$Y_1,Y_2,\cdots,Y_m$为来自期望为$2\theta$的指数分布总体的简单随机样本,两个样本相互独立。利用$X_1,X_2,\cdots,X_n$与$Y_1,Y_2,\cdots,Y_m$,
+    \begin{enumerate}
+        \item 求$\theta$的最大似然估计量$\hat{\theta}$；
+        \item 求$D(\hat{\theta})$。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{估计量的评价标准}
+
+\begin{enumerate}[label=\arabic*.,start=4]
+    \item 设总体$X$的概率密度为
+    \begin{align*}
+        f(x)=\begin{cases}
+            \frac{2x}{\theta^2}, & 0<x<\theta \\
+            0, & \text{其他}
+        \end{cases}
+    \end{align*}
+    其中$\theta>0$为未知参数,$X_1,X_2,\cdots,X_n$为来自总体$X$的简单随机样本。
+    \begin{enumerate}
+        \item 求$\theta$的最大似然估计量$\hat{\theta}$;
+        \item 问$\hat{\theta}$是否为$\theta$的无偏估计量？并说明理由。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+
+\end{enumerate}
+\ifx\allfiles\undefined
+\end{document}
+\fi
