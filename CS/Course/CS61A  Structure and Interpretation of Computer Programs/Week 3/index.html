@@ -1872,6 +1872,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Data Abstraction and ADT Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-textbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Textbook
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3873,6 +3888,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Data Abstraction and ADT Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-textbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Textbook
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3937,6 +3967,38 @@
 
 <h1 id="week-3">Week 3<a class="headerlink" href="#week-3" title="Permanent link">&para;</a></h1>
 <h2 id="data-abstraction-and-adt-trees">Data Abstraction and ADT Trees<a class="headerlink" href="#data-abstraction-and-adt-trees" title="Permanent link">&para;</a></h2>
+<h3 id="reading-textbook">Reading Textbook<a class="headerlink" href="#reading-textbook" title="Permanent link">&para;</a></h3>
+<p><ins>Data abstraction</ins>  similar in character to functional abstraction,isolates how a compound data value is used from the details of how it is constructed.</p>
+<div class="admonition example">
+<p class="admonition-title">Rational Numbers</p>
+<p><ins>Rational numbers</ins> <code>&lt;numerator&gt;/&lt;denominator&gt;</code></p>
+<ul>
+<li><code>rational(n, d)</code>, return the rational number with numerator n and denominator d --- constructor(构造函数)</li>
+<li><code>numer(x)</code> returns the numerator of the rational number x --- selector(选择器)</li>
+<li><code>denom(x)</code> return the denominator of the rational number x --- selector(选择器)</li>
+</ul>
+<p><ins>wishful thinking</ins> Assuming that we already do something,then we true to do it.
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">C++</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">from</span><span class="w"> </span><span class="n">fractions</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">gcd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">def</span><span class="w"> </span><span class="n">rational</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="o">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="c1">//g, d//g]</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">def</span><span class="w"> </span><span class="n">numer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">def</span><span class="w"> </span><span class="n">numer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div></p>
+</div>
 <h2 id="mutability">Mutability<a class="headerlink" href="#mutability" title="Permanent link">&para;</a></h2>
 <h2 id="iterators-and-generators">Iterators and Generators<a class="headerlink" href="#iterators-and-generators" title="Permanent link">&para;</a></h2>
 
