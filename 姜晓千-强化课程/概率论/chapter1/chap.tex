@@ -31,6 +31,7 @@
     \end{align*}
 
     \begin{solution}
+    \color{blue}
     由加法公式
     $P(A\cup B) = P(A) + P(B) - P(AB)\implies P(AB) = 0$ 
     \newline
@@ -51,6 +52,7 @@
         (A)\ \frac{3}{4} \quad (B)\ \frac{2}{3} \quad (C)\ \frac{1}{2} \quad (D)\ \frac{5}{12}
     \end{align*}
     \begin{solution}
+    \color{blue}
     这种题一般考虑Venn图,比用公式展开简单很多
     \begin{center}
     \begin{tikzpicture}[scale=1.5]
@@ -89,6 +91,7 @@
     \item 设随机事件$A,B$满足$AB=\bar{A}\bar{B}$,且$0<P(A)<1$,$0<P(B)<1$,则$P(A|\bar{B})+P(B|\bar{A})=\_\_\_\_\_$
     
     \begin{solution}
+    \color{blue}
     根据结论,有$A,B$互斥,则$P(A|\bar{B})=P(B|\bar{A})=1$
     \end{solution}
 
@@ -108,6 +111,7 @@
     \item 设随机事件$A,B,C$两两独立,满足$ABC=\varnothing$,且$P(A)=P(B)=P(C)$,$A,B,C$至少有一个发生的概率为$\frac{9}{16}$,则$P(A)=$
     
     \begin{solution}
+    \color{blue}
     由题意有$P(A\cup B\cup C) = \frac{9}{16}$,由加法公式与独立性有
     \begin{align*}
         P(A\cup B\cup C) 
@@ -173,7 +177,8 @@
     \item 条件概率公式\qquad $P(A\mid B)=\frac{P(AB)}{P(B)}$ \\
     推论 $P(AB)=P(B)P(A\mid B), P(A_1A_2\ldots A_n)=P(A_1)P(A_2\mid P(A_1))P(A_3|P(A_1A_2))\ldots$
     \item 全概率公式\qquad $P(A)=\sum_{i=1}^{n}P(AB_i)=\sum_{i=1}^{n}P(B_i)P(A\mid B_i)$
-    \item 贝叶斯公式\qquad $P(B_j\mid A)=\frac{P(B_j)P(A\mid B_j)}{\sum_{i=1}^{n}P(B_i)P(A\mid B_i)}$
+    \item 贝叶斯公式\qquad $P(B_j\mid A)=\frac{P(B_j)P(A\mid B_j)}{\sum_{i=1}^{n}P(B_i)P(A\mid B_i)}$ \\
+    若称$P(B_j)$为$B_j$的先验概率,称$P(B_j\mid A)$为$B_j$的后验概率.则贝叶斯公式专门用于计算后验概率的公式.
 \end{remark}
 
 \begin{enumerate}[label=\arabic*.,start=9]
@@ -285,30 +290,16 @@
 
 \end{enumerate}
 \begin{tcolorbox}[title=两两独立与相互独立]
-    \begin{center}
-    \begin{tikzpicture}[
-    every node/.style={align=center},
-    leftbrace/.style={decorate, decoration={brace, amplitude=10pt, mirror}}, % "{" 开口朝下
-    rightbrace/.style={decorate, decoration={brace, amplitude=10pt}}         % "}" 开口朝上
-    ]
-
-    % 四行内容节点
-    \node (line1) at (0,3) {$P(AB)=P(A)P(B)$};
-    \node (line2) at (0,2) {$P(AC)=P(A)P(C)$};
-    \node (line3) at (0,1) {$P(BC)=P(B)P(C)$};
-    \node (line4) at (0,0) {$P(ABC)=P(A)P(B)P(C)$};
-
-    % 左边的大括号 "{"，包含全部四行
-    \draw [leftbrace] (-3,3) -- (-3,0) node[midway, left=12pt] {};
-
-    % 右边的大括号 "}"，只包含前三行（从第1行到第3行）
-    \draw [rightbrace] (2,3) -- (2,1) node[midway, right=12pt] {};
-
-    % 可选：添加文字标注（如果需要）
-    \node at (3.5, 2) {两两独立};
-    \node at (-4.5, 1.5) {相互独立};
-    \end{tikzpicture}
-    \end{center}
+    \begin{align*}
+        \text{相互独立}\left\{\begin{matrix}
+        \left.\begin{matrix}
+        P(AB)=P(A)P(B) \\
+        P(AC)=P(A)P(C) \\
+        P(BC)=P(B)P(C)
+        \end{matrix}\right\}& \text{两两独立} \\
+        P(ABC)=P(A)P(B)P(C)
+        \end{matrix}\right.
+    \end{align*}
 \end{tcolorbox}
 
 \ifx\allfiles\undefined

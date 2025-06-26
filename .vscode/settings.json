@@ -4,7 +4,8 @@
         "Cramer",
         "leftbrace",
         "numer",
-        "rightbrace"
+        "rightbrace",
+        "xaxis"
     ],
     "html.autoClosingTags": false
 }

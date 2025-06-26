@@ -1,0 +1,263 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+\input{../../config/cover}
+\else
+\fi
+
+\chapter{常微分方程}
+\begin{enumerate}[label=\arabic*.]
+    \item 例1 (1998,数一、数二)已知函数$y=y(x)$在任意点$x$处的增量$\Delta y=\frac{y\Delta x}{1+x^2}+\alpha$,其中$\alpha$是$\Delta x$的高阶无穷小,$y(0)=\pi$,则$y(1)$等于
+    \begin{align*}
+        (A)\ 2\pi \quad (B)\ \pi \quad (C)\ e^{\frac{\pi}{4}} \quad (D)\ \pi e^{\frac{\pi}{4}}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例2 (2002,数二)已知函数$f(x)$在$(0,+\infty)$内可导,$f(x)>0$,$\lim_{x\to+\infty}f(x)=1$,且满足
+    \begin{align*}
+        \lim_{h\to0}\left(\frac{f(x+hx)}{f(x)}\right)^{\frac{1}{h}}=e^{\frac{1}{x}}
+    \end{align*}
+    求$f(x)$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 一阶微分方程的解法}
+
+\begin{remark}[类型一 可分离变量]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=3]
+    \item 例3 (1999,数二)求初值问题
+    \begin{align*}
+        \begin{cases}
+            (y+\sqrt{x^2+y^2})dx-xdy=0 & (x>0) \\
+            y|_{x=1}=0
+        \end{cases}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型二 一阶齐次]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=4]
+    \item 例4 (2010,数二、数三)设$y_1,y_2$是一阶线性非齐次微分方程$y'+p(x)y=q(x)$的两个特解。若常数$\lambda,\mu$使$\lambda y_1+\mu y_2$是该方程的解,$\lambda y_1-\mu y_2$是该方程对应的齐次方程的解,则
+    \begin{align*}
+        (A)\ \lambda=\frac{1}{2},\ \mu=\frac{1}{2} \quad (C)\ \lambda=\frac{2}{3},\ \mu=\frac{1}{3}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型三 一阶线性]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=5]
+    \item 例5 (2018,数一)已知微分方程$y'+y=f(x)$,其中$f(x)$是$\mathbb{R}$上的连续函数。
+    \begin{enumerate}[label=(\roman*)]
+        \item 若$f(x)=x$,求方程的通解；
+        \item 若$f(x)$是周期为$T$的函数,证明：方程存在唯一的以$T$为周期的解。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型四 伯努利方程(数一掌握)]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item 例6 求解微分方程$y'=\frac{y}{x}+\sqrt{\frac{y^2}{x^2}-1}$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型五 全微分方程(数一掌握)]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=7]
+    \item 例7 求解下列微分方程：
+    \begin{align*}
+        (1)\ &(2xe^y+3x^2-1)dx+(x^2e^y-2y)dy=0; \\
+        (2)\ &\frac{2x}{y^3}dx+\frac{y^2-3x^2}{y^4}dy=0.
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{二阶常系数线性微分方程}
+
+\begin{enumerate}[label=\arabic*.,start=8]
+    \item 例8 (2017,数二)微分方程$y''-4y'+8y=e^{2x}(1+\cos2x)$的特解可设为$y^*=$
+    \begin{align*}
+        (A)\ Ae^{2x}+e^{2x}(B\cos2x+C\sin2x) \\
+        (B)\ Axe^{2x}+e^{2x}(B\cos2x+C\sin2x) \\
+        (C)\ Ae^{2x}+xe^{2x}(B\cos2x+C\sin2x) \\
+        (D)\ Axe^{2x}+xe^{2x}(B\cos2x+C\sin2x)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例9 (2015,数一)设$y=\frac{1}{2}e^{2x}+(x-\frac{1}{3})e^x$是二阶常系数非齐次线性微分方程$y''+ay'+by=ce^x$的一个特解,则
+    \begin{align*}
+        (A)\ a=-3,b=2,c=-1 \\
+        (B)\ a=3,b=2,c=-1 \\
+        (C)\ a=-3,b=2,c=1 \\
+        (D)\ a=3,b=2,c=1
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例10 (2016,数二)已知$y_1(x)=e^x$,$y_2(x)=u(x)e^x$是二阶微分方程$(2x-1)y''-(2x+1)y'+2y=0$的两个解。若$u(-1)=e$,$u(0)=-1$,求$u(x)$,并写出该微分方程的通解。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例11 (2016,数一)设函数$y(x)$满足方程$y''+2y'+ky=0$,其中$0<k<1$。
+    \begin{enumerate}[label=(\roman*)]
+        \item 证明反常积分$\int_0^{+\infty}y(x)dx$收敛；
+        \item 若$y(0)=1$,$y'(0)=1$,求$\int_0^{+\infty}y(x)dx$的值。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 高阶常系数线性齐次微分方程}
+
+\begin{enumerate}[label=\arabic*.,start=12]
+    \item 例12 求解微分方程$y^{(4)}-3y''-4y=0$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 二阶可降阶微分方程}
+
+\begin{remark}[方法 数一、数二掌握 数三大纲不要求]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=13]
+    \item 例13 求微分方程$y''(x+y'^2)=y'$满足初始条件$y(1)=y'(1)=1$的特解。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 欧拉方程}
+
+\begin{remark}[方法 数一掌握 数二、数三大纲不要求]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=14]
+    \item 例14 求解微分方程$x^2y''+xy'+y=2\sin\ln x$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 变量代换求解二阶变系数线性微分方程}
+
+\begin{enumerate}[label=\arabic*.,start=17]
+    \item 例17 (2005,数二)用变量代换$x=\cos t(0<t<\pi)$化简微分方程$(1-x^2)y''-xy'+y=0$,并求其满足$y|_{x=0}=1$,$y'|_{x=0}=2$的特解。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 微分方程综合题}
+
+\begin{remark}[类型一 综合导数应用]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=18]
+    \item 例18 (2001,数二)设$L$是一条平面曲线,其上任意一点$P(x,y)(x>0)$到坐标原点的距离,恒等于该点处的切线在$y$轴上的截距,且$L$经过点$(\frac{1}{2},0)$。求曲线$L$的方程。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型二 综合定积分应用]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=19]
+    \item 例19 (2009,数三)设曲线$y=f(x)$,其中$f(x)$是可导函数,且$f(x)>0$。已知曲线$y=f(x)$与直线$y=0$,$x=1$及$x=t(t>1)$所围成的曲边梯形绕$x$轴旋转一周所得的立体体积值是该曲边梯形面积值的$\pi t$倍,求该曲线的方程。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型三 综合变限积分]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=20]
+    \item 例20 (2016,数三)设函数$f(x)$连续,且满足$\int_0^x f(x-t)dt=\int_0^x(x-t)f(t)dt+e^{-x}-1$,求$f(x)$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型四 综合多元复合函数]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=21]
+    \item 例21 (2014,数一、数二、数三)设函数$f(u)$具有二阶连续导数,$z=f(e^x\cos y)$满足
+    \begin{align*}
+        \frac{\partial^2 z}{\partial x^2}+\frac{\partial^2 z}{\partial y^2}=(4z+e^x\cos y)e^{2x}
+    \end{align*}
+    若$f(0)=0$,$f'(0)=0$,求$f(u)$的表达式。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型五 综合重积分]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=22]
+    \item 例22 (2011,数三)设函数$f(x)$在区间$[0,1]$上具有连续导数,$f(0)=1$,且满足
+    \begin{align*}
+        \iint_{D_t} f'(x+y)dxdy=\iint_{D_t} f(t)dxdy
+    \end{align*}
+    其中$D_t=\{(x,y)|0\leq y\leq t-x,0\leq x\leq t\}(0<t\leq1)$,求$f(x)$的表达式。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

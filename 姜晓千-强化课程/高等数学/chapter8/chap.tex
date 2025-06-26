@@ -1,0 +1,130 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+\input{../../config/cover}
+\else
+\fi
+
+\chapter{多元函数积分学}
+\section{三重积分的计算}
+
+\begin{enumerate}[label=\arabic*.]
+    \item 例1 (2013,数一)设直线$L$过$A(1,0,0)$,$B(0,1,1)$两点,将$L$绕$z$轴旋转一周得到曲面$\Sigma$,$\Sigma$与平面$z=0$,$z=2$所围成的立体为$\Omega$.
+    \begin{enumerate}
+        \item[(I)] 求曲面$\Sigma$的方程;
+        \item[(II)] 求$\Omega$的形心坐标.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例2 (2019,数一)设$\Omega$是由锥面$x^{2}+(y-z)^{2}=(1-z)^{2}(0\leq z\leq 1)$与平面$z=0$围成的锥体，求$\Omega$的形心坐标.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{第一类曲线积分的计算}
+
+\begin{enumerate}[label=\arabic*.,start=3]
+    \item 例3 (2018,数一)设$L$为球面$x^2+y^2+z^2=1$与平面$x+y+z=0$的交线，则$\oint_L xy ds=$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例4 设连续函数$f(x,y)$满足$f(x,y)=(x+3y)^2+\int_L f(x,y) ds$，其中$L$为曲线$y=\sqrt{1-x^2}$，求曲线积分$\int_L f(x,y) ds$.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{第二类曲线积分的计算}
+
+\begin{remark}[类型一 平面第二类曲线积分]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=5]
+    \item 例5 (2021,数一)设$D\subset \mathbb{R}^2$是有界单连通闭区域，$I(D)=\iint_D(4-x^2-y^2)dxdy$取得最大值的积分域记为$D_1$.
+    \begin{enumerate}
+        \item[(I)] 求$I(D_1)$的值;
+        \item[(II)] 计算$\oint_{\partial D_1}\frac{(xe^{x^2+4y^2}+y)dx+(4ye^{x^2+4y^2}-x)dy}{x^2+4y^2}$，其中$\partial D_1$是$D_1$的正向边界.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}[类型二 空间第二类曲线积分]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item 例6 (2011,数一)设$L$是柱面$x^2+y^2=1$与平面$z=x+y$的交线，从$z$轴正向往$z$轴负向看去为逆时针方向，则曲线积分$\oint_L xz dx+xdy+\frac{y^2}{2}dz=$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{第一类曲面积分的计算}
+
+\begin{remark}[方法]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=7]
+    \item 例7 (2010,数一)设$P$为椭球面$S:x^2+y^2+z^2-yz=1$上的动点，若$S$在点$P$的切平面与$xOy$面垂直，求$P$点的轨迹$C$，并计算曲面积分
+    \begin{align*}
+    I=\iint_{\Sigma}\frac{(x+\sqrt{3})|y-2z|}{\sqrt{4+y^2+z^2-4yz}}dS,
+    \end{align*}
+    其中$\Sigma$是椭球面$S$位于曲线$C$上方的部分.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{第二类曲面积分的计算}
+
+\begin{remark}[方法]
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=8]
+    \item 例8 (2009,数一)计算曲面积分
+    \begin{align*}
+    I=\oint_{\Sigma}\frac{xdydz+ydzdx+zdxdy}{(x^2+y^2+z^2)^{\frac{3}{2}}},
+    \end{align*}
+    其中$\Sigma$是曲面$2x^2+2y^2+z^2=4$的外侧.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例9 计算
+    \begin{align*}
+    \iint_{\Sigma}\frac{axdydz+(z+a)^2dxdy}{(x^2+y^2+z^2)^2},
+    \end{align*}
+    其中$\Sigma$为下半球面$z=-\sqrt{a^2-x^2-y^2}$的上侧，$a$为大于零的常数.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例10 (2020,数一)设$\Sigma$为曲面$z=\sqrt{x^2+y^2}(1\leq x^2+y^2\leq 4)$的下侧，$f(x)$为连续函数，计算
+    \begin{align*}
+    I=\iint_{\Sigma}[xf(xy)+2x-y]dydz+[yf(xy)+2y+x]dzdx+[zf(xy)+z]dxdy.
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

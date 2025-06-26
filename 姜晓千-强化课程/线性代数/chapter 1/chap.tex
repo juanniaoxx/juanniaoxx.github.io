@@ -8,10 +8,9 @@
 \else
 \fi
 \chapter{行列式}
-\begin{remark}
-    主要内容
-    $$
-\left\{\begin{matrix}
+
+$$
+\text{行列式的主要内容}\left\{\begin{matrix}
     \text{行列式的概念}&\left\{\begin{matrix}
     \text{定义}& n!\text{项不同行不同列元素乘积的代数和} \\
     \text{性质}&
@@ -46,21 +45,45 @@
     \text{Cramer法则}& x_1=\frac{D_1}{D},x_2=\frac{D_2}{D},\ldots,x_n\frac{D_n}{D}
 \end{matrix}\right.
 $$
-\end{remark}
+\newpage
 
+拉普拉斯展开式(上,下三角分块行列式的结论)
+$$
+D = 
+\begin{vmatrix}
+A & C \\
+\mathbf{0}& D  
+\end{vmatrix} 
+= \begin{vmatrix}
+A & \mathbf{0} \\
+C & D
+\end{vmatrix}
+= \det{(A)}\det{(D)} \\
+$$
+\text{对于一般分块矩阵}
+$$
+A = \begin{pmatrix}
+B & C \\
+D & E
+\end{pmatrix} 
+$$
+若B可逆,则有如下结论
+$$
+\det(A) = \det(B) \cdot \det(E - D B^{-1} C)
+$$
 
 \section{数字行列式的计算}
 \begin{remark}
-    利用行列式的性质(5条)来化简
-    
-    \item [1.] 出现充要行列式(5组) 
-    \item [2.] 展开定理(0比较多的时候)
+    基本方法
+    \item [(1)]利用行列式的性质(5条)来化简
+    \item [(2)] 要么出现重要行列式(5组) 
+    \item [(3)] 要么展开定理(0比较多的时候)
 \end{remark}
 \begin{enumerate}[label=\arabic*.]
     % 例题1.1
     \item 设
     \begin{align*}
-    f(x)=\left|\begin{array}{lllll}
+    f(x)=\left|\begin{array}{llll}
     x-2 & x-1 & x-2 & x-3 \\
     2 x-2 & 2 x-1 & 2 x-2 & 2 x-3 \\
     3 x-3 & 3 x-2 & 4 x-5 & 3 x-5 \\
@@ -69,27 +92,47 @@ $$
     \end{align*}
     则方程 $f(x)=0$ 根的个数为\_\_\_\_ 
     \begin{solution}
+    \color{blue}
     第一列乘$-1$加到其他列
     \begin{align*}
-    f(x) &\xlongequal{\text{第一列乘-1加到其他列上面去}}{}\left|\begin{array}{lllll}
+    f(x) &\xlongequal{\text{第一列乘-1加到其他列上面去}}{}\left|\begin{array}{llll}
     x-2 & 1 & 0 & -1 \\
     2 x-2 & 1 & 0 & -1 \\
     3 x-3 & 1 &  x-2 &  -2 \\
     4 x & 4 -3 & x-7 & -3
     \end{array}\right| \\
-    &\xlongequal{\text{第二列加到第四列}}{}\left|\begin{array}{lllll}
+    &\xlongequal{\text{第二列加到第四列}}{}\left|\begin{array}{rr|rr}
     x-2 & 1 & 0 & 0 \\
     2 x-2 & 1 & 0 & 0 \\
+    \hline
     3 x-3 & 1 &  x-2 &  -1 \\
     4 x & -3 & x-7 & -6
     \end{array}\right| \\
-    &\xlongequal{\text{拉普拉斯型}}{} = -x(-5x+5) = 0
+    &\xlongequal{\text{拉普拉斯型}}{}\left|\begin{array}{ll}
+        x-2 & 1 \\
+        2x-2 & 1
+    \end{array} \right|
+    \left|\begin{array}{ll}
+        x-2 & -1 \\
+        x-7 & -6
+    \end{array} \right| \\
+    & = [(x-2)-(2x-2)][-6(x-2)+(x-7)] = 15x(x-1) 
     \end{align*}
     则$x=0$或$x=1$
     \end{solution}
     
     % 例题1.2
     \item 利用范德蒙行列式计算 
+    \begin{align*}
+    \text{范德蒙行列式}
+    V(x_1, x_2, \ldots, x_n) = \begin{vmatrix}
+    1 & x_1 & x_1^2 & \cdots & x_1^{n-1} \\
+    1 & x_2 & x_2^2 & \cdots & x_2^{n-1} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    1 & x_n & x_n^2 & \cdots & x_n^{n-1}
+    \end{vmatrix}=\prod_{1 \leq i < j \leq n} (x_j - x_i)
+    \end{align*}
+
     \begin{align*}
     \left|\begin{array}{lll}
     a & a^2 & bc \\
@@ -99,6 +142,7 @@ $$
     \end{align*}
     
     \begin{solution}
+    \color{blue}
     \begin{align*}
     \text{原式} &\xlongequal{\text{第一列乘以(a+b+c)加到第三列}}\left|\begin{array}{lll}
     a & a^2 & a^2 + ac + ab + bc \\
@@ -113,7 +157,7 @@ $$
     &= (ac+bc+ab)(b-a)(c-a)(c-b)
     \end{align*}
     \end{solution}
-    
+
     % 例题1.3
     \item 设 \( {x}_{1}{x}_{2}{x}_{3}{x}_{4} \neq  0 \) ,则 
     \( \left| \begin{matrix} 
@@ -124,6 +168,7 @@ $$
     \end{matrix}\right|  = \) \_\_\_\_.
     
     \begin{solution}
+    \color{blue}
     考虑加边法,为该行列式增加一行一列,变成如下行列式 
     \begin{align*}
     \text{原行列式} 
@@ -182,6 +227,7 @@ $$
     \end{align*}
     
     \begin{solution}
+    \color{blue}
     \item [(方法一) 递推法] 
     \begin{align*}
         D_1&=\alpha+\beta \\
@@ -207,16 +253,24 @@ $$
     \item [(方法三) 二阶差分方程]
     \begin{align*}
         & D_n - (\alpha+\beta)D_{n-1} + \alpha\beta D_{n-2} = 0 \\
-        & D_{n+2}-(\alpha+\beta)D_{n+1} + \alpha\beta D_{n} = 0 \\
-        &\text{类似于二阶微分方程解特征方程} \\
+        & D_{n+2}-(\alpha+\beta)D_{n+1} + \alpha\beta D_{n} = 0 
+    \end{align*}
+    \text{类似于二阶微分方程解特征方程}
+    \begin{align*}
         & r^2 - (\alpha+\beta) r + \alpha\beta = 0 \\
-        & r_1 = \alpha r_2 = \beta \\
-        & \text{如果}\ \alpha=\beta, \text{差分方程的关键}r^n\text{代换}e^{rx} \\
+        & r_1 = \alpha\qquad r_2 = \beta
+    \end{align*}
+    \text{差分方程的关键}$r^n$\text{代换}$e^{rx}$ \\
+    \text{如果}\ $\alpha=\beta$
+    \begin{align*}
         & D_n=(C_1+C_2n)\alpha^n, D_1 = 2\alpha, D_2 = 3\alpha^2 \\
-        & \text{得到}C_1=C_2=1,{故}D_n=(n+1)\alpha^n \\
-        & \text{如果} \alpha\neq\beta \\
+        & \text{得到}C_1=C_2=1,{故}D_n=(n+1)\alpha^n 
+    \end{align*}
+    \text{如果} $\alpha\neq\beta$ 
+    \begin{align*}
         &D_n=C_1\alpha^n+C_2\beta^n, \text{由}D_1 = 2\alpha, D_2 = 3\alpha^2 \\
-        &C_1 = \frac{\alpha}{\alpha - \beta}, C_2=\frac{-\beta}{\alpha-\beta}
+        &C_1 = \frac{\alpha}{\alpha - \beta}, C_2=\frac{-\beta}{\alpha-\beta} \\
+        &D_n= \frac{\alpha^{n+1}-\beta^{n+1}}{\alpha-\beta}
     \end{align*}
     \end{solution}
 \end{enumerate}
@@ -247,7 +301,15 @@ $$
 \end{corollary}
 \section{代数余子式求和}
 
-\begin{enumerate}[label=\arabic*.,start=4]
+\begin{remark}
+    代数余子式求和的基本办法
+    \item [(1)] 代数余子式的定义(求一个的时候使用)
+    \item [(2)] 展开定理(求一行或者一列的时候使用)
+    \item [(3)] 利用伴随矩阵的定义(求全部代数余子式的时候使用)
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=5]
+    % 例题1.5
     \item 已知 
     \begin{align*}
     |A|=\left|\begin{array}{lllll}
@@ -261,54 +323,193 @@ $$
     则 $A_{41}+A_{42}+A_{43}=$ \underline{\hspace{3cm}}, $A_{44}+A_{45}=$ \underline{\hspace{3cm}}
     
     \begin{solution}
-    【详解】
+    \item {(方法一)}
+    利用展开定理构建新的矩阵来计算
+        \begin{align*}
+    A_{41}+A_{42}+A_{43} &=\left|\begin{array}{lllll}
+    1 & 2 & 3 & 4 & 5 \\
+    2 & 2 & 2 & 1 & 1 \\
+    3 & 1 & 2 & 4 & 5 \\
+    1 & 1 & 1 & 0 & 0 \\
+    4 & 3 & 1 & 5 & 0
+    \end{array}\right| \\
+    A_{44}+A_{45}&=\left|\begin{array}{lllll}
+    1 & 2 & 3 & 4 & 5 \\
+    2 & 2 & 2 & 1 & 1 \\
+    3 & 1 & 2 & 4 & 5 \\
+    0 & 0 & 0 & 1 & 1 \\
+    4 & 3 & 1 & 5 & 0
+    \end{array}\right|
+    \end{align*}
+    但这样$\left|A\right|=27$的条件就没用到
+    \item {(方法二)}
+    
+    \text{直接对第四行使用展开定理,则}
+    $$\left|A\right| = A_{41} + A_{42} + A_{43} + 2A_{44} + 2A_{45} = 27$$
+    \text{直接对第二行使用展开定理,则}
+    $$\left|A\right| = 2A_{41} + 2A_{42} + 2A_{43} + A_{44} + A_{45} = 0$$
+    相当于解$A+2B=27, 2A+B = 0$,容易计算$A_{41} + A_{42} + A_{43} = -9, A_{44} + A_{45} = 18$
     \end{solution}
     
+    % 例题1.6
     \item 设 
     \begin{align*}
     A=\begin{pmatrix}
-    0 & 0 & \cdots & 0 & 1 \\
-    0 & 0 & \cdots & 2 & 0 \\
-    \vdots & \vdots & \ddots & \vdots & \vdots \\
-    0 & n-1 & \cdots & 0 & 0 \\
-    n & 0 & \cdots & 0 & 0
+    0 & 1 & 0 & \cdots & 0\\
+    0 & 0 & 2 &\cdots & 0 \\
+    \vdots & \vdots & \vdots & \ddots &\vdots  \\
+    0 & 0 & 0&\cdots & n-1\\
+    n & 0 & 0&\cdots & 0 
     \end{pmatrix}
     \end{align*}
     则 $|A|$ 的所有代数余子式的和为\underline{\hspace{3cm}}
     
     \begin{solution}
-    【详解】
+    对于求所有代数余子,基本都是考察$A^{*}$的定义,即
+    \[
+    A^* = \begin{pmatrix}
+    C_{11} & C_{21} & \cdots & C_{n1} \\
+    C_{12} & C_{22} & \cdots & C_{n2} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    C_{1n} & C_{2n} & \cdots & C_{nn}
+    \end{pmatrix},
+    \]
+    又由于$A^{*}=\left|A\right|A^{-1}$,对于这道题
+    \[
+    \left|A\right|=(-1)^{(n+1)}n!
+    \]
+    $A^{-1}$可以通过分块矩阵来求
+    \begin{align*}
+    |A|A^{-1} 
+    &=|A|\left(
+    \begin{array}{r|rrrr}
+    0 & 1 & 0 & \cdots & 0\\
+    0 & 0 & 2 &\cdots & 0 \\
+    \vdots & \vdots & \vdots & \ddots &\vdots  \\
+    0 & 0 & 0&\cdots & n-1\\
+    \hline
+    n & 0 & 0&\cdots & 0 
+    \end{array}\right)^{-1} \\
+    &=|A|\left(
+    \begin{array}{l|l}
+    0 & \frac{1}{n} \\
+    \hline
+    diag(1,\frac{1}{2},\ldots,\frac{1}{n-1}) & 0
+    \end{array}\right) \\
+    &= \left(
+    \begin{array}{l|l}
+    0 & \frac{1}{n} |A| \\
+    \hline
+    diag(|A|,\frac{|A|}{2},\ldots,\frac{|A|}{n-1}) & 0
+    \end{array}\right)
+    \end{align*}
+    则所有代数余子式之和为$$(-1)^{(n+1)}n!\sum_{i=1}^{n}{\frac{1}{i}}$$
     \end{solution}
 \end{enumerate}
 
 \section{抽象行列式的计算}
-
-\begin{enumerate}[label=\arabic*.,start=6]
+\begin{remark}
+    抽象行列式的计算方法
+    \item [(1)] 通过行列式的性质
+    \item [(2)] 行列式的公式(7个)
+\end{remark}
+\begin{enumerate}[label=\arabic*.,start=7]
+    % 例题1.7
     \item (2005,数一、二) 设 $\alpha_1,\alpha_2,\alpha_3$ 均为 3维列向量, $A=(\alpha_1,\alpha_2,\alpha_3)$,
     $B=(\alpha_1+\alpha_2+\alpha_3,\alpha_1+2\alpha_2+4\alpha_3,\alpha_1+3\alpha_2+9\alpha_3)$.若 $|A|=1$,则 $|B|=$ \underline{\hspace{3cm}}
     
     \begin{solution}
-    【详解】
+    \item [(方法一 利用性质)]
+    \begin{align*}
+        B &=(\alpha_1+\alpha_2+\alpha_3,\alpha_1+2\alpha_2+4\alpha_3,\alpha_1+3\alpha_2+9\alpha_3) \\
+        &= (\alpha_1+\alpha_2+\alpha_3, \alpha_2+3\alpha_3, \alpha_2+5\alpha_3) \\
+        &= 2(\alpha_1+\alpha_2+\alpha_3, \alpha_2+3\alpha_3, \alpha_3) \\
+        &= 2(\alpha_1,\alpha_2,\alpha_3) \\
+        \left|B\right| &= 2\left|A\right| = 2
+    \end{align*}
+    \item [(方法二 分块矩阵)]
+    \begin{align*}
+        B &= (\alpha_1,\alpha_2,\alpha_3)\left(\begin{array}{rrr}
+            1 &1 &1 \\
+            1 &2 &3 \\
+            1 &3 &9
+        \end{array}\right) \\
+        |B| &= |A|\left|\begin{array}{rrr}
+            1 &1 &1 \\
+            1 &2 &3 \\
+            1 &3 &9
+        \end{array}
+        \right| = |A|(2-1)(3-1)(3-2) = 2
+    \end{align*}
     \end{solution}
     
+    % 例题1.8
     \item 设 A为 n阶矩阵, $\alpha,\beta$ 为 n维列向量.若 $|A|=a$,
     $\left|\begin{array}{ll}A & \alpha \\ \beta^{T} & b\end{array}\right|=0$,则
     $\left|\begin{array}{ll}A & \alpha \\ \beta^{T} & c\end{array}\right|=$ \underline{\hspace{3cm}}
     
     \begin{solution}
-    【详解】
+    这道题的关键在于巧妙构建行列式的和
+    \begin{align*}
+        \left|\begin{array}{rr}
+            A & \alpha \\
+            \beta^{T} & c\\
+        \end{array} 
+        \right| 
+        &= \left|\begin{array}{rr}
+            A & \alpha + 0 \\
+            \beta^{T} & b + c -b\\
+        \end{array}\right|  \\
+        &=\left|\begin{array}{rr}
+            A & \alpha \\
+            \beta^{T} & b\\
+        \end{array}\right| + 
+        \left|\begin{array}{rr}
+            A & 0 \\
+            \beta^{T} & c-b\\
+        \end{array}\right| \\
+        &=\left|A\right|(c-b) = a(c-b)
+    \end{align*}
     \end{solution}
     
-    \item 设 A为 2阶矩阵, $B=\begin{pmatrix}2 & 4 \\ 2 & 2\end{pmatrix}A^2$.若 $|A|=-1$,则 $|B|=$ \underline{\hspace{3cm}}
+    % 例题1.9
+    \item 设 A为 2阶矩阵, 
+    $B=2\left(
+    \begin{array}{ll}
+        (2A)^{-1}-(2A)^* & 0 \\
+        0 & A
+    \end{array}\right)
+    $
+    若 $|A|=-1$,则 $|B|=$ \underline{\hspace{3cm}}
     
     \begin{solution}
-    【详解】
+    这道题比较纯粹就是行列式公式的应用
+    \begin{align*}
+        \left|B\right| &= 2^4\left|A\right|\cdot\left|(2A)^{-1}-(2A)^{*}\right| \\
+        &= 2^4\left|A\right|\cdot\left|\frac{1}{2}A^{-1}-2A^{*}\right| \\
+        &= 2^4\left|\frac{1}{2}E-2|A|\right| = 100
+    \end{align*}
     \end{solution}
-    
+    % 例题1.10
     \item  设 n阶矩阵 A满足 $A^2=A$, $A\neq E$,证明 $|A|=0$
     
     \begin{solution}
-    【详解】
+    这道题还是比较综合的(或许更应该说可以从不同的角度思考问题,这也是线代的核心思想)
+    但有几个易错点需要注意.
+    \begin{tcolorbox}[title=易错点]
+        由$|A|^2=|A|\implies |A|=1\text{或}=0$,又$A\neq E\implies |A|\neq 1$,故$|A| = 0$
+        注意矩阵不等关系是无法推出行列式的不等关系的,矩阵式数表只要顺序不同就不一样,但不一样的矩阵其行列式完全有可能相等.\\
+        等于1的矩阵并非只能是$E$
+    \end{tcolorbox}
+    \item [(方法一,反证法)]
+    若$|A|\neq 0$,则$A$可逆,对于等式$A^2=A$两边同乘$A^{-1}$,则$A=E$与题设矛盾,故$|A|\neq 0$
+    \item [(方法二,秩)] 
+    由于$A(A-E)=0\implies r(A)+r(A-E)\leq n,$又$A\neq E, r(A-E)\geq 1,$故$r(A)\leq n$,故$|A|=0$
+    \item [(方法三,方程组)]
+    由于$A(A-E)=0$,且$A\neq E$可知方程$AX=0$有非零解即$(A-E)中的非零列$,故$r(A)<n,|A|=0$
+    \item [(方法四,特征值与特征向量)]
+    由于$A(A-E)=0,A\neq E$,取$A-E$的非零列向量$\beta\neq 0,A\beta=0$故由特征值与特征值向量的定义,$A$由特征值$0$,而
+    $|A|=\prod_{i=1}^{n}\lambda_i=0$
     \end{solution}
 \end{enumerate}
 

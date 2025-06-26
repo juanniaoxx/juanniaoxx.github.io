@@ -1,0 +1,27 @@
+\input{\path/package.tex}
+
+% 定理环境设置
+\input{\path/theorem1.tex}
+
+\input{\path/custom.tex}
+
+% 修改参数改变封面样式，0 默认原始封面、内置其他1、2、3种封面样式
+\def\myIndex{0}
+
+
+\ifnum\myIndex>0
+    \input{\path/cover_package_\myIndex} 
+\fi
+
+\def\myTitle{错题集}
+\def\myAuthor{Weary Bird}
+\def\myDateCover{\today}
+\def\myDateForeword{\today}
+\def\myForeword{梅花引·荆溪阻雪}
+\def\myForewordText{
+白鸥问我泊孤舟，是身留，是心留？心若留时，何事锁眉头？风拍小帘灯晕舞，对闲影，冷清清，忆旧游。\\
+旧游旧游今在否？花外楼，柳下舟。梦也梦也，梦不到，寒水空流。
+漠漠黄云，湿透木棉裘。都道无人愁似我，今夜雪，有梅花，似我愁。
+}
+\def\mySubheading{数学笔记}
+

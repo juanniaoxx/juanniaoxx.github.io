@@ -1,0 +1,293 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+\input{../../config/cover}
+\else
+\fi
+
+\chapter{函数 极限 连续}
+\section{函数的性态}
+\begin{remark}(有界性的判定)
+    \item 连续函数在闭区间$[a,b]$上必然有界 
+
+    \item 连续函数在开区间$(a,b)$上只需要判断端点处的左右极限,若$\lim_{x\to a^{+}}\neq \infty$ 且
+    $\lim_{x\to b^{-}}\neq \infty$,则连续函数在该区间内有界.
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.]
+    \item  下列函数无界的是
+    \begin{align*}
+        (\text{A})&\quad f(x)=\frac{1}{x}\sin x, x\in(0,+\infty) \\
+        (\text{B})&\quad f(x)=x\sin\frac{1}{x}, x\in(0,+\infty) \\
+        (\text{C})&\quad f(x)=\frac{1}{x}\sin\frac{1}{x}, x\in(0,+\infty) \\
+        (\text{D})&\quad f(x)=\int_0^x\frac{\sin t}{t} dt, x\in(0,2022)
+    \end{align*}
+    
+    \begin{solution}
+    \item[(A)] $\lim_{x\to 0^{+}}f(x)=1$, $\lim_{x\to +\infty}=0$均为有限值,故A在区间$(0, +\infty)$有界
+    \item[(B)] $\lim_{x\to 0^{+}}f(x)=0$, $\lim_{x\to +\infty}=1$均为有限值,故B在区间$(0, +\infty)$有界
+    \item[(C)] $\lim_{x\to 0^{+}}f(x)=+\infty$, $\lim_{x\to +\infty}=0$在0点的极限不为有限值,故C在区间$(0, +\infty)$无界
+    \item[(D)] $\lim_{x\to 0^{+}}f(x)=\lim_{x\to 0^{+}}\int_{0}^{x}1dt=0$, 
+    $\lim_{x\to 2022^{-}}f(x)=\int_{0}^{2022}\frac{\sin{t}}{t}dt=\text{有限值}$ 故D在区间$(0, 2022)$有界
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}(导函数与原函数的奇偶性与周期性)
+    \item 连续奇函数的所有原函数$\int_{0}^{x}f(t)dt+C$都是偶函数 
+
+    \item 连续偶函数仅有一个原函数$\int_{0}^{x}f(t)\d t$为奇函数
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=2]
+    \item  (2002,数二)设函数$f(x)$连续,则下列函数中,必为偶函数的是
+    \begin{align*}
+        (\text{A})&\quad \int_0^x f(t^2) dt \\
+        (\text{B})&\quad \int_0^x f^2(t) dt \\
+        (\text{C})&\quad \int_0^x t[f(t)-f(-t)] dt \\
+        (\text{D})&\quad \int_0^x t[f(t)+f(-t)] dt
+    \end{align*}
+    
+    \begin{solution}
+    这种题可以采用奇偶性的定义直接去做,如下面选项A,B的解法,也可以按照上述的函数奇偶性的性质判断
+    \item [(A)] 令$F(x) = \int_0^x f(t^2) dt$
+    \[
+    F(-x)=\int_0^{-x} f(t^2) dt=-\int_0^x f(t^2) dt=-F(x)
+    \]
+    则A选项是奇函数
+    \item [(B)] 
+    \[
+    F(-x)=\int_0^{-x} f^2(t) dt = -\int_0^x f^2(-t) dt
+    \]
+    推导不出B的奇偶性
+    \item [(C)] $t[f(t)-f(-t)]$是一个偶函数,故C选项是一个奇函数
+    \item [(D)] $t[f(t)+f(-t)]$是一个奇函数,故D选项是一个偶函数
+    \end{solution}
+\end{enumerate}
+
+\section{极限的概念}
+\begin{definition}[函数极限的定义]
+    设函数 $f(x)$ 在点 $x_0$ 的某去心邻域内有定义。若存在常数 $A$，使得对于任意给定的正数 $\epsilon$，总存在正数 $\delta$，使得当 $x$ 满足
+    \[
+    0 < |x - x_0| < \delta
+    \]
+    时，必有
+    \[
+    |f(x) - A| < \epsilon
+    \]
+    则称 $A$ 为函数 $f(x)$ 当 $x$ 趋近于 $x_0$ 时的极限，记作
+    \[
+    \lim_{x \to x_0} f(x) = A
+    \]
+    或
+    \[
+    f(x) \to A \quad (x \to x_0).
+    \]
+\end{definition}
+\begin{enumerate}[label=\arabic*.,start=3]
+    \item  (2014,数三)设$\lim_{n\to\infty} a_n = a$,且$a \neq 0$,则当$n$充分大时有
+    \begin{align*}
+        (\text{A}) |a_n| > \frac{|a|}{2} \qquad
+        (\text{B}) |a_n| < \frac{|a|}{2} \qquad
+        (\text{C}) a_n > a - \frac{1}{n} \qquad
+        (\text{D}) a_n < a + \frac{1}{n}
+    \end{align*}
+    
+    \begin{solution}
+    由数列极限的定义可知当n充分大的时候有$\left|a_n-a\right|<\epsilon$
+    \newline 考虑选项C,D,令$\epsilon=\frac{1}{n}$
+    则$\left|a_n-a\right|<\frac{1}{n} \implies a-\frac{1}{n}<a_n<a+\frac{1}{n}$
+    \end{solution}
+\end{enumerate}
+
+\section{函数极限的计算}
+这一个题型基本上是计算能力的考察,对于常见未定式其实也没必要区分的那么明显,目标都是往最简单$\frac{0}{0}$或者
+$\frac{\cdot}{\infty}$模型上面靠,辅助以Taylor公式,拉格朗日中值定理结合夹逼准则来做就可以.
+\begin{remark}(类型一 $\frac{0}{0}$型)
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=4]
+    \item  (2000,数二)若$\lim_{x\to0}\frac{\sin6x+xf(x)}{x^3}=0$,则$\lim_{x\to0}\frac{6+f(x)}{x^2}$为
+    \begin{align*}
+        (\text{A})&\ 0 \qquad (\text{B})\ 6 \qquad (\text{C})\ 36 \qquad (\text{D})\ \infty
+    \end{align*}
+    
+    \begin{solution}
+    这个题第一次见可能想不到,但做多了就一个套路用Taylor就是了.
+
+    $\sin{6x}=6x-36x^2+o(x^3)$,带入题目极限有
+    \[
+    \lim_{x\to 0}\frac{6x+xf(x)+o(x^3)}{x^3} = \lim_{x\to 0}\frac{6x+xf(x)}{x^3} = 36
+    \]
+    \end{solution}
+    
+    \item  (2002,数二)设$y=y(x)$是二阶常系数微分方程$y''+py'+qy=e^{3x}$
+    满足初始条件$y(0)=y'(0)=0$的特解,
+    则当$x\to0$时,函数$\frac{\ln(1+x^2)}{y(x)}$的极限
+    \newline
+    \text{(A)}不等于\qquad \text{(B)}等于1\qquad \text{(C)}等于2\qquad \text{(D)}等于3
+    
+    \begin{solution}
+    由微分方程和$y(0)=y'(0)=0$可知$y''(0)=1$,则$y(x)=\frac{1}{2}x^2+o(x^2)$,则
+    \[
+    \lim_{x\to 0}\frac{\ln(1+x^2)}{y(x)} = \lim_{x\to 0}\frac{x^2}{\frac{1}{2}x^2} = 2
+    \]
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}(类型二 $\frac{\infty}{\infty}$型)
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item  (2014,数一、数二、数三)求极限
+    \[
+    \lim_{x\to \infty}\frac{\int_{1}^{x}\left[t^2(e^{\frac{1}{t}} - 1) - t\right]dt}
+    {x^2\ln{(1+\frac{1}{x})}}
+    \]
+    \begin{solution}
+    \begin{align*}
+        \lim_{x\to \infty}\frac{\int_{1}^{x}\left[t^2(e^{\frac{1}{t}} - 1) - t\right]dt}
+        {x} &= \lim_{x\to \infty} x^2(e^{\frac{1}{x}}-1)-x \\
+        & =\lim_{t\to 0}\frac{e^t-1-x}{x^2} \\
+        & = \frac{1}{2}
+    \end{align*}
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}(类型三 $0\cdot\infty$型)
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=7]
+    \item  求极限$\lim_{x\to0^+}\ln(1+x)\ln\left(1+e^{1/x}\right)$
+    
+    \begin{solution}
+    
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}(类型四 $\infty-\infty$型)
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=8]
+    \item  求极限$\lim_{x\to\infty}\left(x^3\ln\frac{x+1}{x-1}-2x^2\right)$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}(类型五 $0^0$与$\infty^0$型)
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=9]
+    \item  (2010,数三)求极限$\lim_{x\to+\infty}\left(x^{1/x}-1\right)^{1/\ln x}$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\begin{remark}(类型六 $1^\infty$型)
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=10]
+    \item  求极限$\lim_{x\to0}\left(\frac{a^x+a^{2x}+\cdots+a^{nx}}{n}\right)^{1/x}\ (a>0,n\in\mathbb{N})$
+    
+    \begin{solution}
+    
+    \end{solution}
+\end{enumerate}
+
+\section{已知极限反求参数}
+\begin{remark}(方法)
+
+\end{remark}
+
+\begin{enumerate}[label=\arabic*.,start=11]
+    \item  (1998,数二)确定常数$a,b,c$的值,使$\lim_{x\to0}\frac{ax-\sin x}{\int_b^x\frac{\ln(1+t^3)}{t}dt}=c\ (c\neq0)$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{无穷小阶的比较}
+\begin{remark}(方法)
+\end{remark}
+\begin{enumerate}[label=\arabic*.,start=12]
+    \item  (2002,数二)设函数$f(x)$在$x=0$的某邻域内具有二阶连续导数,且$f(0)\neq0$,$f'(0)\neq0$,$f''(0)\neq0$。证明：存在唯一的一组实数$\lambda_1,\lambda_2,\lambda_3$,使得当$h\to0$时,$\lambda_1f(h)+\lambda_2f(2h)+\lambda_3f(3h)-f(0)$是比$h^2$高阶的无穷小。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2006,数二)试确定$A,B,C$的值,使得$e^x(1+Bx+Cx^2)=1+Ax+o(x^3)$,其中$o(x^3)$是当$x\to0$时比$x^3$高阶的无穷小量。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2013,数二、数三)当$x\to0$时,$1-\cos x\cdot\cos2x\cdot\cos3x$与$ax^n$为等价无穷小,求$n$与$a$的值。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{数列极限的计算}
+\begin{remark}(方法)
+\end{remark}
+\begin{enumerate}[label=\arabic*.,start=15]
+    \item  (2011,数一、数二)
+    \begin{enumerate}[label=(\roman*)]
+        \item 证明：对任意正整数$n$,都有$\frac{1}{n+1}<\ln\left(1+\frac{1}{n}\right)<\frac{1}{n}$
+        \item 设$a_n=1+\frac{1}{2}+\cdots+\frac{1}{n}-\ln n\ (n=1,2,\cdots)$,证明数列$\{a_n\}$收敛。
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2018,数一、数二、数三)设数列$\{x_n\}$满足：$x_1>0$,$x_ne^{x_{n+1}}=e^{x_n}-1\ (n=1,2,\cdots)$。证明$\{x_n\}$收敛,并求$\lim_{n\to\infty}x_n$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2019,数一、数三)设$a_n=\int_0^1 x^n\sqrt{1-x^2}dx\ (n=0,1,2,\cdots)$。
+    \begin{enumerate}[label=(\roman*)]
+        \item 证明数列$\{a_n\}$单调减少,且$a_n=\frac{n-1}{n+2}a_{n-2}\ (n=2,3,\cdots)$
+        \item 求$\lim_{n\to\infty}\frac{a_n}{a_{n-1}}$
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item  (2017,数一、数二、数三)求$\lim_{n\to\infty}\sum_{k=1}^n\frac{k}{n^2}\ln\left(1+\frac{k}{n}\right)$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{间断点的判定}
+
+\begin{enumerate}[label=\arabic*.,start=19]
+    \item  (2000,数二)设函数$f(x)=\frac{x}{a+e^{bx}}$在$(-\infty,+\infty)$内连续,且$\lim_{x\to-\infty}f(x)=0$,则常数$a,b$满足
+    \begin{align*}
+        (\text{A})&\ a<0,b<0 \quad (\text{B})\ a>0,b>0 \\
+        (\text{C})&\ a\leq0,b>0 \quad (\text{D})\ a\geq0,b<0
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

@@ -1,0 +1,121 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+\input{../config/cover}
+\else
+\fi
+\chapter{补充知识-概率论} 
+\begin{tcolorbox}
+    补充知识来自于 \\
+    (1) 概率论与数理统计\qquad 茆诗松  \\
+    (2) 做题总结
+\end{tcolorbox}
+
+\section{配对问题}
+    问题描述:在一个有n个人参加的晚会,每个人带来一件礼物,且规定每个人带的礼物都不相同.晚会期间各人从放在一起的
+    n件礼物中随机抽取一件,问至少有一个人自己抽到自己的礼物的概率是多少?
+
+    \begin{solution}
+        (配对问题) \\ 
+        设$A_i$为事件:第$i$个人自己抽到自己的礼物,$i=1,2,\ldots,n$所求概率为
+        \begin{align*}
+        & P(A_1) = P(A_2) = \ldots = P(A_n) = \frac{1}{n} \\
+        & P(A_1A_2) = P(A_1A_3) =\ldots=P(A_{n-1}A_n)=\frac{1}{n(n-1)} \\
+        & P(A_1A_2A_3) = P(A_1A_2A_4)=\ldots=P(A_{n-2}A_{n-1}A_n)=\frac{1}{n(n-1)(n-2)} \\
+        & \ldots \\
+        & P(A_1A_2A_3\ldots A_n)=\frac{1}{n!}
+        \end{align*}
+        再由概率的加法公式(容斥原理)得
+        \begin{align*}
+        P(A_1\cup A_2\cup\ldots\cup A_n) 
+        &= \sum_{i=1}^{n}P(A_i) - \sum_{i=1}^{n-1}P(A_iA_{i+1}) + \sum_{i=1}^{n-2}P(A_iA_{i+1}A_{i+2}) \\
+        &+ \ldots +(-1)^{n-1}P(A_1A_2\ldots A_n) \\
+        &= C_{n}^{1}\frac{1}{n} - C_{n}^{2}\frac{1}{n(n-1)} + \ldots + (-1)^{n-1}C_{n}^{n}\frac{1}{n!} \\
+        &= 1 - \frac{1}{2!} + \frac{1}{3!} +\ldots + (-1)^{n-1}\frac{1}{n!} 
+        \end{align*}
+        当$n\to \infty$,上述概率由$e^x=\sum_{n=0}^{\infty}\frac{x^n}{n!}$,则
+        \[
+        P(A_1\cup A_2\cup\ldots\cup A_n) = 1-e^{-1} \approx 0.6321
+        \]
+    \end{solution}
+\section{几个概率的不等式}
+    \begin{enumerate}
+        \item $P(AB)\geq P(A) + P(B) - 1$
+        \item $P(A_1A_2\ldots A_n) \geq P(A_1) + P(A_2) + \ldots + P(A_n) - (n-1)$ (Boole不等式)
+        \item $\left|P(AB)-P(A)P(B)\right| \leq \frac{1}{4}$
+    \end{enumerate}
+    \begin{proof}
+        \color{blue}
+        相关证明如下:
+        \item [(1)]  由于$P(A\cup B)=P(A)+P(B)-P(AB)\leq 1\implies P(AB)\geq P(A) + P(B) - 1$
+        \item [(2)]  采用数学归纳法证明, 对于 n = 2,即不等式(1)已经证明,不妨假设对于$n=k$个事件,不等式成立,即
+        \[
+        P(A_1A_2\ldots A_k)\geq P(A_1)+P(A_2)+\ldots +P(A_k) - (k - 1) 
+        \]
+        考虑$n=k+1$个事件$A_1A_2\ldots A_{k+1}$,不妨令$B=A_1A_2\ldots A_k$,则
+        \[
+        P(A_1A_2\ldots A_kA_{k+1})=P(BA_{k+1})\geq P(B) + P(A_{k+1}) - 1 \geq P(A_1)+P(A_2)+\ldots + P(A_{k+1}) - (k) 
+        \]
+        由数学归纳法可知,原不等式成立
+        \item [(3)] 
+        由$P(A)\geq P(AB), P(B)\geq P(AB)$,则$P(A)P(B)\geq P(AB)^2$,则
+        \[
+        P(AB)-P(A)P(B)\leq P(AB)-P(AB)^2 = P(AB)(1-P(AB))
+        \]
+        令$x=P(AB)$,则$f(x)=x(1-x)$,当$x=\frac{1}{2}$时,取得$f(x)_{max}=\frac{1}{4}$
+        即
+        \[
+        P(AB) - P(A)P(B) \leq \frac{1}{4} 
+        \]
+        由于$P(AB)+P(A\bar{B})=P(A)$,即$P(AB)=P(A)-P(A\bar{B})$则
+        \[
+        P(A)P(B)-P(AB)=P(A)P(B)-P(A)+P(A\bar{B}) = P(A\bar{B})-P(A)P(\bar{B}) \leq \frac{1}{4} 
+        \]
+        即
+        \[
+        P(AB) - P(A)P(B) \geq \frac{1}{4} 
+        \]
+        综上原不等式成立
+    \end{proof}
+\section{轮流射击模型}
+    问题描述:有两名选手比赛设计,轮流对同一个目标进行射击,甲命中目标的概率为$\alpha$,乙命中的概率为$\beta$.
+    \textbf{甲先射},谁先设中谁获胜.问甲乙两人获胜的概率各是多少?
+
+    \begin{solution}
+        \item [(方法一)]
+        记事件$A_i$为第$i$次射中目标,$i=1,2,\ldots$,因为甲先射,所以甲获胜可以表示为 
+        \[
+        A_1\cup\bar{A_1}\bar{A_2}A_3\cup\ldots.
+        \]
+        由于事件独立,则甲获胜的概率为
+        \begin{align*}
+        P(\text{甲获胜}) 
+        &= \alpha + (1-\alpha)(1-\beta)\alpha + (1-\alpha)^2(1-\beta)^2\alpha^2\ldots \\ 
+        &= \alpha \sum_{i=0}^{\infty}(1-\alpha)^{i}(1-\beta)^i \\
+        &= \frac{\alpha}{1- (1-\alpha)(1-\beta)}
+        \end{align*}
+        同理,乙获胜的概率为
+        \begin{align*}
+        P(\text{乙获胜}) 
+        &= (1-\alpha)\beta + (1-\alpha)(1-\beta)(1-\alpha)\beta+\ldots \\ 
+        &= \beta(1-\alpha)\sum_{i=0}^{\infty}(1-\alpha)^i(1-\beta)^i \\
+        &= \frac{\beta(\alpha-1)}{1- (1-\alpha)(1-\beta)}
+        \end{align*}
+        \item [(方法二)]
+        由于射击是独立,所有有如下条件
+        \[
+        P(\text{甲获胜})=\alpha + (1-\alpha)(1-\beta)P(\text{甲获胜}) 
+        \]
+        前面失败的情况并不影响后续获胜(无记忆性),则可以直接解出甲获胜的概念
+        \[
+        P(\text{甲获胜})= \frac{\alpha}{1- (1-\alpha)(1-\beta)}
+        \]
+        \[
+        P(\text{乙获胜}) = 1 - P(\text{甲获胜}) = \frac{\beta(\alpha-1)}{1- (1-\alpha)(1-\beta)}
+        \]
+    \end{solution}
+\ifx\allfiles\undefined
+\end{document}
+\fi

@@ -1,0 +1,239 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+\input{../../config/cover}
+\else
+\fi
+
+\chapter{一元函数积分学}
+\section{ 定积分的概念}
+
+\begin{enumerate}[label=\arabic*.]
+    \item 例1 (2007,数一、数二、数三)如图,连续函数$y=f(x)$在区间[-3,-2],[2,3]上的图形分别是直径为1的上、下半圆周,在区间[-2,0],[0,2]的图形分别是直径为2的下、上半圆周.
+    设$F(x)=\int_0^x f(t) dt$,则下列结论正确的是:
+    \begin{align*}
+        (A) F(3)=-\frac{3}{4} F(-2)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例2 (2009,数三)使不等式$\int_1^x\frac{\sin t}{t} dt>\ln x$成立的$x$的范围是
+    \begin{align*}
+        (A)\ (0,1)\quad(B)\left(1,\frac{\pi}{2}\right)\quad(C)\left(\frac{\pi}{2},\pi\right)\quad(D)(\pi,+\infty)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例3 (2003,数二)设$I_1=\int_0^{\frac{\pi}{4}}\frac{\tan x}{x} dx, I_2=\int_0^{\frac{\pi}{4}}\frac{x}{\tan x} dx$,则
+    \begin{align*}
+        (A) I_1>I_2>1\quad(B) 1>I_1>I_2 \\
+        (C) I_2>I_1>1\quad(D) 1>I_2>I_1
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 不定积分的计算}
+
+\begin{enumerate}[label=\arabic*.,start=4]
+    \item 例5 (2009,数二、数三)计算不定积分$\int\frac{1}{1+\sqrt{\frac{1+x}{x}}}dx(x>0)$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例6 求$\int\frac{1}{1+\sin x+\cos x} dx$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 定积分的计算}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item 例7 (2013,数一)计算$\int_0^1\frac{f(x)}{\sqrt{x}} dx$,其中$f(x)=\int_1^x\frac{\ln(t+1)}{t} dt$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例8 求下列积分:
+    \begin{align*}
+        (1)\ \int_0^{\frac{\pi}{2}}\frac{1}{1+(\tan x)^{\sqrt{2}}} dx
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例9 求$\int_0^{\frac{\pi}{4}}\ln(1+\tan x) dx$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 反常积分的计算}
+
+\begin{enumerate}[label=\arabic*.,start=9]
+    \item 例10 (1998,数二)计算积分(题目内容缺失)
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 反常积分敛散性的判定}
+
+\begin{enumerate}[label=\arabic*.,start=10]
+    \item 例11 (2016,数一)若反常积分$\int_0^{+\infty}\frac{1}{x^a(1+x)^b} dx$收敛,则
+    \begin{align*}
+        (A)\ a<1且\ b>1 \\
+        (B)\ a>1且\ b>1 \\
+        (C)\ a<1且\ a+b>1 \\
+        (D)\ a>1且\ a+b>1
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例12 (2010,数一、数二)设$m,n$均为正整数,则反常积分$\int_0^1\frac{\sqrt[n]{\ln^2(1-x)}}{\sqrt[n]{x}} dx$的收敛性
+    \begin{align*}
+        (A)\ 仅与\ m\ 的取值有关 \\
+        (B)\ 仅与\ n\ 的取值有关 \\
+        (C)\ 与\ m,n\ 的取值都有关 \\
+        (D)\ 与\ m,n\ 的取值都无关
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 变限积分函数}
+
+\begin{enumerate}[label=\arabic*.,start=12]
+    \item 例13 (2013,数二)设函数$f(x)=\begin{cases}
+        \sin x, & 0\leq x<\pi \\
+        2, & \pi\leq x\leq 2\pi
+    \end{cases}$,$F(x)=\int_0^x f(t) dt$,则
+    \begin{align*}
+        (A)\ x=\pi\ 是函数\ F(x)\ 的跳跃间断点 \\
+        (B)\ x=\pi\ 是函数\ F(x)\ 的可去间断点 \\
+        (C)\ F(x)\ 在\ x=\pi\ 处连续但不可导 \\
+        (D)\ F(x)\ 在\ x=\pi\ 处可导
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例14 (2016,数二)已知函数$f(x)$在$[0,3\pi]$上连续,在$(0,3\pi)$内是函数的一个原函数,且$f(0)=0$.
+    \begin{enumerate}[label=(\roman*)]
+        \item 求$f(x)$在区间$[0,\frac{3\pi}{2}]$上的平均值;
+        \item 证明$f(x)$在区间$[0,\frac{3\pi}{2}]$内存在唯一零点.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 定积分应用求面积}
+
+\begin{enumerate}[label=\arabic*.,start=14]
+    \item 例15 (2019,数一、数二、数三)求曲线$y=e^{-x}\sin x(x\geq 0)$与$x$轴之间图形的面积.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 定积分应用求体积}
+
+\begin{enumerate}[label=\arabic*.,start=15]
+    \item 例16 (2003,数一)过原点作曲线$y=\ln x$的切线,该切线与曲线$y=\ln x$及$x$轴围成平面图形$D$.
+    \begin{enumerate}[label=(\roman*)]
+        \item 求$D$的面积$A$;
+        \item 求$D$绕直线$x=e$旋转一周所得旋转体的体积$V$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例17 (2014,数二)已知函数$f(x, y)$满足$\frac{\partial f}{\partial y}=2(y+1)$,且$f(y, y)=(y+1)^2-(2-y)\ln y$,求曲线$f(x, y)=0$所围图形绕直线$y=-1$旋转所成旋转体的体积.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 定积分应用求弧长}
+
+\begin{enumerate}[label=\arabic*.,start=17]
+    \item 例18 求心形线$r=a(1+\cos\theta)(a>0)$的全长.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{ 定积分应用求侧面积}
+
+\begin{enumerate}[label=\arabic*.,start=18]
+    \item 例19 (2016,数二)设$D$是由曲线$y=\sqrt{1-x^2}(0\leq x\leq 1)$与$x=\cos^3 t$围成的平面区域,求$D$绕$x$轴旋转一周所得旋转体的体积和表面积.
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{一 定积分物理应用}
+
+\begin{enumerate}[label=\arabic*.,start=19]
+    \item 例20 (2020,数二)设边长为$2a$等腰直角三角形平板铅直地沉没在水中,且斜边与水面相齐,设重力加速度为$g$,水密度为$\rho$,则该平板一侧所受的水压力为
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{二 证明含有积分的等式或不等式}
+
+\begin{enumerate}[label=\arabic*.,start=20]
+    \item 例21 (2000,数二)设函数$S(x)=\int_0^x|\cos t| dt$.
+    \begin{enumerate}[label=(\roman*)]
+        \item 当$n$为正整数,且$n\pi\leq x<(n+1)\pi$时,证明$2n\leq S(x)<2(n+1)$;
+        \item 求$\lim_{x\to+\infty}\frac{S(x)}{x}$
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例22 (2014,数二、数三)设函数$f(x), g(x)$在区间$[a, b]$上连续,且$f(x)$单调增加,$0\leq g(x)\leq 1$.
+    证明:
+    \begin{enumerate}[label=(\roman*)]
+        \item $0\leq\int_a^x g(t) dt\leq x-a, x\in[a, b]$;
+        \item $\int_a^{a+\int_a^b g(t) dt} f(x) dx\leq\int_a^b f(x) g(x) dx$.
+    \end{enumerate}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

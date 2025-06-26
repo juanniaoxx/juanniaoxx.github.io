@@ -1,0 +1,175 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../../config}
+\input{../../config/_config}
+\begin{document}
+\input{../../config/cover}
+\else
+\fi
+
+\chapter{多元函数微分学}
+\section{多元函数的概念}
+
+\begin{enumerate}[label=\arabic*.]
+    \item 例1 求下列重极限:
+    \begin{align*}
+        (1)\ \lim_{\substack{x\to 0\\ y\to 0}}\frac{x^\alpha y^\beta}{x^2+y^2}\quad (\alpha\geq0,\beta\geq0); \\
+        (2)\ \lim_{\substack{x\to 0\\ y\to 0}}\frac{xy(x^{2}-y^{2})}{x^{2}+y^{2}};
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例2 (2012,数一)如果函数$f(x,y)$在点$(0,0)$处连续,那么下列命题正确的是
+    \begin{align*}
+        (A)\ \text{若极限}\lim_{\substack{x\to 0\\ y\to 0}}\frac{f(x,y)}{|x|+|y|}\text{存在,则}f(x,y)\text{在点}(0,0)\text{处可微} \\
+        (B)\ \text{若极限}\lim_{\substack{x\to 0\\ y\to 0}}\frac{f(x,y)}{x^{2}+y^{2}}\text{存在,则}f(x,y)\text{在点}(0,0)\text{处可微} \\
+        (C)\ \text{若}f(x,y)\text{在点}(0,0)\text{处可微,则极限}\lim_{\substack{x\to 0\\ y\to 0}}\frac{f(x,y)}{|x|+|y|}\text{存在} \\
+        (D)\ \text{若}f(x,y)\text{在点}(0,0)\text{处可微,则极限}\lim_{\substack{x\to 0\\ y\to 0}}\frac{f(x,y)}{x^{2}+y^{2}}\text{存在}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例3 (2012,数三)设连续函数$z=f(x,y)$满足
+    \begin{align*}
+        \lim_{\substack{x\to 0\\ y\to 1}}\frac{f(x,y)-2x+y-2}{\sqrt{x^2+(y-1)^2}}=0
+    \end{align*}
+    则$\left.dz\right|_{(0,1)}=$
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{多元复合函数求偏导数与全微分}
+
+\begin{enumerate}[label=\arabic*.,start=4]
+    \item 例4 (2021,数一、数二、数三)设函数$f(x,y)$可微,且
+    \begin{align*}
+        f(x+1,e^x)=x(x+1)^2, \\
+        f(x,x^2)=2x^2\ln x
+    \end{align*}
+    则$df(1,1)=$
+    \begin{align*}
+        (A)\ dx+dy \quad (B)\ dx-dy \quad (C)\ dy
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例5 (2011,数一、数二)设$z=f(xy,yg(x))$,其中函数$f$具有二阶连续偏导数,函数$g(x)$可导,且在$x=1$处取得极值$g(1)=1$,求$\left.\frac{\partial^2 z}{\partial x\partial y}\right|_{x=1,y=1}$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{多元隐函数求偏导数与全微分}
+
+\begin{enumerate}[label=\arabic*.,start=6]
+    \item 例6 (2005,数一)设有三元方程$xy-z\ln y+e^{xz}=1$,根据隐函数存在定理,存在点$(0,1,1)$的一个邻域,在此邻域内该方程
+    \begin{align*}
+        (A)\ \text{只能确定一个具有连续偏导数的隐函数}z=z(x,y) \\
+        (B)\ \text{可确定两个具有连续偏导数的隐函数}x=x(y,z)\text{和}z=z(x,y) \\
+        (C)\ \text{可确定两个具有连续偏导数的隐函数}y=y(x,z)\text{和}z=z(x,y) \\
+        (D)\ \text{可确定两个具有连续偏导数的隐函数}x=x(y,z)\text{和}y=y(x,z)
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例7 (1999,数一)设$y=y(x),z=z(x)$是由方程$z=xf(x+y)$和$F(x,y,z)=0$所确定的函数,其中$f$和$F$分别具有一阶连续导数和一阶连续偏导数,求$\frac{dz}{dx}$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{变量代换化简偏微分方程}
+
+\begin{enumerate}[label=\arabic*.,start=8]
+    \item 例8 (2010,数二)设函数$u=f(x,y)$具有二阶连续偏导数,且满足等式
+    \begin{align*}
+        4\frac{\partial^2 u}{\partial x^2}+12\frac{\partial^2 u}{\partial x\partial y}+5\frac{\partial^2 u}{\partial y^2}=0
+    \end{align*}
+    确定$a,b$的值,使等式在变换$\xi=x+ay,\eta=x+by$下简化为$\frac{\partial^2 u}{\partial \xi\partial \eta}=0$。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{求无条件极值}
+
+\begin{enumerate}[label=\arabic*.,start=9]
+    \item 例9 (2003,数一)已知函数$f(x,y)$在点$(0,0)$的某个邻域内连续,且
+    \begin{align*}
+        \lim_{\substack{x\to 0\\ y\to 0}}\frac{f(x,y)-xy}{(x^2+y^2)^2}=1
+    \end{align*}
+    则
+    \begin{align*}
+        (A)\ \text{点}(0,0)\text{不是}f(x,y)\text{的极值点} \\
+        (B)\ \text{点}(0,0)\text{是}f(x,y)\text{的极大值点} \\
+        (C)\ \text{点}(0,0)\text{是}f(x,y)\text{的极小值点} \\
+        (D)\ \text{根据所给条件无法判别点}(0,0)\text{是否为}f(x,y)\text{的极值点}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例10 (2004,数一)设$z=z(x,y)$是由$x^2-6xy+10y^2-2yz-z^2+18=0$确定的函数,求$z=z(x,y)$的极值点和极值。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\section{求条件极值(边界最值)}
+
+\begin{enumerate}[label=\arabic*.,start=11]
+    \item 例11 (2006,数一、数二、数三)设$f(x,y)$与$\varphi(x,y)$均为可微函数,且$\varphi_y'(x,y)\neq 0$。已知$(x_0,y_0)$是$f(x,y)$在约束条件$\varphi(x,y)=0$下的一个极值点,下列选项正确的是
+    \begin{align*}
+        (A)\ \text{若}f_x'(x_0,y_0)=0\text{,则}f_y'(x_0,y_0)=0 \\
+        (B)\ \text{若}f_x'(x_0,y_0)=0\text{,则}f_y'(x_0,y_0)\neq 0 \\
+        (C)\ \text{若}f_x'(x_0,y_0)\neq 0\text{,则}f_y'(x_0,y_0)=0 \\
+        (D)\ \text{若}f_x'(x_0,y_0)\neq 0\text{,则}f_y'(x_0,y_0)\neq 0
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例12 (2013,数二)求曲线$x^3-xy+y^3=1(x\geq 0,y\geq 0)$上的点到坐标原点的最长距离与最短距离。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例13 (2014,数二)设函数$u(x,y)$在有界闭区域$D$上连续,在$D$的内部具有二阶连续偏导数,且满足$\frac{\partial^2 u}{\partial x\partial y}\neq 0$及$\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0$,则
+    \begin{align*}
+        (A)\ u(x,y)\text{的最大值和最小值都在}D\text{的边界上取得} \\
+        (B)\ u(x,y)\text{的最大值和最小值都在}D\text{的内部取得} \\
+        (C)\ u(x,y)\text{的最大值在}D\text{的内部取得,最小值在}D\text{的边界上取得} \\
+        (D)\ u(x,y)\text{的最小值在}D\text{的内部取得,最大值在}D\text{的边界上取得}
+    \end{align*}
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+    
+    \item 例14 (2005,数二)已知函数$z=f(x,y)$的全微分$dz=2xdx-2ydy$,且$f(1,1)=2$,求$f(x,y)$在椭圆域$D=\{(x,y)|x^2+\frac{y^2}{4}\leq 1\}$上的最大值和最小值。
+    
+    \begin{solution}
+    【详解】
+    \end{solution}
+\end{enumerate}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
