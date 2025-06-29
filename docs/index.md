@@ -12,7 +12,7 @@ comments: false
 -   :material-notebook-edit-outline:{ .lg .middle } __导航栏__
 
     ---
-    ![image](./CS/images/Wery%20Bird.png){ class="responsive-image" align=right width="230" height="300" style="border-radius: 25px;" }
+    ![image](./images/Weary%20Bird.png){ class="responsive-image" align=right width="230" height="300" style="border-radius: 25px;" }
 
     
     - [x] 基于{~~~>Material for MkDocs~~}美化
