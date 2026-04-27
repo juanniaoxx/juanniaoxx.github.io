@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+<script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.7.1/lunar.min.js"></script>
 
 <head>
   <meta charset="UTF-8">
@@ -252,6 +253,118 @@
         backdrop-filter: blur(4px);
       }
     }
+    /* 悬浮阅读面板样式 */
+    .reading-float-panel {
+      position: fixed;
+      width: 280px;
+      z-index: 999;
+      cursor: grab;
+      user-select: none;
+      /* 移除 bottom/right 固定值，改为 JS 动态设置 */
+      transition: box-shadow 0.3s ease;
+    }
+
+    .reading-float-panel:active {
+      cursor: grabbing;
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .reading-float-inner {
+      background: rgba(253, 248, 237, 0.98);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.3);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .reading-float-inner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+    }
+
+    .reading-float-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: rgba(212, 175, 55, 0.12);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .reading-float-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #3E5A3C;
+    }
+
+    .reading-float-title i { color: #D4AF37; }
+
+    .reading-float-close {
+      background: none;
+      border: none;
+      color: #8A9BA8;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+    }
+
+    .reading-float-close:hover { color: #C23B22; }
+
+    .reading-float-content { padding: 14px; min-height: 70px; }
+
+    .reading-float-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #2C2A29;
+      transition: all 0.2s;
+    }
+
+    .reading-float-item:hover { color: #D4AF37; }
+    .reading-float-item i { color: #D4AF37; flex-shrink: 0; }
+
+    .reading-float-info { flex: 1; }
+    .reading-float-info h4 { font-size: 0.8rem; font-weight: 500; margin-bottom: 3px; line-height: 1.4; }
+    .reading-float-info p { font-size: 0.6rem; color: #8A9BA8; }
+
+    .reading-float-arrow { font-size: 0.7rem; color: #8A9BA8; transition: transform 0.2s; }
+    .reading-float-item:hover .reading-float-arrow { transform: translateX(4px); color: #D4AF37; }
+
+    .reading-float-footer {
+      padding: 6px 14px 10px;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      text-align: center;
+    }
+
+    .reading-float-clear {
+      background: none;
+      border: none;
+      font-size: 0.6rem;
+      color: #8A9BA8;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .reading-float-clear:hover { background: rgba(194, 59, 34, 0.1); color: #C23B22; }
+
+    .reading-float-empty { text-align: center; color: #8A9BA8; font-size: 0.7rem; padding: 10px 0; }
+    .reading-float-empty i { font-size: 1.1rem; margin-bottom: 5px; display: block; opacity: 0.5; }
+
+    .reading-float-panel.hidden { display: none; }
+
+    @media (max-width: 768px) {
+      .reading-float-panel { width: 260px; bottom: 80px; right: 12px; }
+    }
   </style>
 </head>
 
@@ -303,13 +416,30 @@
           <i class="fa fa-feather text-gold"></i>
         </div>
       </div>
+      <div class="section-fade mb-6">
+        <div class="flex items-start justify-between flex-wrap gap-4">
+          <!-- 左侧时钟 -->
+          <div
+            class="clock-container bg-white/30 backdrop-blur-sm rounded-2xl px-4 py-2 border border-gold/30 shadow-sm min-w-[130px]">
+            <div class="text-xl font-mono tracking-wider text-primary text-center" id="liveClock">--:--:--</div>
+            <div class="text-xs text-secondary text-center" id="gregorianDate">----年--月--日</div>
+          </div>
 
-      <div class="section-fade mb-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary relative inline-block">
-          万卷书库
-          <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gold rounded-full"></span>
-        </h2>
-        <p class="text-secondary text-sm mt-4 max-w-2xl mx-auto">廿四史蕴千秋事，诸子文光照古今</p>
+          <!-- 中间标题区 -->
+          <div class="text-center flex-1">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary relative inline-block">
+              万卷书库
+              <span
+                class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gold rounded-full"></span>
+            </h2>
+            <p class="text-secondary text-sm mt-4 max-w-2xl mx-auto">廿四史蕴千秋事，诸子文光照古今</p>
+          </div>
+
+          <!-- 右侧占位（保持平衡） -->
+          <div class="w-[130px] hidden md:block"></div>
+        </div>
+
+        <!-- 统计数字 -->
         <div class="flex justify-center gap-8 mt-5">
           <div class="text-center">
             <div class="text-primary font-bold text-2xl" id="bookCount">0</div>
@@ -371,68 +501,82 @@
   <div class="floating-ink" id="inkEffectBtn">
     <i class="fa fa-paint-brush"></i>
   </div>
-
+  <!-- 悬浮阅读面板 -->
+  <div id="readingFloatPanel" class="reading-float-panel hidden">
+    <div class="reading-float-inner">
+      <div class="reading-float-header">
+        <div class="reading-float-title"><i class="fa fa-book"></i><span>正在阅读</span></div>
+        <button id="closeFloatPanel" class="reading-float-close"><i class="fa fa-times"></i></button>
+      </div>
+      <div class="reading-float-content" id="readingFloatContent">
+        <div class="reading-float-loading">加载中...</div>
+      </div>
+      <div class="reading-float-footer">
+        <button id="clearReadingRecord" class="reading-float-clear"><i class="fa fa-trash-o"></i> 清除记录</button>
+      </div>
+    </div>
+  </div>
   <script>
-  // ==================== 水墨涟漪拖尾特效 ====================
-  (function initWaterInkTrail() {
-    let trailTimer = null;
-    let lastX = 0, lastY = 0;
-    let active = false;
-    let timeoutId = null;
+      // ==================== 水墨涟漪拖尾特效 ====================
+      (function initWaterInkTrail() {
+        let trailTimer = null;
+        let lastX = 0, lastY = 0;
+        let active = false;
+        let timeoutId = null;
 
-    function createInkDrop(x, y) {
-      const drop = document.createElement('div');
-      const size = 12 + Math.random() * 16;
-      drop.style.position = 'fixed';
-      drop.style.left = (x - size / 2) + 'px';
-      drop.style.top = (y - size / 2) + 'px';
-      drop.style.width = size + 'px';
-      drop.style.height = size + 'px';
-      drop.style.borderRadius = '50%';
-      drop.style.background = `radial-gradient(circle, rgba(62,90,60,0.5) 0%, rgba(84,70,42,0.2) 70%, transparent 100%)`;
-      drop.style.pointerEvents = 'none';
-      drop.style.zIndex = '9998';
-      drop.style.filter = 'blur(3px)';
-      drop.style.opacity = '0.8';
-      drop.style.animation = 'inkRipple 0.9s ease-out forwards';
-      document.body.appendChild(drop);
-      
-      drop.addEventListener('animationend', () => drop.remove());
-      setTimeout(() => drop.remove(), 900);
-    }
+        function createInkDrop(x, y) {
+          const drop = document.createElement('div');
+          const size = 12 + Math.random() * 16;
+          drop.style.position = 'fixed';
+          drop.style.left = (x - size / 2) + 'px';
+          drop.style.top = (y - size / 2) + 'px';
+          drop.style.width = size + 'px';
+          drop.style.height = size + 'px';
+          drop.style.borderRadius = '50%';
+          drop.style.background = `radial-gradient(circle, rgba(62,90,60,0.5) 0%, rgba(84,70,42,0.2) 70%, transparent 100%)`;
+          drop.style.pointerEvents = 'none';
+          drop.style.zIndex = '9998';
+          drop.style.filter = 'blur(3px)';
+          drop.style.opacity = '0.8';
+          drop.style.animation = 'inkRipple 0.9s ease-out forwards';
+          document.body.appendChild(drop);
 
-    // 添加涟漪动画
-    const style = document.createElement('style');
-    style.textContent = `
+          drop.addEventListener('animationend', () => drop.remove());
+          setTimeout(() => drop.remove(), 900);
+        }
+
+        // 添加涟漪动画
+        const style = document.createElement('style');
+        style.textContent = `
       @keyframes inkRipple {
         0% { transform: scale(0.2); opacity: 0.6; }
         50% { transform: scale(1.2); opacity: 0.3; }
         100% { transform: scale(2); opacity: 0; }
       }
     `;
-    document.head.appendChild(style);
+        document.head.appendChild(style);
 
-    document.addEventListener('mousemove', (e) => {
-      if (!active) active = true;
-      
-      const dx = e.clientX - lastX;
-      const dy = e.clientY - lastY;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      
-      if (dist > 8) {
-        createInkDrop(e.clientX, e.clientY);
-        if (dist > 20) {
-          setTimeout(() => createInkDrop(e.clientX - dx*0.3, e.clientY - dy*0.3), 50);
-        }
-      }
-      
-      lastX = e.clientX;
-      lastY = e.clientY;
-      
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => { active = false; }, 200);
-    });
-  })();
+        document.addEventListener('mousemove', (e) => {
+          if (!active) active = true;
+
+          const dx = e.clientX - lastX;
+          const dy = e.clientY - lastY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist > 8) {
+            createInkDrop(e.clientX, e.clientY);
+            if (dist > 20) {
+              setTimeout(() => createInkDrop(e.clientX - dx * 0.3, e.clientY - dy * 0.3), 50);
+            }
+          }
+
+          lastX = e.clientX;
+          lastY = e.clientY;
+
+          if (timeoutId) clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => { active = false; }, 200);
+        });
+      })();
     // 丰富数据 + 新添哲学类书籍示例
     const booksData = [
       { cate: "Six Confucian Classics", title: "春秋", author: "孔子", desc: "编年史 · 孔子", intro: "微言大义，乱臣贼子惧。一部鲁国史，藏万世褒贬。", rating: 5, votes: 12, link: "/春秋/0-春秋", img: "/images/春秋.png" },
@@ -552,7 +696,7 @@
     const splash = document.getElementById('splashScreen');
     const main = document.getElementById('mainContent');
     const splashBg = document.getElementById('splashBg');
-    const bgPool = ['/images/开屏.png', '/images/开屏1.png', '/images/开屏2.png', '/images/开屏3.png', '/images/开屏4.png'];
+    const bgPool = ['/images/开屏1.png', '/images/开屏2.png', '/images/开屏3.png', '/images/开屏4.png'];
     splashBg.src = bgPool[Math.floor(Math.random() * bgPool.length)];
 
     function enterMain() {
@@ -639,7 +783,256 @@
       if (e.target.closest('.floating-ink')) return;
       if (Math.random() < 0.25) createInkParticle(e.clientX, e.clientY);
     });
+    function updateClock() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      const clockEl = document.getElementById('liveClock');
+      const dateEl = document.getElementById('gregorianDate');
+
+      if (clockEl) clockEl.innerText = `${hours}:${minutes}:${seconds}`;
+      if (dateEl) dateEl.innerText = `${year}年${month}月${day}日`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+    // ==================== 可拖拽悬浮阅读面板 ====================
+    const READING_KEY = 'weary_current_reading';
+    const POSITION_KEY = 'weary_float_position';
+
+    // 保存/读取记录
+    function saveCurrentReading() {
+      const title = document.querySelector('h1')?.innerText || document.title;
+      const path = window.location.pathname;
+      if (path !== '/' && !path.includes('/index.html')) {
+        localStorage.setItem(READING_KEY, JSON.stringify({
+          title: title, path: path, timestamp: Date.now(),
+          expire: Date.now() + 7 * 24 * 60 * 60 * 1000
+        }));
+      }
+    }
+
+    function getCurrentReading() {
+      try {
+        const data = localStorage.getItem(READING_KEY);
+        if (!data) return null;
+        const reading = JSON.parse(data);
+        if (reading.expire < Date.now()) { localStorage.removeItem(READING_KEY); return null; }
+        return reading;
+      } catch (e) { return null; }
+    }
+
+    function clearCurrentReading() { localStorage.removeItem(READING_KEY); }
+
+    // 保存位置
+    function saveFloatPosition(left, top) {
+      localStorage.setItem(POSITION_KEY, JSON.stringify({ left, top, timestamp: Date.now() }));
+    }
+
+    function getFloatPosition() {
+      try {
+        const data = localStorage.getItem(POSITION_KEY);
+        if (!data) return null;
+        const pos = JSON.parse(data);
+        // 位置信息7天过期
+        if (pos.timestamp && pos.timestamp + 7 * 24 * 60 * 60 * 1000 < Date.now()) return null;
+        return pos;
+      } catch (e) { return null; }
+    }
+
+    const floatPanel = document.getElementById('readingFloatPanel');
+    const floatContent = document.getElementById('readingFloatContent');
+    const closeBtn = document.getElementById('closeFloatPanel');
+    const clearBtn = document.getElementById('clearReadingRecord');
+
+    // 拖拽相关变量
+    let isDragging = false;
+    let dragStartX = 0, dragStartY = 0;
+    let panelStartLeft = 0, panelStartTop = 0;
+    let dragTimeout = null;
+
+    // 更新面板内容
+    function updateFloatPanel() {
+      if (!floatContent) return;
+      const reading = getCurrentReading();
+      if (!reading || !reading.title) {
+        floatContent.innerHTML = `<div class="reading-float-empty"><i class="fa fa-book-open-o"></i><span>暂无阅读记录</span></div>`;
+        return;
+      }
+      const diff = Date.now() - reading.timestamp;
+      const hours = Math.floor(diff / 3600000);
+      let timeStr = hours < 1 ? '刚刚' : hours < 24 ? `${hours}小时前` : `${Math.floor(hours / 24)}天前`;
+      floatContent.innerHTML = `<a href="${reading.path}" class="reading-float-item"><i class="fa fa-book"></i><div class="reading-float-info"><h4>${escapeHtml(reading.title.length > 25 ? reading.title.slice(0, 25) + '…' : reading.title)}</h4><p>上次阅读 · ${timeStr}</p></div><i class="fa fa-chevron-right reading-float-arrow"></i></a>`;
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return text.replace(/[&<>]/g, function (m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
+    }
+
+    // 设置面板位置
+    function setPanelPosition(left, top) {
+      if (!floatPanel) return;
+      const maxX = window.innerWidth - floatPanel.offsetWidth - 10;
+      const maxY = window.innerHeight - floatPanel.offsetHeight - 10;
+      const minX = 10;
+      const minY = 70; // 避开顶部导航栏
+
+      let newLeft = Math.min(maxX, Math.max(minX, left));
+      let newTop = Math.min(maxY, Math.max(minY, top));
+
+      floatPanel.style.left = newLeft + 'px';
+      floatPanel.style.top = newTop + 'px';
+      floatPanel.style.right = 'auto';
+      floatPanel.style.bottom = 'auto';
+    }
+
+    // 初始化面板位置
+    function initPanelPosition() {
+      if (!floatPanel) return;
+      const savedPos = getFloatPosition();
+      if (savedPos && savedPos.left !== undefined) {
+        setPanelPosition(savedPos.left, savedPos.top);
+      } else {
+        // 默认右下角
+        floatPanel.style.left = 'auto';
+        floatPanel.style.right = '20px';
+        floatPanel.style.top = 'auto';
+        floatPanel.style.bottom = '100px';
+      }
+    }
+
+    // 拖拽开始
+    function onDragStart(e) {
+      if (!floatPanel) return;
+      e.preventDefault();
+      // 确保拖拽的是面板本身，而不是内部链接
+      if (e.target.closest('.reading-float-item') || e.target.closest('.reading-float-close') || e.target.closest('.reading-float-clear')) {
+        return;
+      }
+
+      isDragging = true;
+      const clientX = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+      const clientY = e.clientY || (e.touches ? e.touches[0].clientY : 0);
+
+      dragStartX = clientX;
+      dragStartY = clientY;
+
+      // 获取当前面板位置
+      const rect = floatPanel.getBoundingClientRect();
+      panelStartLeft = rect.left;
+      panelStartTop = rect.top;
+
+      floatPanel.style.transition = 'none';
+      floatPanel.style.cursor = 'grabbing';
+
+      if (dragTimeout) clearTimeout(dragTimeout);
+    }
+
+    // 拖拽中
+    function onDragMove(e) {
+      if (!isDragging || !floatPanel) return;
+      e.preventDefault();
+
+      const clientX = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+      const clientY = e.clientY || (e.touches ? e.touches[0].clientY : 0);
+
+      const deltaX = clientX - dragStartX;
+      const deltaY = clientY - dragStartY;
+
+      let newLeft = panelStartLeft + deltaX;
+      let newTop = panelStartTop + deltaY;
+
+      // 边界限制
+      const maxX = window.innerWidth - floatPanel.offsetWidth - 10;
+      const maxY = window.innerHeight - floatPanel.offsetHeight - 10;
+      newLeft = Math.min(maxX, Math.max(10, newLeft));
+      newTop = Math.min(maxY, Math.max(70, newTop));
+
+      floatPanel.style.left = newLeft + 'px';
+      floatPanel.style.top = newTop + 'px';
+      floatPanel.style.right = 'auto';
+      floatPanel.style.bottom = 'auto';
+    }
+
+    // 拖拽结束
+    function onDragEnd(e) {
+      if (!isDragging || !floatPanel) return;
+      isDragging = false;
+
+      floatPanel.style.transition = '';
+      floatPanel.style.cursor = '';
+
+      // 保存位置
+      const rect = floatPanel.getBoundingClientRect();
+      saveFloatPosition(rect.left, rect.top);
+
+      // 延迟恢复点击事件，避免拖拽后误点击
+      dragTimeout = setTimeout(() => { }, 100);
+    }
+
+    // 绑定拖拽事件
+    if (floatPanel) {
+      // 鼠标事件
+      floatPanel.addEventListener('mousedown', onDragStart);
+      window.addEventListener('mousemove', onDragMove);
+      window.addEventListener('mouseup', onDragEnd);
+
+      // 触摸事件（移动端）
+      floatPanel.addEventListener('touchstart', onDragStart);
+      window.addEventListener('touchmove', onDragMove);
+      window.addEventListener('touchend', onDragEnd);
+
+      // 防止拖拽时选中文字
+      floatPanel.addEventListener('dragstart', (e) => e.preventDefault());
+
+      // 初始化显示
+      const reading = getCurrentReading();
+      if (reading && reading.title) floatPanel.classList.remove('hidden');
+      initPanelPosition();
+      updateFloatPanel();
+
+      closeBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        floatPanel.classList.add('hidden');
+      });
+
+      clearBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (confirm('确定要清除阅读记录吗？')) {
+          clearCurrentReading();
+          floatPanel.classList.add('hidden');
+          updateFloatPanel();
+        }
+      });
+    }
+
+    // 窗口大小变化时重新调整位置
+    window.addEventListener('resize', () => {
+      if (floatPanel && !floatPanel.classList.contains('hidden')) {
+        const rect = floatPanel.getBoundingClientRect();
+        setPanelPosition(rect.left, rect.top);
+        const newRect = floatPanel.getBoundingClientRect();
+        saveFloatPosition(newRect.left, newRect.top);
+      }
+    });
+
+    // 文章页面自动保存
+    if (window.location.pathname !== '/' && !window.location.pathname.includes('/index.html')) {
+      setTimeout(saveCurrentReading, 500);
+    }
   </script>
+
 </body>
 
 </html>
