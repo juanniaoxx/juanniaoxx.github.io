@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文史哲</title>
+  <title>文史哲 · 书库</title>
   <!-- 引入Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- 引入Font Awesome图标 -->
@@ -34,6 +34,7 @@
       /* 自定义工具类 */
       .book-shadow {
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        transition: box-shadow 0.3s ease;
       }
       .hover-lift {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -68,412 +69,581 @@
       .star-empty {
         color: #D1D1D1;
       }
+
+      /* ========== 开屏动画样式 ========== */
+      .splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .splash-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.85);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .splash-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+      }
+
+      .splash-content {
+        position: absolute;
+        bottom: 15%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .splash-title {
+        font-size: clamp(2rem, 8vw, 4rem);
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      }
+
+      .splash-subtitle {
+        font-size: clamp(0.875rem, 4vw, 1.125rem);
+        opacity: 0.9;
+        letter-spacing: 0.05em;
+      }
+
+      .splash-icon {
+        margin-top: 2rem;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(10px);
+        }
+      }
+
+      /* 开屏消失动画 */
+      .splash-screen.fade-out {
+        animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          visibility: visible;
+        }
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      /* 主内容初始隐藏 */
+      .main-content {
+        opacity: 0;
+        transition: opacity 0.8s ease-out;
+      }
+
+      .main-content.visible {
+        opacity: 1;
+      }
+
+      /* ========== 书库增强样式 ========== */
+      
+      /* 书籍卡片进入动画 */
+      .book-card {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: cardFadeIn 0.6s ease-out forwards;
+      }
+
+      @keyframes cardFadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* 为每个卡片设置不同的延迟 */
+      .book-card:nth-child(1) { animation-delay: 0.05s; }
+      .book-card:nth-child(2) { animation-delay: 0.1s; }
+      .book-card:nth-child(3) { animation-delay: 0.15s; }
+      .book-card:nth-child(4) { animation-delay: 0.2s; }
+      .book-card:nth-child(5) { animation-delay: 0.25s; }
+      .book-card:nth-child(6) { animation-delay: 0.3s; }
+      .book-card:nth-child(7) { animation-delay: 0.35s; }
+      .book-card:nth-child(8) { animation-delay: 0.4s; }
+      .book-card:nth-child(9) { animation-delay: 0.45s; }
+      .book-card:nth-child(10) { animation-delay: 0.5s; }
+      .book-card:nth-child(11) { animation-delay: 0.55s; }
+      .book-card:nth-child(12) { animation-delay: 0.6s; }
+
+      /* 书籍卡片光泽效果 */
+      .book-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .book-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          115deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 45%,
+          rgba(255, 255, 255, 0.15) 50%,
+          transparent 55%
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .book-card:hover::before {
+        transform: translateX(100%);
+      }
+
+      /* 分类按钮增强 */
+      .category-btn {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .category-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.4s, height 0.4s;
+      }
+
+      .category-btn:hover::before {
+        width: 200%;
+        height: 200%;
+      }
+
+      /* 页面滚动淡入效果 */
+      .section-fade {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      .section-fade.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* 导航栏滚动效果 */
+      .header-scroll {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.95);
+      }
     }
   </style>
 </head>
 
 <body class="bg-neutral text-dark font-sans min-h-screen">
-  <!-- 顶部导航栏 -->
-  <header class="glass sticky top-0 z-50 border-b border-gray-200/50">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-2">
-        <i class="fa fa-book text-primary text-2xl"></i>
-        <h1 class="text-xl font-bold text-primary tracking-wide">Weary-文史哲</h1>
-      </a>
-      <!-- 搜索框 -->
-      <div class="hidden md:flex items-center bg-white rounded-full px-4 py-2 w-72 shadow-sm">
-        <i class="fa fa-search text-gray-400 mr-2"></i>
-        <input type="text" id="searchInput" placeholder="搜索书籍、作者、分类" class="bg-transparent outline-none w-full text-sm">
+
+  <!-- ==================== 开屏页面 ==================== -->
+  <div class="splash-screen" id="splashScreen">
+    <!-- 背景图片 - 你可以替换成自己喜欢的图片 -->
+    <img src="/images/开屏.png" alt="开屏背景" class="splash-bg" id="splashBg">
+    <div class="splash-overlay"></div>
+    <div class="splash-content">
+      <div class="splash-title">Weary Bird</div>
+      <div class="splash-subtitle">厚积而薄发</div>
+      <div class="splash-icon">
+        <i class="fa fa-chevron-down text-2xl"></i>
       </div>
-      <!-- 功能按钮 -->
-      <div class="flex gap-4">
-        <button class="text-gray-600 hover:text-primary transition-colors">
-          <i class="fa fa-user-circle-o text-xl"></i>
-        </button>
-        <button class="text-gray-600 hover:text-primary transition-colors">
-          <i class="fa fa-heart-o text-xl"></i>
-        </button>
-      </div>
+      <div class="text-xs mt-4 opacity-75">点击任意位置进入书库</div>
     </div>
-  </header>
+  </div>
 
-  <main class="container mx-auto px-4 py-8">
-    <!-- 页面标题 -->
-    <div class="mb-10 text-center">
-      <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-2">文史哲</h2>
-      <p class="text-secondary text-sm md:text-base">沉淀文字力量，品读经典内容</p>
-    </div>
-
-    <!-- 分类筛选系统 -->
-    <div class="flex flex-wrap justify-center gap-3 mb-12">
-      <button class="category-btn active px-5 py-2 rounded-full bg-primary text-white text-sm hover-lift"
-        data-category="all">
-        全部书籍
-      </button>
-      <button
-        class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200"
-        data-category="chinese-classic-literature">
-        中国古典文学
-      </button>
-      <button
-        class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200"
-        data-category="marxism-leninism-mao-deng">
-        马恩列毛邓
-      </button>
-      <button
-        class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200"
-        data-category="chinese-classic-philosophy">
-        中国古典哲学
-      </button>
-      <button
-        class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200"
-        data-category="history_24">
-        二十四史
-      </button>
-      <button
-        class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200"
-        data-category="miscellaneous">
-        杂
-      </button>
-    </div>
-
-    <!-- 书籍列表容器 - 每行最多4本 -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8" id="bookContainer">
-      
-      <!-- ==================== 二十四史 ==================== -->
-      <!-- 史记 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="history_24" data-title="史记" data-author="司马迁">
-        <a href="/史记/0-史记" target="_blank" class="block overflow-hidden">
-          <img src="/images/史记.png" alt="史记封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+  <!-- ==================== 主内容 ==================== -->
+  <div class="main-content" id="mainContent">
+    <!-- 顶部导航栏 -->
+    <header class="glass sticky top-0 z-50 border-b border-gray-200/50 transition-all duration-300" id="mainHeader">
+      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 group">
+          <i class="fa fa-book text-primary text-2xl group-hover:scale-110 transition-transform"></i>
+          <h1 class="text-xl font-bold text-primary tracking-wide">Weary-文史哲</h1>
         </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">史记</h3>
-          <p class="text-xs text-gray-500 mb-2">二十四史 · 司马迁</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.5</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            中国第一部纪传体通史，记载了上至上古黄帝时代，下至汉武帝太初四年间共3000多年的历史。
-          </div>
+        <!-- 搜索框 -->
+        <div
+          class="hidden md:flex items-center bg-white rounded-full px-4 py-2 w-72 shadow-sm focus-within:shadow-md transition-shadow">
+          <i class="fa fa-search text-gray-400 mr-2"></i>
+          <input type="text" id="searchInput" placeholder="搜索书籍、作者、分类"
+            class="bg-transparent outline-none w-full text-sm">
+        </div>
+        <!-- 功能按钮 -->
+        <div class="flex gap-4">
+          <button class="text-gray-600 hover:text-primary transition-all hover:scale-110">
+            <i class="fa fa-user-circle-o text-xl"></i>
+          </button>
+          <button class="text-gray-600 hover:text-primary transition-all hover:scale-110">
+            <i class="fa fa-heart-o text-xl"></i>
+          </button>
         </div>
       </div>
+    </header>
 
-      <!-- 汉书 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="history_24" data-title="汉书" data-author="班固">
-        <a href="/汉书/0-汉书" target="_blank" class="block overflow-hidden">
-          <img src="/images/汉书.png" alt="汉书封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">汉书</h3>
-          <p class="text-xs text-gray-500 mb-2">二十四史 · 班固</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-half-o star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.3</span>
+    <main class="container mx-auto px-4 py-8">
+      <!-- 页面标题区域 - 增强 -->
+      <div class="section-fade mb-10 text-center" id="heroSection">
+        <div class="relative inline-block">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-2">
+            文史哲
+            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-primary rounded-full">
+            </div>
+          </h2>
+        </div>
+        <p class="text-secondary text-sm md:text-base mt-4">借千古风月,渡人间万象</p>
+
+        <!-- 添加统计装饰 -->
+        <div class="flex justify-center gap-8 mt-6 text-sm">
+          <div class="text-center">
+            <div class="text-primary font-bold text-xl" id="bookCount">0</div>
+            <div class="text-gray-500 text-xs">藏书</div>
           </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            中国第一部纪传体断代史，记载了西汉一朝的历史。
+          <div class="text-center">
+            <div class="text-primary font-bold text-xl" id="categoryCount">0</div>
+            <div class="text-gray-500 text-xs">分类</div>
+          </div>
+          <div class="text-center">
+            <div class="text-primary font-bold text-xl">∞</div>
+            <div class="text-gray-500 text-xs">智慧</div>
           </div>
         </div>
-      </div>
 
-      <!-- 后汉书 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="history_24" data-title="后汉书" data-author="范晔">
-        <a href="/后汉书/0-后汉书" target="_blank" class="block overflow-hidden">
-          <img src="/images/后汉书.png" alt="后汉书封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">后汉书</h3>
-          <p class="text-xs text-gray-500 mb-2">二十四史 · 范晔</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-o star-empty text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">8.9</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            记载了东汉光武帝至汉献帝一百九十五年的历史。
-          </div>
+        <!-- 分类筛选系统 - 增强滚动动画 -->
+        <div class="section-fade flex flex-wrap justify-center gap-3 mb-12" id="categorySection">
+          <button
+            class="category-btn active px-5 py-2 rounded-full bg-primary text-white text-sm hover-lift shadow-md hover:shadow-lg"
+            data-category="all">
+            全部书籍
+          </button>
+          <button
+            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
+            data-category="Six Confucian Classics">
+            儒学六经
+          </button>
+          <button
+            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
+            data-category="chinese-classic-literature">
+            中国古典文学
+          </button>
+          <button
+            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
+            data-category="marxism-leninism-mao-deng">
+            马恩列毛邓
+          </button>
+          <button
+            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
+            data-category="chinese-classic-philosophy">
+            中国古典哲学
+          </button>
+          <button
+            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
+            data-category="history_24">
+            二十四史
+          </button>
+          <button
+            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
+            data-category="miscellaneous">
+            杂
+          </button>
         </div>
-      </div>
 
-      <!-- 三国志 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="history_24" data-title="三国志" data-author="陈寿">
-        <a href="/三国志/三国志" target="_blank" class="block overflow-hidden">
-          <img src="/images/三国志.png" alt="三国志封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">三国志</h3>
-          <p class="text-xs text-gray-500 mb-2">二十四史 · 陈寿</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-half-o star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.2</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            记载三国时期魏、蜀、吴三国历史的纪传体国别史。
-          </div>
+        <!-- 书籍列表容器 -->
+        <div class="section-fade grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
+          id="bookContainer">
+          <!-- 书籍卡片会在后面插入 -->
         </div>
-      </div>
+    </main>
 
-      <!-- ==================== 中国古典文学 ==================== -->
-      <!-- 昭明文选 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="chinese-classic-literature" data-title="昭明文选" data-author="萧统">
-        <a href="/昭明文选/0-昭明文选" target="_blank" class="block overflow-hidden">
-          <img src="/images/昭明文选.png" alt="昭明文选封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">昭明文选</h3>
-          <p class="text-xs text-gray-500 mb-2">中国古典文学 · 萧统</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.4</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            中国现存最早的诗文总集，收录了先秦至梁代七百余篇作品。
-          </div>
-        </div>
-      </div>
-
-      <!-- 聊斋志异 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="miscellaneous" data-title="聊斋志异" data-author="蒲松龄">
-        <a href="/聊斋志异/0-聊斋志异" target="_blank" class="block overflow-hidden">
-          <img src="/images/聊斋志异.png" alt="聊斋志异封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">聊斋志异</h3>
-          <p class="text-xs text-gray-500 mb-2">志怪小说 · 蒲松龄</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-half-o star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.1</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            清代蒲松龄创作的文言短篇小说集，描写神仙狐鬼精魅故事。
-          </div>
-        </div>
-      </div>
-
-      <!-- 夜航船 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="miscellaneous" data-title="夜航船" data-author="张岱">
-        <a href="/夜航船/0-夜航船" target="_blank" class="block overflow-hidden">
-          <img src="/images/夜航船.png" alt="夜航船封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">夜航船</h3>
-          <p class="text-xs text-gray-500 mb-2">明代小品 · 张岱</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-o star-empty text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">8.8</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            明代张岱所著的百科类书籍，内容包罗万象。
-          </div>
-        </div>
-      </div>
-
-      <!-- ==================== 马恩列毛邓 ==================== -->
-      <!-- 马恩选集 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="marxism-leninism-mao-deng" data-title="马恩选集" data-author="马克思/恩格斯">
-        <a href="/马恩选集/0-说明" target="_blank" class="block overflow-hidden">
-          <img src="/images/马恩选集.png" alt="马恩选集封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">马恩选集</h3>
-          <p class="text-xs text-gray-500 mb-2">马克思主义 · 马克思/恩格斯</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-half-o star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.3</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            收录马克思和恩格斯的重要著作，马克思主义经典文献。
-          </div>
-        </div>
-      </div>
-
-      <!-- 列宁选集 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="marxism-leninism-mao-deng" data-title="列宁选集" data-author="列宁">
-        <a href="/列宁选集/0-说明" target="_blank" class="block overflow-hidden">
-          <img src="/images/列宁选集.png" alt="列宁选集封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">列宁选集</h3>
-          <p class="text-xs text-gray-500 mb-2">列宁主义 · 列宁</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-o star-empty text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.0</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            收录列宁的重要著作和文章。
-          </div>
-        </div>
-      </div>
-
-      <!-- 毛泽东选集 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="marxism-leninism-mao-deng" data-title="毛泽东选集" data-author="毛泽东">
-        <a href="/毛选/0-毛选" target="_blank" class="block overflow-hidden">
-          <img src="/images/毛选.png" alt="毛泽东选集封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">毛泽东选集</h3>
-          <p class="text-xs text-gray-500 mb-2">毛泽东思想 · 毛泽东</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.4</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            毛泽东的重要著作集，毛泽东思想的主要载体。
-          </div>
-        </div>
-      </div>
-
-      <!-- ==================== 中国古典哲学 ==================== -->
-      <!-- 国史大纲 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="chinese-classic-philosophy" data-title="国史大纲" data-author="钱穆">
-        <a href="/国史大纲/0-国史大纲" target="_blank" class="block overflow-hidden">
-          <img src="/images/国史大纲.png" alt="国史大纲封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">国史大纲</h3>
-          <p class="text-xs text-gray-500 mb-2">中国通史 · 钱穆</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-half-o star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.4</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            钱穆先生的史学代表作，贯通中国古今历史。
-          </div>
-        </div>
-      </div>
-
-      <!-- 中国历代政治得失 -->
-      <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="chinese-classic-philosophy" data-title="中国历代政治得失" data-author="钱穆">
-        <a href="/中国历代政治得失/0-中国历代政治得失" target="_blank" class="block overflow-hidden">
-          <img src="/images/中国历代政治得失.png" alt="中国历代政治得失封面"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </a>
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1 text-line-clamp-2">中国历代政治得失</h3>
-          <p class="text-xs text-gray-500 mb-2">政治制度史 · 钱穆</p>
-          <div class="flex items-center gap-1 mb-2">
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star star-fill text-xs"></i>
-            <i class="fa fa-star-half-o star-fill text-xs"></i>
-            <span class="text-xs text-gray-500 ml-1">9.2</span>
-          </div>
-          <div class="book-desc text-xs text-gray-600 leading-relaxed">
-            钱穆先生讲述中国历代政治制度的演变与得失。
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- 页脚 -->
-  <footer class="mt-20 py-8 border-t border-gray-200/50 text-center text-gray-500 text-sm">
-    <p>博观而约取，厚积而薄发</p>
-  </footer>
+    <!-- 页脚 -->
+    <footer class="mt-20 py-8 border-t border-gray-200/50 text-center text-gray-500 text-sm">
+      <p>博观而约取，厚积而薄发</p>
+    </footer>
+  </div>
 
   <script>
-    // 分类筛选功能
-    const categoryBtns = document.querySelectorAll('.category-btn');
-    const bookCards = document.querySelectorAll('.book-card');
+    // ==================== 书籍数据 ====================
+    const booksData = [
+      // 儒学六经
+      { cate: "Six Confucian Classics", title: "春秋", author: "孔子", desc: "编年史 · 孔子", intro: "儒家六经之一，中国现存最早的编年体史书，记载鲁国历史，言简义深。", rating: 5, votes: 10, link: "/春秋/0-春秋", img: "/images/春秋.png" },
+      // 二十四史
+      { cate: "history_24", title: "史记", author: "司马迁", desc: "二十四史 · 司马迁", intro: "中国第一部纪传体通史，记载了上至上古黄帝时代，下至汉武帝太初四年间共3000多年的历史。", rating: 5, votes: 10, link: "/史记/0-史记", img: "/images/史记.png" },
+      { cate: "history_24", title: "汉书", author: "班固", desc: "二十四史 · 班固", intro: "中国第一部纪传体断代史，记载了西汉一朝的历史。", rating: 5, votes: 10, link: "/汉书/0-汉书", img: "/images/汉书.png" },
+      { cate: "history_24", title: "后汉书", author: "范晔", desc: "二十四史 · 范晔", intro: "记载了东汉光武帝至汉献帝一百九十五年的历史。", rating: 5, votes: 10, link: "/后汉书/0-后汉书", img: "/images/后汉书.png" },
+      { cate: "history_24", title: "三国志", author: "陈寿", desc: "二十四史 · 陈寿", intro: "记载三国时期魏、蜀、吴三国历史的纪传体国别史。", rating: 5, votes: 10, link: "/三国志/三国志", img: "/images/三国志.png" },
+      // 中国古典文学
+      { cate: "chinese-classic-literature", title: "昭明文选", author: "萧统", desc: "中国古典文学 · 萧统", intro: "中国现存最早的诗文总集，收录了先秦至梁代七百余篇作品。", rating: 5, votes: 10, link: "/昭明文选/0-昭明文选", img: "/images/昭明文选.png" },
+      { cate: "chinese-classic-literature", title: "古文观止", author: "吴楚材·吴调侯", desc: "古文选集 · 吴楚材/吴调侯", intro: "清代吴楚材、吴调侯编选,收录先秦至明末古文222篇,是学习古文的经典入门读物。", rating: 5, votes: 28, link: "/古文观止/0-古文观止", img: "/images/古文观止.png" },
+      { cate: "chinese-classic-literature", title: "唐诗三百首", author: "蘅塘退士", desc: "唐诗选集 · 蘅塘退士", intro: "清代蘅塘退士编选，收录77位诗人311首唐诗，是流传最广的唐诗选本。", rating: 5, votes: 10, link: "/唐诗三百首/0-唐诗三百首", img: "/images/唐诗三百首.png" },
+      { cate: "chinese-classic-literature", title: "宋词三百首", author: "朱祖谋", desc: "宋词选集 · 朱祖谋", intro: "近代朱祖谋编选，收录苏轼、辛弃疾、李清照等词人佳作，宋词经典选本。", rating: 4.5, votes: 10, link: "/宋词三百首/0-宋词三百首", img: "/images/宋词三百首.png" },
+      // 杂
+      { cate: "miscellaneous", title: "聊斋志异", author: "蒲松龄", desc: "志怪小说 · 蒲松龄", intro: "清代蒲松龄创作的文言短篇小说集，描写神仙狐鬼精魅故事。", rating: 5, votes: 10, link: "/聊斋志异/0-聊斋志异", img: "/images/聊斋志异.png" },
+      { cate: "miscellaneous", title: "夜航船", author: "张岱", desc: "明代小品 · 张岱", intro: "明代张岱所著的百科类书籍，内容包罗万象。", rating: 5, votes: 10, link: "/夜航船/0-夜航船", img: "/images/夜航船.png" },
+      { cate: "miscellaneous", title: "国史大纲", author: "钱穆", desc: "中国通史 · 钱穆", intro: "钱穆先生的史学代表作，贯通中国古今历史。", rating: 5, votes: 10, link: "/国史大纲/0-国史大纲", img: "/images/国史大纲.png" },
+      { cate: "miscellaneous", title: "中国历代政治得失", author: "钱穆", desc: "政治制度史 · 钱穆", intro: "钱穆先生讲述中国历代政治制度的演变与得失。", rating: 5, votes: 10, link: "/中国历代政治得失/0-中国历代政治得失", img: "/images/中国历代政治得失.png" },
+      // 马恩列毛邓
+      { cate: "marxism-leninism-mao-deng", title: "马恩选集", author: "马克思/恩格斯", desc: "马克思主义 · 马克思/恩格斯", intro: "收录马克思和恩格斯的重要著作，马克思主义经典文献。", rating: 5, votes: 10, link: "/马恩选集/0-说明", img: "/images/马恩选集.png" },
+      { cate: "marxism-leninism-mao-deng", title: "列宁选集", author: "列宁", desc: "列宁主义 · 列宁", intro: "收录列宁的重要著作和文章。", rating: 5, votes: 10, link: "/列宁选集/0-说明", img: "/images/列宁选集.png" },
+      { cate: "marxism-leninism-mao-deng", title: "毛泽东选集", author: "毛泽东", desc: "毛泽东思想 · 毛泽东", intro: "毛泽东的重要著作集，毛泽东思想的主要载体。", rating: 5, votes: 10, link: "/毛选/0-毛选", img: "/images/毛选.png" }
+    ];
 
-    categoryBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // 切换按钮激活样式
-        categoryBtns.forEach(b => {
-          b.classList.remove('active', 'bg-primary', 'text-white');
-          b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
-        });
-        btn.classList.add('active', 'bg-primary', 'text-white');
-        btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+    // 生成星星HTML
+    function generateStars(rating) {
+      let starsHtml = '';
+      const fullStars = Math.floor(rating);
+      const hasHalf = rating % 1 !== 0;
 
-        // 筛选书籍
-        const targetCate = btn.dataset.category;
-        bookCards.forEach(card => {
-          if (targetCate === 'all' || card.dataset.cate === targetCate) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
+      for (let i = 0; i < fullStars; i++) {
+        starsHtml += '<i class="fa fa-star star-fill text-xs"></i>';
+      }
+      if (hasHalf) {
+        starsHtml += '<i class="fa fa-star-half-o star-fill text-xs"></i>';
+      }
+      const emptyStars = 5 - Math.ceil(rating);
+      for (let i = 0; i < emptyStars; i++) {
+        starsHtml += '<i class="fa fa-star-o star-empty text-xs"></i>';
+      }
+
+      return starsHtml;
+    }
+
+    // 渲染书籍卡片
+    function renderBooks(books) {
+      const container = document.getElementById('bookContainer');
+      container.innerHTML = books.map(book => `
+        <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="${book.cate}" data-title="${book.title}" data-author="${book.author}">
+          <a href="${book.link}" target="_blank" class="block overflow-hidden">
+            <img src="${book.img}" alt="${book.title}封面" 
+            onerror="this.src='https://picsum.photos/200/280?random=${Math.random()}'"
+              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+          </a>
+          <div class="p-4 text-center">
+            <h3 class="font-semibold text-base mb-1 text-line-clamp-2">${book.title}</h3>
+            <p class="text-xs text-gray-500 mb-2">${book.desc}</p>
+            <div class="flex items-center justify-center gap-1 mb-2">
+              ${generateStars(book.rating)}
+              <span class="text-xs text-gray-500 ml-1">${book.votes}</span>
+            </div>
+            <div class="book-desc text-xs text-gray-600 leading-relaxed text-left">
+              ${book.intro}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // 更新书籍数量
+      document.getElementById('bookCount').innerText = books.length;
+    }
+    // 自动计算分类数
+    function updateCategoryCount() {
+      const books = booksData;
+      const uniqueCategories = new Set(books.map(book => book.cate));
+      const categoryCountEl = document.getElementById('categoryCount');
+      if (categoryCountEl) {
+        categoryCountEl.innerText = uniqueCategories.size;
+      }
+    }
+    // ==================== 开屏逻辑 ====================
+    const splashScreen = document.getElementById('splashScreen');
+    const mainContent = document.getElementById('mainContent');
+
+    // 随机更换开屏背景图（可选）
+    const bgImages = [
+      '/images/开屏1.png',
+      '/images/开屏2.png',
+      '/images/开屏3.png',
+      '/images/开屏4.png',
+    ];
+    const randomBg = bgImages[Math.floor(Math.random() * bgImages.length)];
+    document.getElementById('splashBg').src = randomBg;
+
+    function enterMainPage() {
+      splashScreen.classList.add('fade-out');
+      mainContent.classList.add('visible');
+
+      // 移除开屏元素
+      setTimeout(() => {
+        splashScreen.style.display = 'none';
+      }, 800);
+    }
+
+    // 点击开屏进入
+    splashScreen.addEventListener('click', enterMainPage);
+
+    // 预加载主内容（初始隐藏，等开屏结束后显示）
+    window.addEventListener('load', () => {
+      // 稍微延迟，确保开屏动画完整
+      setTimeout(() => {
+        if (splashScreen.style.display !== 'none') {
+          // 如果用户还没点击，自动在3秒后淡出
+          setTimeout(enterMainPage, 3000);
+        }
+      }, 500);
     });
 
-    // 搜索功能
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-      searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        bookCards.forEach(card => {
-          const title = card.dataset.title?.toLowerCase() || '';
-          const author = card.dataset.author?.toLowerCase() || '';
-          const cate = card.querySelector('p')?.innerText.toLowerCase() || '';
-          
-          if (title.includes(searchTerm) || author.includes(searchTerm) || cate.includes(searchTerm) || searchTerm === '') {
-            card.style.display = 'block';
+    // ==================== 书库功能 ====================
+    // 初始化渲染
+    renderBooks(booksData);
+
+    updateCategoryCount();
+
+    // 获取书籍卡片元素（需要在渲染后重新获取）
+    function getBookCards() {
+      return document.querySelectorAll('.book-card');
+    }
+
+    // 分类筛选功能
+    const categoryBtns = document.querySelectorAll('.category-btn');
+
+    function updateCategoryButtons() {
+      const btns = document.querySelectorAll('.category-btn');
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // 切换按钮激活样式
+          btns.forEach(b => {
+            b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-md');
+            b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+          });
+          btn.classList.add('active', 'bg-primary', 'text-white', 'shadow-md');
+          btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+
+          // 筛选书籍
+          const targetCate = btn.dataset.category;
+          const cards = getBookCards();
+          let visibleCount = 0;
+
+          cards.forEach(card => {
+            if (targetCate === 'all' || card.dataset.cate === targetCate) {
+              card.style.display = 'block';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          // 更新显示数量
+          if (targetCate !== 'all') {
+            document.getElementById('bookCount').innerText = visibleCount;
           } else {
-            card.style.display = 'none';
+            document.getElementById('bookCount').innerText = booksData.length;
           }
         });
       });
     }
+
+    // 搜索功能
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', function (e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const cards = getBookCards();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const title = card.dataset.title?.toLowerCase() || '';
+          const author = card.dataset.author?.toLowerCase() || '';
+          const cate = card.querySelector('p')?.innerText.toLowerCase() || '';
+
+          if (title.includes(searchTerm) || author.includes(searchTerm) || cate.includes(searchTerm) || searchTerm === '') {
+            card.style.display = 'block';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        document.getElementById('bookCount').innerText = visibleCount;
+      });
+    }
+
+    // 滚动动画 - 元素进入视口时淡入
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // 观察需要淡入的元素
+    document.querySelectorAll('.section-fade').forEach(el => {
+      fadeObserver.observe(el);
+    });
+
+    // 导航栏滚动效果
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('header-scroll');
+      } else {
+        header.classList.remove('header-scroll');
+      }
+    });
+
+    // 初始化分类按钮事件
+    setTimeout(() => {
+      updateCategoryButtons();
+
+      // 激活"全部书籍"按钮
+      const allBtn = document.querySelector('.category-btn[data-category="all"]');
+      if (allBtn) {
+        allBtn.click();
+      }
+    }, 100);
   </script>
 </body>
 
