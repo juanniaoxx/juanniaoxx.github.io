@@ -192,3 +192,75 @@ if (document.querySelector('.md-content')) {
 // 导出供主页使用
 window.getCurrentReading = getCurrentReading;
 window.clearCurrentReading = clearCurrentReading;
+
+// 在右上角添加时钟，同时调整搜索栏宽度
+document.addEventListener('DOMContentLoaded', function() {
+    // 添加时钟
+    const header = document.querySelector('.md-header');
+    if (header) {
+        // 创建时钟容器
+        const clockContainer = document.createElement('div');
+        clockContainer.className = 'md-header__clock';
+        clockContainer.style.cssText = `
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+            font-family: 'Inter', monospace;
+            font-size: 0.85rem;
+            color: #3E5A3C;
+            background: rgba(62, 90, 60, 0.1);
+            padding: 4px 14px;
+            border-radius: 40px;
+            white-space: nowrap;
+        `;
+        
+        // 查找放置位置（搜索栏前面）
+        const searchEl = document.querySelector('.md-header .md-search');
+        if (searchEl) {
+            searchEl.parentNode.insertBefore(clockContainer, searchEl);
+        } else {
+            const nav = document.querySelector('.md-header-nav');
+            if (nav) {
+                nav.appendChild(clockContainer);
+            }
+        }
+        
+        // 更新时间
+        function updateClock() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockContainer.textContent = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+    }
+    
+    // 调整搜索栏宽度
+    const style = document.createElement('style');
+    style.textContent = `
+        .md-header .md-search {
+            max-width: 280px;
+            flex: 0 1 auto;
+        }
+        @media (max-width: 768px) {
+            .md-header .md-search {
+                max-width: 180px;
+            }
+            .md-header__clock {
+                font-size: 0.7rem;
+                padding: 2px 8px;
+            }
+        }
+        @media (max-width: 600px) {
+            .md-header__clock {
+                display: none;  /* 小屏幕隐藏时钟 */
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});

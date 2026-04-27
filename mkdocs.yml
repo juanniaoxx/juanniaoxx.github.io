@@ -1,5 +1,5 @@
 #[Info]
-site_name: Book and Blog #your site name 显示在左上角
+site_name: Weary-文史哲 #your site name 显示在左上角
 site_url: https://juanniaoxx.github.io/
 site_description: Content and ambitious, gentle yet firm.
 site_author: Weary Bird # your name
@@ -54,14 +54,8 @@ theme:
     - content.code.copy #代码复制
     - content.code.annotate
   language: zh # 一些提示性的文字会变成中文
-
   icon:
-    repo: fontawesome/brands/github #右上角图标
     logo: logo
-edit_uri: edit/main/docs # 编辑按钮跳转的链接
-repo_url: https://github.com/juanniaoxx # 右上角点击跳转的链接
-repo_name: Weary Bird # 右上角的名字
-
 # [Navigtion]
 nav:
   - 标签: tag.md

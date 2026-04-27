@@ -285,67 +285,82 @@ body {
   color: var(--gold);
 }
 
-/* ========== 墨点粒子特效 ========== */
-.ink-particle {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  background: rgba(62, 90, 60, 0.3);
-  border-radius: 50%;
-  filter: blur(2px);
-  animation: particleFade 1.2s ease-out forwards;
+/* ========== 修复所有白色文字问题 ========== */
+
+/* 1. 修复左上角站点名称（Book and Blog）白色问题 */
+.md-header__topic,
+.md-header__title,
+.md-header .md-header__title,
+.md-header .md-header__title .md-ellipsis {
+  color: #3E5A3C !important;
 }
 
-@keyframes particleFade {
-  0% {
-    transform: scale(0.2) translateY(0);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1.8) translateY(-40px);
-    opacity: 0;
-  }
+.md-header__topic .md-ellipsis {
+  color: #3E5A3C !important;
 }
 
-/* ========== 水墨涟漪拖尾特效 ========== */
-.trail-particle {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  border-radius: 50%;
-  filter: blur(2px);
-  will-change: transform, opacity;
-  animation: trailFadeOut 0.8s ease-out forwards;
+/* 2. 修复顶部导航选项卡默认文字颜色（Book、Blog等） */
+.md-tabs__link {
+  color: #8A9BA8 !important;  /* 默认灰色，清晰可见 */
 }
 
-@keyframes trailFadeOut {
-  0% {
-    opacity: 0.7;
-    transform: scale(0.3);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0);
-  }
+/* 3. 修复顶部导航选项卡悬停和选中时的颜色 */
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  color: #3E5A3C !important;  /* 选中/悬停时深绿色 */
+  border-bottom: 2px solid #3E5A3C !important;
 }
 
-/* ========== 墨水涟漪动画（用于拖尾中的墨滴） ========== */
-@keyframes inkRipple {
-  0% {
-    transform: scale(0.2);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.3;
-  }
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
+/* 4. 修复侧边栏目录默认文字颜色 */
+.md-nav__item .md-nav__link {
+  color: #8A9BA8 !important;  /* 默认灰色 */
 }
 
+/* 5. 修复侧边栏目录悬停和选中时的颜色 */
+.md-nav__item .md-nav__link:hover,
+.md-nav__item--active .md-nav__link {
+  color: #3E5A3C !important;  /* 选中/悬停时深绿色 */
+}
+
+/* 6. 修复侧边栏选中时的左侧边框颜色 */
+.md-nav__item--active > .md-nav__link {
+  border-left-color: #3E5A3C !important;
+}
+
+/* 7. 修复侧边栏标题（如：导航）的颜色 */
+.md-nav__title {
+  color: #3E5A3C !important;
+}
+
+/* 8. 修复搜索框中的文字颜色 */
+.md-search__input {
+  color: #2C2A29 !important;
+}
+
+.md-search__input::placeholder {
+  color: #8A9BA8 !important;
+}
+
+/* 9. 修复页脚文字颜色 */
+.md-footer-copyright {
+  color: #8A9BA8 !important;
+}
+
+.md-footer-copyright a {
+  color: #D4AF37 !important;
+}
+
+/* 10. 修复移动端菜单按钮颜色 */
+.md-header .md-header__button {
+  color: #3E5A3C !important;
+}
+
+/* 11. 修复右侧目录（TOC）的文字颜色 */
+.md-sidebar--secondary .md-nav__link {
+  color: #8A9BA8 !important;
+}
+
+.md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav__link--active {
+  color: #3E5A3C !important;
+}
