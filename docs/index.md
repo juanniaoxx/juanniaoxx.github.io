@@ -4,7 +4,7 @@ hide:
   #- toc #显示左
   - footer
   - feedback
-comments: false
+template: home.html
                                    
 ---
 <div class="grid cards" markdown>
@@ -18,7 +18,8 @@ comments: false
     - [x] 基于{~~~>Material for MkDocs~~}美化
     - [x] 如遇页面卡顿，请使用{--科学上网--}
     - [x] 𝕙𝕒𝕧𝕖 𝕒 𝕘𝕠𝕠𝕕 𝕥𝕚𝕞𝕖 !  
-      === "Mac/PC端"
+
+    === "Mac/PC端"
 
         请在上方标签选择分类/左侧目录选择文章
 

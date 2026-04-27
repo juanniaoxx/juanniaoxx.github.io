@@ -67,22 +67,23 @@ repo_name: Weary Bird # 右上角的名字
 # [Navigtion]
 nav:
   - 标签: tag.md
-  - Classic Technical Books:
-      - Computer System A Programmer's Perspective: []
-      - Operating System Internals and Design:
-        - TextBook/Operating-Systems-Internals-and-Design-Principles/计算机系统概述.md
-        - TextBook/Operating-Systems-Internals-and-Design-Principles/操作系统概述.md
-  # 阅读记录
-  - Read:
-    - 中文-近代: []
-    - 中文-古代: []
-    - 英文: []
-  # 杂谈类
-  - 杂谈: 
-    - MacOS配置开发环境: blog/mac配置环境.md
-    - CMake Tutorial: blog/CMake Tutorial.md
-    - Makefile: blog/Learn Makefile.md
-
+  - 备注: 备注.md
+  - 马恩列毛邓: 
+        - 马恩选集: 马恩选集/0-说明.md
+        - 列宁选集: 列宁选集/0-说明.md
+        - 毛泽东选集: 毛选/0-毛选.md
+  - 读史以明志:
+        - 国史大纲: 国史大纲/0-国史大纲.md
+        - 中国历代政治得失: 中国历代政治得失/0-中国历代政治得失.md
+        - 史记: 史记/0-史记.md
+        - 汉书: 汉书/0-汉书.md 
+        - 后汉书: 后汉书/0-后汉书.md
+        - 三国志: 三国志/三国志.md
+  - 文:
+        - 昭明文选: 昭明文选/0-昭明文选.md
+  - 杂:
+        - 夜航船: 夜航船/0-夜航船.md
+        - 聊斋志异: 聊斋志异/0-聊斋志异.md
 copyright: Copyright &copy; 2025~2026 Weary Bird # 左下角的版权声明
 
 extra:
