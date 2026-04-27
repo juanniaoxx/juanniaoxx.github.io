@@ -472,58 +472,295 @@ padding: 20px 0;
 font-size: 30px;
 }
 
-/* ===== 悬停注释样式 ===== */
+/* ===== 悬停注释样式 - 适配文史哲主题 ===== */
 .hover-note {
   position: relative;
   cursor: help;
-  border-bottom: 1px dashed #999;
+  border-bottom: 1px dashed var(--gold, #D4AF37);
+  transition: border-color 0.2s ease;
 }
 
+.hover-note:hover {
+  border-bottom-color: var(--primary, #3E5A3C);
+}
+
+/* 注释内容 - 古籍笺纸风格 */
 .hover-note .note-text {
   visibility: hidden;
   width: max-content;
-  max-width: 260px;
-  background-color: #333;
-  color: #fff;
+  max-width: 280px;
+  background: var(--paper, #FDF8ED);
+  color: var(--dark, #2C2A29);
   text-align: left;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-size: 0.85em;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-family: 'Inter', 'Noto Serif SC', system-ui, serif;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 
+  /* 古籍纸张质感 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(212, 175, 55, 0.3);
+  
+  /* 装饰：左侧金色细边 */
+  border-left: 3px solid var(--gold, #D4AF37);
+  
   position: absolute;
   z-index: 999;
   bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+  pointer-events: none;
+  
+  /* 文字两端对齐 */
+  text-align-last: auto;
 }
 
+/* 小三角箭头 */
+.hover-note .note-text::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--gold, #D4AF37) transparent transparent transparent;
+}
+
+.hover-note .note-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--paper, #FDF8ED) transparent transparent transparent;
+  margin-top: -1px;
+}
+
+/* 悬停时的动画效果 */
 .hover-note:hover .note-text {
   visibility: visible;
   opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* 针对不同位置的优化 - 避免超出屏幕 */
+.hover-note .note-text.right {
+  left: auto;
+  right: 0;
+  transform: translateX(0);
+}
+
+.hover-note .note-text.right::before,
+.hover-note .note-text.right::after {
+  left: auto;
+  right: 20px;
+  transform: none;
+}
+
+.hover-note .note-text.left {
+  left: 0;
+  transform: translateX(0);
+}
+
+.hover-note .note-text.left::before,
+.hover-note .note-text.left::after {
+  left: 20px;
+  transform: none;
+}
+
+/* 暗色模式适配（如果您开启了暗色模式） */
+@media (prefers-color-scheme: dark) {
+  .hover-note .note-text {
+    background: #2C2A29;
+    color: #E6DFCF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(212, 175, 55, 0.4);
+  }
+  
+  .hover-note .note-text::after {
+    border-top-color: #2C2A29;
+  }
 }
 /* 变灰代码 */
 /* html {
 filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 -webkit-filter: grayscale(100%);} */
 
-/* 人名：细实线，深灰，贴近文字 */
+/* ============================================
+   古籍注疏样式 - 精简版
+   适配 Weary Bird 文史哲主题
+   仅提供视觉标识，无悬浮注释
+   ============================================ */
+
+/* ===== 一、基础变量定义 ===== */
+:root {
+  --primary: #3E5A3C;
+  --primary-dark: #2C4A2A;
+  --gold: #D4AF37;
+  --secondary: #8A9BA8;
+  --paper: #FDF8ED;
+  --dark: #2C2A29;
+  --cinnabar: #C23B22;
+  --crimson: #8B0000;
+}
+
+/* ===== 二、各类型底线样式（仅视觉标识，无悬浮）===== */
+
+/* 1. 人名：墨绿色波纹细线 */
 .name {
-  border-bottom: 1px solid #222;
-  padding-bottom: 0px;
+  border-bottom: 1.5px dotted var(--primary, #3E5A3C);
+  padding-bottom: 1px;
+  color: var(--primary-dark, #2C4A2A);
+  font-weight: 500;
+  transition: all 0.2s;
 }
 
-/* 地名：中等实线，偏蓝，略远 */
+.name:hover {
+  border-bottom-color: var(--gold, #D4AF37);
+  color: var(--gold);
+}
+
+/* 2. 地名：金色点划线 */
 .toponym {
-  border-bottom: 2px solid #005fcc;
-  padding-bottom: 0px;
+  border-bottom: 1.5px dashed var(--gold, #D4AF37);
+  padding-bottom: 1px;
+  color: #8B6914;
+  transition: all 0.2s;
 }
 
-/* 书名：粗实线，暗红，最醒目 */
-.book {
-  border-bottom: 2.5px solid #b30000;
-  padding-bottom: 0px;
+.toponym:hover {
+  border-bottom-style: solid;
+  border-bottom-color: var(--primary, #3E5A3C);
+  color: var(--primary);
 }
+
+/* 3. 书名：朱砂红双线 */
+.book {
+  border-bottom: 2px solid var(--cinnabar, #C23B22);
+  padding-bottom: 1px;
+  color: #A52A1A;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: all 0.2s;
+}
+
+/* 书名下方细红线装饰（双线效果） */
+.book::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #E07A5F;
+  opacity: 0.5;
+}
+
+.book:hover {
+  border-bottom-color: var(--crimson, #8B0000);
+  color: var(--crimson);
+}
+
+/* 4. 专用名词：灰色细实线（最不显眼） */
+.term {
+  border-bottom: 1px solid var(--secondary, #8A9BA8);
+  padding-bottom: 1px;
+  color: var(--secondary);
+  transition: all 0.2s;
+}
+
+.term:hover {
+  border-bottom-color: var(--primary, #3E5A3C);
+  color: var(--primary);
+}
+
+/* ===== 三、双行夹注风格 ===== */
+.comment-inline {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--secondary);
+  background: rgba(212, 175, 55, 0.08);
+  padding: 0 5px;
+  margin: 0 2px;
+  border-radius: 3px;
+  vertical-align: middle;
+  font-style: normal;
+  transition: all 0.2s;
+}
+
+.comment-inline:hover {
+  background: rgba(212, 175, 55, 0.18);
+  color: var(--primary);
+}
+
+/* ===== 七、响应式适配 ===== */
+@media (max-width: 768px) {
+  .hover-note .note-text {
+    max-width: 200px;
+    font-size: 0.7rem;
+    bottom: 130%;
+  }
+  
+  .ancient-note {
+    padding-left: 1.8rem;
+  }
+  
+  .ancient-note::before {
+    font-size: 0.6rem;
+  }
+  
+  .comment-inline {
+    font-size: 0.65rem;
+  }
+}
+
+/* ===== 八、暗色模式适配 ===== */
+@media (prefers-color-scheme: dark) {
+  .name {
+    border-bottom-color: #8A9BA8;
+    color: #C8D5B9;
+  }
+  
+  .toponym {
+    border-bottom-color: #B8860B;
+    color: #D4A843;
+  }
+  
+  .book {
+    border-bottom-color: #CD5C5C;
+    color: #E08070;
+  }
+  
+  .term {
+    border-bottom-color: #7A9F7A;
+    color: #A8C8A8;
+  }
+  
+  .hover-note .note-text {
+    background: #2C2A29;
+    color: #E6DFCF;
+  }
+  
+  .hover-note .note-text::after {
+    border-top-color: #2C2A29;
+  }
+  
+  .comment-inline {
+    background: rgba(212, 175, 55, 0.12);
+    color: #B8A77D;
+  }
+  
+  .ancient-note {
+    background: rgba(212, 175, 55, 0.05);
+  }
+}
+
+
 
 
