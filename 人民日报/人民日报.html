@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>人民日报 · 阅读打卡 | 每日求是</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3E5A3C',
+            secondary: '#8A9BA8',
+            neutral: '#F9F7F3',
+            dark: '#2C2A29',
+            gold: '#D4AF37',
+            'people-red': '#C52A1D'
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: #F9F7F3;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .glass-card {
+      background: rgba(255, 250, 240, 0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+    .heat-square {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      cursor: pointer;
+    }
+    .heat-square:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .heatmap-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      width: 40px;
+    }
+    .heatmap-date {
+      font-size: 9px;
+      color: #8A9BA8;
+      text-align: center;
+    }
+    .level-0 { background-color: #EEE9E2; }
+    .level-1 { background-color: #FCE5C0; }
+    .level-2 { background-color: #F5CD94; }
+    .level-3 { background-color: #E8B553; }
+    .level-4 { background-color: #C52A1D; }
+    
+    .checkin-btn {
+      background: linear-gradient(135deg, #3E5A3C 0%, #2C482A 100%);
+      transition: all 0.25s;
+    }
+    .checkin-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(62,90,60,0.4);
+    }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #3E5A3C;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .section-fade {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.5s ease;
+    }
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .people-stamp {
+      font-family: 'Cormorant Garamond', serif;
+      background: rgba(197,42,29,0.08);
+      border-radius: 40px;
+      padding: 4px 14px;
+    }
+    .modal-fade-in {
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    @media (max-width: 640px) {
+      .heat-square { width: 26px; height: 26px; }
+      .heatmap-cell { width: 34px; }
+    }
+    @media (max-width: 480px) {
+      .heat-square { width: 22px; height: 22px; }
+      .heatmap-cell { width: 30px; }
+      .heatmap-date { font-size: 7px; }
+    }
+  </style>
+</head>
+<body class="antialiased bg-neutral text-dark">
+
+  <header class="sticky top-0 z-30 bg-neutral/90 backdrop-blur-md border-b border-amber-200/30">
+    <div class="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <i class="fa fa-newspaper-o text-primary text-2xl group-hover:rotate-3 transition-all"></i>
+        <h1 class="text-2xl font-serif font-bold text-primary tracking-wide">人民日报 · 求是读报</h1>
+      </a>
+      <div class="flex gap-3 items-center">
+        <span class="people-stamp text-people-red text-sm hidden sm:inline-block"><i class="fa fa-flag-checkered mr-1"></i> 秉要执本</span>
+        <button id="resetDemoBtn" class="text-secondary hover:text-primary transition-all text-sm bg-white/40 px-3 py-1 rounded-full"><i class="fa fa-refresh mr-1"></i> 重置</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-7 max-w-6xl">
+    <div class="section-fade mb-8 flex flex-wrap justify-between items-end gap-3">
+      <div>
+        <div class="flex items-center gap-2 text-gold mb-1">
+          <i class="fa fa-calendar-check-o"></i>
+          <span class="text-xs uppercase tracking-wider">Daily Record</span>
+        </div>
+        <h2 class="text-3xl font-serif font-semibold text-primary">阅读热力图 · 人民日报</h2>
+        <p class="text-secondary text-sm mt-1">日拱一卒，功不唐捐。记录每日读报的时间与收获。</p>
+      </div>
+      <div class="glass-card px-5 py-2 flex gap-4 items-center">
+        <div><i class="fa fa-line-chart text-gold"></i> <span class="text-sm text-dark/70">连续打卡</span></div>
+        <div><span id="streakCount" class="text-2xl font-bold text-people-red">0</span> <span class="text-xs text-secondary">天</span></div>
+        <div class="w-px h-6 bg-gold/30"></div>
+        <div><i class="fa fa-flag-o text-gold"></i> <span class="text-sm text-dark/70 ml-1">总阅报</span></div>
+        <div><span id="totalReads" class="text-2xl font-bold text-primary">0</span> <span class="text-xs">次</span></div>
+      </div>
+    </div>
+
+    <div class="section-fade glass-card p-5 md:p-6 mb-10 flex flex-col md:flex-row justify-between items-center gap-5">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-2xl">
+          <i class="fa fa-pencil-square-o text-primary"></i>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl font-semibold text-dark" id="todayDisplay"></h3>
+          <p class="text-secondary text-sm flex items-center gap-1"><i class="fa fa-clock-o"></i> <span id="currentWeekday"></span> · 宜读书报，观天下事</p>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 items-stretch w-full md:w-auto">
+        <div class="flex bg-white/50 rounded-full border border-gold/20 p-1">
+          <button id="readShortBtn" class="px-4 py-2 text-sm rounded-full hover:bg-gold/20 transition-all">📰 轻读·10min</button>
+          <button id="readMediumBtn" class="px-4 py-2 text-sm rounded-full hover:bg-gold/20 transition-all">📖 精读·20min</button>
+          <button id="readLongBtn" class="px-4 py-2 text-sm rounded-full hover:bg-gold/20 transition-all">🏛️ 深研·35min</button>
+        </div>
+        <button id="customCheckinBtn" class="checkin-btn text-white px-6 py-2 rounded-full shadow-md flex items-center gap-2 justify-center"><i class="fa fa-check-circle"></i> 今日打卡</button>
+      </div>
+    </div>
+
+    <div class="section-fade glass-card p-5 md:p-6 mb-10">
+      <h3 class="font-serif text-xl font-semibold text-primary flex items-center gap-2 mb-3"><i class="fa fa-leaf text-gold"></i> 今日阅报总结</h3>
+      <textarea id="readingNote" rows="3" class="w-full p-4 border border-gold/20 rounded-2xl bg-white/70 focus:ring-1 focus:ring-gold/50 outline-none resize-none" placeholder="记录今日人民日报阅读札记、重要时评观点、金句摘录……"></textarea>
+      <div class="flex justify-end mt-3">
+        <button id="saveNoteBtn" class="text-sm px-4 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all"><i class="fa fa-save"></i> 保存总结</button>
+      </div>
+    </div>
+
+    <div class="section-fade glass-card p-5 md:p-6 mb-8">
+      <div class="flex justify-between items-center flex-wrap gap-3 mb-5">
+        <div>
+          <h3 class="font-serif text-xl font-semibold text-primary flex items-center gap-2"><i class="fa fa-fire text-gold"></i> 阅读热力图</h3>
+          <p class="text-xs text-secondary mt-1">点击任意格子 → 直接跳转查看笔记（如存在）或创建新笔记</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span>少</span>
+          <div class="flex gap-1">
+            <div class="w-4 h-4 rounded-sm level-0"></div>
+            <div class="w-4 h-4 rounded-sm level-1"></div>
+            <div class="w-4 h-4 rounded-sm level-2"></div>
+            <div class="w-4 h-4 rounded-sm level-3"></div>
+            <div class="w-4 h-4 rounded-sm level-4"></div>
+          </div>
+          <span>多</span>
+        </div>
+      </div>
+      <div id="heatmapGrid" class="flex flex-wrap gap-1 justify-start overflow-x-auto pb-2" style="min-width: 100%;"></div>
+      <div class="mt-5 text-center text-sm text-secondary">
+        <i class="fa fa-info-circle"></i> 笔记路径：<code id="linkFormatDemo" class="bg-white/50 px-1 rounded">docs/人民日报/人民日报_YYYY-MM-DD.md</code>
+      </div>
+    </div>
+
+    <div class="section-fade grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="glass-card p-5">
+        <h4 class="font-serif text-lg font-semibold text-primary flex items-center gap-2 mb-3"><i class="fa fa-bar-chart"></i> 本月阅读统计</h4>
+        <div class="flex justify-between items-baseline flex-wrap">
+          <div><span class="stat-number" id="monthTotalMinutes">0</span> <span class="text-secondary">分钟</span></div>
+          <div><span class="stat-number" id="monthDays">0</span> <span class="text-secondary">天</span></div>
+          <div><span class="stat-number" id="avgDaily">0</span> <span class="text-secondary">min/日</span></div>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+          <div id="monthProgressBar" class="bg-gold h-2 rounded-full w-0"></div>
+        </div>
+      </div>
+      <div class="glass-card p-5">
+        <h4 class="font-serif text-lg font-semibold text-primary flex items-center gap-2 mb-3"><i class="fa fa-quote-left"></i> 人民日报金句</h4>
+        <div id="dailyQuote" class="italic text-dark/80 text-base leading-relaxed">“新征程上，我们的前途一片光明……”</div>
+        <button id="refreshQuoteBtn" class="mt-3 text-xs text-primary/60 hover:text-primary"><i class="fa fa-exchange"></i> 换一换</button>
+      </div>
+    </div>
+
+    <footer class="mt-12 py-5 text-center text-gray-400 text-xs border-t border-amber-200/20">
+      <p>📖 秉轴持钧 · 日报为鉴 | 点击热力图格子直接跳转查看笔记</p>
+    </footer>
+  </main>
+
+  <script>
+    // ==================== 配置 ====================
+    // 根据您的目录结构，笔记访问路径为：/人民日报/人民日报_YYYY-MM-DD/
+    // 注意：由于您的 mkdocs 会将 .md 渲染为目录结构，实际访问链接为：
+    // /人民日报/人民日报_2026-04-27/
+    // 或者 /人民日报/人民日报_2026-04-27.md（取决于配置）
+    const NOTE_BASE_PATH = '/人民日报/人民日报_';  // 生成如：/人民日报/人民日报_2026-04-27
+    
+    // 是否添加 .md 后缀（根据您的 mkdocs 配置）
+    const ADD_MD_SUFFIX = false;  // false: 链接为 /人民日报/人民日报_2026-04-27/，true: 链接为 /人民日报/人民日报_2026-04-27.md
+    
+    // ==================== 数据存储 ====================
+    let readingMap = new Map();
+    
+    function getTodayStr() {
+      const today = new Date();
+      return today.toISOString().slice(0,10);
+    }
+    
+    function loadData() {
+      const stored = localStorage.getItem('peopleDailyReading');
+      if(stored) {
+        try {
+          const obj = JSON.parse(stored);
+          readingMap = new Map(Object.entries(obj));
+          for(let [k,v] of readingMap.entries()) {
+            if(typeof v === 'number') readingMap.set(k, { minutes: v, note: '' });
+            else if(v && typeof v === 'object' && v.minutes === undefined) readingMap.set(k, { minutes: 0, note: v.note || '' });
+          }
+        } catch(e) { console.warn(e); }
+      }
+      const today = getTodayStr();
+      if(!readingMap.has(today)) readingMap.set(today, { minutes: 0, note: '' });
+      updateAllStatsAndView();
+    }
+    
+    function saveToLocal() {
+      const obj = Object.fromEntries(readingMap);
+      localStorage.setItem('peopleDailyReading', JSON.stringify(obj));
+    }
+    
+    function addReadingMinutes(dateStr, minutes) {
+      const existing = readingMap.get(dateStr) || { minutes: 0, note: '' };
+      const newMinutes = Math.max(existing.minutes, minutes);
+      readingMap.set(dateStr, { minutes: newMinutes, note: existing.note || '' });
+      saveToLocal();
+      updateAllStatsAndView();
+      showToast(`📚 已记录 ${minutes} 分钟阅读`);
+    }
+    
+    function updateNoteForDate(dateStr, noteText) {
+      const existing = readingMap.get(dateStr) || { minutes: 0, note: '' };
+      readingMap.set(dateStr, { minutes: existing.minutes, note: noteText });
+      saveToLocal();
+      showToast('✍️ 阅读总结已保存');
+    }
+    
+    function computeStreak() {
+      let today = new Date();
+      let streak = 0;
+      let checkDate = new Date(today);
+      while(true) {
+        let key = checkDate.toISOString().slice(0,10);
+        let val = readingMap.get(key);
+        let minutes = val ? (typeof val === 'number' ? val : val.minutes) : 0;
+        if(minutes > 0) streak++;
+        else break;
+        checkDate.setDate(checkDate.getDate() - 1);
+      }
+      return streak;
+    }
+    
+    function totalActiveDays() {
+      let count = 0;
+      for(let [_, val] of readingMap.entries()) {
+        let mins = typeof val === 'number' ? val : val.minutes;
+        if(mins > 0) count++;
+      }
+      return count;
+    }
+    
+    function getCurrentMonthStats() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth();
+      let totalMins = 0, days = 0;
+      for(let [dateStr, val] of readingMap.entries()) {
+        const [y,m,d] = dateStr.split('-').map(Number);
+        if(y === year && m === month+1) {
+          let mins = typeof val === 'number' ? val : val.minutes;
+          if(mins > 0) { totalMins += mins; days++; }
+        }
+      }
+      const avg = days === 0 ? 0 : Math.round(totalMins / days);
+      return { totalMins, days, avg };
+    }
+    
+    function getColorLevel(minutes) {
+      if(minutes === 0) return 0;
+      if(minutes < 10) return 1;
+      if(minutes < 20) return 2;
+      if(minutes < 35) return 3;
+      return 4;
+    }
+    
+    // ==================== 笔记链接跳转（核心） ====================
+    function getNoteUrl(dateStr) {
+      // 生成访问链接：/人民日报/人民日报_2026-04-27 或带 .md 后缀
+      if (ADD_MD_SUFFIX) {
+        return `${NOTE_BASE_PATH}${dateStr}.md`;
+      } else {
+        return `${NOTE_BASE_PATH}${dateStr}/`;
+      }
+    }
+    
+    // 检查笔记是否存在（通过 fetch HEAD 请求）
+    function checkNoteExists(dateStr) {
+      const url = getNoteUrl(dateStr);
+      return fetch(url, { method: 'HEAD' })
+        .then(response => response.ok)
+        .catch(() => false);
+    }
+    
+    // 核心函数：点击格子后的行为
+    function onHeatmapCellClick(dateStr) {
+      const noteUrl = getNoteUrl(dateStr);
+      
+      // 先请求检查笔记是否存在
+      checkNoteExists(dateStr).then(exists => {
+        if (exists) {
+          // 笔记已存在，直接跳转（就像打开博客文章一样）
+          window.open(noteUrl, '_blank');
+          showToast(`📖 跳转至：${noteUrl}`);
+        } else {
+          // 笔记不存在，打开弹窗创建新笔记
+          showCreateNoteModal(dateStr);
+        }
+      });
+    }
+    
+    // 创建新笔记的弹窗
+    function showCreateNoteModal(dateStr) {
+      const formattedDate = dateStr.replace(/-/g, '年').replace('年', '年 ') + '日';
+      const existingRecord = readingMap.get(dateStr);
+      const existingNote = existingRecord?.note || '';
+      const minutes = existingRecord?.minutes || 0;
+      
+      const modalHtml = `
+        <div id="mdNoteModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" style="backdrop-filter: blur(4px);">
+          <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl modal-fade-in">
+            <div class="flex justify-between items-center p-5 border-b border-gold/30 bg-primary/5">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-primary">📄 新建笔记 · ${formattedDate}</h3>
+                <p class="text-xs text-secondary mt-1">编辑内容并下载，将文件放到 <code class="bg-gray-100 px-1">docs/人民日报/</code> 目录下</p>
+              </div>
+              <button onclick="closeMdModal()" class="text-gray-400 hover:text-red-500 text-2xl leading-none">&times;</button>
+            </div>
+            <div class="p-5 overflow-y-auto" style="max-height: 55vh;">
+              <textarea id="mdContent" rows="12" class="w-full p-4 border border-gold/30 rounded-xl font-mono text-sm bg-neutral/50 focus:ring-1 focus:ring-gold focus:outline-none" data-current-date="${dateStr}">---
+title: 人民日报阅读笔记
+date: ${dateStr}
+tags: [人民日报, 阅读打卡]
+minutes: ${minutes}
+---
+
+# ${formattedDate} · 人民日报阅读记录
+
+## 📊 阅读时长
+${minutes} 分钟
+
+## 📝 要点摘录
+${existingNote || '（请记录今日读报要点...）'}
+
+## 💡 思考与感悟
+
+
+## 🔗 相关链接
+</textarea>
+            </div>
+            <div class="flex justify-end gap-3 p-5 border-t border-gold/30 bg-neutral/30">
+              <button onclick="downloadNoteFile('${dateStr}')" class="px-4 py-2 rounded-full bg-primary text-white hover:bg-primary/80 transition-all"><i class="fa fa-download"></i> 下载 .md 文件</button>
+              <button onclick="closeMdModal()" class="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100">取消</button>
+            </div>
+            <div class="text-xs text-center text-secondary pb-4">
+              <i class="fa fa-info-circle"></i> 下载后请将文件保存到：<code class="bg-gray-100 px-1">docs/人民日报/人民日报_${dateStr}.md</code><br>
+              保存后刷新页面，再次点击即可直接跳转查看
+            </div>
+          </div>
+        </div>
+      `;
+      
+      const existingModal = document.getElementById('mdNoteModal');
+      if(existingModal) existingModal.remove();
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
+    }
+    
+    // 下载 .md 文件
+    function downloadNoteFile(dateStr) {
+      const textarea = document.getElementById('mdContent');
+      if(!textarea) return;
+      
+      const content = textarea.value;
+      const fileName = `人民日报_${dateStr}.md`;
+      const blob = new Blob([content], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      closeMdModal();
+      
+      showToastWithAction(
+        `✅ 已下载 ${fileName}`,
+        '查看跳转链接',
+        () => {
+          const noteUrl = getNoteUrl(dateStr);
+          window.open(noteUrl, '_blank');
+        }
+      );
+    }
+    
+    function showToastWithAction(msg, actionText, onAction) {
+      let toast = document.createElement('div');
+      toast.className = 'fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-dark/90 text-white px-5 py-3 rounded-2xl text-sm z-50 flex gap-3 items-center shadow-xl';
+      toast.innerHTML = `<span>${msg}</span><button class="bg-gold/30 hover:bg-gold text-white px-3 py-1 rounded-full text-xs transition-all">${actionText}</button>`;
+      toast.style.animation = 'fadeInUp 0.25s ease forwards';
+      document.body.appendChild(toast);
+      
+      const btn = toast.querySelector('button');
+      btn.addEventListener('click', () => {
+        onAction();
+        toast.remove();
+      });
+      
+      setTimeout(() => toast.remove(), 8000);
+    }
+    
+    function showToast(msg) {
+      let toast = document.createElement('div');
+      toast.innerText = msg;
+      toast.className = 'fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-dark/90 text-white px-4 py-2 rounded-full text-sm z-50 shadow-lg';
+      toast.style.animation = 'fadeInUp 0.25s ease forwards';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+    
+    function closeMdModal() {
+      const modal = document.getElementById('mdNoteModal');
+      if(modal) modal.remove();
+    }
+    
+    // ==================== 渲染热力图 ====================
+    function renderHeatmap() {
+      const heatmapGrid = document.getElementById('heatmapGrid');
+      if(!heatmapGrid) return;
+      const endDate = new Date();
+      const startDate = new Date();
+      startDate.setDate(endDate.getDate() - 111);
+      const daysArray = [];
+      let iter = new Date(startDate);
+      while(iter <= endDate) {
+        daysArray.push(new Date(iter));
+        iter.setDate(iter.getDate() + 1);
+      }
+      heatmapGrid.innerHTML = '';
+      const reversedDays = [...daysArray].reverse();
+      reversedDays.forEach(date => {
+          const dateStr = date.toISOString().slice(0,10);
+        const record = readingMap.get(dateStr);
+        let minutes = record ? (typeof record === 'number' ? record : record.minutes) : 0;
+        const level = getColorLevel(minutes);
+        
+        const cellWrapper = document.createElement('div');
+        cellWrapper.className = 'heatmap-cell';
+        
+        const square = document.createElement('div');
+        square.className = `heat-square level-${level} shadow-sm`;
+        square.title = `${dateStr} | 阅读 ${minutes} 分钟\n点击跳转查看笔记`;
+        square.style.cursor = 'pointer';
+        square.addEventListener('click', (e) => {
+          e.stopPropagation();
+          onHeatmapCellClick(dateStr);
+        });
+        
+        const dateLabel = document.createElement('div');
+        dateLabel.className = 'heatmap-date';
+        dateLabel.innerText = dateStr.split('-')[2];
+        
+        cellWrapper.appendChild(square);
+        cellWrapper.appendChild(dateLabel);
+        heatmapGrid.appendChild(cellWrapper);
+      });
+    }
+    
+    function updateAllStatsAndView() {
+      const streak = computeStreak();
+      const totalDays = totalActiveDays();
+      document.getElementById('streakCount').innerText = streak;
+      document.getElementById('totalReads').innerText = totalDays;
+      const monthStats = getCurrentMonthStats();
+      document.getElementById('monthTotalMinutes').innerText = monthStats.totalMins;
+      document.getElementById('monthDays').innerText = monthStats.days;
+      document.getElementById('avgDaily').innerText = monthStats.avg;
+      const goalProgress = Math.min(100, (monthStats.totalMins / 600) * 100);
+      document.getElementById('monthProgressBar').style.width = `${goalProgress}%`;
+      renderHeatmap();
+      
+      const now = new Date();
+      document.getElementById('todayDisplay').innerText = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
+      const weekdays = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+      document.getElementById('currentWeekday').innerText = weekdays[now.getDay()];
+      
+      const todayRecord = readingMap.get(getTodayStr());
+      if(todayRecord && todayRecord.note) {
+        document.getElementById('readingNote').value = todayRecord.note;
+      } else {
+        document.getElementById('readingNote').value = '';
+      }
+    }
+    
+    function resetDemoData() {
+      if(confirm('重置会清空所有阅读记录，但不会删除已创建的 .md 文件。确定重置吗？')) {
+        readingMap.clear();
+        const today = getTodayStr();
+        readingMap.set(today, { minutes: 0, note: '' });
+        saveToLocal();
+        updateAllStatsAndView();
+        showToast('数据已重置');
+      }
+    }
+    
+    function bindEvents() {
+      document.getElementById('readShortBtn')?.addEventListener('click', () => addReadingMinutes(getTodayStr(), 10));
+      document.getElementById('readMediumBtn')?.addEventListener('click', () => addReadingMinutes(getTodayStr(), 20));
+      document.getElementById('readLongBtn')?.addEventListener('click', () => addReadingMinutes(getTodayStr(), 35));
+      document.getElementById('customCheckinBtn')?.addEventListener('click', () => {
+        const customMin = prompt('请输入今日阅读人民日报的时长（分钟）：', '15');
+        let mins = parseInt(customMin, 10);
+        if(!isNaN(mins) && mins > 0) addReadingMinutes(getTodayStr(), mins);
+        else if(customMin !== null) alert('请输入有效数字');
+      });
+      document.getElementById('saveNoteBtn')?.addEventListener('click', () => {
+        const noteText = document.getElementById('readingNote').value.trim();
+        updateNoteForDate(getTodayStr(), noteText);
+        updateAllStatsAndView();
+      });
+      document.getElementById('resetDemoBtn')?.addEventListener('click', resetDemoData);
+      
+      const quotesList = [
+        '“征途漫漫，惟有奋斗。我们通过奋斗，披荆斩棘，走过了万水千山。”',
+        '“人民对美好生活的向往，就是我们的奋斗目标。”',
+        '“伟大梦想不是等得来、喊得来的，而是拼出来、干出来的。”',
+        '“历史长河波澜壮阔，一代又一代人接续奋斗创造了今天的中国。”',
+        '“团结就是力量，信心赛过黄金。”',
+        '“守正创新，勇毅前行，在中国式现代化道路上谱写新篇章。”'
+      ];
+      const quoteEl = document.getElementById('dailyQuote');
+      document.getElementById('refreshQuoteBtn')?.addEventListener('click', () => {
+        const idx = Math.floor(Math.random() * quotesList.length);
+        quoteEl.innerText = `“${quotesList[idx]}”`;
+      });
+      quoteEl.innerText = `“${quotesList[0]}”`;
+    }
+    
+    function observeSections() {
+      const sections = document.querySelectorAll('.section-fade');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(s => observer.observe(s));
+      setTimeout(() => sections.forEach(s => s.classList.add('visible')), 100);
+    }
+    
+    // 挂载到 window
+    window.closeMdModal = closeMdModal;
+    window.downloadNoteFile = downloadNoteFile;
+    
+    loadData();
+    bindEvents();
+    observeSections();
+  </script>
+
+    <a href=".." 
+    id="readingFloatBtn"
+    class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg border border-gold/30 transition-all duration-300 hover:shadow-xl hover:scale-105 group"
+    style="box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+      <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+          <i class="fa fa-newspaper-o text-primary text-lg group-hover:rotate-3 transition-all"></i>
+      </div>
+      <div class="flex flex-col">
+          <span class="text-xs text-secondary">返回主页</span>
+          <span class="text-sm font-semibold text-primary">文史哲</span>
+      </div>
+      <i class="fa fa-chevron-right text-gold text-sm ml-2 group-hover:translate-x-1 transition-all"></i>
+  </a>
+</body>
+</html>

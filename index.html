@@ -34,6 +34,36 @@
   </script>
 
   <style type="text/tailwindcss">
+    /* 擦玻璃特效 - 卡片悬停时斜向光泽扫过 */
+    .book-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .book-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+            rgba(255, 255, 255, 0) 0%, 
+            rgba(255, 248, 225, 0.8) 45%,
+            rgba(255, 245, 215, 1) 50%,
+            rgba(255, 248, 225, 0.7) 55%,
+            rgba(255, 255, 255, 0) 100%);
+        transform: skewX(-25deg);
+        pointer-events: none;
+        z-index: 5;
+        opacity: 0;
+        transition: left 1.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.2s;
+    }
+
+    .book-card:hover::before {
+        left: 125%;
+        opacity: 1;
+    }
     @layer utilities {
       /* 书影流光效果 */
       .book-shadow {
@@ -585,31 +615,31 @@
       { cate: "history_24", title: "后汉书", author: "范晔", desc: "二十四史 · 范晔", intro: "东汉兴衰与党锢名士，笔端见烈骨忠魂。", rating: 5, votes: 11, link: "/后汉书/0-后汉书", img: "/images/后汉书.png" },
       { cate: "history_24", title: "三国志", author: "陈寿", desc: "二十四史 · 陈寿", intro: "魏蜀吴风云，英雄成败，裴注更添斑斓。", rating: 5, votes: 22, link: "/三国志/三国志", img: "/images/三国志.png" },
       { cate: "history_24", title: "晋书", author: "房玄龄", desc: "二十四史 · 房玄龄", intro: "名士风流与五胡乱华，两晋烟云飘散竹简。", rating: 5, votes: 9, link: "/晋书/晋书", img: "/images/晋书.png" },
-      { cate: "history_24", title: "宋书", author: "沈约", desc: "二十四史 · 沈约", intro: "南朝刘宋六十年，志书详赡，乱世权谋。", rating: 5, votes: 8, link: "/宋书/宋书", img: "/images/宋书.png" },
-      { cate: "history_24", title: "南齐书", author: "萧子显", desc: "二十四史 · 萧子显", intro: "齐室短命，笔触哀婉，见证寒人崛起。", rating: 4, votes: 7, link: "/南齐书/南齐书", img: "/images/南齐书.png" },
-      { cate: "history_24", title: "梁书", author: "姚思廉", desc: "二十四史 · 姚思廉", intro: "梁武帝四十八年，文华盛极，侯景乱后尽成灰。", rating: 4, votes: 6, link: "/梁书/梁书", img: "/images/梁书.png" },
-      { cate: "history_24", title: "陈书", author: "姚思廉", desc: "二十四史 · 姚思廉", intro: "南朝最后余晖，后主荒淫终归隋。", rating: 4, votes: 5, link: "/陈书/陈书", img: "/images/陈书.png" },
-      { cate: "history_24", title: "魏书", author: "魏收", desc: "二十四史 · 魏收", intro: "拓跋鲜卑入主中原，胡汉交融的史诗。", rating: 4, votes: 7, link: "/魏书/魏书", img: "/images/魏书.png" },
-      { cate: "history_24", title: "北齐书", author: "李百药", desc: "二十四史 · 李百药", intro: "暴君昏主与佛教炽盛，北齐廿七年荒唐又虔诚。", rating: 4, votes: 5, link: "/北齐书/北齐书", img: "/images/北齐书.png" },
-      { cate: "history_24", title: "周书", author: "令狐德棻", desc: "二十四史 · 令狐德棻", intro: "关陇集团奠基，为隋唐盛世埋下伏笔。", rating: 4, votes: 6, link: "/周书/周书", img: "/images/周书.png" },
-      { cate: "history_24", title: "隋书", author: "魏徵", desc: "二十四史 · 魏徵", intro: "开皇之治与大业暴政，运河悠悠鉴兴亡。", rating: 5, votes: 12, link: "/隋书/隋书", img: "/images/隋书.png" },
-      { cate: "history_24", title: "南史", author: "李延寿", desc: "二十四史 · 李延寿", intro: "宋齐梁陈四代一编，南北朝互见，宏大叙事。", rating: 4, votes: 7, link: "/南史/南史", img: "/images/南史.png" },
-      { cate: "history_24", title: "北史", author: "李延寿", desc: "二十四史 · 李延寿", intro: "北朝二百年，胡风汉制，融合新生。", rating: 4, votes: 8, link: "/北史/北史", img: "/images/北史.png" },
-      { cate: "history_24", title: "旧唐书", author: "刘昫", desc: "二十四史 · 刘昫", intro: "唐朝实录，安史之乱后的追忆。", rating: 5, votes: 14, link: "/旧唐书/旧唐书", img: "/images/旧唐书.png" },
-      { cate: "history_24", title: "新唐书", author: "欧阳修", desc: "二十四史 · 欧阳修", intro: "春秋笔法，增加藩镇、奸臣列传。", rating: 5, votes: 13, link: "/新唐书/新唐书", img: "/images/新唐书.png" },
-      { cate: "history_24", title: "旧五代史", author: "薛居正", desc: "二十四史 · 薛居正", intro: "梁唐晋汉兴亡短促，武人纵横。", rating: 4, votes: 6, link: "/旧五代史/旧五代史", img: "/images/旧五代史.png" },
-      { cate: "history_24", title: "新五代史", author: "欧阳修", desc: "二十四史 · 欧阳修", intro: "义例森严，呜呼之叹，五代乱世尽收眼底。", rating: 5, votes: 9, link: "/新五代史/新五代史", img: "/images/新五代史.png" },
-      { cate: "history_24", title: "宋史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "北宋南宋，文治巅峰与靖康之耻。", rating: 5, votes: 16, link: "/宋史/宋史", img: "/images/宋史.png" },
-      { cate: "history_24", title: "辽史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "契丹王朝，捺钵四时，草原帝国。", rating: 4, votes: 6, link: "/辽史/辽史", img: "/images/辽史.png" },
-      { cate: "history_24", title: "金史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "女真铁骑，猛安谋克，中州豪杰。", rating: 4, votes: 7, link: "/金史/金史", img: "/images/金史.png" },
-      { cate: "history_24", title: "元史", author: "宋濂", desc: "二十四史 · 宋濂", intro: "蒙古铁蹄征服欧亚，治汉地难归化。", rating: 4, votes: 8, link: "/元史/元史", img: "/images/元史.png" },
-      { cate: "history_24", title: "明史", author: "张廷玉", desc: "二十四史 · 张廷玉", intro: "天子守国门，君王死社稷，卷帙浩繁。", rating: 5, votes: 19, link: "/明史/明史", img: "/images/明史.png" },
+      // { cate: "history_24", title: "宋书", author: "沈约", desc: "二十四史 · 沈约", intro: "南朝刘宋六十年，志书详赡，乱世权谋。", rating: 5, votes: 8, link: "/宋书/宋书", img: "/images/宋书.png" },
+      // { cate: "history_24", title: "南齐书", author: "萧子显", desc: "二十四史 · 萧子显", intro: "齐室短命，笔触哀婉，见证寒人崛起。", rating: 4, votes: 7, link: "/南齐书/南齐书", img: "/images/南齐书.png" },
+      // { cate: "history_24", title: "梁书", author: "姚思廉", desc: "二十四史 · 姚思廉", intro: "梁武帝四十八年，文华盛极，侯景乱后尽成灰。", rating: 4, votes: 6, link: "/梁书/梁书", img: "/images/梁书.png" },
+      // { cate: "history_24", title: "陈书", author: "姚思廉", desc: "二十四史 · 姚思廉", intro: "南朝最后余晖，后主荒淫终归隋。", rating: 4, votes: 5, link: "/陈书/陈书", img: "/images/陈书.png" },
+      // { cate: "history_24", title: "魏书", author: "魏收", desc: "二十四史 · 魏收", intro: "拓跋鲜卑入主中原，胡汉交融的史诗。", rating: 4, votes: 7, link: "/魏书/魏书", img: "/images/魏书.png" },
+      // { cate: "history_24", title: "北齐书", author: "李百药", desc: "二十四史 · 李百药", intro: "暴君昏主与佛教炽盛，北齐廿七年荒唐又虔诚。", rating: 4, votes: 5, link: "/北齐书/北齐书", img: "/images/北齐书.png" },
+      // { cate: "history_24", title: "周书", author: "令狐德棻", desc: "二十四史 · 令狐德棻", intro: "关陇集团奠基，为隋唐盛世埋下伏笔。", rating: 4, votes: 6, link: "/周书/周书", img: "/images/周书.png" },
+      // { cate: "history_24", title: "隋书", author: "魏徵", desc: "二十四史 · 魏徵", intro: "开皇之治与大业暴政，运河悠悠鉴兴亡。", rating: 5, votes: 12, link: "/隋书/隋书", img: "/images/隋书.png" },
+      // { cate: "history_24", title: "南史", author: "李延寿", desc: "二十四史 · 李延寿", intro: "宋齐梁陈四代一编，南北朝互见，宏大叙事。", rating: 4, votes: 7, link: "/南史/南史", img: "/images/南史.png" },
+      // { cate: "history_24", title: "北史", author: "李延寿", desc: "二十四史 · 李延寿", intro: "北朝二百年，胡风汉制，融合新生。", rating: 4, votes: 8, link: "/北史/北史", img: "/images/北史.png" },
+      // { cate: "history_24", title: "旧唐书", author: "刘昫", desc: "二十四史 · 刘昫", intro: "唐朝实录，安史之乱后的追忆。", rating: 5, votes: 14, link: "/旧唐书/旧唐书", img: "/images/旧唐书.png" },
+      // { cate: "history_24", title: "新唐书", author: "欧阳修", desc: "二十四史 · 欧阳修", intro: "春秋笔法，增加藩镇、奸臣列传。", rating: 5, votes: 13, link: "/新唐书/新唐书", img: "/images/新唐书.png" },
+      // { cate: "history_24", title: "旧五代史", author: "薛居正", desc: "二十四史 · 薛居正", intro: "梁唐晋汉兴亡短促，武人纵横。", rating: 4, votes: 6, link: "/旧五代史/旧五代史", img: "/images/旧五代史.png" },
+      // { cate: "history_24", title: "新五代史", author: "欧阳修", desc: "二十四史 · 欧阳修", intro: "义例森严，呜呼之叹，五代乱世尽收眼底。", rating: 5, votes: 9, link: "/新五代史/新五代史", img: "/images/新五代史.png" },
+      // { cate: "history_24", title: "宋史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "北宋南宋，文治巅峰与靖康之耻。", rating: 5, votes: 16, link: "/宋史/宋史", img: "/images/宋史.png" },
+      // { cate: "history_24", title: "辽史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "契丹王朝，捺钵四时，草原帝国。", rating: 4, votes: 6, link: "/辽史/辽史", img: "/images/辽史.png" },
+      // { cate: "history_24", title: "金史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "女真铁骑，猛安谋克，中州豪杰。", rating: 4, votes: 7, link: "/金史/金史", img: "/images/金史.png" },
+      // { cate: "history_24", title: "元史", author: "宋濂", desc: "二十四史 · 宋濂", intro: "蒙古铁蹄征服欧亚，治汉地难归化。", rating: 4, votes: 8, link: "/元史/元史", img: "/images/元史.png" },
+      // { cate: "history_24", title: "明史", author: "张廷玉", desc: "二十四史 · 张廷玉", intro: "天子守国门，君王死社稷，卷帙浩繁。", rating: 5, votes: 19, link: "/明史/明史", img: "/images/明史.png" },
       { cate: "chinese-classic-literature", title: "昭明文选", author: "萧统", desc: "文选 · 萧统", intro: "文章典范，辞采风流，千载文枢。", rating: 5, votes: 18, link: "/昭明文选/0-昭明文选", img: "/images/昭明文选.png" },
       { cate: "chinese-classic-literature", title: "古文观止", author: "吴楚材", desc: "古文选集", intro: "二百余篇古文精华，入门金钥匙。", rating: 5, votes: 32, link: "/古文观止/0-古文观止", img: "/images/古文观止.png" },
       { cate: "chinese-classic-literature", title: "唐诗三百首", author: "蘅塘退士", desc: "唐诗选集", intro: "熟读唐诗三百首，不会作诗也会吟。", rating: 5, votes: 27, link: "/唐诗三百首/0-唐诗三百首", img: "/images/唐诗三百首.png" },
       { cate: "chinese-classic-literature", title: "宋词三百首", author: "朱祖谋", desc: "宋词选集", intro: "婉约与豪放，词中见天地。", rating: 5, votes: 22, link: "/宋词三百首/0-宋词三百首", img: "/images/宋词三百首.png" },
-      { cate: "chinese-classic-philosophy", title: "论语", author: "孔子弟子", desc: "儒家经典", intro: "半部论语治天下，仁礼思想源流。", rating: 5, votes: 40, link: "/论语/0-论语", img: "/images/论语.png" },
-      { cate: "chinese-classic-philosophy", title: "孟子", author: "孟子", desc: "儒家哲学", intro: "性善论与仁政，浩然正气。", rating: 5, votes: 31, link: "/孟子/0-孟子", img: "/images/孟子.png" },
+      // { cate: "chinese-classic-philosophy", title: "论语", author: "孔子弟子", desc: "儒家经典", intro: "半部论语治天下，仁礼思想源流。", rating: 5, votes: 40, link: "/论语/0-论语", img: "/images/论语.png" },
+      // { cate: "chinese-classic-philosophy", title: "孟子", author: "孟子", desc: "儒家哲学", intro: "性善论与仁政，浩然正气。", rating: 5, votes: 31, link: "/孟子/0-孟子", img: "/images/孟子.png" },
       { cate: "miscellaneous", title: "聊斋志异", author: "蒲松龄", desc: "志怪小说", intro: "写鬼写妖高人一等，刺贪刺虐入骨三分。", rating: 5, votes: 28, link: "/聊斋志异/0-聊斋志异", img: "/images/聊斋志异.png" },
       { cate: "miscellaneous", title: "夜航船", author: "张岱", desc: "明代小品", intro: "天下学问，唯夜航船中最难。", rating: 5, votes: 15, link: "/夜航船/0-夜航船", img: "/images/夜航船.png" },
       { cate: "miscellaneous", title: "国史大纲", author: "钱穆", desc: "国史通论", intro: "温情与敬意，为中国历史招魂。", rating: 5, votes: 33, link: "/国史大纲/0-国史大纲", img: "/images/国史大纲.png" },
@@ -1032,7 +1062,20 @@
       setTimeout(saveCurrentReading, 500);
     }
   </script>
-
+  <!-- 悬浮读报卡片（更精致） -->
+  <a href="/人民日报/人民日报.html" 
+    id="readingFloatBtn"
+    class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg border border-gold/30 transition-all duration-300 hover:shadow-xl hover:scale-105 group"
+    style="box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+      <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+          <i class="fa fa-newspaper-o text-primary text-lg group-hover:rotate-3 transition-all"></i>
+      </div>
+      <div class="flex flex-col">
+          <span class="text-xs text-secondary">每日阅读</span>
+          <span class="text-sm font-semibold text-primary">人民日报</span>
+      </div>
+      <i class="fa fa-chevron-right text-gold text-sm ml-2 group-hover:translate-x-1 transition-all"></i>
+  </a>
 </body>
 
 </html>
