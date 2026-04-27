@@ -17,6 +17,7 @@ anime.timeline({loop: true})
     delay: 1000
   });
 
+  
 
 //全屏视频
 var video = document.getElementById("video1");
@@ -59,4 +60,5 @@ if (isMobile) {
 //   // Transition complete!
 // }
 // 优化end
+
 

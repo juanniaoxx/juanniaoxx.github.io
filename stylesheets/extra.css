@@ -472,12 +472,58 @@ padding: 20px 0;
 font-size: 30px;
 }
 
+/* ===== 悬停注释样式 ===== */
+.hover-note {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dashed #999;
+}
 
+.hover-note .note-text {
+  visibility: hidden;
+  width: max-content;
+  max-width: 260px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+
+  position: absolute;
+  z-index: 999;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.hover-note:hover .note-text {
+  visibility: visible;
+  opacity: 1;
+}
 /* 变灰代码 */
 /* html {
 filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 -webkit-filter: grayscale(100%);} */
 
+/* 人名：细实线，深灰，贴近文字 */
+.name {
+  border-bottom: 1px solid #222;
+  padding-bottom: 0px;
+}
 
+/* 地名：中等实线，偏蓝，略远 */
+.toponym {
+  border-bottom: 2px solid #005fcc;
+  padding-bottom: 0px;
+}
+
+/* 书名：粗实线，暗红，最醒目 */
+.book {
+  border-bottom: 2.5px solid #b30000;
+  padding-bottom: 0px;
+}
 
 
