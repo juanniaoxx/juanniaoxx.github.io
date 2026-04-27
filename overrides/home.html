@@ -4,24 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文史哲 · 书库</title>
+  <title>文史哲 · 书韵流光</title>
   <!-- 引入Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- 引入Font Awesome图标 -->
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 引入 Animate.css 增加丰富动画库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-  <!-- 自定义Tailwind配置 -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#36454F',
+            primary: '#3E5A3C',
             secondary: '#8A9BA8',
-            neutral: '#F5F5F7',
-            dark: '#1A1A1A'
+            neutral: '#F9F7F3',
+            dark: '#2C2A29',
+            gold: '#D4AF37'
           },
           fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
             sans: ['Inter', 'system-ui', 'sans-serif'],
           },
         },
@@ -31,21 +34,21 @@
 
   <style type="text/tailwindcss">
     @layer utilities {
-      /* 自定义工具类 */
+      /* 书影流光效果 */
       .book-shadow {
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        transition: box-shadow 0.3s ease;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       }
       .hover-lift {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       }
       .hover-lift:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+        transform: translateY(-10px) scale(1.01);
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.18);
       }
       .glass {
-        backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(14px);
+        background: rgba(255, 250, 240, 0.88);
       }
       .text-line-clamp-2 {
         display: -webkit-box;
@@ -53,24 +56,59 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
-      /* 概述悬浮展开动画 */
+      /* 优雅展开描述动画 */
       .book-desc {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
+        transition: max-height 0.45s cubic-bezier(0.33, 1, 0.68, 1);
       }
       .book-card:hover .book-desc {
-        max-height: 120px;
+        max-height: 140px;
       }
-      /* 五星评分样式 */
-      .star-fill {
-        color: #E6B349;
-      }
-      .star-empty {
-        color: #D1D1D1;
-      }
+      /* 五星评分 */
+      .star-fill { color: #D4AF37; }
+      .star-empty { color: #DCD7CC; }
 
-      /* ========== 开屏动画样式 ========== */
+      /* ========== 动态粒子/墨点特效 ========== */
+      .ink-particle {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9998;
+        background: rgba(62, 90, 60, 0.3);
+        border-radius: 50%;
+        filter: blur(2px);
+        animation: particleFade 1.2s ease-out forwards;
+      }
+      @keyframes particleFade {
+        0% { transform: scale(0.2) translateY(0); opacity: 0.6; }
+        100% { transform: scale(1.8) translateY(-40px); opacity: 0; }
+      }
+      /* ========== 鼠标拖尾特效 ========== */
+    .trail-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      filter: blur(2px);
+      will-change: transform, opacity;
+      animation: trailFadeOut 0.8s ease-out forwards;
+    }
+
+    @keyframes trailFadeOut {
+      0% {
+        opacity: 0.7;
+        transform: scale(0.3);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+      /* 开屏新视觉 */
       .splash-screen {
         position: fixed;
         top: 0;
@@ -80,570 +118,527 @@
         z-index: 9999;
         cursor: pointer;
         overflow: hidden;
+        background: #1e2c1c;
       }
-
       .splash-bg {
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: brightness(0.85);
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        filter: brightness(0.75) sepia(0.2);
+        transition: transform 6s ease;
       }
-
+      .splash-screen:hover .splash-bg {
+        transform: scale(1.05);
+      }
       .splash-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+        background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
       }
-
       .splash-content {
-        position: absolute;
-        bottom: 15%;
-        left: 0;
-        right: 0;
-        text-align: center;
-        color: white;
-        animation: fadeInUp 1s ease-out;
+        animation: fadeInUp 1s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       }
-
       @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
       }
+      .splash-screen.fade-out { animation: fadeOut 0.9s forwards; }
+      @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
-      .splash-title {
-        font-size: clamp(2rem, 8vw, 4rem);
-        font-weight: bold;
-        letter-spacing: 0.1em;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      }
+      .main-content { opacity: 0; transition: opacity 0.8s ease; }
+      .main-content.visible { opacity: 1; }
 
-      .splash-subtitle {
-        font-size: clamp(0.875rem, 4vw, 1.125rem);
-        opacity: 0.9;
-        letter-spacing: 0.05em;
-      }
-
-      .splash-icon {
-        margin-top: 2rem;
-        animation: bounce 2s infinite;
-      }
-
-      @keyframes bounce {
-        0%, 100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(10px);
-        }
-      }
-
-      /* 开屏消失动画 */
-      .splash-screen.fade-out {
-        animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-
-      @keyframes fadeOut {
-        from {
-          opacity: 1;
-          visibility: visible;
-        }
-        to {
-          opacity: 0;
-          visibility: hidden;
-        }
-      }
-
-      /* 主内容初始隐藏 */
-      .main-content {
-        opacity: 0;
-        transition: opacity 0.8s ease-out;
-      }
-
-      .main-content.visible {
-        opacity: 1;
-      }
-
-      /* ========== 书库增强样式 ========== */
-      
-      /* 书籍卡片进入动画 */
+      /* 卡片绽放动画 */
       .book-card {
         opacity: 0;
         transform: translateY(30px);
-        animation: cardFadeIn 0.6s ease-out forwards;
+        animation: cardGlide 0.65s ease-out forwards;
       }
+      @keyframes cardGlide { to { opacity: 1; transform: translateY(0); } }
+      .book-card:nth-child(1) { animation-delay: 0.02s; }
+      .book-card:nth-child(2) { animation-delay: 0.06s; }
+      .book-card:nth-child(3) { animation-delay: 0.1s; }
+      .book-card:nth-child(4) { animation-delay: 0.14s; }
+      .book-card:nth-child(5) { animation-delay: 0.18s; }
+      .book-card:nth-child(6) { animation-delay: 0.22s; }
+      .book-card:nth-child(7) { animation-delay: 0.26s; }
+      .book-card:nth-child(8) { animation-delay: 0.3s; }
+      .book-card:nth-child(9) { animation-delay: 0.34s; }
+      .book-card:nth-child(10) { animation-delay: 0.38s; }
+      .book-card:nth-child(11) { animation-delay: 0.42s; }
+      .book-card:nth-child(12) { animation-delay: 0.46s; }
 
-      @keyframes cardFadeIn {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* 为每个卡片设置不同的延迟 */
-      .book-card:nth-child(1) { animation-delay: 0.05s; }
-      .book-card:nth-child(2) { animation-delay: 0.1s; }
-      .book-card:nth-child(3) { animation-delay: 0.15s; }
-      .book-card:nth-child(4) { animation-delay: 0.2s; }
-      .book-card:nth-child(5) { animation-delay: 0.25s; }
-      .book-card:nth-child(6) { animation-delay: 0.3s; }
-      .book-card:nth-child(7) { animation-delay: 0.35s; }
-      .book-card:nth-child(8) { animation-delay: 0.4s; }
-      .book-card:nth-child(9) { animation-delay: 0.45s; }
-      .book-card:nth-child(10) { animation-delay: 0.5s; }
-      .book-card:nth-child(11) { animation-delay: 0.55s; }
-      .book-card:nth-child(12) { animation-delay: 0.6s; }
-
-      /* 书籍卡片光泽效果 */
-      .book-card {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .book-card::before {
+      /* 书脊光效（新装饰） */
+      .book-card::after {
         content: '';
         position: absolute;
-        top: -50%;
-        left: -60%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          115deg,
-          transparent 30%,
-          rgba(255, 255, 255, 0.1) 45%,
-          rgba(255, 255, 255, 0.15) 50%,
-          transparent 55%
-        );
-        transform: translateX(-100%);
-        transition: transform 0.6s ease;
-        z-index: 1;
-        pointer-events: none;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(135deg, #D4AF37, #B87C2E);
+        opacity: 0;
+        transition: opacity 0.3s;
+        border-radius: 12px 0 0 12px;
+      }
+      .book-card:hover::after {
+        opacity: 0.8;
       }
 
-      .book-card:hover::before {
-        transform: translateX(100%);
-      }
-
-      /* 分类按钮增强 */
+      /* 分类涟漪按钮 */
       .category-btn {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s;
         position: relative;
         overflow: hidden;
       }
-
-      .category-btn::before {
+      .category-btn:active::before {
         content: '';
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translate(-50%, -50%);
-        transition: width 0.4s, height 0.4s;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%);
+        transform: translate(-50%, -50%) scale(0);
+        animation: ripple 0.6s ease-out;
       }
+      @keyframes ripple { to { transform: translate(-50%, -50%) scale(1); opacity: 0; } }
 
-      .category-btn:hover::before {
-        width: 200%;
-        height: 200%;
-      }
-
-      /* 页面滚动淡入效果 */
       .section-fade {
         opacity: 0;
         transform: translateY(20px);
-        transition: all 0.6s ease-out;
+        transition: all 0.7s ease;
       }
+      .section-fade.visible { opacity: 1; transform: translateY(0); }
 
-      .section-fade.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* 导航栏滚动效果 */
       .header-scroll {
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        background: rgba(255, 250, 240, 0.96);
+      }
+
+      /* 浮动墨韵 */
+      .floating-ink {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        background: #3E5A3C;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        z-index: 100;
+        transition: all 0.3s;
+        color: white;
+        font-size: 24px;
+      }
+      .floating-ink:hover {
+        transform: scale(1.1);
+        background: #D4AF37;
+        color: #2C2A29;
+      }
+
+      /* 随机金句区域 */
+      .quote-ticker {
+        background: rgba(212, 175, 55, 0.1);
+        border-left: 4px solid #D4AF37;
+        padding: 8px 16px;
+        border-radius: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        backdrop-filter: blur(4px);
       }
     }
   </style>
 </head>
 
-<body class="bg-neutral text-dark font-sans min-h-screen">
+<body class="bg-neutral text-dark font-sans antialiased">
 
-  <!-- ==================== 开屏页面 ==================== -->
+  <!-- 开屏界面 中国画意境 -->
   <div class="splash-screen" id="splashScreen">
-    <!-- 背景图片 - 你可以替换成自己喜欢的图片 -->
-    <img src="/images/开屏.png" alt="开屏背景" class="splash-bg" id="splashBg">
-    <div class="splash-overlay"></div>
-    <div class="splash-content">
-      <div class="splash-title">Weary Bird</div>
-      <div class="splash-subtitle">厚积而薄发</div>
-      <div class="splash-icon">
-        <i class="fa fa-chevron-down text-2xl"></i>
-      </div>
-      <div class="text-xs mt-4 opacity-75">点击任意位置进入书库</div>
+    <img src="/images/开屏.png" alt="书卷意境" class="splash-bg" id="splashBg">
+    <div class="splash-overlay absolute inset-0"></div>
+    <div class="splash-content absolute bottom-[18%] left-0 right-0 text-center text-white">
+      <div class="splash-title font-serif text-6xl md:text-7xl tracking-wider drop-shadow-lg">Weary Bird</div>
+      <div class="splash-subtitle text-base md:text-xl mt-3 font-light tracking-wide">厚积而薄发 · 文脉赓续</div>
+      <div class="mt-6 animate-bounce"><i class="fa fa-arrow-down text-2xl"></i></div>
+      <div class="text-xs mt-6 opacity-80">轻触入卷 · 墨香随行</div>
     </div>
   </div>
 
-  <!-- ==================== 主内容 ==================== -->
+  <!-- 主内容 -->
   <div class="main-content" id="mainContent">
-    <!-- 顶部导航栏 -->
-    <header class="glass sticky top-0 z-50 border-b border-gray-200/50 transition-all duration-300" id="mainHeader">
-      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <!-- Logo -->
+    <header class="glass sticky top-0 z-50 border-b border-amber-200/40 transition-all duration-300" id="mainHeader">
+      <div class="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
         <a href="#" class="flex items-center gap-2 group">
-          <i class="fa fa-book text-primary text-2xl group-hover:scale-110 transition-transform"></i>
-          <h1 class="text-xl font-bold text-primary tracking-wide">Weary-文史哲</h1>
+          <i class="fa fa-book text-primary text-2xl group-hover:rotate-6 transition-all"></i>
+          <h1 class="text-2xl font-serif font-bold text-primary tracking-wide">Weary·文史哲</h1>
         </a>
-        <!-- 搜索框 -->
         <div
-          class="hidden md:flex items-center bg-white rounded-full px-4 py-2 w-72 shadow-sm focus-within:shadow-md transition-shadow">
-          <i class="fa fa-search text-gray-400 mr-2"></i>
-          <input type="text" id="searchInput" placeholder="搜索书籍、作者、分类"
+          class="hidden md:flex items-center bg-white/80 rounded-full px-5 py-2 w-80 shadow-sm focus-within:shadow-md transition-all border border-gold/30">
+          <i class="fa fa-search text-secondary mr-2"></i>
+          <input type="text" id="searchInput" placeholder="搜典籍、寻作者、觅往圣..."
             class="bg-transparent outline-none w-full text-sm">
         </div>
-        <!-- 功能按钮 -->
-        <div class="flex gap-4">
-          <button class="text-gray-600 hover:text-primary transition-all hover:scale-110">
-            <i class="fa fa-user-circle-o text-xl"></i>
+        <div class="flex gap-5">
+          <button id="randomQuoteBtn" class="text-primary hover:text-gold transition-all hover:scale-110">
+            <i class="fa fa-quote-left text-lg"></i>
           </button>
-          <button class="text-gray-600 hover:text-primary transition-all hover:scale-110">
-            <i class="fa fa-heart-o text-xl"></i>
+          <button id="themeParticleBtn" class="text-primary hover:text-gold transition-all hover:scale-110">
+            <i class="fa fa-magic text-lg"></i>
           </button>
         </div>
       </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
-      <!-- 页面标题区域 - 增强 -->
-      <div class="section-fade mb-10 text-center" id="heroSection">
-        <div class="relative inline-block">
-          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-2">
-            文史哲
-            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-primary rounded-full">
-            </div>
-          </h2>
+    <main class="container mx-auto px-4 py-6">
+      <!-- 动态金句组件 -->
+      <div class="section-fade flex justify-center mb-4" id="quoteBanner">
+        <div class="quote-ticker text-sm md:text-base text-dark/80">
+          <i class="fa fa-leaf text-gold"></i>
+          <span id="dynamicQuote">博观而约取，厚积而薄发</span>
+          <i class="fa fa-feather text-gold"></i>
         </div>
-        <p class="text-secondary text-sm md:text-base mt-4">借千古风月,渡人间万象</p>
+      </div>
 
-        <!-- 添加统计装饰 -->
-        <div class="flex justify-center gap-8 mt-6 text-sm">
+      <div class="section-fade mb-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary relative inline-block">
+          万卷书库
+          <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gold rounded-full"></span>
+        </h2>
+        <p class="text-secondary text-sm mt-4 max-w-2xl mx-auto">廿四史蕴千秋事，诸子文光照古今</p>
+        <div class="flex justify-center gap-8 mt-5">
           <div class="text-center">
-            <div class="text-primary font-bold text-xl" id="bookCount">0</div>
-            <div class="text-gray-500 text-xs">藏书</div>
+            <div class="text-primary font-bold text-2xl" id="bookCount">0</div>
+            <div class="text-gray-500 text-xs">典藏</div>
           </div>
           <div class="text-center">
-            <div class="text-primary font-bold text-xl" id="categoryCount">0</div>
-            <div class="text-gray-500 text-xs">分类</div>
+            <div class="text-primary font-bold text-2xl" id="categoryCount">0</div>
+            <div class="text-gray-500 text-xs">部类</div>
           </div>
           <div class="text-center">
-            <div class="text-primary font-bold text-xl">∞</div>
-            <div class="text-gray-500 text-xs">智慧</div>
+            <div class="text-primary font-bold text-2xl" id="readingStat">∞</div>
+            <div class="text-gray-500 text-xs">文思</div>
           </div>
         </div>
+      </div>
 
-        <!-- 分类筛选系统 - 增强滚动动画 -->
-        <div class="section-fade flex flex-wrap justify-center gap-3 mb-12" id="categorySection">
-          <button
-            class="category-btn active px-5 py-2 rounded-full bg-primary text-white text-sm hover-lift shadow-md hover:shadow-lg"
-            data-category="all">
-            全部书籍
-          </button>
-          <button
-            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
-            data-category="Six Confucian Classics">
-            儒学六经
-          </button>
-          <button
-            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
-            data-category="chinese-classic-literature">
-            中国古典文学
-          </button>
-          <button
-            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
-            data-category="marxism-leninism-mao-deng">
-            马恩列毛邓
-          </button>
-          <button
-            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
-            data-category="chinese-classic-philosophy">
-            中国古典哲学
-          </button>
-          <button
-            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
-            data-category="history_24">
-            二十四史
-          </button>
-          <button
-            class="category-btn px-5 py-2 rounded-full bg-white text-gray-700 text-sm hover-lift border border-gray-200 hover:bg-primary hover:text-white transition-colors"
-            data-category="miscellaneous">
-            杂
-          </button>
-        </div>
+      <!-- 分类筛选，增加浮光质感 -->
+      <div class="section-fade flex flex-wrap justify-center gap-3 mb-12" id="categorySection">
+        <button
+          class="category-btn active px-6 py-2 rounded-full bg-primary text-white text-sm shadow-md hover:shadow-lg transition"
+          data-category="all">📖 全部典籍</button>
+        <button
+          class="category-btn px-6 py-2 rounded-full bg-white text-gray-700 text-sm border border-gray-200 hover:bg-primary hover:text-white"
+          data-category="Six Confucian Classics">📜 儒学六经</button>
+        <button
+          class="category-btn px-6 py-2 rounded-full bg-white text-gray-700 text-sm border border-gray-200 hover:bg-primary hover:text-white"
+          data-category="chinese-classic-literature">✍️ 古典文学</button>
+        <button
+          class="category-btn px-6 py-2 rounded-full bg-white text-gray-700 text-sm border border-gray-200 hover:bg-primary hover:text-white"
+          data-category="marxism-leninism-mao-deng">⭐ 马恩列毛邓</button>
+        <button
+          class="category-btn px-6 py-2 rounded-full bg-white text-gray-700 text-sm border border-gray-200 hover:bg-primary hover:text-white"
+          data-category="chinese-classic-philosophy">☯ 古典哲学</button>
+        <button
+          class="category-btn px-6 py-2 rounded-full bg-white text-gray-700 text-sm border border-gray-200 hover:bg-primary hover:text-white"
+          data-category="history_24">📚 二十四史</button>
+        <button
+          class="category-btn px-6 py-2 rounded-full bg-white text-gray-700 text-sm border border-gray-200 hover:bg-primary hover:text-white"
+          data-category="miscellaneous">🍃 杂·艺文</button>
+      </div>
 
-        <!-- 书籍列表容器 -->
-        <div class="section-fade grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
-          id="bookContainer">
-          <!-- 书籍卡片会在后面插入 -->
-        </div>
+      <!-- 书籍网格容器 -->
+      <div class="section-fade grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7" id="bookContainer">
+      </div>
+
+      <!-- 返回顶部按钮 + 彩蛋特效 -->
+      <button id="backToTop"
+        class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center hover:bg-gold transition-all z-40">
+        <i class="fa fa-arrow-up"></i>
+      </button>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="mt-20 py-8 border-t border-gray-200/50 text-center text-gray-500 text-sm">
-      <p>博观而约取，厚积而薄发</p>
+    <footer class="mt-20 py-6 border-t border-amber-200/30 text-center text-gray-400 text-sm">
+      <p>📖 与古贤对谈 · 养浩然之气</p>
     </footer>
   </div>
 
+  <!-- 悬浮墨韵特效按钮（点击随机展示浮墨粒子） -->
+  <div class="floating-ink" id="inkEffectBtn">
+    <i class="fa fa-paint-brush"></i>
+  </div>
+
   <script>
-    // ==================== 书籍数据 ====================
-    const booksData = [
-      // 儒学六经
-      { cate: "Six Confucian Classics", title: "春秋", author: "孔子", desc: "编年史 · 孔子", intro: "儒家六经之一，中国现存最早的编年体史书，记载鲁国历史，言简义深。", rating: 5, votes: 10, link: "/春秋/0-春秋", img: "/images/春秋.png" },
-      // 二十四史
-      { cate: "history_24", title: "史记", author: "司马迁", desc: "二十四史 · 司马迁", intro: "中国第一部纪传体通史，记载了上至上古黄帝时代，下至汉武帝太初四年间共3000多年的历史。", rating: 5, votes: 10, link: "/史记/0-史记", img: "/images/史记.png" },
-      { cate: "history_24", title: "汉书", author: "班固", desc: "二十四史 · 班固", intro: "中国第一部纪传体断代史，记载了西汉一朝的历史。", rating: 5, votes: 10, link: "/汉书/0-汉书", img: "/images/汉书.png" },
-      { cate: "history_24", title: "后汉书", author: "范晔", desc: "二十四史 · 范晔", intro: "记载了东汉光武帝至汉献帝一百九十五年的历史。", rating: 5, votes: 10, link: "/后汉书/0-后汉书", img: "/images/后汉书.png" },
-      { cate: "history_24", title: "三国志", author: "陈寿", desc: "二十四史 · 陈寿", intro: "记载三国时期魏、蜀、吴三国历史的纪传体国别史。", rating: 5, votes: 10, link: "/三国志/三国志", img: "/images/三国志.png" },
-      // 中国古典文学
-      { cate: "chinese-classic-literature", title: "昭明文选", author: "萧统", desc: "中国古典文学 · 萧统", intro: "中国现存最早的诗文总集，收录了先秦至梁代七百余篇作品。", rating: 5, votes: 10, link: "/昭明文选/0-昭明文选", img: "/images/昭明文选.png" },
-      { cate: "chinese-classic-literature", title: "古文观止", author: "吴楚材·吴调侯", desc: "古文选集 · 吴楚材/吴调侯", intro: "清代吴楚材、吴调侯编选,收录先秦至明末古文222篇,是学习古文的经典入门读物。", rating: 5, votes: 28, link: "/古文观止/0-古文观止", img: "/images/古文观止.png" },
-      { cate: "chinese-classic-literature", title: "唐诗三百首", author: "蘅塘退士", desc: "唐诗选集 · 蘅塘退士", intro: "清代蘅塘退士编选，收录77位诗人311首唐诗，是流传最广的唐诗选本。", rating: 5, votes: 10, link: "/唐诗三百首/0-唐诗三百首", img: "/images/唐诗三百首.png" },
-      { cate: "chinese-classic-literature", title: "宋词三百首", author: "朱祖谋", desc: "宋词选集 · 朱祖谋", intro: "近代朱祖谋编选，收录苏轼、辛弃疾、李清照等词人佳作，宋词经典选本。", rating: 4.5, votes: 10, link: "/宋词三百首/0-宋词三百首", img: "/images/宋词三百首.png" },
-      // 杂
-      { cate: "miscellaneous", title: "聊斋志异", author: "蒲松龄", desc: "志怪小说 · 蒲松龄", intro: "清代蒲松龄创作的文言短篇小说集，描写神仙狐鬼精魅故事。", rating: 5, votes: 10, link: "/聊斋志异/0-聊斋志异", img: "/images/聊斋志异.png" },
-      { cate: "miscellaneous", title: "夜航船", author: "张岱", desc: "明代小品 · 张岱", intro: "明代张岱所著的百科类书籍，内容包罗万象。", rating: 5, votes: 10, link: "/夜航船/0-夜航船", img: "/images/夜航船.png" },
-      { cate: "miscellaneous", title: "国史大纲", author: "钱穆", desc: "中国通史 · 钱穆", intro: "钱穆先生的史学代表作，贯通中国古今历史。", rating: 5, votes: 10, link: "/国史大纲/0-国史大纲", img: "/images/国史大纲.png" },
-      { cate: "miscellaneous", title: "中国历代政治得失", author: "钱穆", desc: "政治制度史 · 钱穆", intro: "钱穆先生讲述中国历代政治制度的演变与得失。", rating: 5, votes: 10, link: "/中国历代政治得失/0-中国历代政治得失", img: "/images/中国历代政治得失.png" },
-      // 马恩列毛邓
-      { cate: "marxism-leninism-mao-deng", title: "马恩选集", author: "马克思/恩格斯", desc: "马克思主义 · 马克思/恩格斯", intro: "收录马克思和恩格斯的重要著作，马克思主义经典文献。", rating: 5, votes: 10, link: "/马恩选集/0-说明", img: "/images/马恩选集.png" },
-      { cate: "marxism-leninism-mao-deng", title: "列宁选集", author: "列宁", desc: "列宁主义 · 列宁", intro: "收录列宁的重要著作和文章。", rating: 5, votes: 10, link: "/列宁选集/0-说明", img: "/images/列宁选集.png" },
-      { cate: "marxism-leninism-mao-deng", title: "毛泽东选集", author: "毛泽东", desc: "毛泽东思想 · 毛泽东", intro: "毛泽东的重要著作集，毛泽东思想的主要载体。", rating: 5, votes: 10, link: "/毛选/0-毛选", img: "/images/毛选.png" }
-    ];
+  // ==================== 水墨涟漪拖尾特效 ====================
+  (function initWaterInkTrail() {
+    let trailTimer = null;
+    let lastX = 0, lastY = 0;
+    let active = false;
+    let timeoutId = null;
 
-    // 生成星星HTML
-    function generateStars(rating) {
-      let starsHtml = '';
-      const fullStars = Math.floor(rating);
-      const hasHalf = rating % 1 !== 0;
-
-      for (let i = 0; i < fullStars; i++) {
-        starsHtml += '<i class="fa fa-star star-fill text-xs"></i>';
-      }
-      if (hasHalf) {
-        starsHtml += '<i class="fa fa-star-half-o star-fill text-xs"></i>';
-      }
-      const emptyStars = 5 - Math.ceil(rating);
-      for (let i = 0; i < emptyStars; i++) {
-        starsHtml += '<i class="fa fa-star-o star-empty text-xs"></i>';
-      }
-
-      return starsHtml;
+    function createInkDrop(x, y) {
+      const drop = document.createElement('div');
+      const size = 12 + Math.random() * 16;
+      drop.style.position = 'fixed';
+      drop.style.left = (x - size / 2) + 'px';
+      drop.style.top = (y - size / 2) + 'px';
+      drop.style.width = size + 'px';
+      drop.style.height = size + 'px';
+      drop.style.borderRadius = '50%';
+      drop.style.background = `radial-gradient(circle, rgba(62,90,60,0.5) 0%, rgba(84,70,42,0.2) 70%, transparent 100%)`;
+      drop.style.pointerEvents = 'none';
+      drop.style.zIndex = '9998';
+      drop.style.filter = 'blur(3px)';
+      drop.style.opacity = '0.8';
+      drop.style.animation = 'inkRipple 0.9s ease-out forwards';
+      document.body.appendChild(drop);
+      
+      drop.addEventListener('animationend', () => drop.remove());
+      setTimeout(() => drop.remove(), 900);
     }
 
-    // 渲染书籍卡片
+    // 添加涟漪动画
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes inkRipple {
+        0% { transform: scale(0.2); opacity: 0.6; }
+        50% { transform: scale(1.2); opacity: 0.3; }
+        100% { transform: scale(2); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    document.addEventListener('mousemove', (e) => {
+      if (!active) active = true;
+      
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      
+      if (dist > 8) {
+        createInkDrop(e.clientX, e.clientY);
+        if (dist > 20) {
+          setTimeout(() => createInkDrop(e.clientX - dx*0.3, e.clientY - dy*0.3), 50);
+        }
+      }
+      
+      lastX = e.clientX;
+      lastY = e.clientY;
+      
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => { active = false; }, 200);
+    });
+  })();
+    // 丰富数据 + 新添哲学类书籍示例
+    const booksData = [
+      { cate: "Six Confucian Classics", title: "春秋", author: "孔子", desc: "编年史 · 孔子", intro: "微言大义，乱臣贼子惧。一部鲁国史，藏万世褒贬。", rating: 5, votes: 12, link: "/春秋/0-春秋", img: "/images/春秋.png" },
+      { cate: "history_24", title: "史记", author: "司马迁", desc: "二十四史 · 司马迁", intro: "史家之绝唱，无韵之离骚。究天人之际，通古今之变。", rating: 5, votes: 28, link: "/史记/0-史记", img: "/images/史记.png" },
+      { cate: "history_24", title: "汉书", author: "班固", desc: "二十四史 · 班固", intro: "断代为史，典章制度粲然可观，大汉雄风跃然纸上。", rating: 5, votes: 15, link: "/汉书/0-汉书", img: "/images/汉书.png" },
+      { cate: "history_24", title: "后汉书", author: "范晔", desc: "二十四史 · 范晔", intro: "东汉兴衰与党锢名士，笔端见烈骨忠魂。", rating: 5, votes: 11, link: "/后汉书/0-后汉书", img: "/images/后汉书.png" },
+      { cate: "history_24", title: "三国志", author: "陈寿", desc: "二十四史 · 陈寿", intro: "魏蜀吴风云，英雄成败，裴注更添斑斓。", rating: 5, votes: 22, link: "/三国志/三国志", img: "/images/三国志.png" },
+      { cate: "history_24", title: "晋书", author: "房玄龄", desc: "二十四史 · 房玄龄", intro: "名士风流与五胡乱华，两晋烟云飘散竹简。", rating: 5, votes: 9, link: "/晋书/晋书", img: "/images/晋书.png" },
+      { cate: "history_24", title: "宋书", author: "沈约", desc: "二十四史 · 沈约", intro: "南朝刘宋六十年，志书详赡，乱世权谋。", rating: 5, votes: 8, link: "/宋书/宋书", img: "/images/宋书.png" },
+      { cate: "history_24", title: "南齐书", author: "萧子显", desc: "二十四史 · 萧子显", intro: "齐室短命，笔触哀婉，见证寒人崛起。", rating: 4, votes: 7, link: "/南齐书/南齐书", img: "/images/南齐书.png" },
+      { cate: "history_24", title: "梁书", author: "姚思廉", desc: "二十四史 · 姚思廉", intro: "梁武帝四十八年，文华盛极，侯景乱后尽成灰。", rating: 4, votes: 6, link: "/梁书/梁书", img: "/images/梁书.png" },
+      { cate: "history_24", title: "陈书", author: "姚思廉", desc: "二十四史 · 姚思廉", intro: "南朝最后余晖，后主荒淫终归隋。", rating: 4, votes: 5, link: "/陈书/陈书", img: "/images/陈书.png" },
+      { cate: "history_24", title: "魏书", author: "魏收", desc: "二十四史 · 魏收", intro: "拓跋鲜卑入主中原，胡汉交融的史诗。", rating: 4, votes: 7, link: "/魏书/魏书", img: "/images/魏书.png" },
+      { cate: "history_24", title: "北齐书", author: "李百药", desc: "二十四史 · 李百药", intro: "暴君昏主与佛教炽盛，北齐廿七年荒唐又虔诚。", rating: 4, votes: 5, link: "/北齐书/北齐书", img: "/images/北齐书.png" },
+      { cate: "history_24", title: "周书", author: "令狐德棻", desc: "二十四史 · 令狐德棻", intro: "关陇集团奠基，为隋唐盛世埋下伏笔。", rating: 4, votes: 6, link: "/周书/周书", img: "/images/周书.png" },
+      { cate: "history_24", title: "隋书", author: "魏徵", desc: "二十四史 · 魏徵", intro: "开皇之治与大业暴政，运河悠悠鉴兴亡。", rating: 5, votes: 12, link: "/隋书/隋书", img: "/images/隋书.png" },
+      { cate: "history_24", title: "南史", author: "李延寿", desc: "二十四史 · 李延寿", intro: "宋齐梁陈四代一编，南北朝互见，宏大叙事。", rating: 4, votes: 7, link: "/南史/南史", img: "/images/南史.png" },
+      { cate: "history_24", title: "北史", author: "李延寿", desc: "二十四史 · 李延寿", intro: "北朝二百年，胡风汉制，融合新生。", rating: 4, votes: 8, link: "/北史/北史", img: "/images/北史.png" },
+      { cate: "history_24", title: "旧唐书", author: "刘昫", desc: "二十四史 · 刘昫", intro: "唐朝实录，安史之乱后的追忆。", rating: 5, votes: 14, link: "/旧唐书/旧唐书", img: "/images/旧唐书.png" },
+      { cate: "history_24", title: "新唐书", author: "欧阳修", desc: "二十四史 · 欧阳修", intro: "春秋笔法，增加藩镇、奸臣列传。", rating: 5, votes: 13, link: "/新唐书/新唐书", img: "/images/新唐书.png" },
+      { cate: "history_24", title: "旧五代史", author: "薛居正", desc: "二十四史 · 薛居正", intro: "梁唐晋汉兴亡短促，武人纵横。", rating: 4, votes: 6, link: "/旧五代史/旧五代史", img: "/images/旧五代史.png" },
+      { cate: "history_24", title: "新五代史", author: "欧阳修", desc: "二十四史 · 欧阳修", intro: "义例森严，呜呼之叹，五代乱世尽收眼底。", rating: 5, votes: 9, link: "/新五代史/新五代史", img: "/images/新五代史.png" },
+      { cate: "history_24", title: "宋史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "北宋南宋，文治巅峰与靖康之耻。", rating: 5, votes: 16, link: "/宋史/宋史", img: "/images/宋史.png" },
+      { cate: "history_24", title: "辽史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "契丹王朝，捺钵四时，草原帝国。", rating: 4, votes: 6, link: "/辽史/辽史", img: "/images/辽史.png" },
+      { cate: "history_24", title: "金史", author: "脱脱", desc: "二十四史 · 脱脱", intro: "女真铁骑，猛安谋克，中州豪杰。", rating: 4, votes: 7, link: "/金史/金史", img: "/images/金史.png" },
+      { cate: "history_24", title: "元史", author: "宋濂", desc: "二十四史 · 宋濂", intro: "蒙古铁蹄征服欧亚，治汉地难归化。", rating: 4, votes: 8, link: "/元史/元史", img: "/images/元史.png" },
+      { cate: "history_24", title: "明史", author: "张廷玉", desc: "二十四史 · 张廷玉", intro: "天子守国门，君王死社稷，卷帙浩繁。", rating: 5, votes: 19, link: "/明史/明史", img: "/images/明史.png" },
+      { cate: "chinese-classic-literature", title: "昭明文选", author: "萧统", desc: "文选 · 萧统", intro: "文章典范，辞采风流，千载文枢。", rating: 5, votes: 18, link: "/昭明文选/0-昭明文选", img: "/images/昭明文选.png" },
+      { cate: "chinese-classic-literature", title: "古文观止", author: "吴楚材", desc: "古文选集", intro: "二百余篇古文精华，入门金钥匙。", rating: 5, votes: 32, link: "/古文观止/0-古文观止", img: "/images/古文观止.png" },
+      { cate: "chinese-classic-literature", title: "唐诗三百首", author: "蘅塘退士", desc: "唐诗选集", intro: "熟读唐诗三百首，不会作诗也会吟。", rating: 5, votes: 27, link: "/唐诗三百首/0-唐诗三百首", img: "/images/唐诗三百首.png" },
+      { cate: "chinese-classic-literature", title: "宋词三百首", author: "朱祖谋", desc: "宋词选集", intro: "婉约与豪放，词中见天地。", rating: 5, votes: 22, link: "/宋词三百首/0-宋词三百首", img: "/images/宋词三百首.png" },
+      { cate: "chinese-classic-philosophy", title: "论语", author: "孔子弟子", desc: "儒家经典", intro: "半部论语治天下，仁礼思想源流。", rating: 5, votes: 40, link: "/论语/0-论语", img: "/images/论语.png" },
+      { cate: "chinese-classic-philosophy", title: "孟子", author: "孟子", desc: "儒家哲学", intro: "性善论与仁政，浩然正气。", rating: 5, votes: 31, link: "/孟子/0-孟子", img: "/images/孟子.png" },
+      { cate: "miscellaneous", title: "聊斋志异", author: "蒲松龄", desc: "志怪小说", intro: "写鬼写妖高人一等，刺贪刺虐入骨三分。", rating: 5, votes: 28, link: "/聊斋志异/0-聊斋志异", img: "/images/聊斋志异.png" },
+      { cate: "miscellaneous", title: "夜航船", author: "张岱", desc: "明代小品", intro: "天下学问，唯夜航船中最难。", rating: 5, votes: 15, link: "/夜航船/0-夜航船", img: "/images/夜航船.png" },
+      { cate: "miscellaneous", title: "国史大纲", author: "钱穆", desc: "国史通论", intro: "温情与敬意，为中国历史招魂。", rating: 5, votes: 33, link: "/国史大纲/0-国史大纲", img: "/images/国史大纲.png" },
+      { cate: "miscellaneous", title: "中国历代政治得失", author: "钱穆", desc: "制度史", intro: "历代政制精要，洞悉得失兴衰。", rating: 5, votes: 26, link: "/中国历代政治得失/0-", img: "/images/中国历代政治得失.png" },
+      { cate: "marxism-leninism-mao-deng", title: "马恩选集", author: "马克思/恩格斯", desc: "马克思主义", intro: "资本论与共产党宣言，照亮人类解放道路。", rating: 5, votes: 21, link: "/马恩选集/0-说明", img: "/images/马恩选集.png" },
+      { cate: "marxism-leninism-mao-deng", title: "列宁选集", author: "列宁", desc: "列宁主义", intro: "帝国主义论，无产阶级革命新篇章。", rating: 5, votes: 18, link: "/列宁选集/0-说明", img: "/images/列宁选集.png" },
+      { cate: "marxism-leninism-mao-deng", title: "毛泽东选集", author: "毛泽东", desc: "毛泽东思想", intro: "实事求是，群众路线，独立自主。", rating: 5, votes: 42, link: "/毛选/0-毛选", img: "/images/毛选.png" },
+    ];
+
+    // 经典金句库（丰富随机展示）
+    const quotes = [
+      "博观而约取，厚积而薄发", "为天地立心，为生民立命", "究天人之际，通古今之变", "学而时习之，不亦说乎",
+      "仁义礼智根于心", "民为贵，社稷次之", "纸上得来终觉浅，绝知此事要躬行", "路漫漫其修远兮，吾将上下而求索",
+      "以史为镜，可以知兴替", "独立之精神，自由之思想", "为往圣继绝学", "文史哲，通人之学也"
+    ];
+    let currentQuoteIdx = 0;
+
+    function updateRandomQuote() {
+      const quoteSpan = document.getElementById('dynamicQuote');
+      let newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteSpan.style.opacity = '0';
+      setTimeout(() => {
+        quoteSpan.innerText = newQuote;
+        quoteSpan.style.opacity = '1';
+      }, 150);
+      quoteSpan.style.transition = 'opacity 0.3s';
+    }
+
+    function generateStars(rating) {
+      let full = Math.floor(rating);
+      let half = rating % 1 !== 0;
+      let stars = '';
+      for (let i = 0; i < full; i++) stars += '<i class="fa fa-star star-fill text-xs"></i>';
+      if (half) stars += '<i class="fa fa-star-half-o star-fill text-xs"></i>';
+      for (let i = 0; i < 5 - full - (half ? 1 : 0); i++) stars += '<i class="fa fa-star-o star-empty text-xs"></i>';
+      return stars;
+    }
+
     function renderBooks(books) {
       const container = document.getElementById('bookContainer');
       container.innerHTML = books.map(book => `
-        <div class="book-card hover-lift rounded-xl overflow-hidden book-shadow bg-white" data-cate="${book.cate}" data-title="${book.title}" data-author="${book.author}">
+        <div class="book-card relative rounded-2xl overflow-hidden book-shadow bg-white group" data-cate="${book.cate}" data-title="${book.title}" data-author="${book.author}">
           <a href="${book.link}" target="_blank" class="block overflow-hidden">
-            <img src="${book.img}" alt="${book.title}封面" 
-            onerror="this.src='https://picsum.photos/200/280?random=${Math.random()}'"
-              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+            <img src="${book.img}" alt="${book.title}" onerror="this.src='https://picsum.photos/200/280?random=${Math.random()}'" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
           </a>
           <div class="p-4 text-center">
-            <h3 class="font-semibold text-base mb-1 text-line-clamp-2">${book.title}</h3>
-            <p class="text-xs text-gray-500 mb-2">${book.desc}</p>
-            <div class="flex items-center justify-center gap-1 mb-2">
-              ${generateStars(book.rating)}
-              <span class="text-xs text-gray-500 ml-1">${book.votes}</span>
-            </div>
-            <div class="book-desc text-xs text-gray-600 leading-relaxed text-left">
-              ${book.intro}
-            </div>
+            <h3 class="font-semibold font-serif text-lg mb-1">${book.title}</h3>
+            <p class="text-xs text-secondary mb-2">${book.desc}</p>
+            <div class="flex justify-center gap-0.5 mb-2">${generateStars(book.rating)}<span class="text-xs text-gray-400 ml-1">(${book.votes})</span></div>
+            <div class="book-desc text-xs text-gray-600 leading-relaxed px-1">${book.intro}</div>
           </div>
         </div>
       `).join('');
-
-      // 更新书籍数量
       document.getElementById('bookCount').innerText = books.length;
     }
-    // 自动计算分类数
+
     function updateCategoryCount() {
-      const books = booksData;
-      const uniqueCategories = new Set(books.map(book => book.cate));
-      const categoryCountEl = document.getElementById('categoryCount');
-      if (categoryCountEl) {
-        categoryCountEl.innerText = uniqueCategories.size;
+      const unique = new Set(booksData.map(b => b.cate));
+      document.getElementById('categoryCount').innerText = unique.size;
+    }
+
+    // 墨滴粒子特效
+    function createInkParticle(x, y) {
+      const particle = document.createElement('div');
+      particle.className = 'ink-particle';
+      const size = 10 + Math.random() * 20;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+      document.body.appendChild(particle);
+      setTimeout(() => particle.remove(), 1200);
+    }
+
+    function burstParticles(e) {
+      for (let i = 0; i < 16; i++) {
+        const offsetX = (Math.random() - 0.5) * 80;
+        const offsetY = (Math.random() - 0.5) * 80;
+        createInkParticle(e.clientX + offsetX, e.clientY + offsetY);
       }
     }
-    // ==================== 开屏逻辑 ====================
-    const splashScreen = document.getElementById('splashScreen');
-    const mainContent = document.getElementById('mainContent');
 
-    // 随机更换开屏背景图（可选）
-    const bgImages = [
-      '/images/开屏1.png',
-      '/images/开屏2.png',
-      '/images/开屏3.png',
-      '/images/开屏4.png',
-    ];
-    const randomBg = bgImages[Math.floor(Math.random() * bgImages.length)];
-    document.getElementById('splashBg').src = randomBg;
+    // 开屏 & 交互
+    const splash = document.getElementById('splashScreen');
+    const main = document.getElementById('mainContent');
+    const splashBg = document.getElementById('splashBg');
+    const bgPool = ['/images/开屏.png', '/images/开屏1.png', '/images/开屏2.png', '/images/开屏3.png', '/images/开屏4.png'];
+    splashBg.src = bgPool[Math.floor(Math.random() * bgPool.length)];
 
-    function enterMainPage() {
-      splashScreen.classList.add('fade-out');
-      mainContent.classList.add('visible');
-
-      // 移除开屏元素
-      setTimeout(() => {
-        splashScreen.style.display = 'none';
-      }, 800);
+    function enterMain() {
+      splash.classList.add('fade-out');
+      main.classList.add('visible');
+      setTimeout(() => { splash.style.display = 'none'; }, 900);
     }
+    splash.addEventListener('click', enterMain);
+    window.addEventListener('load', () => { setTimeout(() => { if (splash.style.display !== 'none') enterMain(); }, 2800); });
 
-    // 点击开屏进入
-    splashScreen.addEventListener('click', enterMainPage);
-
-    // 预加载主内容（初始隐藏，等开屏结束后显示）
-    window.addEventListener('load', () => {
-      // 稍微延迟，确保开屏动画完整
-      setTimeout(() => {
-        if (splashScreen.style.display !== 'none') {
-          // 如果用户还没点击，自动在3秒后淡出
-          setTimeout(enterMainPage, 3000);
-        }
-      }, 500);
-    });
-
-    // ==================== 书库功能 ====================
-    // 初始化渲染
     renderBooks(booksData);
-
     updateCategoryCount();
 
-    // 获取书籍卡片元素（需要在渲染后重新获取）
-    function getBookCards() {
-      return document.querySelectorAll('.book-card');
-    }
-
-    // 分类筛选功能
-    const categoryBtns = document.querySelectorAll('.category-btn');
-
-    function updateCategoryButtons() {
+    // 分类 & 搜索
+    function initFilters() {
       const btns = document.querySelectorAll('.category-btn');
       btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // 切换按钮激活样式
-          btns.forEach(b => {
-            b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-md');
-            b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
-          });
-          btn.classList.add('active', 'bg-primary', 'text-white', 'shadow-md');
-          btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
-
-          // 筛选书籍
-          const targetCate = btn.dataset.category;
-          const cards = getBookCards();
-          let visibleCount = 0;
-
-          cards.forEach(card => {
-            if (targetCate === 'all' || card.dataset.cate === targetCate) {
+        btn.addEventListener('click', function () {
+          btns.forEach(b => b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-md', 'border-transparent'));
+          btns.forEach(b => b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200'));
+          this.classList.add('active', 'bg-primary', 'text-white', 'shadow-md');
+          this.classList.remove('bg-white', 'text-gray-700');
+          const cate = this.dataset.category;
+          const allCards = document.querySelectorAll('.book-card');
+          let count = 0;
+          allCards.forEach(card => {
+            if (cate === 'all' || card.dataset.cate === cate) {
               card.style.display = 'block';
-              visibleCount++;
-            } else {
-              card.style.display = 'none';
-            }
+              count++;
+            } else card.style.display = 'none';
           });
-
-          // 更新显示数量
-          if (targetCate !== 'all') {
-            document.getElementById('bookCount').innerText = visibleCount;
-          } else {
-            document.getElementById('bookCount').innerText = booksData.length;
-          }
+          document.getElementById('bookCount').innerText = count;
         });
       });
-    }
-
-    // 搜索功能
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-      searchInput.addEventListener('input', function (e) {
-        const searchTerm = e.target.value.toLowerCase();
-        const cards = getBookCards();
-        let visibleCount = 0;
-
-        cards.forEach(card => {
-          const title = card.dataset.title?.toLowerCase() || '';
-          const author = card.dataset.author?.toLowerCase() || '';
-          const cate = card.querySelector('p')?.innerText.toLowerCase() || '';
-
-          if (title.includes(searchTerm) || author.includes(searchTerm) || cate.includes(searchTerm) || searchTerm === '') {
-            card.style.display = 'block';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        document.getElementById('bookCount').innerText = visibleCount;
-      });
-    }
-
-    // 滚动动画 - 元素进入视口时淡入
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // 观察需要淡入的元素
-    document.querySelectorAll('.section-fade').forEach(el => {
-      fadeObserver.observe(el);
-    });
-
-    // 导航栏滚动效果
-    const header = document.getElementById('mainHeader');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('header-scroll');
-      } else {
-        header.classList.remove('header-scroll');
-      }
-    });
-
-    // 初始化分类按钮事件
-    setTimeout(() => {
-      updateCategoryButtons();
-
-      // 激活"全部书籍"按钮
       const allBtn = document.querySelector('.category-btn[data-category="all"]');
-      if (allBtn) {
-        allBtn.click();
+      if (allBtn) allBtn.click();
+    }
+
+    const search = document.getElementById('searchInput');
+    search?.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.book-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const title = card.dataset.title?.toLowerCase() || '';
+        const author = card.dataset.author?.toLowerCase() || '';
+        if (title.includes(term) || author.includes(term) || term === '') {
+          card.style.display = 'block';
+          visible++;
+        } else card.style.display = 'none';
+      });
+      document.getElementById('bookCount').innerText = visible;
+    });
+
+    setTimeout(() => { initFilters(); }, 200);
+
+    // 滚动动画 & 回到顶部
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('header-scroll', window.scrollY > 50); });
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { backBtn.classList.toggle('hidden', window.scrollY < 400); backBtn.style.display = window.scrollY >= 400 ? 'flex' : 'none'; });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // 随机金句切换
+    document.getElementById('randomQuoteBtn').addEventListener('click', updateRandomQuote);
+    setInterval(updateRandomQuote, 18000);
+
+    // 墨韵特效按钮
+    const inkBtn = document.getElementById('inkEffectBtn');
+    inkBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      for (let i = 0; i < 30; i++) {
+        const randX = e.clientX + (Math.random() - 0.5) * 100;
+        const randY = e.clientY + (Math.random() - 0.5) * 80;
+        createInkParticle(randX, randY);
       }
-    }, 100);
+    });
+    document.body.addEventListener('click', (e) => {
+      if (e.target.closest('.floating-ink')) return;
+      if (Math.random() < 0.25) createInkParticle(e.clientX, e.clientY);
+    });
   </script>
 </body>
 
