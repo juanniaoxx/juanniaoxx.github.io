@@ -1,11 +1,18 @@
 // ==================== 基础渲染函数 ====================
 window.readingBase = {
+  // 当前选中的卷索引
+  currentVolumeIndex: 0,
+  volumeList: [],
+  groupedData: {},
+  originalArticles: [],
+  storageKey: 'reading_current_volume',  // localStorage 存储键名
+
   // 生成星星HTML（使用主题金色）
   generateStars(rating) {
     let starsHtml = '';
     const fullStars = Math.floor(rating);
     const hasHalf = rating % 1 !== 0;
-    
+
     for (let i = 0; i < fullStars; i++) {
       starsHtml += '<i class="fa fa-star" style="color: #D4AF37;"></i>';
     }
@@ -44,85 +51,145 @@ window.readingBase = {
     return groups;
   },
 
-  // 渲染表格（支持分卷）
+  // 保存当前卷索引到 localStorage
+  saveCurrentVolumeIndex() {
+    if (this.volumeList.length > 0) {
+      const saveData = {
+        index: this.currentVolumeIndex,
+        volumeName: this.volumeList[this.currentVolumeIndex],
+        timestamp: Date.now()
+      };
+      localStorage.setItem(this.storageKey, JSON.stringify(saveData));
+    }
+  },
+
+  // 从 localStorage 读取上次保存的卷索引
+  loadSavedVolumeIndex() {
+    try {
+      const saved = localStorage.getItem(this.storageKey);
+      if (saved) {
+        const data = JSON.parse(saved);
+        if (data.timestamp && Date.now() - data.timestamp > 30 * 24 * 60 * 60 * 1000) {
+          localStorage.removeItem(this.storageKey);
+          return 0;
+        }
+        return data.index || 0;
+      }
+    } catch (e) {
+      console.warn('读取保存的卷索引失败:', e);
+    }
+    return 0;
+  },
+
+  // 渲染单个卷的表格HTML
+  renderVolumeTable(volume, volumeArticles) {
+    let volumeCompleted = volumeArticles.filter(a => a.status === '已读').length;
+    let volumeProgress = Math.round((volumeCompleted / volumeArticles.length) * 100);
+
+    return `
+      <div class="volume-section" data-volume="${volume}">
+        <div class="volume-header">
+          <div class="volume-title">
+            <span class="volume-icon">📚</span>
+            ${volume}
+          </div>
+          <div class="volume-stats">
+            <span class="volume-stat">📖 ${volumeArticles.length}篇</span>
+            <span class="volume-stat">✅ ${volumeCompleted}篇已读</span>
+            <span class="volume-stat">📊 ${volumeProgress}%</span>
+          </div>
+        </div>
+        <div class="volume-progress">
+          <div class="volume-progress-bar" style="width: ${volumeProgress}%"></div>
+        </div>
+        <div class="table-wrapper">
+          <table class="reading-table">
+            <thead>
+              <tr>
+                <th width="8%">序号</th>
+                <th width="35%">章节名</th>
+                <th width="10%">作者</th>
+                <th width="12%">阅读状态</th>
+                <th width="10%">开始日期</th>
+                <th width="10%">结束日期</th>
+                <th width="10%">评分</th>
+                <th width="8%">备注</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${volumeArticles.map(a => `
+                <tr class="reading-row ${a.status === '已读' ? 'completed-row' : ''}">
+                  <td class="text-center">${a.id}</td>
+                  <td><a href="${a.link}" class="chapter-link">${a.title}</a></td>
+                  <td class="text-center">${a.author || '—'}</td>
+                  <td class="text-center">${this.getStatusBadge(a.status || '未开始')}</td>
+                  <td class="text-center">${a.startDate || '—'}</td>
+                  <td class="text-center">${a.endDate || '—'}</td>
+                  <td class="text-center">${a.rating ? this.generateStars(a.rating) : '—'}</td>
+                  <td class="text-center note-cell">
+                    <div class="note-content ${a.notes?.length > 15 ? 'collapsed' : ''}">
+                      ${a.notes || '—'}
+                    </div>
+                   </td>
+                 </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  },
+
+  // 渲染表格（支持分卷翻页）
   renderTable(containerId, articles) {
     const container = document.getElementById(containerId);
     if (!container) {
       console.error('Container not found:', containerId);
       return;
     }
-    
+
+    // 保存原始数据
+    this.originalArticles = articles;
+
     // 按卷分组
-    const grouped = this.groupByVolume(articles);
-    const volumeList = Object.keys(grouped);
-    
+    this.groupedData = this.groupByVolume(articles);
+    this.volumeList = Object.keys(this.groupedData);
+
+    // 读取上次保存的卷索引
+    let savedIndex = this.loadSavedVolumeIndex();
+    if (savedIndex >= this.volumeList.length || savedIndex < 0) {
+      savedIndex = 0;
+    }
+    this.currentVolumeIndex = savedIndex;
+
     // 统计总数
     let totalCount = articles.length;
     let completedCount = articles.filter(a => a.status === '已读').length;
     let readingCount = articles.filter(a => a.status === '阅读中' || a.status === '思考观后感中').length;
     let progressPercent = Math.round((completedCount / totalCount) * 100);
-    
-    // 生成分组表格HTML
-    let tablesHtml = '';
-    
-    volumeList.forEach((volume, idx) => {
-      const volumeArticles = grouped[volume];
-      let volumeCompleted = volumeArticles.filter(a => a.status === '已读').length;
-      let volumeProgress = Math.round((volumeCompleted / volumeArticles.length) * 100);
-      
-      tablesHtml += `
-        <div class="volume-section">
-          <div class="volume-header">
-            <div class="volume-title">
-              <span class="volume-icon">📚</span>
-              ${volume}
-            </div>
-            <div class="volume-stats">
-              <span class="volume-stat">📖 ${volumeArticles.length}篇</span>
-              <span class="volume-stat">✅ ${volumeCompleted}篇已读</span>
-              <span class="volume-stat">📊 ${volumeProgress}%</span>
-            </div>
+
+    // 生成翻页控制栏
+    let paginationHtml = '';
+    if (this.volumeList.length > 1) {
+      paginationHtml = `
+        <div class="volume-pagination">
+          <button id="prevVolumeBtn" class="volume-nav-btn" ${this.currentVolumeIndex === 0 ? 'disabled' : ''}>
+            <i class="fa fa-chevron-left"></i> 上一卷
+          </button>
+          <div class="volume-indicator">
+            <span id="currentVolumeName" class="current-volume-name">${this.volumeList[this.currentVolumeIndex]}</span>
+            <span class="volume-count">(${this.groupedData[this.volumeList[this.currentVolumeIndex]].length}篇)</span>
           </div>
-          <div class="volume-progress">
-            <div class="volume-progress-bar" style="width: ${volumeProgress}%"></div>
-          </div>
-          <div class="table-wrapper">
-            <table class="reading-table">
-              <thead>
-                <tr>
-                  <th width="5%">序号</th>
-                  <th width="35%">章节名</th>
-                  <th width="10%">作者</th>
-                  <th width="12%">阅读状态</th>
-                  <th width="10%">开始日期</th>
-                  <th width="10%">结束日期</th>
-                  <th width="10%">评分</th>
-                  <th width="8%">备注</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${volumeArticles.map(a => `
-                  <tr class="reading-row ${a.status === '已读' ? 'completed-row' : ''}">
-                    <td class="text-center">${a.id}</td>
-                    <td><a href="${a.link}" class="chapter-link">${a.title}</a></td>
-                    <td class="text-center">${a.author || '—'}</td>
-                    <td class="text-center">${this.getStatusBadge(a.status || '未开始')}</td>
-                    <td class="text-center">${a.startDate || '—'}</td>
-                    <td class="text-center">${a.endDate || '—'}</td>
-                    <td class="text-center">${a.rating ? this.generateStars(a.rating) : '—'}</td>
-                    <td class="text-center">${a.notes || '—'}</td>
-                   </tr>
-                `).join('')}
-              </tbody>
-            </table>
-          </div>
+          <button id="nextVolumeBtn" class="volume-nav-btn" ${this.currentVolumeIndex === this.volumeList.length - 1 ? 'disabled' : ''}>
+            下一卷 <i class="fa fa-chevron-right"></i>
+          </button>
         </div>
+        <div class="volume-dots" id="volumeDots"></div>
       `;
-    });
-    
+    }
+
     // 完整HTML
     container.innerHTML = `
-      <!-- 总体阅读统计卡片 -->
       <div class="reading-stats">
         <div class="stat-card">
           <div class="stat-number">${totalCount}</div>
@@ -142,26 +209,111 @@ window.readingBase = {
         </div>
       </div>
       
-      <!-- 总体进度条 -->
       <div class="progress-bar-container">
         <div class="progress-bar-fill" style="width: ${progressPercent}%"></div>
       </div>
       
-      <!-- 各卷表格 -->
-      ${tablesHtml}
+      ${paginationHtml}
+      
+      <div id="currentVolumeContainer"></div>
     `;
-    
-    // 添加样式（主题统一）
+
+    this.renderCurrentVolume();
+
+    if (this.volumeList.length > 1) {
+      this.bindPaginationEvents();
+    }
+
+    document.querySelectorAll('.note-content').forEach(el => {
+      el.addEventListener('click', () => {
+        el.classList.toggle('expanded');
+      });
+    });
+
     this.addStyles();
   },
-  
-  // 添加CSS样式（与主题统一）
+
+  renderCurrentVolume() {
+    const container = document.getElementById('currentVolumeContainer');
+    if (!container) return;
+
+    const currentVolume = this.volumeList[this.currentVolumeIndex];
+    if (!currentVolume) return;
+
+    const volumeArticles = this.groupedData[currentVolume];
+    container.innerHTML = this.renderVolumeTable(currentVolume, volumeArticles);
+
+    const prevBtn = document.getElementById('prevVolumeBtn');
+    const nextBtn = document.getElementById('nextVolumeBtn');
+    const currentNameSpan = document.getElementById('currentVolumeName');
+    const countSpan = document.querySelector('.volume-count');
+
+    if (prevBtn) prevBtn.disabled = (this.currentVolumeIndex === 0);
+    if (nextBtn) nextBtn.disabled = (this.currentVolumeIndex === this.volumeList.length - 1);
+    if (currentNameSpan) currentNameSpan.textContent = currentVolume;
+    if (countSpan) countSpan.textContent = `(${volumeArticles.length}篇)`;
+
+    this.renderVolumeDots();
+
+    document.querySelectorAll('.note-content').forEach(el => {
+      el.addEventListener('click', () => {
+        el.classList.toggle('expanded');
+      });
+    });
+
+    this.saveCurrentVolumeIndex();
+  },
+
+  renderVolumeDots() {
+    const dotsContainer = document.getElementById('volumeDots');
+    if (!dotsContainer) return;
+
+    dotsContainer.innerHTML = this.volumeList.map((vol, idx) => `
+      <div class="volume-dot ${idx === this.currentVolumeIndex ? 'active' : ''}" 
+           data-volume-index="${idx}"
+           title="${vol}">
+      </div>
+    `).join('');
+
+    dotsContainer.querySelectorAll('.volume-dot').forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const idx = parseInt(e.target.dataset.volumeIndex);
+        if (!isNaN(idx) && idx !== this.currentVolumeIndex) {
+          this.currentVolumeIndex = idx;
+          this.renderCurrentVolume();
+        }
+      });
+    });
+  },
+
+  bindPaginationEvents() {
+    const prevBtn = document.getElementById('prevVolumeBtn');
+    const nextBtn = document.getElementById('nextVolumeBtn');
+
+    if (prevBtn) {
+      prevBtn.onclick = () => {
+        if (this.currentVolumeIndex > 0) {
+          this.currentVolumeIndex--;
+          this.renderCurrentVolume();
+        }
+      };
+    }
+
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        if (this.currentVolumeIndex < this.volumeList.length - 1) {
+          this.currentVolumeIndex++;
+          this.renderCurrentVolume();
+        }
+      };
+    }
+  },
+
   addStyles() {
     if (document.getElementById('reading-table-styles')) return;
-    
+
     const styles = `
       <style id="reading-table-styles">
-        /* 统计卡片 - 主题墨绿色 */
         .reading-stats {
           display: flex;
           gap: 20px;
@@ -179,9 +331,7 @@ window.readingBase = {
           box-shadow: 0 4px 15px rgba(0,0,0,0.1);
           transition: transform 0.3s ease;
         }
-        .stat-card:hover {
-          transform: translateY(-3px);
-        }
+        .stat-card:hover { transform: translateY(-3px); }
         .stat-number {
           font-size: 28px;
           font-weight: bold;
@@ -194,14 +344,12 @@ window.readingBase = {
           letter-spacing: 1px;
         }
         
-        /* 进度条 - 主题金色 */
         .progress-bar-container {
           background: #EDE9E2;
           border-radius: 20px;
           height: 8px;
           margin: 20px 0 40px;
           overflow: hidden;
-          box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
         }
         .progress-bar-fill {
           background: linear-gradient(90deg, #D4AF37, #E8B553);
@@ -210,7 +358,6 @@ window.readingBase = {
           transition: width 0.5s ease;
         }
         
-        /* 卷分组样式 - 玻璃卡片效果 */
         .volume-section {
           margin-bottom: 40px;
           background: rgba(255, 250, 240, 0.92);
@@ -243,13 +390,8 @@ window.readingBase = {
           gap: 8px;
           font-family: 'Cormorant Garamond', serif;
         }
-        .volume-icon {
-          font-size: 24px;
-        }
-        .volume-stats {
-          display: flex;
-          gap: 12px;
-        }
+        .volume-icon { font-size: 24px; }
+        .volume-stats { display: flex; gap: 12px; }
         .volume-stat {
           font-size: 12px;
           color: #5A6B5A;
@@ -272,15 +414,12 @@ window.readingBase = {
           transition: width 0.5s ease;
         }
         
-        /* 表格样式 - 主题 */
-        .table-wrapper {
-          overflow-x: auto;
-          border-radius: 12px;
-        }
+        .table-wrapper { overflow-x: auto; border-radius: 12px; }
         .reading-table {
           width: 100%;
           border-collapse: collapse;
           font-size: 13px;
+          table-layout: fixed;
         }
         .reading-table th {
           background: #F5F0E8;
@@ -288,35 +427,118 @@ window.readingBase = {
           padding: 12px 8px;
           font-weight: 600;
           border-bottom: 2px solid #D4AF37;
-          font-family: 'Inter', system-ui, sans-serif;
         }
         .reading-table td {
           padding: 10px 8px;
           border-bottom: 1px solid rgba(212, 175, 55, 0.15);
           color: #2C2A29;
+          word-break: break-all;
         }
-        .reading-table tr:hover {
-          background: rgba(212, 175, 55, 0.05);
-        }
-        .completed-row {
-          opacity: 0.75;
-          background: rgba(62, 90, 60, 0.03);
-        }
-        .text-center {
-          text-align: center;
-        }
+        .reading-table tr:hover { background: rgba(212, 175, 55, 0.05); }
+        .completed-row { opacity: 0.75; background: rgba(62, 90, 60, 0.03); }
+        .text-center { text-align: center; }
         .chapter-link {
           color: #3E5A3C;
           text-decoration: none;
           transition: color 0.3s;
           font-weight: 500;
         }
-        .chapter-link:hover {
-          color: #D4AF37;
-          text-decoration: underline;
+        .chapter-link:hover { color: #D4AF37; text-decoration: underline; }
+        
+        .volume-pagination {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 20px 0 20px;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .volume-nav-btn {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 20px;
+          background: rgba(62, 90, 60, 0.1);
+          border: 1px solid rgba(212, 175, 55, 0.3);
+          border-radius: 40px;
+          color: #3E5A3C;
+          font-size: 0.85rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        .volume-nav-btn:hover:not(:disabled) {
+          background: #3E5A3C;
+          color: white;
+          border-color: #3E5A3C;
+        }
+        .volume-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .volume-indicator { text-align: center; flex: 1; }
+        .current-volume-name {
+          font-size: 1.1rem;
+          font-weight: bold;
+          color: #3E5A3C;
+          font-family: 'Cormorant Garamond', serif;
+        }
+        .volume-count {
+          font-size: 0.8rem;
+          color: #8A9BA8;
+          margin-left: 8px;
+        }
+        .volume-dots {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin: 15px 0 10px;
+          flex-wrap: wrap;
+        }
+        .volume-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #D1D1D1;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        .volume-dot:hover { background: #D4AF37; transform: scale(1.2); }
+        .volume-dot.active {
+          width: 24px;
+          border-radius: 10px;
+          background: #3E5A3C;
         }
         
-        /* 状态徽章 - 主题色系 */
+        .paginated-content-body {
+          font-family: 'Noto Serif SC', 'Inter', serif;
+          line-height: 1.85;
+          color: #2C2A29;
+        }
+        .paginated-content-body h1,
+        .paginated-content-body h2,
+        .paginated-content-body h3 {
+          color: #3E5A3C;
+          border-left: 4px solid #D4AF37;
+          padding-left: 15px;
+          margin: 25px 0 15px;
+        }
+        .paginated-content-body p { margin: 1em 0; }
+        
+        .note-content {
+          max-height: 42px;
+          overflow: hidden;
+          cursor: pointer;
+          position: relative;
+        }
+        .note-content.collapsed::after {
+          content: '...';
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          background: rgba(255,250,240,0.9);
+          padding-left: 4px;
+        }
+        .note-content.expanded { max-height: none !important; }
+        .note-content.expanded::after { display: none; }
+        
         .status-badge {
           display: inline-block;
           padding: 4px 10px;
@@ -325,62 +547,27 @@ window.readingBase = {
           font-weight: 500;
           white-space: nowrap;
         }
-        .status-badge.not-started {
-          background: #F0EDE8;
-          color: #8A9BA8;
-        }
-        .status-badge.reading {
-          background: #FDF6E3;
-          color: #D4AF37;
-        }
-        .status-badge.completed {
-          background: #E8F5E9;
-          color: #3E5A3C;
-        }
-        .status-badge.paused {
-          background: #FFEBEE;
-          color: #C52A1D;
-        }
-        .status-badge.thinking {
-          background: #E3F2FD;
-          color: #5A7A8A;
-        }
+        .status-badge.not-started { background: #F0EDE8; color: #8A9BA8; }
+        .status-badge.reading { background: #FDF6E3; color: #D4AF37; }
+        .status-badge.completed { background: #E8F5E9; color: #3E5A3C; }
+        .status-badge.paused { background: #FFEBEE; color: #C52A1D; }
+        .status-badge.thinking { background: #E3F2FD; color: #5A7A8A; }
         
-        /* 响应式 */
         @media (max-width: 768px) {
-          .volume-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-          }
-          .volume-stats {
-            flex-wrap: wrap;
-          }
-          .stat-card {
-            padding: 10px 20px;
-            min-width: 70px;
-          }
-          .stat-number {
-            font-size: 20px;
-          }
-          .reading-table th,
-          .reading-table td {
-            font-size: 11px;
-            padding: 8px 4px;
-          }
+          .volume-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+          .volume-stats { flex-wrap: wrap; }
+          .stat-card { padding: 10px 20px; min-width: 70px; }
+          .stat-number { font-size: 20px; }
+          .reading-table th, .reading-table td { font-size: 11px; padding: 8px 4px; }
+          .volume-pagination { justify-content: center; }
+          .volume-indicator { order: -1; width: 100%; margin-bottom: 10px; }
+          .volume-nav-btn { padding: 6px 16px; font-size: 0.75rem; }
         }
         
         @media (max-width: 640px) {
-          .volume-section {
-            padding: 15px;
-          }
-          .volume-title {
-            font-size: 16px;
-          }
-          .volume-stat {
-            font-size: 10px;
-            padding: 3px 8px;
-          }
+          .volume-section { padding: 15px; }
+          .volume-title { font-size: 16px; }
+          .volume-stat { font-size: 10px; padding: 3px 8px; }
         }
       </style>
     `;

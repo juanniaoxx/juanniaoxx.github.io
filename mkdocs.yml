@@ -188,7 +188,7 @@ extra_javascript:
   # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js  #gitalk支持
   # - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js #忘了
   - javascripts/reading-base.js
-  - javascripts/reading-data.js
+  - javascripts/reading-data-index.js
   - javascripts/reading-init.js 
 
 extra_css:
