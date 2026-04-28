@@ -1334,20 +1334,24 @@
       
         <!-- Footer -->
 <footer class="md-footer">
+  <!-- 固定在屏幕左下角的导航按钮 -->
+  <div class="floating-nav-buttons">
+    <a href="/" class="float-btn float-btn-home" title="返回书库">
+      <i class="fa fa-home"></i>
+      <span>首页</span>
+    </a>
+    <a href="javascript:history.back()" class="float-btn float-btn-back" title="返回上一页">
+      <i class="fa fa-arrow-left"></i>
+      <span>返回</span>
+    </a>
+  </div>
   <!-- Link to previous and/or next page -->
     
-  <nav
-    class="md-footer__inner md-grid"
-    aria-label="页脚"
-    
-  >
+  <nav class="md-footer__inner md-grid" aria-label="页脚" >
     <!-- Link to previous page -->
      
-    <a
-      href="../../%E5%9B%BD%E5%8F%B2%E5%A4%A7%E7%BA%B2/0-%E5%9B%BD%E5%8F%B2%E5%A4%A7%E7%BA%B2/"
-      class="md-footer__link md-footer__link--prev"
-      aria-label="上一页: 国史大纲"
-    >
+    <a href="../../%E5%9B%BD%E5%8F%B2%E5%A4%A7%E7%BA%B2/0-%E5%9B%BD%E5%8F%B2%E5%A4%A7%E7%BA%B2/" class="md-footer__link md-footer__link--prev"
+      aria-label="上一页: 国史大纲">
       <div class="md-footer__button md-icon">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </div>
@@ -1360,11 +1364,8 @@
 
     <!-- Link to next page -->
      
-    <a
-      href="../../%E5%8F%B2%E8%AE%B0/0-%E5%8F%B2%E8%AE%B0/"
-      class="md-footer__link md-footer__link--next"
-      aria-label="下一页: 史记"
-    >
+    <a href="../../%E5%8F%B2%E8%AE%B0/0-%E5%8F%B2%E8%AE%B0/" class="md-footer__link md-footer__link--next"
+      aria-label="下一页: 史记">
       <div class="md-footer__title">
         <span class="md-footer__direction"> 下一页 </span>
         <div class="md-ellipsis">史记</div>
@@ -1402,10 +1403,12 @@
           min-height: 40px;
           gap: 0.5em;
         }
+
         @media (max-width: 768px) {
           .runtime-info {
             display: none;
           }
+
           .icp-link {
             display: block;
             text-align: center;

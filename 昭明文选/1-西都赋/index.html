@@ -1416,6 +1416,17 @@
       
         <!-- Footer -->
 <footer class="md-footer">
+  <!-- 固定在屏幕左下角的导航按钮 -->
+  <div class="floating-nav-buttons">
+    <a href="/" class="float-btn float-btn-home" title="返回书库">
+      <i class="fa fa-home"></i>
+      <span>首页</span>
+    </a>
+    <a href="javascript:history.back()" class="float-btn float-btn-back" title="返回上一页">
+      <i class="fa fa-arrow-left"></i>
+      <span>返回</span>
+    </a>
+  </div>
   <!-- Link to previous and/or next page -->
     
 
@@ -1444,10 +1455,12 @@
           min-height: 40px;
           gap: 0.5em;
         }
+
         @media (max-width: 768px) {
           .runtime-info {
             display: none;
           }
+
           .icp-link {
             display: block;
             text-align: center;

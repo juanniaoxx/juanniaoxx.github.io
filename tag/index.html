@@ -1713,8 +1713,14 @@
       </li>
     
       <li>
-        <a href="../%E5%8F%B2%E8%AE%B0/%E6%9C%AC%E7%BA%AA/2-%E5%A4%8F%E6%9C%AC%E7%BA%AA/">
+        <a href="../%E5%8F%B2%E8%AE%B0/2-%E5%A4%8F%E6%9C%AC%E7%BA%AA/">
           夏本纪
+        </a>
+      </li>
+    
+      <li>
+        <a href="../%E5%8F%B2%E8%AE%B0/0-%E6%8A%A5%E4%BB%BB%E5%AE%89%E4%B9%A6/">
+          报任安书
         </a>
       </li>
     
@@ -1730,13 +1736,19 @@
   <ul>
     
       <li>
-        <a href="../%E5%8F%B2%E8%AE%B0/%E5%88%97%E4%BC%A0/61-%E4%BC%AF%E5%A4%B7%E5%88%97%E4%BC%A0/">
+        <a href="../%E5%8F%B2%E8%AE%B0/61-%E4%BC%AF%E5%A4%B7%E5%88%97%E4%BC%A0/">
           伯夷列传
         </a>
       </li>
     
       <li>
-        <a href="../%E5%8F%B2%E8%AE%B0/%E5%88%97%E4%BC%A0/62-%E7%AE%A1%E6%99%8F%E5%88%97%E4%BC%A0/">
+        <a href="../%E5%8F%B2%E8%AE%B0/130-%E5%A4%AA%E5%8F%B2%E5%85%AC%E8%87%AA%E5%BA%8F%E7%AC%AC%E4%B8%83%E5%8D%81/">
+          太史公自序
+        </a>
+      </li>
+    
+      <li>
+        <a href="../%E5%8F%B2%E8%AE%B0/62-%E7%AE%A1%E6%99%8F%E5%88%97%E4%BC%A0/">
           管晏列传
         </a>
       </li>
@@ -2039,23 +2051,27 @@
       
         <!-- Footer -->
 <footer class="md-footer">
+  <!-- 固定在屏幕左下角的导航按钮 -->
+  <div class="floating-nav-buttons">
+    <a href="/" class="float-btn float-btn-home" title="返回书库">
+      <i class="fa fa-home"></i>
+      <span>首页</span>
+    </a>
+    <a href="javascript:history.back()" class="float-btn float-btn-back" title="返回上一页">
+      <i class="fa fa-arrow-left"></i>
+      <span>返回</span>
+    </a>
+  </div>
   <!-- Link to previous and/or next page -->
       
-  <nav
-    class="md-footer__inner md-grid"
-    aria-label="页脚"
-    hidden
-  >
+  <nav class="md-footer__inner md-grid" aria-label="页脚" hidden>
     <!-- Link to previous page -->
     
 
     <!-- Link to next page -->
      
-    <a
-      href="../%E5%A4%87%E6%B3%A8/"
-      class="md-footer__link md-footer__link--next"
-      aria-label="下一页: 备注"
-    >
+    <a href="../%E5%A4%87%E6%B3%A8/" class="md-footer__link md-footer__link--next"
+      aria-label="下一页: 备注">
       <div class="md-footer__title">
         <span class="md-footer__direction"> 下一页 </span>
         <div class="md-ellipsis">备注</div>
@@ -2093,10 +2109,12 @@
           min-height: 40px;
           gap: 0.5em;
         }
+
         @media (max-width: 768px) {
           .runtime-info {
             display: none;
           }
+
           .icp-link {
             display: block;
             text-align: center;
