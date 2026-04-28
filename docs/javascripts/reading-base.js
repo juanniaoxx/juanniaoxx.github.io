@@ -33,7 +33,7 @@ window.readingBase = {
       '阅读中': '<span class="status-badge reading">📚 阅读中</span>',
       '已读': '<span class="status-badge completed">✅ 已读</span>',
       '搁置': '<span class="status-badge paused">⏸️ 搁置</span>',
-      '思考观后感中': '<span class="status-badge thinking">💭 思考观后感中</span>'
+      '思考观后感中': '<span class="status-badge thinking">💭 思考中</span>'
     };
     return statusMap[status] || statusMap['未开始'];
   },
