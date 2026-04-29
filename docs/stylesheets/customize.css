@@ -16,7 +16,8 @@ body {
   background-color: var(--neutral);
   background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
   color: var(--dark);
-  font-family: 'Inter', system-ui, 'Noto Serif SC', serif;
+  font-family: 'LXGW WenKai', 'Inter', system-ui, 'Noto Serif SC', serif;
+  
 }
 
 /* 主容器 - 古籍纸张质感 */
@@ -182,22 +183,63 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* 表格样式 */
+/* 表格样式 - 金色表头古风主题 */
 .md-content table {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    background-color: var(--paper);
 }
 
 .md-content th {
-  background: var(--primary);
-  color: white;
-  padding: 0.75rem 1rem;
+    background: var(--neutral);
+    color: var(--primary);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(62, 90, 60, 0.2);
 }
 
 .md-content td {
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    color: var(--dark);
+}
+
+/* 行悬停效果 */
+.md-content tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.08);
+}
+
+/* 斑马纹 */
+.md-content tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* 最后一行底部无边线 */
+.md-content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 表头圆角 */
+.md-content th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.md-content th:last-child {
+    border-top-right-radius: 8px;
+}
+
+/* 单元格内链接 */
+.md-content td a {
+    color: var(--primary);
+    border-bottom: 1px dashed var(--gold);
+}
+
+.md-content td a:hover {
+    color: var(--gold);
 }
 
 /* 脚注样式 */
@@ -449,3 +491,4 @@ body {
         font-size: 9px;
     }
 }
+

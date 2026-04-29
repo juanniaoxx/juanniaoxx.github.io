@@ -48,39 +48,5 @@
   </nav>
   {% endif %} {% endif %}
 
-  <!-- Further information -->
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      {% include "partials/copyright.html" %}
-      <div class="footer-visit-count">
-        <span>本站访问量：</span>
-        <script async src="//finicounter.eu.org/finicounter.js"></script>
-        <span id="finicount_views"></span>
-      </div>
-      <style>
-        .footer-visit-count {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
-          min-height: 40px;
-          gap: 0.5em;
-        }
-
-        @media (max-width: 768px) {
-          .runtime-info {
-            display: none;
-          }
-
-          .icp-link {
-            display: block;
-            text-align: center;
-          }
-        }
-      </style>
-
-      {% if config.extra.social %} {% include "partials/social.html" %} {% endif
-      %}
-    </div>
-  </div>
+  
 </footer>

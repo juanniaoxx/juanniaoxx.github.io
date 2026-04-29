@@ -7,10 +7,8 @@ site_author: Weary Bird # your name
 theme:
   name: material
   custom_dir: docs/overrides #覆写路径
-  # font: #谷歌字体，自行搜索
-  #   text: Bitter  #文本字体
-  #   code: Roboto Mono  #代码字体
-  logo: http://www.huixueba.net/Content/WebImage/day_191009/201910091021452744_watermark.jpg #左上角logo，可插入图片链接
+  logo: /images/favicon.png
+  favicon: /images/favicon.png
 
   palette:
     - media: "(prefers-color-scheme)"
@@ -36,11 +34,8 @@ theme:
 
   features:
     - announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
-    # - navigation.instant
-    #- header.autohide  #自动隐藏
     - navigation.tracking #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
     - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
-    # - navigation.tabs.sticky  #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
     - navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
     - navigation.top # 返回顶部的按钮 在上滑时出现
     - navigation.footer #页脚将呈现在边栏中，但在移动设备上保持原样
@@ -58,67 +53,31 @@ theme:
     logo: logo
 # [Navigtion]
 nav:
-  - 标签: tag.md
-  - 备注: 备注.md
-  - 马恩列毛邓: 
+  - 🔖 芸签: tag.md
+  - 📖 凡例: 备注.md
+  - 🌅 启明: 
         - 马恩选集: 马恩选集/0-说明.md
         - 列宁选集: 列宁选集/0-说明.md
         - 毛泽东选集: 毛选/0-毛选.md
-  - 读史以明志:
+  - 📜 铅椠:
         - 国史大纲: 国史大纲/0-国史大纲.md
         - 中国历代政治得失: 中国历代政治得失/0-中国历代政治得失.md
         - 史记: 史记/0-史记.md
         - 汉书: 汉书/0-汉书.md 
         - 后汉书: 后汉书/0-后汉书.md
         - 三国志: 三国志/三国志.md
-  - 文:
+  - 🎋 兰台:
         - 昭明文选: 昭明文选/0-昭明文选.md
         - 古文观止: 古文观止/0-古文观止.md
-  - 杂:
+  - 🍵 清谈:
         - 夜航船: 夜航船/0-夜航船.md
         - 聊斋志异: 聊斋志异/0-聊斋志异.md
-        - 人民日报: 人民日报/人民日报.html 
-copyright: Copyright &copy; 2025~2026 Weary Bird # 左下角的版权声明
 
 extra:
   generator: false #是否在页脚显示“使用 MkDocs 材料制造”
 
-    # 网页底部反馈
-  feedback:
-    title: 此页面有帮助吗？
-    ratings:
-      - icon: material/thumb-up-outline #图标可自定义
-        name: This page was helpful
-        data: 1
-        note: >-
-          谢谢你的反馈！
-      - icon: material/thumb-down-outline
-        name: This page could be improved
-        data: 0
-        note: >-
-          Thanks for your feedback! Help us improve this page by
-          using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
-  # cookies设置（可选）
-  # consent:
-  #   title: Cookie consent
-  #   description: >-
-  #     我们也使用cookies来识别您的重复访问和偏好来衡量我们文档的有效性以及用户是否找到他们要找的东西。
-  #     如果你同意,你可以帮助我们让我们的网站更好
-
 plugins:
   - search #搜索配置
-  - blog: #博客配置
-      post_date_format: full #时间
-      draft: true
-      draft_if_future_date: true #自动将具有未来日期的帖子标记为草稿
-      post_readtime: true
-      post_readtime_words_per_minute: 265 #计算帖子的阅读时间时读者每分钟预计阅读的字数
-      post_url_format: "{date}/{slug}"
-      # categories_slugify: !!python/object/apply:pymdownx.slugs.slugify
-      #   kwds:
-      #     case: lower
-      pagination_url_format: "page/{page}"
-      authors_file: "{blog}/.authors.yml" #作者信息
   - tags
 
 markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
@@ -173,20 +132,13 @@ markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/ex
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  # - markdown.extensions.toc:
-  #     slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
-  #     permalink: "\ue157"
 
 extra_javascript:
   - javascripts/extra.js
   - javascripts/latex.js #自定义javascript
   - javascripts/mathjax.js #Latex支持
-  # - https://polyfill.io/v3/polyfill.min.js?features=es6 #Latex支持
   - javascripts/favicons.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js #Latex支持
-  # - ckplayer/js/ckplayer.js #播放器配置
-  # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js  #gitalk支持
-  # - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js #忘了
   - javascripts/reading-base.js
   - javascripts/reading-data-index.js
   - javascripts/reading-init.js 
