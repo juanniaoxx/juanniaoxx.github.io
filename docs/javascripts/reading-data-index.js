@@ -11,7 +11,9 @@ window.readingDataIndex = {
     "三国志": "/javascripts/阅读记录/三国志.js",
     "史记": "/javascripts/阅读记录/史记.js",
     "昭明文选": "/javascripts/阅读记录/昭明文选.js",
-    "中国历代政治得失": "/javascripts/阅读记录/中国历代政治得失.js"
+    "中国历代政治得失": "/javascripts/阅读记录/中国历代政治得失.js",
+    "晋书": "/javascripts/阅读记录/晋书.js",
+    "宋书": "/javascripts/阅读记录/宋书.js",
 };
 
 window.readingData = window.readingData || {};

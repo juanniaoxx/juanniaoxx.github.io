@@ -60,16 +60,18 @@ nav:
         - 列宁选集: 列宁选集/0-说明.md
         - 毛泽东选集: 毛选/0-毛选.md
   - 📜 铅椠:
-        - 国史大纲: 国史大纲/0-国史大纲.md
-        - 中国历代政治得失: 中国历代政治得失/0-中国历代政治得失.md
-        - 史记: 史记/0-史记.md
-        - 汉书: 汉书/0-汉书.md 
-        - 后汉书: 后汉书/0-后汉书.md
-        - 三国志: 三国志/三国志.md
+        - 史记: 1-史记/0-史记.md
+        - 汉书: 2-汉书/0-汉书.md 
+        - 后汉书: 3-后汉书/0-后汉书.md
+        - 三国志: 4-三国志/0-三国志.md
+        - 晋书: 5-晋书/0-晋书.md
+        - 宋书: 6-宋书/0-宋书.md
   - 🎋 兰台:
         - 昭明文选: 昭明文选/0-昭明文选.md
         - 古文观止: 古文观止/0-古文观止.md
   - 🍵 清谈:
+        - 国史大纲: 国史大纲/0-国史大纲.md
+        - 中国历代政治得失: 中国历代政治得失/0-中国历代政治得失.md
         - 夜航船: 夜航船/0-夜航船.md
         - 聊斋志异: 聊斋志异/0-聊斋志异.md
 
@@ -142,6 +144,7 @@ extra_javascript:
   - javascripts/reading-base.js
   - javascripts/reading-data-index.js
   - javascripts/reading-init.js 
+  - javascripts/anchor-highlight.js
 
 extra_css:
   - stylesheets/extra.css # 自定义CSS

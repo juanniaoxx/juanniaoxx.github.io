@@ -491,4 +491,47 @@ body {
         font-size: 9px;
     }
 }
+/* ========== 书信/赋文/诏书 快速标记 ========== */
 
+/* 书信标记 */
+.msg-letter {
+  display: block;
+  margin: 1.2em 0;
+  padding: 0.8em 1.2em;
+  background: rgba(62, 90, 60, 0.04);
+  border-radius: 8px;
+  color: #3E5A3C;
+}
+
+/* 赋文标记 */
+.msg-fu {
+  display: block;
+  margin: 1.2em 0;
+  padding-left: 1.2em;
+  border-left: 3px solid #D4AF37;
+  color: #C23B22;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* 诏书标记 */
+.msg-edict {
+  display: block;
+  margin: 1.2em 0;
+  padding: 0.8em 1.2em;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.02));
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  color: #8B6914;
+  text-align: center;
+}
+
+/* 奏章标记 */
+.msg-memorial {
+  display: block;
+  margin: 1.2em 0;
+  padding: 0.8em 1.2em;
+  border-left: 3px solid #3E5A3C;
+  background: rgba(62, 90, 60, 0.02);
+  color: #2C4A2A;
+}
