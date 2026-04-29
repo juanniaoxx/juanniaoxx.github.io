@@ -682,16 +682,16 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 
 /* ===== 三、双行夹注风格 ===== */
 .comment-inline {
-  display: inline-block;
+  display: inline;
   font-size: 0.7rem;
   color: var(--secondary);
   background: rgba(212, 175, 55, 0.08);
-  padding: 0 5px;
-  margin: 0 2px;
+  padding: 0 0.2em;          /* 缩小内边距，避免换行时太宽 */
+  margin: 0 1px;
   border-radius: 3px;
-  vertical-align: middle;
   font-style: normal;
-  transition: all 0.2s;
+  line-height: 1.5;          /* 确保行高足够 */
+  white-space: normal;
 }
 
 .comment-inline:hover {
@@ -761,6 +761,230 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
   }
 }
 
+.md-typeset p {
+    text-indent: 2rem;
+}
+
+/* 注释内的段落可以单独覆盖 */
+.comment-inline p {
+    text-indent: 0;
+}
+
+/* ========== 词牌排版（左对齐，有题解） ========== */
+.poem-container {
+  margin: 1.5rem 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.poem-container .poem-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3E5A3C;
+  margin: 0 0 0.2rem 0;
+  letter-spacing: 0;
+  font-family: inherit;
+  text-align: center;
+}
+
+.poem-container .poem-author {
+  font-size: 0.8rem;
+  color: #8A9BA8;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  border: none;
+  text-align: center;
+}
+
+.poem-container .poem-author::after {
+  display: none;
+}
+
+.poem-container .poem-line {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #2C2A29;
+  text-align: left;
+  margin: 0;
+  text-indent: 2em;
+}
+
+.poem-container .ci-stanza {
+  margin-bottom: 1rem;
+}
+
+.poem-container .ci-stanza + .ci-stanza {
+  margin-top: 0.5rem;
+}
+
+.poem-container .poem-note {
+  font-size: 0.7rem;
+  color: #8A9BA8;
+  margin: 0.5rem 0 1rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid #e0dcd3;
+}
+
+.poem-container .poem-intro {
+  margin: 0.8rem 0 1.2rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  font-size: 0.8rem;
+  color: #6B7B6B;
+  background: rgba(212, 175, 55, 0.04);
+  border-left: 3px solid #D4AF37;
+  border-radius: 0;
+  font-style: normal;
+  line-height: 1.6;
+  font-family: 'Noto Serif SC', serif;
+}
+
+/* ========== 诗排版（居中，无缩进） ========== */
+.shi-container {
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.shi-container .poem-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3E5A3C;
+  margin: 0 0 0.2rem 0;
+  letter-spacing: 0;
+  font-family: inherit;
+  text-align: center;
+}
+
+.shi-container .poem-author {
+  font-size: 0.8rem;
+  color: #8A9BA8;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  border: none;
+  text-align: center;
+}
+
+.shi-container .poem-author::after {
+  display: none;
+}
+
+.shi-container .poem-lines {
+  margin: 1rem 0;
+}
+
+.shi-container .poem-line {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #2C2A29;
+  text-align: center;
+  margin: 0;
+  text-indent: 0;
+}
+
+.shi-container .poem-note {
+  font-size: 0.7rem;
+  color: #8A9BA8;
+  margin: 0.5rem 0 1rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid #e0dcd3;
+}
+
+.shi-container .poem-intro {
+  margin: 0.8rem 0 1.2rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  font-size: 0.8rem;
+  color: #6B7B6B;
+  background: rgba(212, 175, 55, 0.04);
+  border-left: 3px solid #D4AF37;
+  border-radius: 0;
+  font-style: normal;
+  line-height: 1.6;
+  font-family: 'Noto Serif SC', serif;
+}
+
+/* ========== 移动端适配 ========== */
+@media (max-width: 768px) {
+  .poem-container .poem-title,
+  .shi-container .poem-title {
+    font-size: 1rem;
+  }
+  
+  .poem-container .poem-line,
+  .shi-container .poem-line {
+    font-size: 0.85rem;
+  }
+  
+  .poem-container .poem-intro,
+  .shi-container .poem-intro {
+    font-size: 0.7rem;
+    padding-left: 1rem;
+  }
+}
 
 
-
+/* ========== 打印样式 ========== */
+@media print {
+  /* 隐藏导航栏、侧边栏、页脚等 */
+  .md-header, .md-tabs, .md-sidebar, .md-footer, 
+  .md-footer-meta, .md-search, .md-source, 
+  .md-content__button, .md-typeset .headerlink,
+  .md-typeset .footnote-ref, .md-typeset .footnote-backref,
+  .md-typeset .admonition, .md-typeset .admonition-title,
+  .md-typeset details, .md-typeset summary,
+  .md-typeset .tabbed-set, .md-typeset .tabbed-labels {
+    display: none !important;
+  }
+  
+  /* 主内容区全宽 */
+  .md-main, .md-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white;
+  }
+  
+  .md-content__inner {
+    max-width: 100% !important;
+    padding: 0.5in !important;
+  }
+  
+  /* 诗词容器 - 去掉背景和边框 */
+  .poem-container {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 1rem 0 !important;
+  }
+  
+  .poem-container::before {
+    display: none !important;
+  }
+  
+  /* 保持上下阕分页合理 */
+  .ci-stanza {
+    page-break-inside: avoid !important;
+  }
+  
+  /* 标题不加页内分断 */
+  h1, h2, h3, h4 {
+    page-break-after: avoid !important;
+  }
+  
+  /* 链接显示为普通文字 */
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  
+  /* 诗句保持完整 */
+  .poem-line {
+    page-break-inside: avoid !important;
+  }
+  
+  /* 页边距设置 */
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+}

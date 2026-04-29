@@ -145,6 +145,7 @@ extra_javascript:
   - javascripts/reading-data-index.js
   - javascripts/reading-init.js 
   - javascripts/anchor-highlight.js
+  - javascripts/scroll-progress.js
 
 extra_css:
   - stylesheets/extra.css # 自定义CSS
@@ -152,6 +153,7 @@ extra_css:
   - stylesheets/customize.css # 搜索圆角优化
   - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css # font-awesome表情支持
   - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css #字体
+  - stylesheets/scroll-progress.css
 
 validation:
   nav:

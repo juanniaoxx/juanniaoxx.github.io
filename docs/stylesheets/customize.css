@@ -526,12 +526,14 @@ body {
   text-align: center;
 }
 
-/* 奏章标记 */
+/* 奏章标记 - 温润琥珀色，醒目而不刺眼 */
 .msg-memorial {
   display: block;
   margin: 1.2em 0;
   padding: 0.8em 1.2em;
-  border-left: 3px solid #3E5A3C;
-  background: rgba(62, 90, 60, 0.02);
-  color: #2C4A2A;
+  border-left: 4px solid #D4AF37;  /* 加宽金边，更醒目 */
+  background: rgba(212, 175, 55, 0.08);  /* 金色极淡底纹 */
+  color: #B8860B;  /* 深金色/暗金色文字，典雅且清晰 */
+  font-style: normal;
+  border-radius: 0 8px 8px 0;  /* 右侧圆角，与左侧金边呼应 */
 }
