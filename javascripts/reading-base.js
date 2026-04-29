@@ -81,6 +81,88 @@ window.readingBase = {
     return 0;
   },
 
+  // 动画更新进度条
+  animateProgressBar(targetPercent, animate = true) {
+    const fillBar = document.getElementById('progressBarFill');
+    const marker = document.getElementById('progressMarker');
+    const percentSpan = document.querySelector('.progress-percentage');
+    
+    if (!fillBar) return;
+    
+    if (animate) {
+      fillBar.style.transition = 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      if (marker) marker.style.transition = 'left 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+    } else {
+      fillBar.style.transition = 'none';
+      if (marker) marker.style.transition = 'none';
+    }
+    
+    fillBar.style.width = `${targetPercent}%`;
+    
+    if (marker) {
+      marker.style.left = `${targetPercent}%`;
+      const tooltip = marker.querySelector('.progress-tooltip');
+      if (tooltip) tooltip.textContent = `${targetPercent}%`;
+    }
+    
+    if (percentSpan) {
+      // 数字递增动画
+      const currentPercent = parseInt(percentSpan.textContent) || 0;
+      if (animate && Math.abs(currentPercent - targetPercent) > 5) {
+        let start = currentPercent;
+        let end = targetPercent;
+        let duration = 500;
+        let stepTime = 20;
+        let steps = duration / stepTime;
+        let increment = (end - start) / steps;
+        let current = start;
+        let interval = setInterval(() => {
+          current += increment;
+          if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+            current = end;
+            clearInterval(interval);
+          }
+          percentSpan.textContent = `${Math.round(current)}%`;
+        }, stepTime);
+      } else {
+        percentSpan.textContent = `${targetPercent}%`;
+      }
+    }
+    
+    // 如果进度达到100%，添加庆祝效果
+    if (targetPercent === 100) {
+      fillBar.classList.add('completed');
+      setTimeout(() => {
+        fillBar.classList.remove('completed');
+      }, 1000);
+    }
+  },
+
+  // 重新计算并更新总进度条
+  updateGlobalProgress(animate = true) {
+    if (!this.originalArticles || this.originalArticles.length === 0) return;
+    
+    let totalCount = this.originalArticles.length;
+    let completedCount = this.originalArticles.filter(a => a.status === '已读').length;
+    let newProgress = Math.round((completedCount / totalCount) * 100);
+    
+    // 更新统计卡片中的数字
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length >= 4) {
+      statNumbers[0].textContent = totalCount;
+      statNumbers[1].textContent = completedCount;
+      const readingCount = this.originalArticles.filter(a => a.status === '阅读中' || a.status === '思考观后感中').length;
+      statNumbers[2].textContent = readingCount;
+      statNumbers[3].textContent = `${newProgress}%`;
+    }
+    
+    // 更新全局进度条
+    const globalFillBar = document.getElementById('progressBarFill');
+    if (globalFillBar) {
+      this.animateProgressBar(newProgress, animate);
+    }
+  },
+
   // 渲染单个卷的表格HTML
   renderVolumeTable(volume, volumeArticles) {
     let volumeCompleted = volumeArticles.filter(a => a.status === '已读').length;
@@ -109,7 +191,7 @@ window.readingBase = {
                 <th width="8%">序号</th>
                 <th width="35%">章节名</th>
                 <th width="10%">作者</th>
-                <th width="12%">阅读状态</th>
+                <th width="10%">阅读状态</th>
                 <th width="10%">开始日期</th>
                 <th width="10%">结束日期</th>
                 <th width="10%">评分</th>
@@ -118,23 +200,25 @@ window.readingBase = {
             </thead>
             <tbody>
               ${volumeArticles.map(a => `
-                <tr class="reading-row ${a.status === '已读' ? 'completed-row' : ''}">
+                <tr class="reading-row ${a.status === '已读' ? 'completed-row' : ''}" data-article-id="${a.id}">
                   <td class="text-center">${a.id}</td>
                   <td><a href="${a.link}" class="chapter-link">${a.title}</a></td>
                   <td class="text-center">${a.author || '—'}</td>
-                  <td class="text-center">${this.getStatusBadge(a.status || '未开始')}</td>
-                  <td class="text-center">${a.startDate || '—'}</td>
-                  <td class="text-center">${a.endDate || '—'}</td>
-                  <td class="text-center">${a.rating ? this.generateStars(a.rating) : '—'}</td>
+                  <td class="text-center status-cell" data-status="${a.status || '未开始'}">
+                    ${this.getStatusBadge(a.status || '未开始')}
+                  </td>
+                  <td class="text-center start-date">${a.startDate || '—'}</td>
+                  <td class="text-center end-date">${a.endDate || '—'}</td>
+                  <td class="text-center rating-cell">${a.rating ? this.generateStars(a.rating) : '—'}</td>
                   <td class="text-center note-cell">
                     <div class="note-content ${a.notes?.length > 15 ? 'collapsed' : ''}">
                       ${a.notes || '—'}
                     </div>
-                   </td>
-                 </tr>
+                  </td>
+                </tr>
               `).join('')}
             </tbody>
-          </table>
+           </table>
         </div>
       </div>
     `;
@@ -188,7 +272,7 @@ window.readingBase = {
       `;
     }
 
-    // 完整HTML
+    // 完整HTML - 包含增强版进度条
     container.innerHTML = `
       <div class="reading-stats">
         <div class="stat-card">
@@ -209,8 +293,31 @@ window.readingBase = {
         </div>
       </div>
       
-      <div class="progress-bar-container">
-        <div class="progress-bar-fill" style="width: ${progressPercent}%"></div>
+      <!-- 增强版进度条 -->
+      <div class="progress-wrapper">
+        <div class="progress-bar-container" id="progressBarContainer">
+          <div class="progress-bar-bg-glow"></div>
+          <div class="progress-bar-fill" id="progressBarFill" style="width: ${progressPercent}%"></div>
+          <div class="progress-marker" id="progressMarker" style="left: ${progressPercent}%;">
+            <div class="progress-marker-inner">
+              <span class="progress-marker-icon">📖</span>
+            </div>
+            <span class="progress-tooltip">${progressPercent}%</span>
+          </div>
+        </div>
+        <div class="progress-stats">
+          <span class="progress-label">
+            <i class="fa fa-book"></i> 阅读进度
+          </span>
+          <span class="progress-percentage">${progressPercent}%</span>
+        </div>
+        <div class="progress-ticks">
+          <span class="progress-tick">0%</span>
+          <span class="progress-tick">25%</span>
+          <span class="progress-tick">50%</span>
+          <span class="progress-tick">75%</span>
+          <span class="progress-tick">100%</span>
+        </div>
       </div>
       
       ${paginationHtml}
@@ -224,13 +331,35 @@ window.readingBase = {
       this.bindPaginationEvents();
     }
 
+    // 绑定备注点击展开事件
     document.querySelectorAll('.note-content').forEach(el => {
       el.addEventListener('click', () => {
         el.classList.toggle('expanded');
       });
     });
 
+    // 绑定状态变更观察（可选）
+    this.bindStatusChangeObserver();
+
     this.addStyles();
+  },
+
+  // 绑定状态变更观察器（用于实时更新进度）
+  bindStatusChangeObserver() {
+    // 监听状态下拉菜单的变化（如果有的话）
+    document.querySelectorAll('.status-select').forEach(select => {
+      select.addEventListener('change', (e) => {
+        const row = e.target.closest('.reading-row');
+        if (row) {
+          const articleId = row.dataset.articleId;
+          const article = this.originalArticles.find(a => a.id == articleId);
+          if (article) {
+            article.status = e.target.value;
+            this.updateGlobalProgress(true);
+          }
+        }
+      });
+    });
   },
 
   renderCurrentVolume() {
@@ -243,6 +372,7 @@ window.readingBase = {
     const volumeArticles = this.groupedData[currentVolume];
     container.innerHTML = this.renderVolumeTable(currentVolume, volumeArticles);
 
+    // 更新翻页按钮状态
     const prevBtn = document.getElementById('prevVolumeBtn');
     const nextBtn = document.getElementById('nextVolumeBtn');
     const currentNameSpan = document.getElementById('currentVolumeName');
@@ -251,10 +381,11 @@ window.readingBase = {
     if (prevBtn) prevBtn.disabled = (this.currentVolumeIndex === 0);
     if (nextBtn) nextBtn.disabled = (this.currentVolumeIndex === this.volumeList.length - 1);
     if (currentNameSpan) currentNameSpan.textContent = currentVolume;
-    if (countSpan) countSpan.textContent = `(${volumeArticles.length}篇)`;
+    if (countSpan && volumeArticles) countSpan.textContent = `(${volumeArticles.length}篇)`;
 
     this.renderVolumeDots();
 
+    // 重新绑定备注点击事件
     document.querySelectorAll('.note-content').forEach(el => {
       el.addEventListener('click', () => {
         el.classList.toggle('expanded');
@@ -344,18 +475,214 @@ window.readingBase = {
           letter-spacing: 1px;
         }
         
-        .progress-bar-container {
-          background: #EDE9E2;
-          border-radius: 20px;
-          height: 8px;
+        /* ========== 增强版进度条 ========== */
+        .progress-wrapper {
           margin: 20px 0 40px;
-          overflow: hidden;
         }
+        
+        .progress-bar-container {
+          position: relative;
+          background: linear-gradient(90deg, #E8E2D5, #F0EBE2);
+          border-radius: 30px;
+          height: 14px;
+          overflow: visible;
+          box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.05);
+          cursor: pointer;
+        }
+        
+        .progress-bar-bg-glow {
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          border-radius: 32px;
+          background: linear-gradient(90deg, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          pointer-events: none;
+        }
+        
+        .progress-bar-container:hover .progress-bar-bg-glow {
+          opacity: 1;
+        }
+        
         .progress-bar-fill {
-          background: linear-gradient(90deg, #D4AF37, #E8B553);
+          position: relative;
+          background: linear-gradient(90deg, #D4AF37, #F0C674, #E8B553, #D4AF37);
+          background-size: 300% 100%;
           height: 100%;
+          border-radius: 30px;
+          transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+          animation: shimmerFlow 2.5s ease-in-out infinite;
+        }
+        
+        @keyframes shimmerFlow {
+          0% { background-position: 300% 0; }
+          100% { background-position: -300% 0; }
+        }
+        
+        /* 进度条浮标 - 书卷笔触风格 */
+        .progress-marker {
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 34px;
+          height: 34px;
+          background: linear-gradient(135deg, #3E5A3C, #2C482A);
+          border: 2px solid #D4AF37;
+          border-radius: 50%;
+          box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2), 0 4px 14px rgba(0,0,0,0.15);
+          transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease, box-shadow 0.2s ease;
+          z-index: 10;
+          cursor: pointer;
+        }
+        
+        .progress-marker-inner {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 28px;
+          height: 28px;
+          background: rgba(212, 175, 55, 0.15);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .progress-marker-icon {
+          font-size: 14px;
+          filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+        }
+        
+        .progress-marker:hover {
+          transform: translate(-50%, -50%) scale(1.15);
+          background: #D4AF37;
+          border-color: #3E5A3C;
+          box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.3), 0 6px 18px rgba(0,0,0,0.2);
+        }
+        
+        .progress-marker:hover .progress-marker-icon {
+          content: "📚";
+        }
+        
+        .progress-marker:hover .progress-marker-inner {
+          background: rgba(62, 90, 60, 0.2);
+        }
+        
+        /* 浮标上方显示百分比的气泡 */
+        .progress-tooltip {
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #2C2A29;
+          color: #D4AF37;
+          font-size: 11px;
+          font-weight: bold;
+          padding: 4px 10px;
           border-radius: 20px;
-          transition: width 0.5s ease;
+          white-space: nowrap;
+          margin-bottom: 10px;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.25s ease;
+          font-family: 'Cormorant Garamond', serif;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+          pointer-events: none;
+          letter-spacing: 0.5px;
+        }
+        
+        .progress-tooltip::after {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          border-width: 5px;
+          border-style: solid;
+          border-color: #2C2A29 transparent transparent transparent;
+        }
+        
+        .progress-marker:hover .progress-tooltip {
+          opacity: 1;
+          visibility: visible;
+          margin-bottom: 14px;
+        }
+        
+        /* 进度条下方增加装饰性刻度 */
+        .progress-ticks {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 12px;
+          padding: 0 6px;
+        }
+        
+        .progress-tick {
+          font-size: 10px;
+          color: #8A9BA8;
+          opacity: 0.7;
+          position: relative;
+        }
+        
+        .progress-tick::before {
+          content: '';
+          position: absolute;
+          top: -18px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 1px;
+          height: 6px;
+          background: #D4AF37;
+          opacity: 0.4;
+        }
+        
+        /* 进度数字显示 */
+        .progress-stats {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          margin-top: 12px;
+          font-size: 12px;
+          color: #5A6B5A;
+        }
+        
+        .progress-percentage {
+          font-size: 20px;
+          font-weight: bold;
+          color: #D4AF37;
+          font-family: 'Cormorant Garamond', serif;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+          background: rgba(212, 175, 55, 0.1);
+          padding: 2px 10px;
+          border-radius: 30px;
+        }
+        
+        .progress-label {
+          opacity: 0.7;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        
+        .progress-label i {
+          color: #D4AF37;
+        }
+        
+        /* 完成时的庆祝效果 */
+        .progress-bar-fill.completed {
+          background: linear-gradient(90deg, #3E5A3C, #5A8A5A, #6A9A6A, #3E5A3C);
+          background-size: 300% 100%;
+          animation: shimmerFlow 2s ease-in-out infinite, celebratePulse 0.6s ease-out;
+        }
+        
+        @keyframes celebratePulse {
+          0% { transform: scaleX(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+          50% { transform: scaleX(1.02); box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.2); }
+          100% { transform: scaleX(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
         
         .volume-section {
@@ -427,6 +754,7 @@ window.readingBase = {
           padding: 12px 8px;
           font-weight: 600;
           border-bottom: 2px solid #D4AF37;
+          text-align: center;  
         }
         .reading-table td {
           padding: 10px 8px;
@@ -471,6 +799,9 @@ window.readingBase = {
           background: #3E5A3C;
           color: white;
           border-color: #3E5A3C;
+        }
+        .volume-nav-btn:hover:not(:disabled) i {
+          color: white;
         }
         .volume-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
         .volume-indicator { text-align: center; flex: 1; }
@@ -562,6 +893,12 @@ window.readingBase = {
           .volume-pagination { justify-content: center; }
           .volume-indicator { order: -1; width: 100%; margin-bottom: 10px; }
           .volume-nav-btn { padding: 6px 16px; font-size: 0.75rem; }
+          .progress-marker { width: 28px; height: 28px; }
+          .progress-marker-inner { width: 22px; height: 22px; }
+          .progress-marker-icon { font-size: 11px; }
+          .progress-percentage { font-size: 16px; }
+          .progress-tick { font-size: 8px; }
+          .progress-tick::before { top: -14px; height: 4px; }
         }
         
         @media (max-width: 640px) {
