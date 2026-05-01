@@ -1,0 +1,212 @@
+/* ========================================
+   组件 - 导航与侧边栏
+   包含：侧边栏目录、页脚、浮动按钮、文字颜色修复
+   ======================================== */
+
+/* ----- 侧边栏目录 ----- */
+.md-sidebar .md-nav__title {
+    color: var(--primary);
+    font-weight: bold;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.md-nav__item .md-nav__link {
+    color: var(--secondary);
+    transition: all 0.2s;
+}
+
+.md-nav__item .md-nav__link:hover,
+.md-nav__item--active .md-nav__link {
+    color: var(--primary);
+}
+
+.md-nav__item--active>.md-nav__link {
+    border-left: 3px solid var(--gold);
+    padding-left: 0.75rem;
+}
+
+/* ----- 右侧目录（TOC） ----- */
+.md-sidebar--secondary .md-nav__link {
+    color: var(--secondary) !important;
+}
+
+.md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav__link--active {
+    color: var(--primary) !important;
+}
+
+/* ----- 修复所有白色文字问题 ----- */
+
+/* 左上角站点名称 */
+.md-header__topic,
+.md-header__title,
+.md-header .md-header__title,
+.md-header .md-header__title .md-ellipsis {
+    color: #3E5A3C !important;
+}
+
+.md-header__topic .md-ellipsis {
+    color: #3E5A3C !important;
+}
+
+/* 顶部导航选项卡 */
+.md-tabs__link {
+    color: #8A9BA8 !important;
+}
+
+.md-tabs__link:hover,
+.md-tabs__link--active {
+    color: #3E5A3C !important;
+    border-bottom: 2px solid #3E5A3C !important;
+}
+
+/* 侧边栏目录 */
+.md-nav__item .md-nav__link {
+    color: #8A9BA8 !important;
+}
+
+.md-nav__item .md-nav__link:hover,
+.md-nav__item--active .md-nav__link {
+    color: #3E5A3C !important;
+}
+
+.md-nav__item--active>.md-nav__link {
+    border-left-color: #3E5A3C !important;
+}
+
+.md-nav__title {
+    color: #3E5A3C !important;
+}
+
+/* 搜索框文字 */
+.md-search__input {
+    color: #2C2A29 !important;
+}
+
+.md-search__input::placeholder {
+    color: #8A9BA8 !important;
+}
+
+/* 页脚文字 */
+.md-footer-copyright {
+    color: #8A9BA8 !important;
+}
+
+.md-footer-copyright a {
+    color: #D4AF37 !important;
+}
+
+/* 移动端菜单按钮 */
+.md-header .md-header__button {
+    color: #3E5A3C !important;
+}
+
+/* ----- 固定在屏幕左下角的按钮 ----- */
+.floating-nav-buttons {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+.floating-nav-buttons .float-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 250, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    color: #3E5A3C;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.floating-nav-buttons .float-btn i {
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+
+/* 首页按钮悬停 */
+.floating-nav-buttons .float-btn-home:hover {
+    background: #3E5A3C;
+    color: #D4AF37;
+    border-color: #D4AF37;
+    transform: translateX(5px) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(62, 90, 60, 0.35);
+}
+
+/* 返回按钮悬停 */
+.floating-nav-buttons .float-btn-back:hover {
+    background: rgba(212, 175, 55, 0.9);
+    color: #2C2A29;
+    border-color: #3E5A3C;
+    transform: translateX(5px) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+}
+
+/* 点击反馈 */
+.floating-nav-buttons .float-btn:active {
+    transform: translateX(2px) translateY(0px);
+    transition: 0.05s;
+}
+
+/* 返回顶部按钮样式 */
+button.md-top {
+    font-family: LXGW WenKai;
+    font-size: 16px;
+    font-weight: lighter;
+    color: #518FC1;
+}
+
+/* ========================================
+   补充：页脚版权、搜索框等样式
+   ======================================== */
+
+/* 底部页脚（确保已有） */
+.md-footer {
+    background: var(--dark);
+    color: var(--secondary);
+}
+
+.md-footer a {
+    color: var(--gold);
+}
+
+.md-footer-meta {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* 搜索框 */
+.md-search__form {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.md-search__form:hover {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 修复右侧目录（TOC）文字颜色 */
+.md-sidebar--secondary .md-nav__link {
+    color: #8A9BA8 !important;
+}
+
+.md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav__link--active {
+    color: #3E5A3C !important;
+}

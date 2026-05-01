@@ -1,0 +1,320 @@
+/* ========================================
+   组件 - 标题与正文
+   包含：h1-h6、段落、引用块、表格、代码块
+   ======================================== */
+
+/* ----- 标题样式 ----- */
+.md-content h1 {
+    font-size: 2.2rem;
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    color: var(--primary);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.md-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+}
+
+.md-content h2 {
+    font-size: 1.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--primary);
+    margin-top: 2rem;
+    padding-left: 0.75rem;
+    border-left: 4px solid var(--gold);
+}
+
+.md-content h3 {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin-top: 1.5rem;
+    position: relative;
+    padding-bottom: 0.25rem;
+}
+
+.md-content h3::before {
+    content: '✧';
+    color: var(--gold);
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* ----- 段落首行缩进 ----- */
+.md-typeset p {
+    text-indent: 2rem;
+}
+
+.comment-inline p {
+    text-indent: 0;
+}
+
+/* ----- 链接样式 ----- */
+.md-content a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--gold);
+    transition: all 0.2s;
+}
+
+.md-content a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--primary);
+}
+
+/* ----- 引用块 ----- */
+.md-content blockquote {
+    background: rgba(212, 175, 55, 0.08);
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    font-family: 'Noto Serif SC', serif;
+    border-radius: 0 8px 8px 0;
+}
+
+/* ----- 代码块 ----- */
+.highlight {
+    background: #2C2A29;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ----- 表格样式 ----- */
+.md-content table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    background-color: var(--paper);
+}
+
+.md-content th {
+    background: var(--neutral);
+    color: var(--primary);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(62, 90, 60, 0.2);
+}
+
+.md-content td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    color: var(--dark);
+}
+
+/* 行悬停效果 */
+.md-content tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.08);
+}
+
+/* 斑马纹 */
+.md-content tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* 最后一行底部无边线 */
+.md-content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 表头圆角 */
+.md-content th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.md-content th:last-child {
+    border-top-right-radius: 8px;
+}
+
+/* 单元格内链接 */
+.md-content td a {
+    color: var(--primary);
+    border-bottom: 1px dashed var(--gold);
+}
+
+.md-content td a:hover {
+    color: var(--gold);
+}
+
+/* ----- 脚注 ----- */
+.footnote {
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--secondary);
+}
+
+/* ----- 提示框自定义 ----- */
+.md-typeset .admonition {
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.md-typeset .admonition-title {
+    background: rgba(212, 175, 55, 0.1);
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* 自定义提示框 pied-piper */
+.md-typeset .admonition.pied-piper,
+.md-typeset details.pied-piper {
+    border-color: rgb(43, 155, 70);
+    font-size: large;
+}
+
+.md-typeset .pied-piper>.admonition-title,
+.md-typeset .pied-piper>summary {
+    background-color: rgba(43, 155, 70, 0.1);
+}
+
+.md-typeset .pied-piper>.admonition-title::before,
+.md-typeset .pied-piper>summary::before {
+    background-color: rgb(43, 155, 70);
+    -webkit-mask-image: var(--md-admonition-icon--pied-piper);
+    mask-image: var(--md-admonition-icon--pied-piper);
+}
+
+/* 自定义提示框 pied-piper1 */
+.md-typeset .admonition.pied-piper1,
+.md-typeset details.pied-piper1 {
+    border-color: rgb(96, 141, 189);
+    font-size: large;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.md-typeset .pied-piper1>.admonition-title,
+.md-typeset .pied-piper1>summary {
+    background-color: linear-gradient(to right, rgba(238, 243, 254));
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 45px;
+    width: auto;
+}
+
+.md-typeset .pied-piper1>.admonition-title::before,
+.md-typeset .pied-piper1>summary::before {
+    background-color: rgb(31, 31, 33);
+    -webkit-mask-image: var(--md-admonition-icon--pied-piper1);
+    mask-image: var(--md-admonition-icon--pied-piper1);
+}
+
+/* ----- 标注链接锚点 ----- */
+.md-typeset .headerlink {
+    color: var(--gold);
+}
+
+/* ========================================
+   补充：引用块、表格完整样式
+   ======================================== */
+
+/* 引用块 - 古籍风格（确保覆盖） */
+.md-content blockquote {
+    background: rgba(212, 175, 55, 0.08);
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    font-family: 'Noto Serif SC', serif;
+    border-radius: 0 8px 8px 0;
+}
+
+/* 表格样式 - 金色表头古风主题 */
+.md-content table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    background-color: var(--paper);
+}
+
+.md-content th {
+    background: var(--neutral);
+    color: var(--primary);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(62, 90, 60, 0.2);
+}
+
+.md-content td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    color: var(--dark);
+}
+
+/* 行悬停效果 */
+.md-content tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.08);
+}
+
+/* 斑马纹 */
+.md-content tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* 最后一行底部无边线 */
+.md-content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 表头圆角 */
+.md-content th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.md-content th:last-child {
+    border-top-right-radius: 8px;
+}
+
+/* 单元格内链接 */
+.md-content td a {
+    color: var(--primary);
+    border-bottom: 1px dashed var(--gold);
+}
+
+.md-content td a:hover {
+    color: var(--gold);
+}
+
+/* 脚注样式 */
+.footnote {
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--secondary);
+}
+
+/* 提示框自定义 */
+.md-typeset .admonition {
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.md-typeset .admonition-title {
+    background: rgba(212, 175, 55, 0.1);
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* 标注链接锚点 */
+.md-typeset .headerlink {
+    color: var(--gold);
+}

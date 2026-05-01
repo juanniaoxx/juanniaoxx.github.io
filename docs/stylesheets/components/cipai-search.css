@@ -1,0 +1,186 @@
+/* ========================================
+   词牌搜索浮层
+======================================== */
+
+/* 搜索遮罩 */
+.cipai-search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 300;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 15vh;
+}
+
+/* 搜索框容器 */
+.cipai-search-dialog {
+    width: 480px;
+    max-width: 90vw;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    animation: cipaiSearchIn 0.2s ease;
+}
+
+@keyframes cipaiSearchIn {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 搜索输入区 */
+.cipai-search-input-wrap {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0ede6;
+}
+
+.cipai-search-input-wrap .search-icon {
+    width: 20px;
+    height: 20px;
+    color: #b0a896;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.cipai-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    font-family: 'Noto Serif SC', serif;
+    color: #2C2A29;
+    background: transparent;
+}
+
+.cipai-search-input::placeholder {
+    color: #c5bfb0;
+}
+
+.cipai-search-clear {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #b0a896;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.cipai-search-clear:hover {
+    background: #f5f3ee;
+    color: #5a5a4f;
+}
+
+/* 快速筛选标签 */
+.cipai-search-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 16px;
+    border-bottom: 1px solid #f0ede6;
+}
+
+.cipai-search-tag {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: #f8f6f0;
+    color: #8A9BA8;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.cipai-search-tag:hover,
+.cipai-search-tag.active {
+    background: rgba(212, 175, 55, 0.1);
+    color: #3E5A3C;
+    border-color: #D4AF37;
+}
+
+/* 搜索结果列表 */
+.cipai-search-results {
+    max-height: 50vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #d4cfc4 transparent;
+}
+
+.cipai-search-results::-webkit-scrollbar {
+    width: 4px;
+}
+
+.cipai-search-results::-webkit-scrollbar-thumb {
+    background: #d4cfc4;
+    border-radius: 2px;
+}
+
+.cipai-search-empty {
+    text-align: center;
+    padding: 32px 16px;
+    color: #b0a896;
+    font-size: 0.85rem;
+}
+
+/* 单条搜索结果 */
+.cipai-search-item {
+    display: block;
+    padding: 10px 16px;
+    border-bottom: 1px solid #faf9f5;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+}
+
+.cipai-search-item:hover {
+    background: rgba(212, 175, 55, 0.04);
+}
+
+.cipai-search-item .result-title {
+    font-size: 0.85rem;
+    color: #3E5A3C;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.cipai-search-item .result-preview {
+    font-size: 0.75rem;
+    color: #8A9BA8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cipai-search-item .result-highlight {
+    background: rgba(212, 175, 55, 0.2);
+    padding: 0 2px;
+    border-radius: 2px;
+    color: #3E5A3C;
+}
+
+/* 结果计数 */
+.cipai-search-count {
+    font-size: 0.72rem;
+    color: #b0a896;
+    padding: 8px 16px;
+    background: #faf9f5;
+}
+
+/* 键盘快捷键提示 */
+.cipai-search-hint {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #c5bfb0;
+    padding: 8px;
+    border-top: 1px solid #f0ede6;
+}

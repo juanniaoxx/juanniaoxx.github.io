@@ -1,0 +1,257 @@
+/**
+ * ========================================
+ * Component - 主题增强样式
+ * 包含：强调色、代码块、引用块、图片样式
+ * ========================================
+ */
+
+/* ===== 一、强调色点缀 ===== */
+
+/* 强调色变量 */
+:root {
+	--accent: #C52A1D;      /* 朱砂红/赭石红，古籍常用色 */
+	--accent-light: #E05A4A;
+	--accent-dark: #8B1A10;
+}
+
+/* 链接悬停使用强调色 */
+.md-content a:hover {
+	color: var(--accent) !important;
+	border-bottom-color: var(--accent) !important;
+}
+
+/* 导航栏选中项使用强调色 */
+.md-tabs__link--active,
+.md-tabs__link:hover {
+	border-bottom-color: var(--accent) !important;
+}
+
+.md-nav__item--active > .md-nav__link {
+	border-left-color: var(--accent) !important;
+	color: var(--accent) !important;
+}
+
+/* 进度条卷轴浮标悬停 */
+.progress-marker:hover {
+	background: var(--accent) !important;
+	border-color: var(--gold) !important;
+}
+
+/* 突出数字/特殊标记 */
+.highlight-number,
+.poem-line .num {
+	color: var(--accent);
+}
+
+/* 按钮悬停使用强调色 */
+.md-typeset .admonition > .admonition-title::before {
+	background-color: var(--accent);
+}
+
+/* 分页按钮悬停 */
+.volume-nav-btn:hover:not(:disabled) {
+	background: var(--accent) !important;
+}
+
+/* 滚动条滑块悬停 */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--accent) !important;
+}
+
+/* 表格表头点缀 */
+.md-content th {
+	border-bottom-color: var(--accent) !important;
+}
+
+/* 浮动按钮悬停 */
+.floating-nav-buttons .float-btn:hover i {
+	color: var(--accent);
+}
+
+/* ===== 三、引用块样式（古籍引文格式） ===== */
+
+.md-content blockquote {
+	position: relative;
+	margin: 1.5rem 2rem;
+	padding: 1rem 2rem;
+	background: rgba(212, 175, 55, 0.04);
+	border-left: 3px solid var(--gold);
+	border-radius: 0 8px 8px 0;
+	font-style: normal;
+	font-family: 'Noto Serif SC', 'LXGW WenKai', serif;
+	color: #5A6B5A;
+	line-height: 1.75;
+	box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.08);
+}
+
+/* 引号装饰 */
+.md-content blockquote::before {
+	content: '「';
+	position: absolute;
+	left: 12px;
+	top: 8px;
+	font-size: 1.8rem;
+	color: var(--gold);
+	opacity: 0.5;
+	font-family: serif;
+}
+
+.md-content blockquote::after {
+	content: '」';
+	position: absolute;
+	right: 12px;
+	bottom: 4px;
+	font-size: 1.8rem;
+	color: var(--gold);
+	opacity: 0.5;
+	font-family: serif;
+}
+
+/* 引用块内的段落 */
+.md-content blockquote p {
+	margin: 0.5em 0;
+	text-indent: 2em;
+}
+
+.md-content blockquote p:first-of-type {
+	margin-top: 0;
+}
+
+.md-content blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+/* 引用块内链接 */
+.md-content blockquote a {
+	color: var(--gold);
+	border-bottom: 1px dotted var(--gold);
+}
+
+.md-content blockquote a:hover {
+	color: var(--accent);
+	border-bottom-color: var(--accent);
+}
+
+/* 嵌套引用块 */
+.md-content blockquote blockquote {
+	margin: 0.8rem 1rem;
+	background: rgba(212, 175, 55, 0.02);
+	border-left-color: var(--accent);
+}
+
+/* ===== 四、图片样式 ===== */
+
+/* 正文图片基础样式 */
+.md-content img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 图片悬停效果 */
+.md-content img:hover {
+	transform: scale(1.02);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 带说明的图片容器 */
+.image-container {
+	text-align: center;
+	margin: 1.5rem 0;
+}
+
+.image-container img {
+	display: inline-block;
+	margin: 0 0.5rem;
+}
+
+.image-caption {
+	font-size: 0.75rem;
+	color: var(--secondary);
+	text-align: center;
+	margin-top: 0.5rem;
+	font-style: italic;
+}
+
+/* 古籍印章效果（可选，为图片添加印章水印）*/
+.img-seal {
+	position: relative;
+	display: inline-block;
+}
+
+.img-seal::after {
+	content: '❦ 阅藏 ❦';
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+	font-size: 0.7rem;
+	font-family: 'Noto Serif SC', serif;
+	color: rgba(212, 175, 55, 0.5);
+	background: rgba(0, 0, 0, 0.3);
+	padding: 2px 6px;
+	border-radius: 20px;
+	pointer-events: none;
+	backdrop-filter: blur(2px);
+}
+
+/* 圆角图片辅助类 */
+.img-rounded {
+	border-radius: 16px;
+}
+
+.img-circle {
+	border-radius: 50%;
+}
+
+.img-shadow {
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片边框（仿古籍插图） */
+.img-antique {
+	border: 1px solid rgba(212, 175, 55, 0.3);
+	padding: 8px;
+	background: rgba(253, 248, 237, 0.6);
+	border-radius: 12px;
+}
+
+/* 移动端图片优化 */
+@media (max-width: 768px) {
+	.md-content img:hover {
+		transform: none;  /* 移动端取消悬停缩放 */
+	}
+	
+	.md-content blockquote {
+		margin: 1rem 0.5rem;
+		padding: 0.8rem 1.2rem;
+	}
+	
+	.md-content blockquote::before,
+	.md-content blockquote::after {
+		font-size: 1.2rem;
+	}
+}
+
+/* ===== 深色模式适配 ===== */
+@media (prefers-color-scheme: dark) {
+	.highlight {
+		background: #1a1a1c !important;
+		border-color: rgba(212, 175, 55, 0.3);
+	}
+	
+	.highlight .highlight-title {
+		background: rgba(212, 175, 55, 0.08);
+	}
+	
+	.md-content blockquote {
+		background: rgba(212, 175, 55, 0.03);
+		color: #B8AEA0;
+	}
+	
+	.img-antique {
+		background: rgba(30, 30, 35, 0.6);
+		border-color: rgba(212, 175, 55, 0.2);
+	}
+}

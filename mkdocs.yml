@@ -69,6 +69,7 @@ nav:
   - 🎋 兰台:
         - 昭明文选: 昭明文选/0-昭明文选.md
         - 古文观止: 古文观止/0-古文观止.md
+        - 宋词: 宋词/宋词.md 
   - 🍵 清谈:
         - 国史大纲: 国史大纲/0-国史大纲.md
         - 中国历代政治得失: 中国历代政治得失/0-中国历代政治得失.md
@@ -82,7 +83,8 @@ plugins:
   - search #搜索配置
   - tags
 
-markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+markdown_extensions:
+#详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
   # 缩写词 语法为 *[HTML]: HyperText Markup Language 
   - abbr 
   # 运行为MarkDown元素添加HTML属性
@@ -121,8 +123,8 @@ markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/ex
   - pymdownx.arithmatex: # latex支持
       generic: true
       smart_dollar: false
-  - toc:
-      permalink: true # 固定标题位置为当前位置
+  # - toc:
+  #     permalink: true # 固定标题位置为当前位置
   - pymdownx.highlight: # 代码块高亮
       anchor_linenums: true
       linenums: true # 显示行号
@@ -134,26 +136,32 @@ markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/ex
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-
 extra_javascript:
   - javascripts/extra.js
   - javascripts/latex.js #自定义javascript
   - javascripts/mathjax.js #Latex支持
   - javascripts/favicons.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js #Latex支持
+  - https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js # PDF阅读
   - javascripts/reading-base.js
   - javascripts/reading-data-index.js
   - javascripts/reading-init.js 
   - javascripts/anchor-highlight.js
   - javascripts/scroll-progress.js
+  - javascripts/pdf-viewer.js
+  - javascripts/ancient-book.js 
+  - javascripts/cipai-nav.js
+  - javascripts/cipai-search.js
+  - javascripts/cipai-init.js
 
 extra_css:
   - stylesheets/extra.css # 自定义CSS
-  - stylesheets/link.css #友链配置
-  - stylesheets/customize.css # 搜索圆角优化
-  - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css # font-awesome表情支持
-  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css #字体
-  - stylesheets/scroll-progress.css
+  # - stylesheets/link.css #友链配置
+  # - stylesheets/customize.css # 搜索圆角优化
+  # - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css # font-awesome表情支持
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css #字体
+  # - stylesheets/scroll-progress.css
+  # - stylesheets/pdf-viewer.css
 
 validation:
   nav:

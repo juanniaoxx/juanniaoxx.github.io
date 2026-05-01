@@ -1,0 +1,84 @@
+/* ========================================
+   工具 - 打印样式
+   用于生成整洁的 PDF 打印版本
+   ======================================== */
+
+@media print {
+
+    /* 隐藏导航栏、侧边栏、页脚等 */
+    .md-header,
+    .md-tabs,
+    .md-sidebar,
+    .md-footer,
+    .md-footer-meta,
+    .md-search,
+    .md-source,
+    .md-content__button,
+    .md-typeset .headerlink,
+    .md-typeset .footnote-ref,
+    .md-typeset .footnote-backref,
+    .md-typeset .admonition,
+    .md-typeset .admonition-title,
+    .md-typeset details,
+    .md-typeset summary,
+    .md-typeset .tabbed-set,
+    .md-typeset .tabbed-labels {
+        display: none !important;
+    }
+
+    /* 主内容区全宽 */
+    .md-main,
+    .md-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white;
+    }
+
+    .md-content__inner {
+        max-width: 100% !important;
+        padding: 0.5in !important;
+    }
+
+    /* 诗词容器 - 去掉背景和边框 */
+    .poem-container {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 1rem 0 !important;
+    }
+
+    .poem-container::before {
+        display: none !important;
+    }
+
+    /* 保持上下阕分页合理 */
+    .ci-stanza {
+        page-break-inside: avoid !important;
+    }
+
+    /* 标题不加页内分断 */
+    h1,
+    h2,
+    h3,
+    h4 {
+        page-break-after: avoid !important;
+    }
+
+    /* 链接显示为普通文字 */
+    a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+
+    /* 诗句保持完整 */
+    .poem-line {
+        page-break-inside: avoid !important;
+    }
+
+    /* 页边距设置 */
+    @page {
+        margin: 2cm;
+        size: A4;
+    }
+}

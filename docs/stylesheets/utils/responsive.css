@@ -1,0 +1,99 @@
+/* ========================================
+   工具 - 移动端适配
+   包含：所有媒体查询，统一管理
+   ======================================== */
+
+/* ----- 浮动按钮移动端 ----- */
+@media (max-width: 768px) {
+    .floating-nav-buttons {
+        bottom: 20px;
+        left: 20px;
+        gap: 10px;
+    }
+
+    .floating-nav-buttons .float-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+    }
+
+    .floating-nav-buttons .float-btn i {
+        font-size: 18px;
+    }
+
+    .floating-nav-buttons .float-btn span {
+        font-size: 9px;
+    }
+}
+
+/* ----- 诗词移动端 ----- */
+@media (max-width: 768px) {
+
+    .poem-container .poem-title,
+    .shi-container .poem-title {
+        font-size: 1rem;
+    }
+
+    .poem-container .poem-line,
+    .shi-container .poem-line {
+        font-size: 0.85rem;
+    }
+
+    .poem-container .poem-intro,
+    .shi-container .poem-intro {
+        font-size: 0.7rem;
+        padding-left: 1rem;
+    }
+}
+
+/* ----- 悬浮注释移动端 ----- */
+@media (max-width: 768px) {
+    .hover-note .note-text {
+        max-width: 200px;
+        font-size: 0.7rem;
+        bottom: 130%;
+    }
+}
+
+/* ----- 圆角组件移动端 ----- */
+@media only screen and (max-width: 600px) {
+    #rcorners4 {
+        border: none;
+        width: 100%;
+    }
+}
+
+/* ----- 隐藏元素 ----- */
+@media screen and (max-width: 1000px) {
+    div.hide {
+        display: none;
+    }
+}
+
+/* ----- 视频背景移动端隐藏 ----- */
+@media only screen and (max-width: 768px) {
+    .video1 {
+        display: none;
+    }
+}
+
+/* ----- PDF 阅读器移动端 ----- */
+@media (max-width: 768px) {
+    .pdf-viewer-container {
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    .pdf-controls {
+        gap: 10px;
+    }
+
+    .pdf-controls button {
+        padding: 4px 12px;
+        font-size: 0.7rem;
+    }
+
+    .pdf-page-info {
+        font-size: 0.7rem;
+    }
+}

@@ -1,0 +1,102 @@
+/* ========================================
+   组件 - 友链卡片样式
+   用于友情链接页面的卡片式布局
+   ======================================== */
+
+/* ----- 卡片通用样式 ----- */
+.card {
+    width: 345px;
+    height: 90px;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+/* 奇数卡片左浮动，偶数卡片右浮动（双栏布局） */
+.card:nth-child(odd) {
+    float: left;
+}
+
+.card:nth-child(even) {
+    float: right;
+}
+
+/* ----- 卡片悬停效果 ----- */
+.card:hover {
+    transform: translateY(0px) scale(1.05);
+    background-color: rgba(68, 138, 255, 0.1);
+    color: #040000;
+}
+
+/* ----- 卡片内链接样式（去除下划线）----- */
+.card a {
+    border: none;
+}
+
+/* ----- 友链头像 ----- */
+.card .ava {
+    width: 3rem !important;
+    height: 3rem !important;
+    margin: 0 !important;
+    margin-right: 1em !important;
+    border-radius: 50%;
+}
+
+/* ----- 友链信息区域 ----- */
+.card .card-header {
+    font-style: italic;
+    overflow: hidden;
+    width: auto;
+}
+
+/* ----- 友链名称（链接）----- */
+.card .card-header a {
+    font-style: normal;
+    color: #608DBD;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 友链名称悬停效果 */
+.card .card-header a:hover {
+    color: #d480aa;
+    text-decoration: none;
+}
+
+/* ----- 友链描述文字 ----- */
+.card .card-header .info {
+    font-style: normal;
+    color: #706f6f;
+    font-size: 14px;
+    min-width: 0;
+    overflow: visible;
+    white-space: normal;
+}
+
+/* ----- 清除浮动（用于卡片之后的区域）----- */
+.markdown-content {
+    clear: both;
+}
+
+.markdown-content h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* ----- 移动端适配：单列布局 ----- */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+
+    .card:hover {
+        background-color: rgba(68, 138, 255, 0.1);
+    }
+}

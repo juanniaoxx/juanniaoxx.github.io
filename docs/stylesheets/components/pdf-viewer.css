@@ -1,0 +1,161 @@
+/* ========================================
+   Component - PDF 内嵌阅读器样式
+   融入页面风格，不突兀
+   ======================================== */
+
+/* ----- PDF 容器 - 融入页面（无外框）----- */
+.pdf-viewer-container {
+    display: none;
+    margin: 1.5rem 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+
+.pdf-viewer-container.show {
+    display: block;
+    animation: pdfReveal 0.3s ease;
+}
+
+@keyframes pdfReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----- 控制栏 - 移到画布上方 ----- */
+.pdf-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 1rem 0;              /* 下边距，与画布分开 */
+    padding: 0 0 0.5rem 0;           /* 下内边距 */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);  /* 只保留下边框 */
+    flex-wrap: wrap;
+}
+
+/* 按钮样式 - 与正文链接风格一致 */
+.pdf-controls button {
+    padding: 4px 14px;
+    background: transparent;
+    color: var(--primary, #3E5A3C);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-family: 'Noto Serif SC', serif;
+    transition: all 0.2s ease;
+}
+
+.pdf-controls button:hover:not(:disabled) {
+    background: var(--gold, #D4AF37);
+    color: var(--dark, #2C2A29);
+    border-color: var(--gold);
+    transform: translateY(-1px);
+}
+
+.pdf-controls button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: var(--secondary, #8A9BA8);
+}
+
+/* 关闭按钮 - 使用不同颜色 */
+.pdf-controls .pdf-close {
+    border-color: rgba(197, 42, 29, 0.3);
+    color: #8A9BA8;
+}
+
+.pdf-controls .pdf-close:hover:not(:disabled) {
+    background: #C52A1D;
+    color: white;
+    border-color: #C52A1D;
+}
+
+/* 页码信息 - 清晰可读 */
+.pdf-page-info {
+    font-size: 0.8rem;
+    color: var(--secondary, #8A9BA8);
+    font-family: 'Noto Serif SC', serif;
+    background: rgba(212, 175, 55, 0.08);
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+.pdf-page-info span {
+    color: var(--primary, #3E5A3C);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ----- Canvas 画布（PDF 内容）----- */
+.pdf-viewer-container canvas {
+    display: block;
+    margin: 1rem auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: white;
+    border-radius: 4px;
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* 加载状态 - 融入正文 */
+.pdf-loading {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--secondary, #8A9BA8);
+    font-size: 0.85rem;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.pdf-loading::before {
+    content: "📖";
+    margin-right: 0.5rem;
+    animation: pdfPageFlip 1s ease infinite;
+    display: inline-block;
+}
+
+@keyframes pdfPageFlip {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* 错误状态 */
+.pdf-error {
+    text-align: center;
+    padding: 1rem;
+    color: #C52A1D;
+    background: rgba(197, 42, 29, 0.04);
+    border-left: 3px solid #C52A1D;
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+}
+
+/* ----- 移动端适配 ----- */
+@media (max-width: 768px) {
+    .pdf-controls {
+        gap: 8px;
+    }
+    
+    .pdf-controls button {
+        padding: 3px 10px;
+        font-size: 0.7rem;
+    }
+    
+    .pdf-page-info {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+    }
+    
+    .pdf-page-info span {
+        font-size: 0.75rem;
+    }
+}

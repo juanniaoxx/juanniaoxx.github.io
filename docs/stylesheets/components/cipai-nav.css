@@ -1,0 +1,187 @@
+/* ========================================
+   词牌导航侧边栏
+   依赖：poetry.css 中的 .poem-container .poem-title
+======================================== */
+
+/* 导航容器 */
+.cipai-nav-panel {
+    position: fixed;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    max-height: 70vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid #e0dcd3;
+    border-radius: 8px;
+    padding: 12px 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    z-index: 100;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Serif SC', serif;
+}
+
+/* 面板标题 */
+.cipai-nav-panel .cipai-nav-header {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3E5A3C;
+    padding: 0 16px 10px;
+    border-bottom: 1px solid #f0ede6;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* 词牌列表滚动区 */
+.cipai-nav-list {
+    overflow-y: auto;
+    flex: 1;
+    padding: 4px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #d4cfc4 transparent;
+}
+
+.cipai-nav-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.cipai-nav-list::-webkit-scrollbar-thumb {
+    background: #d4cfc4;
+    border-radius: 2px;
+}
+
+/* 单个词牌项 */
+.cipai-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-size: 0.82rem;
+    color: #5a5a4f;
+    border-left: 3px solid transparent;
+}
+
+.cipai-nav-item:hover {
+    background: rgba(212, 175, 55, 0.06);
+    color: #3E5A3C;
+}
+
+/* 当前高亮词牌 */
+.cipai-nav-item.active {
+    background: rgba(212, 175, 55, 0.1);
+    border-left-color: #D4AF37;
+    color: #3E5A3C;
+    font-weight: 500;
+}
+
+/* 词牌名 */
+.cipai-nav-item .cipai-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 词作数量徽标 */
+.cipai-nav-item .cipai-count {
+    font-size: 0.7rem;
+    color: #b0a896;
+    background: #f8f6f0;
+    border-radius: 10px;
+    padding: 1px 7px;
+    margin-left: 6px;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* 底部搜索按钮 */
+.cipai-nav-footer {
+    border-top: 1px solid #f0ede6;
+    padding: 8px 12px 0;
+    margin-top: 4px;
+}
+
+.cipai-nav-search-btn {
+    width: 100%;
+    padding: 6px 0;
+    font-size: 0.78rem;
+    color: #8A9BA8;
+    background: transparent;
+    border: 1px dashed #d4cfc4;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.cipai-nav-search-btn:hover {
+    color: #3E5A3C;
+    border-color: #D4AF37;
+    background: rgba(212, 175, 55, 0.04);
+}
+
+/* 面板折叠按钮 */
+.cipai-nav-toggle {
+    position: fixed;
+    right: 16px;
+    top: calc(50% - 70vh/2 - 40px);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e0dcd3;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 101;
+    color: #8A9BA8;
+    font-size: 1rem;
+}
+
+/* 响应式：窄屏时面板隐藏，显示折叠按钮 */
+@media (max-width: 1400px) {
+    .cipai-nav-panel {
+        width: 180px;
+        right: 8px;
+    }
+    .cipai-nav-item {
+        padding: 4px 12px;
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 1100px) {
+    .cipai-nav-panel {
+        display: none;
+    }
+    .cipai-nav-panel.mobile-open {
+        display: flex;
+        position: fixed;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 200px;
+        z-index: 200;
+    }
+    .cipai-nav-toggle {
+        display: flex;
+    }
+}
+
+/* 非悬停状态 - 半透明 */
+.cipai-nav-panel {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+/* 悬停状态 - 完全显示 */
+.cipai-nav-panel.hovering {
+    opacity: 1;
+}

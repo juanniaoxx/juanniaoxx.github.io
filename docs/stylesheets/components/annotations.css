@@ -1,0 +1,186 @@
+/* ========================================
+   组件 - 注疏样式
+   包含：人名、地名、书名、术语、夹注、悬浮注释
+   ======================================== */
+
+/* ----- 人名：墨绿色波纹细线 ----- */
+.name {
+    border-bottom: 1.5px dotted var(--primary, #3E5A3C);
+    padding-bottom: 1px;
+    color: var(--primary-dark, #2C4A2A);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.name:hover {
+    border-bottom-color: var(--gold, #D4AF37);
+    color: var(--gold);
+}
+
+/* ----- 地名：金色点划线 ----- */
+.toponym {
+    border-bottom: 1.5px dashed var(--gold, #D4AF37);
+    padding-bottom: 1px;
+    color: #8B6914;
+    transition: all 0.2s;
+}
+
+.toponym:hover {
+    border-bottom-style: solid;
+    border-bottom-color: var(--primary, #3E5A3C);
+    color: var(--primary);
+}
+
+/* ----- 书名：朱砂红双线 ----- */
+.book {
+    border-bottom: 2px solid var(--cinnabar, #C23B22);
+    padding-bottom: 1px;
+    color: #A52A1A;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    position: relative;
+    transition: all 0.2s;
+}
+
+/* 书名下方细红线装饰（双线效果） */
+.book::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #E07A5F;
+    opacity: 0.5;
+}
+
+.book:hover {
+    border-bottom-color: var(--crimson, #8B0000);
+    color: var(--crimson);
+}
+
+/* ----- 专用名词：灰色细实线 ----- */
+.term {
+    border-bottom: 1px solid var(--secondary, #8A9BA8);
+    padding-bottom: 1px;
+    color: var(--secondary);
+    transition: all 0.2s;
+}
+
+.term:hover {
+    border-bottom-color: var(--primary, #3E5A3C);
+    color: var(--primary);
+}
+
+/* ----- 双行夹注风格 ----- */
+.comment-inline {
+    display: inline;
+    font-size: 0.7rem;
+    color: var(--secondary);
+    background: rgba(212, 175, 55, 0.08);
+    padding: 0 0.2em;
+    margin: 0 1px;
+    border-radius: 3px;
+    font-style: normal;
+    line-height: 1.5;
+    white-space: normal;
+}
+
+.comment-inline:hover {
+    background: rgba(212, 175, 55, 0.18);
+    color: var(--primary);
+}
+
+/* ----- 悬浮注释样式 ----- */
+.hover-note {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dashed var(--gold, #D4AF37);
+    transition: border-color 0.2s ease;
+}
+
+.hover-note:hover {
+    border-bottom-color: var(--primary, #3E5A3C);
+}
+
+/* 注释内容 - 古籍笺纸风格 */
+.hover-note .note-text {
+    visibility: hidden;
+    width: max-content;
+    max-width: 280px;
+    background: var(--paper, #FDF8ED);
+    color: var(--dark, #2C2A29);
+    text-align: left;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: 'Inter', 'Noto Serif SC', system-ui, serif;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(212, 175, 55, 0.3);
+    border-left: 3px solid var(--gold, #D4AF37);
+    position: absolute;
+    z-index: 999;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+
+/* 小三角箭头 */
+.hover-note .note-text::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--gold, #D4AF37) transparent transparent transparent;
+}
+
+.hover-note .note-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--paper, #FDF8ED) transparent transparent transparent;
+    margin-top: -1px;
+}
+
+/* 悬停时的动画效果 */
+.hover-note:hover .note-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* 针对不同位置的优化 */
+.hover-note .note-text.right {
+    left: auto;
+    right: 0;
+    transform: translateX(0);
+}
+
+.hover-note .note-text.right::before,
+.hover-note .note-text.right::after {
+    left: auto;
+    right: 20px;
+    transform: none;
+}
+
+.hover-note .note-text.left {
+    left: 0;
+    transform: translateX(0);
+}
+
+.hover-note .note-text.left::before,
+.hover-note .note-text.left::after {
+    left: 20px;
+    transform: none;
+}
