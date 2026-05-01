@@ -53,16 +53,6 @@
     
       <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/link.css">
-    
-      <link rel="stylesheet" href="../../../stylesheets/customize.css">
-    
-      <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-    
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
-    
-      <link rel="stylesheet" href="../../../stylesheets/scroll-progress.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -847,6 +837,8 @@
       
         
       
+        
+      
     
     
     
@@ -937,6 +929,34 @@
     
   
     古文观止
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%AE%8B%E8%AF%8D/%E5%AE%8B%E8%AF%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    宋词
   
 
     
@@ -1186,7 +1206,40 @@
 
   <h1>五帝本纪</h1>
 
-<p>原文见: <a href="../../1-史记/1-五帝本纪.md">五帝本纪原文(三家注)</a> </p>
+<!-- 古籍阅读器短代码模板 -->
+<div class="ancient-reader">
+    <div class="ancient-toolbar">
+        <div class="volume-controls">
+            <button class="nav-btn" id="ancient-prev-btn"> ◀ 上一卷 </button>
+            <div class="volume-jump" id="volume-jump-buttons"></div>
+            <button class="nav-btn" id="ancient-next-btn"> 下一卷 ▶ </button>
+        </div>
+    </div>
+
+    <div class="ancient-book-container">
+        <div class="vertical-text" id="ancient-book-content"></div>
+    </div>
+
+    <div class="ancient-footer">
+        <div>《史记·五帝本纪》</div>
+    </div>
+</div>
+
+<!-- 绝对路径引入 -->
+<script src="/javascripts/原文数据/史记/1.js"></script>
+
+<script>
+window.ancientBookData = window.wudibenjiData;
+window.ancientBookStartVol = 1;
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initAncientReader === 'function') {
+        initAncientReader();
+    }
+});
+</script>
+
+<p>三家注见: <a href="../../1-史记/1-五帝本纪.md">五帝本纪原文(三家注)</a> </p>
 
 
 
@@ -1290,6 +1343,8 @@
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+      
         <script src="../../../javascripts/reading-base.js"></script>
       
         <script src="../../../javascripts/reading-data-index.js"></script>
@@ -1299,6 +1354,16 @@
         <script src="../../../javascripts/anchor-highlight.js"></script>
       
         <script src="../../../javascripts/scroll-progress.js"></script>
+      
+        <script src="../../../javascripts/pdf-viewer.js"></script>
+      
+        <script src="../../../javascripts/ancient-book.js"></script>
+      
+        <script src="../../../javascripts/cipai-nav.js"></script>
+      
+        <script src="../../../javascripts/cipai-search.js"></script>
+      
+        <script src="../../../javascripts/cipai-init.js"></script>
       
     
   </body>

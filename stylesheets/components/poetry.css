@@ -1,0 +1,137 @@
+/* ========================================
+    组件 - 诗词排版
+    包含：词牌容器（poem-container）、诗容器（shi-container）
+======================================== */
+
+/* ----- 词牌排版（左对齐，有题解） ----- */
+.poem-container {
+    margin: 1.5rem 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.poem-container .poem-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #3E5A3C;
+    margin: 0 0 0.2rem 0;
+    letter-spacing: 0;
+    font-family: inherit;
+    text-align: center;
+}
+
+.poem-container .poem-author {
+    font-size: 0.8rem;
+    color: #8A9BA8;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    border: none;
+    text-align: center;
+}
+
+.poem-container .poem-author::after {
+    display: none;
+}
+
+.poem-container .poem-line {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #2C2A29;
+    text-align: left;
+    margin: 0;
+    text-indent: 2em;
+}
+
+.poem-container .ci-stanza {
+    margin-bottom: 1rem;
+}
+
+.poem-container .ci-stanza+.ci-stanza {
+    margin-top: 0.5rem;
+}
+
+.poem-container .poem-note {
+    font-size: 0.7rem;
+    color: #8A9BA8;
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1rem;
+    border-left: 2px solid #e0dcd3;
+}
+
+.poem-container .poem-intro {
+    margin: 0.8rem 0 1.2rem 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    font-size: 0.8rem;
+    color: #6B7B6B;
+    background: rgba(212, 175, 55, 0.04);
+    border-left: 3px solid #D4AF37;
+    border-radius: 0;
+    font-style: normal;
+    line-height: 1.6;
+    font-family: 'Noto Serif SC', serif;
+}
+
+/* ----- 诗排版（居中，无缩进） ----- */
+.shi-container {
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.shi-container .poem-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #3E5A3C;
+    margin: 0 0 0.2rem 0;
+    letter-spacing: 0;
+    font-family: inherit;
+    text-align: center;
+}
+
+.shi-container .poem-author {
+    font-size: 0.8rem;
+    color: #8A9BA8;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    border: none;
+    text-align: center;
+}
+
+.shi-container .poem-author::after {
+    display: none;
+}
+
+.shi-container .poem-lines {
+    margin: 1rem 0;
+}
+
+.shi-container .poem-line {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #2C2A29;
+    text-align: center;
+    margin: 0;
+    text-indent: 0;
+}
+
+.shi-container .poem-note {
+    font-size: 0.7rem;
+    color: #8A9BA8;
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1rem;
+    border-left: 2px solid #e0dcd3;
+}
+
+.shi-container .poem-intro {
+    margin: 0.8rem 0 1.2rem 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    font-size: 0.8rem;
+    color: #6B7B6B;
+    background: rgba(212, 175, 55, 0.04);
+    border-left: 3px solid #D4AF37;
+    border-radius: 0;
+    font-style: normal;
+    line-height: 1.6;
+    font-family: 'Noto Serif SC', serif;
+}

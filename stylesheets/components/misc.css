@@ -1,0 +1,458 @@
+/* ========================================
+   组件 - 杂项样式
+   包含：滚动条、动画、书信/赋文/诏书/奏章标记、圆角工具、按钮、PDF阅读器
+   ======================================== */
+
+/* ----- 滚动条 ----- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #E6DFCF;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* ----- 书信标记 ----- */
+.msg-letter {
+    display: block;
+    margin: 1.2em 0;
+    padding: 0.8em 1.2em;
+    background: rgba(62, 90, 60, 0.04);
+    border-radius: 8px;
+    color: #3E5A3C;
+}
+
+/* ----- 赋文标记 ----- */
+.msg-fu {
+    display: block;
+    margin: 1.2em 0;
+    padding-left: 1.2em;
+    border-left: 3px solid #D4AF37;
+    color: #C23B22;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* ----- 诏书标记 ----- */
+.msg-edict {
+    display: block;
+    margin: 1.2em 0;
+    padding: 0.8em 1.2em;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.02));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    color: #8B6914;
+    text-align: center;
+}
+
+/* ----- 奏章标记 ----- */
+.msg-memorial {
+    display: block;
+    margin: 1.2em 0;
+    padding: 0.8em 1.2em;
+    border-left: 4px solid #D4AF37;
+    background: rgba(212, 175, 55, 0.08);
+    color: #B8860B;
+    font-style: normal;
+    border-radius: 0 8px 8px 0;
+}
+
+/* ----- 工具类：圆角 ----- */
+#rcorners1 {
+    border-radius: 25px;
+    background: linear-gradient(to right, rgba(189, 224, 245), rgba(218, 232, 241), rgba(238, 237, 238));
+    padding: 20px;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid #518FC1;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+#rcorners3 {
+    border-radius: 25px;
+    border: 2px solid #518FC1;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+#rcorners4 {
+    border-radius: 25px;
+    border: 2px solid #518FC1;
+    padding: 20px;
+    width: 110%;
+    height: 100%;
+}
+
+/* ----- 按钮样式 ----- */
+.buttoncss {
+    background-color: #4CAF50;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.buttoncss1 {
+    background-color: #567fd0;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.buttonxuan {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.buttonxuan1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.buttonxuan1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.buttonxuan2 {
+    display: inline-block;
+    background-color: #ACE48E;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    border: 2px solid;
+    border-radius: 25px;
+}
+
+.buttonxuan2 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.buttonxuan2 span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.buttonxuan2:hover span {
+    padding-right: 25px;
+}
+
+.buttonxuan2:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.buttonxuan3:hover {
+    display: inline-block;
+    background-color: #5577D1;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    border: 2px solid;
+    border-radius: 25px;
+}
+
+.buttonxuan3 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.buttonxuan3 span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.buttonxuan3:hover span {
+    padding-right: 25px;
+}
+
+.buttonxuan3:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* ----- Grid 布局 ----- */
+.item1 {
+    grid-area: header;
+}
+
+.item2 {
+    grid-area: menu;
+}
+
+.item3 {
+    grid-area: main;
+}
+
+.item4 {
+    grid-area: right;
+}
+
+.item5 {
+    grid-area: footer;
+}
+
+.grid-container {
+    display: grid;
+    grid: 'header header header header header header'
+        'menu main main main right right'
+        'menu footer footer footer footer footer';
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+/* ----- 图片容器 ----- */
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    display: inline-block;
+    margin: 10px;
+}
+
+img.img1,
+img.img2 {
+    border-radius: 25px;
+}
+
+/* ----- 社交媒体图标颜色 ----- */
+img.twitter {
+    color: #1DA1F2;
+}
+
+.bilibili {
+    color: #EA7A99;
+}
+
+.github {
+    color: #25292E;
+}
+
+/* ----- 心跳动画 ----- */
+@keyframes heart {
+
+    0%,
+    40%,
+    80%,
+    100% {
+        transform: scale(1);
+    }
+
+    20%,
+    60% {
+        transform: scale(1.15);
+    }
+}
+
+.heart {
+    animation: heart 1000ms infinite;
+}
+
+/* ----- 隐藏元素（响应式） ----- */
+div.hide {
+    background-color: yellow;
+    padding: 20px;
+}
+
+/* ----- 渐变示例 ----- */
+#grad1 {
+    height: 200px;
+    background-color: red;
+    background-image: linear-gradient(to bottom right, red, yellow);
+}
+
+/* ----- 视频背景 ----- */
+.video1 {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    z-index: -11;
+}
+
+.video1 video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+source {
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+/* ----- 哔哩哔哩视频适配 ----- */
+.aspect-ratio {
+    position: relative;
+    width: 90%;
+    height: auto;
+    padding-bottom: 75%;
+    margin: 3% auto;
+    text-align: center;
+}
+
+.aspect-ratio iframe {
+    position: absolute;
+    width: 100%;
+    height: 86%;
+    left: 0;
+    top: 0;
+}
+
+/* ========================================
+   补充：书信/赋文/诏书/奏章标记
+   ======================================== */
+
+/* 书信标记 */
+.msg-letter {
+    display: block;
+    margin: 1.2em 0;
+    padding: 0.8em 1.2em;
+    background: rgba(62, 90, 60, 0.04);
+    border-radius: 8px;
+    color: #3E5A3C;
+}
+
+/* 赋文标记 */
+.msg-fu {
+    display: block;
+    margin: 1.2em 0;
+    padding-left: 1.2em;
+    border-left: 3px solid #D4AF37;
+    color: #C23B22;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* 诏书标记 */
+.msg-edict {
+    display: block;
+    margin: 1.2em 0;
+    padding: 0.8em 1.2em;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.02));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    color: #8B6914;
+    text-align: center;
+}
+
+/* 奏章标记 - 温润琥珀色，醒目而不刺眼 */
+.msg-memorial {
+    display: block;
+    margin: 1.2em 0;
+    padding: 0.8em 1.2em;
+    border-left: 4px solid #D4AF37;
+    background: rgba(212, 175, 55, 0.08);
+    color: #B8860B;
+    font-style: normal;
+    border-radius: 0 8px 8px 0;
+}
+
+/* ===== 页面过渡额外装饰 ===== */
+
+/* 卷轴两侧装饰 */
+#page-transition-overlay.active .transition-overlay-inner::before,
+#page-transition-overlay.active .transition-overlay-inner::after {
+	content: '';
+	position: absolute;
+	top: 10%;
+	width: 2px;
+	height: 80%;
+	background: linear-gradient(180deg, transparent, var(--gold, #D4AF37), transparent);
+	opacity: 0;
+	animation: scrollReveal 0.6s ease-out 0.3s forwards;
+}
+
+#page-transition-overlay.active .transition-overlay-inner::before {
+	left: 30px;
+}
+
+#page-transition-overlay.active .transition-overlay-inner::after {
+	right: 30px;
+}
+
+@keyframes scrollReveal {
+	0% { opacity: 0; transform: scaleY(0); }
+	100% { opacity: 0.6; transform: scaleY(1); }
+}

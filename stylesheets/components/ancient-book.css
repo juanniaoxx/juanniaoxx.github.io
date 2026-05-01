@@ -1,0 +1,291 @@
+/* ========================================
+   古籍阅读器样式（分离横排/竖排场景）
+   ======================================== */
+
+/* ========= 横排场景下的夹注样式 ========= */
+/* 用于普通文章、引言等横排内容 */
+.comment-inline {
+    display: inline;
+    font-size: 0.7rem;
+    color: #8b6b4d;
+    background: rgba(184, 124, 79, 0.08);
+    padding: 0.1rem 0.3rem;
+    margin: 0 0.1rem;
+    border-radius: 4px;
+    font-style: normal;
+    line-height: 1.5;
+    white-space: normal;
+    transition: all 0.2s ease;
+}
+
+.comment-inline:hover {
+    background: rgba(184, 124, 79, 0.16);
+    color: #b87c4f;
+    cursor: help;
+}
+
+.comment-inline.important {
+    background: rgba(212, 175, 55, 0.15);
+    font-weight: 500;
+}
+
+/* 暗色主题下的横排夹注 */
+[data-md-color-scheme="slate"] .comment-inline {
+    background: rgba(212, 175, 55, 0.12);
+    color: #c9b890;
+}
+[data-md-color-scheme="slate"] .comment-inline:hover {
+    background: rgba(212, 175, 55, 0.22);
+}
+
+/* ========= 竖排场景下的夹注样式 ========= */
+/* 仅在 .vertical-text 容器内生效 */
+.vertical-text .comment-inline {
+    display: inline;
+    font-size: 0.65em;
+    color: #8b6b4d;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    line-height: 1;
+    vertical-align: baseline;
+    transition: color 0.2s ease;
+}
+
+.vertical-text .comment-inline::before {
+    content: "·";
+    font-size: 0.9em;
+    margin-right: 0.1em;
+    color: #c4a27a;
+    font-weight: normal;
+}
+
+.vertical-text .comment-inline::after {
+    content: "·";
+    font-size: 0.9em;
+    margin-left: 0.1em;
+    color: #c4a27a;
+}
+
+.vertical-text .comment-inline:hover {
+    color: #b87c4f;
+    cursor: help;
+}
+
+.vertical-text .comment-inline.important::before {
+    content: "※";
+    font-size: 0.8em;
+}
+.vertical-text .comment-inline.important::after {
+    content: "※";
+    font-size: 0.8em;
+}
+
+/* 暗色主题下的竖排夹注 */
+[data-md-color-scheme="slate"] .vertical-text .comment-inline {
+    color: #c9b890;
+}
+[data-md-color-scheme="slate"] .vertical-text .comment-inline::before,
+[data-md-color-scheme="slate"] .vertical-text .comment-inline::after {
+    color: #a68b5c;
+}
+
+/* ========= 古籍阅读器容器样式 ========= */
+.ancient-reader {
+    max-width: 1400px;
+    width: 100%;
+    margin: 2rem auto;
+    background: #fefaf5;
+    border-radius: 28px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* 工具栏 */
+.ancient-toolbar {
+    background: #fff7ef;
+    border-bottom: 1px solid #e2d9cf;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.volume-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn {
+    background: #f0ebe3;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #3c2e24;
+    cursor: pointer;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav-btn:hover {
+    background: #e4dbcf;
+    transform: translateY(-1px);
+}
+
+.volume-jump {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.volume-jump button {
+    background: #fff6ed;
+    border: 1px solid #ddd0c0;
+    padding: 6px 12px;
+    border-radius: 32px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.1s;
+    color: #4a3729;
+}
+.volume-jump button.active-vol {
+    background: #b87c4f;
+    border-color: #b87c4f;
+    color: white;
+    box-shadow: 0 2px 6px rgba(184,124,79,0.3);
+}
+
+.info-tip {
+    font-size: 0.75rem;
+    color: #947e6b;
+    background: #f4ede5;
+    padding: 5px 12px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 竖排核心区 */
+.ancient-book-container {
+    background: #fefaf5;
+    padding: 2rem 2rem;
+    min-height: 70vh;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+.ancient-book-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.ancient-book-container::-webkit-scrollbar-track {
+    background: #e9e0d6;
+    border-radius: 10px;
+}
+.ancient-book-container::-webkit-scrollbar-thumb {
+    background: #bbaa97;
+    border-radius: 10px;
+}
+
+/* 竖排文本 */
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: block;
+    font-family: "Kaiti SC", "楷体", "华文楷体", "STKaiti", "BiauKai", "Georgia", serif;
+    font-size: 1.0rem;
+    line-height: 2.2;
+    color: #2f241b;
+    background: #fffcf7;
+    border-radius: 16px;
+    padding: 1.2rem 1.8rem;
+    box-shadow: inset 0 0 0 1px rgba(160, 120, 80, 0.1), 0 6px 14px rgba(0, 0, 0, 0.02);
+    white-space: normal;
+    word-break: break-word;
+}
+.vertical-text p {
+    margin: 0 0 0.8em 0;
+    text-indent: 2em;
+}
+
+/* 底部 */
+.ancient-footer {
+    background: #fff7ef;
+    border-top: 1px solid #e2d9cf;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: #7c6854;
+}
+.swipe-hint {
+    display: flex;
+    gap: 12px;
+}
+
+/* 移动端适配 */
+@media (max-width: 700px) {
+    .ancient-book-container {
+        padding: 0.8rem;
+    }
+    .vertical-text {
+        padding: 0.8rem;
+        line-height: 1.9;
+        font-size: 1rem;
+    }
+    .ancient-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .volume-controls {
+        justify-content: center;
+    }
+}
+
+/* 暗色主题适配 */
+[data-md-color-scheme="slate"] .ancient-reader {
+    background: #1e1e1a;
+}
+[data-md-color-scheme="slate"] .ancient-toolbar,
+[data-md-color-scheme="slate"] .ancient-footer {
+    background: #252522;
+    border-color: #3a3a35;
+}
+[data-md-color-scheme="slate"] .vertical-text {
+    background: #2a2a25;
+    color: #e0dfdc;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+[data-md-color-scheme="slate"] .volume-jump button {
+    background: #33332d;
+    border-color: #4a4a42;
+    color: #ddd;
+}
+[data-md-color-scheme="slate"] .nav-btn {
+    background: #33332d;
+    color: #ddd;
+}
+[data-md-color-scheme="slate"] .info-tip {
+    background: #33332d;
+    color: #aaa;
+}
+
+/* 全局选中样式 */
+::selection {
+    background: #d6b48c;
+    color: #2f2219;
+}
+[data-md-color-scheme="slate"] ::selection {
+    background: #b87c4f;
+    color: #1e1e1a;
+}

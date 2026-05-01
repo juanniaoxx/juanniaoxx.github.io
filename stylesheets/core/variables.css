@@ -1,0 +1,36 @@
+/* ========================================
+   核心 - 变量定义
+   包含：主题色、字体、阴影、动画等全局变量
+   ======================================== */
+
+:root {
+    /* ===== 主题色系 ===== */
+    --primary: #3E5A3C;
+    /* 主色：深绿 */
+    --primary-dark: #2C4A2A;
+    /* 主色深色 */
+    --secondary: #8A9BA8;
+    /* 辅色：灰蓝 */
+    --gold: #D4AF37;
+    /* 金色：装饰用 */
+    --neutral: #F9F7F3;
+    /* 中性色：背景 */
+    --dark: #2C2A29;
+    /* 深色：正文 */
+    --paper: #FDF8ED;
+    /* 纸张色：主内容区 */
+    --cinnabar: #C23B22;
+    /* 朱砂红：书名 */
+    --crimson: #8B0000;
+    /* 深红：书名悬停 */
+
+    /* ===== MkDocs 主题覆盖 ===== */
+    --md-primary-fg-color: #518FC1;
+    --md-primary-fg-color--light: #518FC1;
+    --md-primary-fg-color--dark: #518FC1;
+    --md-text-font: "LXGW WenKai";
+
+    /* ===== 自定义图标（用于 admonition） ===== */
+    --md-admonition-icon--pied-piper: url("data:image/svg+xml,%3Csvg width='30.000000' height='30.000000' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdesc%3E Created with Pixso. %3C/desc%3E%3Cdefs%3E%3CclipPath id='clip103_2030'%3E%3Crect id='icon' width='30.000000' height='30.000000' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url(%23clip103_2030)'%3E%3Cpath id='icon' d='M25.8 5.40002L25.8 24.6L4.20001 24.6L4.20001 5.40002L25.8 5.40002ZM9.60001 10.8L13.8 15L9.60001 19.2M15.6 19.2L21.6 19.2' stroke='%23101112' stroke-width='1.200000'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --md-admonition-icon--pied-piper1: url("data:image/svg+xml,%3Csvg width='30.000000' height='30.000000' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdesc%3E Created with Pixso. %3C/desc%3E%3Cdefs%3E%3CclipPath id='clip103_2030'%3E%3Crect id='icon' width='30.000000' height='30.000000' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url(%23clip103_2030)'%3E%3Cpath id='icon' d='M25.8 5.40002L25.8 24.6L4.20001 24.6L4.20001 5.40002L25.8 5.40002ZM9.60001 10.8L13.8 15L9.60001 19.2M15.6 19.2L21.6 19.2' stroke='%23101112' stroke-width='1.200000'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
