@@ -70,6 +70,9 @@ nav:
         - 昭明文选: 昭明文选/0-昭明文选.md
         - 古文观止: 古文观止/0-古文观止.md
         - 宋词: 宋词/宋词.md 
+        - 曹操集: 三曹集/曹操集.md 
+        - 曹丕集: 三曹集/曹丕集.md 
+        - 曹植集: 三曹集/曹植集.md 
   - 🍵 清谈:
         - 国史大纲: 国史大纲/0-国史大纲.md
         - 中国历代政治得失: 中国历代政治得失/0-中国历代政治得失.md
@@ -143,6 +146,7 @@ extra_javascript:
   - javascripts/favicons.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js #Latex支持
   - https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js # PDF阅读
+  - https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.min.js # 简繁互换
   - javascripts/reading-base.js
   - javascripts/reading-data-index.js
   - javascripts/reading-init.js 
@@ -156,6 +160,7 @@ extra_javascript:
 
 extra_css:
   - stylesheets/extra.css # 自定义CSS
+  - https://cdn.jsdelivr.net/npm/hanazono-mincho@1.0.0/hanazono.css # 花园明朝字体
   # - stylesheets/link.css #友链配置
   # - stylesheets/customize.css # 搜索圆角优化
   # - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css # font-awesome表情支持

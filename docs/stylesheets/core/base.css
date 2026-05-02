@@ -8,7 +8,17 @@ body {
     background-color: var(--neutral);
     background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
     color: var(--dark);
-    font-family: 'LXGW WenKai', 'Inter', system-ui, 'Noto Serif SC', serif;
+    font-family:
+        'LXGW WenKai',
+        /* 正文首选，古籍气质 */
+        'Hanazono Mincho',
+        /* 扩展B/C/D/E/F区生僻字 */
+        'Noto Serif SC',
+        /* 中文兜底，与文楷同为宋体风格 */
+        'Georgia',
+        /* 西文衬线，与中文书卷气统一 */
+        serif;
+    /* 系统最终兜底 */
 }
 
 /* ----- 主容器 - 古籍纸张质感 ----- */

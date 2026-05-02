@@ -111,7 +111,15 @@ class CipaiSearch {
         this.input = document.createElement('input');
         this.input.className = 'cipai-search-input';
         this.input.type = 'text';
-        this.input.placeholder = '搜索词牌、标题或词句…';
+        const hasShi2 = document.querySelectorAll('.shi-container').length > 0;
+        const hasCi2 = document.querySelectorAll('.poem-container').length > 0;
+        if (hasShi2 && hasCi2) {
+            this.input.placeholder = '搜索诗体、词牌、标题或诗句…';
+        } else if (hasShi2) {
+            this.input.placeholder = '搜索诗体、标题或诗句…';
+        } else {
+            this.input.placeholder = '搜索词牌、标题或词句…';
+        }
         this.input.addEventListener('input', () => this._doSearch());
         inputWrap.appendChild(this.input);
 
@@ -223,7 +231,17 @@ class CipaiSearch {
         // 结果计数
         const count = document.createElement('div');
         count.className = 'cipai-search-count';
-        let countText = `共 ${results.length} 首词`;
+        const hasShi3 = document.querySelectorAll('.shi-container').length > 0;
+        const hasCi3 = document.querySelectorAll('.poem-container').length > 0;
+        let unit = '首';
+        if (hasShi3 && hasCi3) {
+            unit = '首';
+        } else if (hasShi3) {
+            unit = '首诗';
+        } else {
+            unit = '首词';
+        }
+        let countText = `共 ${results.length} ${unit}`;
         if (this.currentTag) {
             countText += ` · 筛选: ${this.currentTag}`;
         }
@@ -233,7 +251,13 @@ class CipaiSearch {
         if (results.length === 0) {
             const empty = document.createElement('div');
             empty.className = 'cipai-search-empty';
-            empty.textContent = '未找到匹配的词作';
+            let emptyText = '未找到匹配的作品';
+            if (hasShi3 && !hasCi3) {
+                emptyText = '未找到匹配的诗作';
+            } else if (!hasShi3 && hasCi3) {
+                emptyText = '未找到匹配的词作';
+            }
+            empty.textContent = emptyText;
             this.resultsContainer.appendChild(empty);
             return;
         }

@@ -289,3 +289,33 @@
     background: #b87c4f;
     color: #1e1e1a;
 }
+
+
+/* 简繁切换按钮的固定包裹层 */
+.font-switch-wrapper {
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.font-switch-wrapper * {
+    pointer-events: auto;
+}
+
+.font-switch-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid #c4a882;
+    background: rgba(250, 245, 235, 0.95);
+    color: #5a4a3a;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.font-switch-btn:hover {
+    background: #e8d5c4;
+    border-color: #8b7355;
+}
