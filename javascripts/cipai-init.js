@@ -1,13 +1,8 @@
-/**
- * ========================================
- * 词牌导航 + 搜索 初始化入口
- * 在页面 load 后调用
- * ========================================
- */
-
 (function() {
     // 仅在有诗词容器的页面初始化
-    if (!document.querySelector('.poem-container')) {
+    const hasPoem = document.querySelector('.poem-container');
+    const hasShi = document.querySelector('.shi-container');
+    if (!hasPoem && !hasShi) {
         return;
     }
 
@@ -22,14 +17,14 @@
         // 初始化词牌导航侧边栏
         const nav = new CipaiNav({
             panelId: 'cipai-nav-panel',
-            containerSelector: '.poem-container',
+            containerSelector: '.poem-container, .shi-container',
             titleSelector: '.poem-title',
         });
         nav.init();
 
         // 初始化搜索
         const search = new CipaiSearch({
-            containerSelector: '.poem-container',
+            containerSelector: '.poem-container, .shi-container',
             titleSelector: '.poem-title',
         });
 

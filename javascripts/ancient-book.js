@@ -8,7 +8,7 @@
  * 3. 调用 initAncientReader()
  */
 
-(function() {
+(function () {
     // 默认数据集（可被 window.ancientBookData 覆盖）
     const defaultData = [
         { id: 1, title: "卷一", content: "<p>示例内容</p>" }
@@ -24,6 +24,9 @@
     let prevBtn = null;
     let nextBtn = null;
     let scrollContainer = null;  // 滚动容器引用
+    let currentFontStyle = 'traditional'; // 'traditional' | 'simplified'
+    let openccConverter = null;
+    let switchBtn = null;
 
     /**
      * 渲染当前卷内容
@@ -31,7 +34,7 @@
     function renderVolume(volId) {
         const volume = volumesData.find(v => v.id === volId);
         if (!volume) return;
-        
+
         let contentHtml = `<div style="margin-bottom: 0.5rem; text-align: end; font-size: 0.9rem; color: #a07f60;">${escapeHtml(volume.title)}</div>`;
         contentHtml += volume.content;
         bookContentDiv.innerHTML = contentHtml;
@@ -45,14 +48,20 @@
                 btn.classList.remove('active-vol');
             }
         });
-        
+
         // 滚动到顶部（纵向）和最右侧（横向），竖排文本从右向左阅读
         if (scrollContainer) {
             scrollContainer.scrollTop = 0;
-            // 使用 setTimeout 确保内容渲染完成后再设置滚动位置
             setTimeout(() => {
                 scrollContainer.scrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
             }, 10);
+        }
+
+        // 每次换卷时自动检测原文语言并重置按钮状态
+        const allText = bookContentDiv.textContent;
+        currentFontStyle = detectFontStyle(allText);
+        if (switchBtn) {
+            switchBtn.textContent = currentFontStyle === 'traditional' ? '简' : '繁';
         }
     }
 
@@ -64,7 +73,8 @@
         volumeJumpDiv.innerHTML = '';
         volumesData.forEach(vol => {
             const btn = document.createElement('button');
-            btn.textContent = `卷${vol.id}`;
+            // 优先使用 title，如果没有 title 则降级为 "卷X"
+            btn.textContent = vol.title || `卷${vol.id}`;
             btn.classList.add('volume-btn');
             if (vol.id === currentVolume) btn.classList.add('active-vol');
             btn.setAttribute('data-vol', vol.id);
@@ -95,7 +105,7 @@
      */
     function escapeHtml(str) {
         if (!str) return '';
-        return str.replace(/[&<>]/g, function(m) {
+        return str.replace(/[&<>]/g, function (m) {
             if (m === '&') return '&amp;';
             if (m === '<') return '&lt;';
             if (m === '>') return '&gt;';
@@ -104,9 +114,95 @@
     }
 
     /**
-     * 横向滚动移动（每次移动一定像素）
-     * @param {number} direction - 1: 向右滚动, -1: 向左滚动
-     * @param {number} step - 滚动步长（像素），默认 300
+     * 检测文本是简体还是繁体
+     * 返回 'simplified' | 'traditional'
+     */
+    function detectFontStyle(text) {
+        // 繁体特征字：這些字只在繁体中出現，簡体中不會有
+        const traditionalChars = /[爲茲於無來處體氣與東門萬飛書時長後為]|[\u3100-\u312F\u31A0-\u31BF]/;;
+        // 简体特征字：這些字只在簡体中出現，繁体中不會有
+        const simplifiedChars = /[为兹于无来处体气与东门万飞书时长后]|[\u4E00-\u9FFF]/;
+        
+        let tradCount = 0;
+        let simpCount = 0;
+        
+        // 统计繁简特征字出现次数
+        for (const char of text) {
+            if (/[爲茲於無來處體氣與東門萬飛書時長後開關見]/.test(char)) tradCount++;
+            if (/[为兹于无来处体气与东门万飞书时长后开关见]/.test(char)) simpCount++;
+        }
+        
+        return tradCount > simpCount ? 'traditional' : 'simplified';
+    }
+
+    /**
+     * 简繁切换
+     */
+    async function toggleFontStyle() {
+        if (!window.OpenCC) return;
+        
+        // 获取当前实际显示的语言
+        const currentDisplay = currentFontStyle;
+        const targetDisplay = currentDisplay === 'traditional' ? 'simplified' : 'traditional';
+        
+        // 创建对应方向的转换器
+        const converter = currentDisplay === 'traditional'
+            ? window.OpenCC.Converter({ from: 't', to: 'cn' })  // 繁→简
+            : window.OpenCC.Converter({ from: 'cn', to: 't' }); // 简→繁
+        
+        const paragraphs = bookContentDiv.querySelectorAll('p');
+        for (const p of paragraphs) {
+            // 首次转换时保存当前内容作为原始状态
+            if (!p.getAttribute('data-original')) {
+                p.setAttribute('data-original', p.innerHTML);
+            }
+            await replaceTextNodes(p, converter);
+        }
+        
+        // 更新状态
+        currentFontStyle = targetDisplay;
+        switchBtn.textContent = targetDisplay === 'simplified' ? '繁' : '简';
+    }
+
+    /**
+     * 替换元素中的文本内容（逐文本节点替换，保留 HTML 标签）
+     */
+    async function replaceTextNodes(element, converter) {
+        const walker = document.createTreeWalker(
+            element,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode: function (node) {
+                    // 跳过注音注释内的文本节点
+                    if (node.parentElement && node.parentElement.classList.contains('comment-inline')) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    // 跳过空白节点
+                    if (!node.textContent.trim()) {
+                        return NodeFilter.FILTER_SKIP;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const textNodes = [];
+        while (walker.nextNode()) {
+            textNodes.push(walker.currentNode);
+        }
+
+        for (let i = 0; i < textNodes.length; i++) {
+            const node = textNodes[i];
+            const originalText = node.textContent;
+            const convertedText = await converter(originalText);
+            if (convertedText !== originalText) {
+                node.textContent = convertedText;
+            }
+        }
+    }
+
+    /**
+     * 横向滚动移动
      */
     function scrollHorizontal(direction, step = 300) {
         if (!scrollContainer) return;
@@ -136,13 +232,13 @@
         // 触摸滑动：横向滚动，不切换卷
         let touchStartX = 0;
         let touchStartScrollLeft = 0;
-        
+
         if (scrollContainer) {
             scrollContainer.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
                 touchStartScrollLeft = scrollContainer.scrollLeft;
             }, { passive: true });
-            
+
             scrollContainer.addEventListener('touchmove', (e) => {
                 const touchCurrentX = e.changedTouches[0].screenX;
                 const deltaX = touchCurrentX - touchStartX;
@@ -170,9 +266,9 @@
         } else {
             volumesData = defaultData;
         }
-        
+
         totalVolumes = volumesData.length;
-        
+
         if (options && options.startVol) {
             currentVolume = options.startVol;
         } else if (window.ancientBookStartVol) {
@@ -191,6 +287,45 @@
         if (!bookContentDiv) {
             console.error('Ancient Reader: 未找到 #ancient-book-content 元素');
             return;
+        }
+
+        // 初始化 OpenCC 简繁转换器
+        if (window.OpenCC) {
+            openccConverter = window.OpenCC.Converter({ from: 't', to: 'cn' });
+        }
+
+        // 创建简繁切换按钮的固定容器（不参与横向滚动）
+        const container = document.querySelector('.ancient-book-container');
+        if (container) {
+            // 创建按钮包裹层
+            const btnWrapper = document.createElement('div');
+            btnWrapper.className = 'font-switch-wrapper';
+            // 创建按钮
+            switchBtn = document.createElement('button');
+            switchBtn.textContent = '简';
+            switchBtn.className = 'font-switch-btn';
+            switchBtn.setAttribute('title', '切换简繁体');
+            switchBtn.addEventListener('click', toggleFontStyle);
+            btnWrapper.appendChild(switchBtn);
+            // 插入到容器中，但独立于滚动内容
+            container.style.position = 'relative';
+            container.appendChild(btnWrapper);
+
+            // 动态计算按钮位置，使其始终在阅读框可视区域右上角
+            function updateBtnPosition() {
+                const containerRect = container.getBoundingClientRect();
+                const top = containerRect.top + 12;
+                const right = window.innerWidth - containerRect.right + 12;
+                btnWrapper.style.top = top + 'px';
+                btnWrapper.style.right = right + 'px';
+            }
+
+            // 初始定位
+            updateBtnPosition();
+
+            // 滚动和窗口大小变化时重新定位
+            window.addEventListener('scroll', updateBtnPosition, { passive: true });
+            window.addEventListener('resize', updateBtnPosition);
         }
 
         // 构建 UI 并渲染

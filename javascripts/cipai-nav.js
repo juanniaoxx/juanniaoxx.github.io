@@ -102,7 +102,16 @@ class CipaiNav {
         // 标题
         const header = document.createElement('div');
         header.className = 'cipai-nav-header';
-        header.textContent = '📜 词牌一览';
+        // 检测页面是否同时包含诗和词
+        const hasShi = document.querySelectorAll('.shi-container').length > 0;
+        const hasCi = document.querySelectorAll('.poem-container').length > 0;
+        if (hasShi && hasCi) {
+            header.textContent = '📜 篇目一览';
+        } else if (hasShi) {
+            header.textContent = '📜 诗体一览';
+        } else {
+            header.textContent = '📜 词牌一览';
+        }
         this.panel.appendChild(header);
 
         // 列表
@@ -123,7 +132,13 @@ class CipaiNav {
         footer.className = 'cipai-nav-footer';
         const searchBtn = document.createElement('button');
         searchBtn.className = 'cipai-nav-search-btn';
-        searchBtn.textContent = '🔍 搜索词作';
+        if (hasShi && hasCi) {
+            searchBtn.textContent = '🔍 搜索作品';
+        } else if (hasShi) {
+            searchBtn.textContent = '🔍 搜索诗作';
+        } else {
+            searchBtn.textContent = '🔍 搜索词作';
+        }
         searchBtn.addEventListener('click', () => this._openSearch());
         footer.appendChild(searchBtn);
         this.panel.appendChild(footer);
